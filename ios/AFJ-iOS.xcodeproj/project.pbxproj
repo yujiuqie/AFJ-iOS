@@ -200,7 +200,6 @@
 		06CB116128AA0904009BD8D9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CB115828AA0904009BD8D9 /* NSData+Base64.m */; };
 		06CB116228AA0904009BD8D9 /* SYAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CB115928AA0904009BD8D9 /* SYAES.m */; };
 		06EA775E28CC31F500EF8551 /* AFJSocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EA775D28CC31F500EF8551 /* AFJSocketViewController.m */; };
-		09045E6B28BCBA5900A04E41 /* AFJMiniAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09045E6A28BCBA5900A04E41 /* AFJMiniAppViewController.m */; };
 		0908706D28A50C3C00CBEEA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0908706C28A50C3C00CBEEA8 /* AppDelegate.m */; };
 		0908707628A50C3C00CBEEA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0908707428A50C3C00CBEEA8 /* Main.storyboard */; };
 		0908707928A50C3C00CBEEA8 /* AFJ_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0908707728A50C3C00CBEEA8 /* AFJ_iOS.xcdatamodeld */; };
@@ -254,7 +253,6 @@
 		0908719428AB7AD600CBEEA8 /* LBXPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 0908717828AB7AD600CBEEA8 /* LBXPermission.m */; };
 		0908719728AB7AD600CBEEA8 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0908717D28AB7AD600CBEEA8 /* SettingViewController.m */; };
 		0908719A28AB7B8800CBEEA8 /* AFJScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0908719928AB7B8800CBEEA8 /* AFJScanCodeViewController.m */; };
-		091887CB28BC42BE00A64424 /* AFJRNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091887CA28BC42BE00A64424 /* AFJRNViewController.m */; };
 		091887E628BC61DD00A64424 /* fjjwtx (138).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 091887CD28BC61DD00A64424 /* fjjwtx (138).jpg */; };
 		091887E728BC61DD00A64424 /* fjjwtx (179).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 091887CE28BC61DD00A64424 /* fjjwtx (179).jpg */; };
 		091887E828BC61DD00A64424 /* fjjwtx (102).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 091887CF28BC61DD00A64424 /* fjjwtx (102).jpg */; };
@@ -539,7 +537,6 @@
 		0942E73D28C1EB8200AFE2F9 /* NetWorkInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942E73728C1EB8100AFE2F9 /* NetWorkInfoManager.m */; };
 		0942E73E28C1EB8200AFE2F9 /* DeviceDataLibrery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942E73828C1EB8100AFE2F9 /* DeviceDataLibrery.m */; };
 		0942E73F28C1EB8200AFE2F9 /* BatteryInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942E73928C1EB8100AFE2F9 /* BatteryInfoManager.m */; };
-		09494A9528BDFDB500395F1B /* AFJUnityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09494A9428BDFDB500395F1B /* AFJUnityViewController.m */; };
 		09494AD528BF658800395F1B /* BKBaseDevMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 09494A9C28BF658700395F1B /* BKBaseDevMenu.m */; };
 		09494AD628BF658800395F1B /* BKDevWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 09494A9E28BF658700395F1B /* BKDevWindow.m */; };
 		09494AD728BF658800395F1B /* BKQuickLoginListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09494A9F28BF658700395F1B /* BKQuickLoginListVC.m */; };
@@ -850,7 +847,6 @@
 		09F62BC828B9F82B0093BC6F /* HRBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F62B8028B9F82B0093BC6F /* HRBarItem.m */; };
 		09F62BC928B9F82B0093BC6F /* HRBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F62B8128B9F82B0093BC6F /* HRBaseViewController.m */; };
 		09F62BCB28BA01E80093BC6F /* Demo Images in Resources */ = {isa = PBXBuildFile; fileRef = 09F62BCA28BA01E80093BC6F /* Demo Images */; };
-		09F62E2928BA16B80093BC6F /* AFJFlutterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F62E2828BA16B80093BC6F /* AFJFlutterViewController.m */; };
 		09FB778B28AB95E700B31F8F /* TYAlertController+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FB778828AB95E700B31F8F /* TYAlertController+BlurEffects.m */; };
 		09FB778C28AB95E700B31F8F /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FB778928AB95E700B31F8F /* UIImage+ImageEffects.m */; };
 		09FB779428AB968E00B31F8F /* SettingModelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FB778E28AB968E00B31F8F /* SettingModelView.xib */; };
@@ -2872,8 +2868,6 @@
 		06EA784028D206E100EF8551 /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
 		06EA784128D206E100EF8551 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
 		06EA784228D206E100EF8551 /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
-		09045E6928BCBA5900A04E41 /* AFJMiniAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJMiniAppViewController.h; sourceTree = "<group>"; };
-		09045E6A28BCBA5900A04E41 /* AFJMiniAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFJMiniAppViewController.m; sourceTree = "<group>"; };
 		0908706828A50C3C00CBEEA8 /* AFJ-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AFJ-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0908706B28A50C3C00CBEEA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0908706C28A50C3C00CBEEA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -2974,8 +2968,6 @@
 		0908717D28AB7AD600CBEEA8 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		0908719828AB7B8800CBEEA8 /* AFJScanCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJScanCodeViewController.h; sourceTree = "<group>"; };
 		0908719928AB7B8800CBEEA8 /* AFJScanCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFJScanCodeViewController.m; sourceTree = "<group>"; };
-		091887C928BC42BE00A64424 /* AFJRNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJRNViewController.h; sourceTree = "<group>"; };
-		091887CA28BC42BE00A64424 /* AFJRNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFJRNViewController.m; sourceTree = "<group>"; };
 		091887CD28BC61DD00A64424 /* fjjwtx (138).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fjjwtx (138).jpg"; sourceTree = "<group>"; };
 		091887CE28BC61DD00A64424 /* fjjwtx (179).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fjjwtx (179).jpg"; sourceTree = "<group>"; };
 		091887CF28BC61DD00A64424 /* fjjwtx (102).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fjjwtx (102).jpg"; sourceTree = "<group>"; };
@@ -3516,8 +3508,6 @@
 		0942E73828C1EB8100AFE2F9 /* DeviceDataLibrery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDataLibrery.m; sourceTree = "<group>"; };
 		0942E73928C1EB8100AFE2F9 /* BatteryInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfoManager.m; sourceTree = "<group>"; };
 		09494A8E28BDFD5100395F1B /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		09494A9328BDFDB500395F1B /* AFJUnityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJUnityViewController.h; sourceTree = "<group>"; };
-		09494A9428BDFDB500395F1B /* AFJUnityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFJUnityViewController.m; sourceTree = "<group>"; };
 		09494A9C28BF658700395F1B /* BKBaseDevMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBaseDevMenu.m; sourceTree = "<group>"; };
 		09494A9E28BF658700395F1B /* BKDevWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKDevWindow.m; sourceTree = "<group>"; };
 		09494A9F28BF658700395F1B /* BKQuickLoginListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKQuickLoginListVC.m; sourceTree = "<group>"; };
@@ -4031,8 +4021,6 @@
 		09F62B8928B9F82B0093BC6F /* 02 Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "02 Macro.h"; sourceTree = "<group>"; };
 		09F62B8A28B9F82B0093BC6F /* 03 Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "03 Constant.h"; sourceTree = "<group>"; };
 		09F62BCA28BA01E80093BC6F /* Demo Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Demo Images"; sourceTree = "<group>"; };
-		09F62E2728BA16B80093BC6F /* AFJFlutterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJFlutterViewController.h; sourceTree = "<group>"; };
-		09F62E2828BA16B80093BC6F /* AFJFlutterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFJFlutterViewController.m; sourceTree = "<group>"; };
 		09FB778728AB95E700B31F8F /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		09FB778828AB95E700B31F8F /* TYAlertController+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYAlertController+BlurEffects.m"; sourceTree = "<group>"; };
 		09FB778928AB95E700B31F8F /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
@@ -7698,15 +7686,6 @@
 			path = "CIL-5";
 			sourceTree = "<group>";
 		};
-		09045E6828BCBA4700A04E41 /* MiniApp */ = {
-			isa = PBXGroup;
-			children = (
-				09045E6928BCBA5900A04E41 /* AFJMiniAppViewController.h */,
-				09045E6A28BCBA5900A04E41 /* AFJMiniAppViewController.m */,
-			);
-			path = MiniApp;
-			sourceTree = "<group>";
-		};
 		0908705F28A50C3C00CBEEA8 = {
 			isa = PBXGroup;
 			children = (
@@ -8173,15 +8152,6 @@
 				0908717528AB7AD600CBEEA8 /* LBXPermissionSetting.m */,
 			);
 			path = LBXPermissions;
-			sourceTree = "<group>";
-		};
-		091887C828BC42AC00A64424 /* ReactNative */ = {
-			isa = PBXGroup;
-			children = (
-				091887C928BC42BE00A64424 /* AFJRNViewController.h */,
-				091887CA28BC42BE00A64424 /* AFJRNViewController.m */,
-			);
-			path = ReactNative;
 			sourceTree = "<group>";
 		};
 		091887CC28BC61DD00A64424 /* icon */ = {
@@ -9817,15 +9787,6 @@
 			path = Baidu_Map;
 			sourceTree = "<group>";
 		};
-		09494A9228BDFDA100395F1B /* Unity */ = {
-			isa = PBXGroup;
-			children = (
-				09494A9328BDFDB500395F1B /* AFJUnityViewController.h */,
-				09494A9428BDFDB500395F1B /* AFJUnityViewController.m */,
-			);
-			path = Unity;
-			sourceTree = "<group>";
-		};
 		09494A9B28BF64F800395F1B /* DevMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -11088,15 +11049,6 @@
 			path = "CIL-6";
 			sourceTree = "<group>";
 		};
-		09F62E2628BA16A70093BC6F /* Flutter */ = {
-			isa = PBXGroup;
-			children = (
-				09F62E2728BA16B80093BC6F /* AFJFlutterViewController.h */,
-				09F62E2828BA16B80093BC6F /* AFJFlutterViewController.m */,
-			);
-			path = Flutter;
-			sourceTree = "<group>";
-		};
 		09FB778628AB95E700B31F8F /* Blur Effects */ = {
 			isa = PBXGroup;
 			children = (
@@ -11153,10 +11105,6 @@
 			children = (
 				09E3317A28C0BFD700CD1343 /* Cordova */,
 				091A927628B4A94D00B854CC /* Web */,
-				09494A9228BDFDA100395F1B /* Unity */,
-				09045E6828BCBA4700A04E41 /* MiniApp */,
-				091887C828BC42AC00A64424 /* ReactNative */,
-				09F62E2628BA16A70093BC6F /* Flutter */,
 			);
 			path = "CIL-4";
 			sourceTree = "<group>";
@@ -17625,13 +17573,11 @@
 			buildConfigurationList = 0908709A28A50C3E00CBEEA8 /* Build configuration list for PBXNativeTarget "AFJ-iOS" */;
 			buildPhases = (
 				A1DB1187D67ABA9766E61E1C /* [CP] Check Pods Manifest.lock */,
-				97DDAFCCDD96461686971C74 /* [CP-User] Run Flutter Build afjflutter Script */,
 				0908706428A50C3C00CBEEA8 /* Sources */,
 				0908706528A50C3C00CBEEA8 /* Frameworks */,
 				0908706628A50C3C00CBEEA8 /* Resources */,
 				9BF026D2AB2FC75EA24F9003 /* [CP] Embed Pods Frameworks */,
 				8E698A5847079EEA71796672 /* [CP] Copy Pods Resources */,
-				99144108C8E57E745BF748B8 /* [CP-User] Embed Flutter Build afjflutter Script */,
 				30556A1128E2FB5900EA8C5C /* Build Config */,
 			);
 			buildRules = (
@@ -18491,26 +18437,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AFJ-iOS/Pods-AFJ-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		97DDAFCCDD96461686971C74 /* [CP-User] Run Flutter Build afjflutter Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Run Flutter Build afjflutter Script";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/Flutter/afjflutter/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
-		};
-		99144108C8E57E745BF748B8 /* [CP-User] Embed Flutter Build afjflutter Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Embed Flutter Build afjflutter Script";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/Flutter/afjflutter/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh embed_and_thin";
-		};
 		9BF026D2AB2FC75EA24F9003 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -18745,7 +18671,6 @@
 				3078846A28DB171C00E0C99E /* QDNavigationBarSmoothEffectViewController.m in Sources */,
 				3010C83A28D0827C00E4CE69 /* HanyuPinyinOutputFormat.m in Sources */,
 				094D8D6F28B8BC6300B15609 /* UIScrollView+GestureConflict.m in Sources */,
-				091887CB28BC42BE00A64424 /* AFJRNViewController.m in Sources */,
 				30623AC828D320BC006300DE /* UIView+CZAddition.m in Sources */,
 				3099369D28C8C9E000C704D0 /* YSCFanShapedView.m in Sources */,
 				0942E6BF28C1B59100AFE2F9 /* Config.m in Sources */,
@@ -20205,7 +20130,6 @@
 				30092E6F28F26BA90058DFDD /* MASExampleArrayView.m in Sources */,
 				30B0F74D28E1512E0059605D /* KWTransitionHelper.m in Sources */,
 				09F62BC528B9F82B0093BC6F /* TCGoodsAddressModel.m in Sources */,
-				09045E6B28BCBA5900A04E41 /* AFJMiniAppViewController.m in Sources */,
 				300C7F9A28DEF1870046CE53 /* FeWifiManHub.m in Sources */,
 				30623B4E28D320BD006300DE /* NSAttributedString+CZAddtion.m in Sources */,
 				30958AE128C8781C00B724A6 /* AFJScaleSliderViewController.m in Sources */,
@@ -20288,7 +20212,6 @@
 				30806D0F28D029A3006C0D30 /* StripedBarViewController.m in Sources */,
 				09F62B8C28B9F82B0093BC6F /* NSObject+HXExtension.m in Sources */,
 				09F62B8B28B9F82B0093BC6F /* NSString+HXExtension.m in Sources */,
-				09F62E2928BA16B80093BC6F /* AFJFlutterViewController.m in Sources */,
 				300C808E28DEFA550046CE53 /* LSTAutoKeyboardVC.m in Sources */,
 				09F62BBB28B9F82B0093BC6F /* TCGoodsParameterView.m in Sources */,
 				3008B6A928D2CFDA005709A6 /* Palette.m in Sources */,
@@ -20306,7 +20229,6 @@
 				09FB779628AB968E00B31F8F /* ShareView.m in Sources */,
 				30968C0528D1DE2C00716E94 /* APRSASigner.m in Sources */,
 				094D8FDD28B9C36400B15609 /* CharsetHelper.m in Sources */,
-				09494A9528BDFDB500395F1B /* AFJUnityViewController.m in Sources */,
 				3078848028DB171C00E0C99E /* QDToastListViewController.m in Sources */,
 				094D8FD528B9C36400B15609 /* LocalSocketProvider.m in Sources */,
 				09FB779528AB968E00B31F8F /* SettingModelView.m in Sources */,

@@ -3,52 +3,52 @@
 <plist version="1.0">
 <dict>
 	<key>BUILD_TIME</key>
-	<string>2022-10-24T17:22:36+0800</string>
+	<string>2022-10-24T18:09:56+0800</string>
 	<key>GIT_SHA</key>
-	<string>5966618</string>
+	<string>30cd1dd</string>
 	<key>TOTAL_CODE_NUM</key>
-	<string>6964818</string>
+	<string>1147748</string>
 	<key>TOTAL_FILE_NUM</key>
-	<string>32338</string>
+	<string>13499</string>
 	<key>TOTAL_IMAGE_NUM</key>
-	<string>2109</string>
+	<string>1680</string>
 	<key>TOTAL_IMAGE_SIZE</key>
-	<string>92849.4</string>
+	<string>82371.3</string>
 	<key>{cpp}_CODE_NUM</key>
-	<string>5090722</string>
+	<string>3931</string>
 	<key>{cpp}_FILE_NUM</key>
-	<string>238</string>
+	<string>11</string>
 	<key>{c}_CODE_NUM</key>
-	<string>519768</string>
+	<string>31037</string>
 	<key>{c}_FILE_NUM</key>
-	<string>110</string>
+	<string>53</string>
 	<key>{h}_CODE_NUM</key>
-	<string>519754</string>
+	<string>305133</string>
 	<key>{h}_FILE_NUM</key>
-	<string>6547</string>
+	<string>5041</string>
 	<key>{java}_CODE_NUM</key>
-	<string>70</string>
+	<string>0</string>
 	<key>{java}_FILE_NUM</key>
-	<string>2</string>
+	<string>0</string>
 	<key>{js}_CODE_NUM</key>
-	<string>15815</string>
+	<string>7387</string>
 	<key>{js}_FILE_NUM</key>
-	<string>113</string>
+	<string>15</string>
 	<key>{mm}_CODE_NUM</key>
-	<string>25630</string>
+	<string>14848</string>
 	<key>{mm}_FILE_NUM</key>
-	<string>104</string>
+	<string>64</string>
 	<key>{m}_CODE_NUM</key>
-	<string>754260</string>
+	<string>747483</string>
 	<key>{m}_FILE_NUM</key>
-	<string>4255</string>
+	<string>4177</string>
 	<key>{py}_CODE_NUM</key>
-	<string>58</string>
+	<string>0</string>
 	<key>{py}_FILE_NUM</key>
-	<string>1</string>
+	<string>0</string>
 	<key>{swift}_CODE_NUM</key>
-	<string>38741</string>
+	<string>37929</string>
 	<key>{swift}_FILE_NUM</key>
-	<string>199</string>
+	<string>197</string>
 </dict>
 </plist>

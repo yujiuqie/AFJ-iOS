@@ -1749,38 +1749,38 @@
 			{
 				"entrance": "AFJFlutterViewController",
 				"title": "内嵌 Flutter 页面",
-				"des": "基于 Flutter 的混合开发示例",
+				"des": "基于 Flutter 的混合开发示例(Demo 参考 dev-with-flutter 分支代码)",
 				"topic": [
 					"混合开发"
 				],
 				"technology": {},
 				"date": "2022-10-2 11:42:00",
 				"link": "https://github.com/pdliuw/flutter_app_sample",
-				"hasDemo": "1"
+				"hasDemo": "0"
 			},
 			{
 				"entrance": "AFJRNViewController",
 				"title": "内嵌 ReactNative 页面",
-				"des": "基于 ReactNative 的混合开发示例",
+				"des": "基于 ReactNative 的混合开发示例(Demo 参考 dev-with-reactnative 分支代码)",
 				"topic": [
 					"混合开发"
 				],
 				"technology": {},
 				"date": "2022-10-2 11:42:00",
 				"link": "https://github.com/chende008/react-native-easy-app-sample",
-				"hasDemo": "1"
+				"hasDemo": "0"
 			},
 			{
 				"entrance": "AFJMiniAppViewController",
 				"title": "内嵌小程序页面",
-				"des": "基于 Finogeeks 的小程序开发示例",
+				"des": "基于 Finogeeks 的小程序开发示例(Demo 参考 dev-with-miniapp 分支代码)",
 				"topic": [
 					"混合开发"
 				],
 				"technology": {},
 				"date": "2022-10-2 11:42:00",
 				"link": "https://github.com/finogeeks",
-				"hasDemo": "1"
+				"hasDemo": "0"
 			},
 			{
 				"entrance": "AFJUnityViewController",

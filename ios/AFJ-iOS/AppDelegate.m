@@ -16,7 +16,6 @@
 #import "DemoMenu.h"
 #import <AlicloudAPM/AlicloudAPMProvider.h>
 #import <AlicloudHAUtil/AlicloudHAProvider.h>
-#import <FinApplet/FinApplet.h>
 #import "BMKCataloguePage.h"
 #import <BMKLocationKit/BMKLocationComponent.h>
 #import <UMCommon/UMCommon.h>
@@ -112,14 +111,10 @@ BMKLocationAuthDelegate
     
     [self initBaidu];
     [self initAli];
-    [self initFlutter];
-//    [self initUnity]; // TODO::Unity
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:launchOptions forKey:@"launchOptions"];
     [userDefaults synchronize];
-    
-    [self initMiniApp];
     
     [self setRVCType:self.rVCType];
 
@@ -475,77 +470,6 @@ BMKLocationAuthDelegate
     [AlicloudHAProvider start];
 }
 
-#pragma mark - Mini App
-
-- (void)initMiniApp{
-    FATStoreConfig *storeConfig = [[FATStoreConfig alloc] init];
-    storeConfig.sdkKey = @"aSm6IBYi86ldb72XuU8ic1uWWWqw94+3EOusNnGRz9E=";
-    storeConfig.sdkSecret = @"3497069ed3d6117a";
-    storeConfig.apiServer = @"https://api.finclip.com";
-    FATConfig *config = [FATConfig configWithStoreConfigs:@[storeConfig]];
-
-    [[FATClient sharedClient] initWithConfig:config error:nil];
-}
-
-#pragma mark - Flutter
-
-- (void)initFlutter{
-    self.flutter_eng = [[FlutterEngine alloc] initWithName:@"my flutter module"];
-    [self.flutter_eng run];
-}
-
-#pragma mark - Unity
-//TODO::Unity
-//- (BOOL)unityIsInitialized{
-//    return [self ufw] && [[self ufw] appController];
-//}
-
-//- (void)initUnity{
-//    /* 判断Unity 是否已经初始化 */
-//    if ([self unityIsInitialized]) return;
-//    /* 初始化Unity */
-//    self.ufw = UnityFrameworkLoad();
-//    [self.ufw setDataBundleId:"com.unity3d.framework"];
-//    [self.ufw registerFrameworkListener:self];
-////    [NSClassFromString(@"FrameworkLibAPI") registerAPIforNativeCalls:self];
-//
-//    NSString *argvStr = [[NSUserDefaults standardUserDefaults] valueForKey:@"argv"];
-//    char **argv;
-//    sscanf([argvStr cStringUsingEncoding:NSUTF8StringEncoding], "%p",&argv);
-//    int argc = [[[NSUserDefaults standardUserDefaults] valueForKey:@"argc"] intValue];
-//    NSDictionary *launchOptions = [[NSUserDefaults standardUserDefaults] valueForKey:@"launchOptions"];
-//    [self.ufw runEmbeddedWithArgc:argc argv:argv appLaunchOpts:launchOptions];
-//}
-
-//- (void)showUnityView
-//{
-//    if (![self unityIsInitialized]){
-//        NSLog(@"Unity 还未初始化");
-//        [self initUnity];
-//    }
-//
-//    [self.ufw showUnityWindow];
-//}
-
-//- (void)showNativeView
-//{
-//    [self.window makeKeyAndVisible];
-//}
-
-#pragma mark - UnityFrameworkListener
-//- (void)unityDidUnload:(NSNotification *)notification
-//{
-//    NSLog(@"========== %s ============",__func__);
-//    [self.window makeKeyAndVisible];
-//    [[self ufw] unregisterFrameworkListener: self];
-//    [self setUfw: nil];
-//}
-//
-//- (void)unityDidQuit:(NSNotification *)notification
-//{
-//    NSLog(@"========== %s ============",__func__);
-//}
-
 #pragma mark -
 
 - (void)selectedLeftVCIndex:(AFJCaseItemData *)item{
@@ -582,22 +506,6 @@ BMKLocationAuthDelegate
     }
     
     return _persistentContainer;
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    if ([[FATClient sharedClient] handleOpenURL:url]) {
-        return YES;
-    }
-    return YES;
-}
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
-{
-    if ([[FATClient sharedClient] handleOpenURL:url]) {
-        return YES;
-    }
-    return YES;
 }
 
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
