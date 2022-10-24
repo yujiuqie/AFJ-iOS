@@ -1615,8 +1615,6 @@
 		30623C1328D320BE006300DE /* CAShapeLayer+JKUIBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 30623ABD28D320BC006300DE /* CAShapeLayer+JKUIBezierPath.m */; };
 		30623C1428D320BE006300DE /* CALayer+JKBorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 30623AC028D320BC006300DE /* CALayer+JKBorderColor.m */; };
 		30623C1528D320BE006300DE /* CATransaction+JKAnimateWithDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 30623AC228D320BC006300DE /* CATransaction+JKAnimateWithDuration.m */; };
-		3066098F28F3E57D00926815 /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3066098E28F3E57D00926815 /* UnityFramework.framework */; };
-		3066099028F3E57D00926815 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3066098E28F3E57D00926815 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3068A59228D4AA990000F947 /* AFJEventBusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3068A59128D4AA990000F947 /* AFJEventBusViewController.m */; };
 		3068A59828D4AB910000F947 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3068A59528D4AB900000F947 /* UserService.m */; };
 		3068A59928D4AB910000F947 /* PayService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3068A59628D4AB900000F947 /* PayService.m */; };
@@ -2497,20 +2495,6 @@
 			remoteInfo = "AFJ-iOS";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3066099128F3E57D00926815 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3066099028F3E57D00926815 /* UnityFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06040DFC28DE117C00863329 /* AFJiOS7SamplerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJiOS7SamplerViewController.h; sourceTree = "<group>"; };
@@ -6974,7 +6958,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3066098F28F3E57D00926815 /* UnityFramework.framework in Frameworks */,
 				3024291228F4232A00FA034B /* Accelerate.framework in Frameworks */,
 				3024291428F4233300FA034B /* AVFoundation.framework in Frameworks */,
 				3024291C28F4260400FA034B /* AssetsLibrary.framework in Frameworks */,
@@ -17650,7 +17633,6 @@
 				8E698A5847079EEA71796672 /* [CP] Copy Pods Resources */,
 				99144108C8E57E745BF748B8 /* [CP-User] Embed Flutter Build afjflutter Script */,
 				30556A1128E2FB5900EA8C5C /* Build Config */,
-				3066099128F3E57D00926815 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
