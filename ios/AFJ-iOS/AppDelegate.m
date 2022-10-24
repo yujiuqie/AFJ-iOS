@@ -47,23 +47,23 @@
 
 //TODO::Unity
 /* UnityFrameworkLoad */
-UIKIT_STATIC_INLINE UnityFramework* UnityFrameworkLoad()
-{
-    NSString* bundlePath = nil;
-    bundlePath = [[NSBundle mainBundle] bundlePath];
-    bundlePath = [bundlePath stringByAppendingString: @"/Frameworks/UnityFramework.framework"];
-
-    NSBundle* bundle = [NSBundle bundleWithPath: bundlePath];
-    if ([bundle isLoaded] == false) [bundle load];
-
-    UnityFramework* ufw = [bundle.principalClass getInstance];
-    if (![ufw appController])
-    {
-        // unity is not initialized
-        [ufw setExecuteHeader: &_mh_execute_header];
-    }
-    return ufw;
-}
+//UIKIT_STATIC_INLINE UnityFramework* UnityFrameworkLoad()
+//{
+//    NSString* bundlePath = nil;
+//    bundlePath = [[NSBundle mainBundle] bundlePath];
+//    bundlePath = [bundlePath stringByAppendingString: @"/Frameworks/UnityFramework.framework"];
+//
+//    NSBundle* bundle = [NSBundle bundleWithPath: bundlePath];
+//    if ([bundle isLoaded] == false) [bundle load];
+//
+//    UnityFramework* ufw = [bundle.principalClass getInstance];
+//    if (![ufw appController])
+//    {
+//        // unity is not initialized
+//        [ufw setExecuteHeader: &_mh_execute_header];
+//    }
+//    return ufw;
+//}
 
 @interface AppDelegate ()
 <
@@ -113,7 +113,7 @@ BMKLocationAuthDelegate
     [self initBaidu];
     [self initAli];
     [self initFlutter];
-    [self initUnity]; // TODO::Unity
+//    [self initUnity]; // TODO::Unity
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:launchOptions forKey:@"launchOptions"];
@@ -496,55 +496,55 @@ BMKLocationAuthDelegate
 
 #pragma mark - Unity
 //TODO::Unity
-- (BOOL)unityIsInitialized{
-    return [self ufw] && [[self ufw] appController];
-}
+//- (BOOL)unityIsInitialized{
+//    return [self ufw] && [[self ufw] appController];
+//}
 
-- (void)initUnity{
-    /* 判断Unity 是否已经初始化 */
-    if ([self unityIsInitialized]) return;
-    /* 初始化Unity */
-    self.ufw = UnityFrameworkLoad();
-    [self.ufw setDataBundleId:"com.unity3d.framework"];
-    [self.ufw registerFrameworkListener:self];
-//    [NSClassFromString(@"FrameworkLibAPI") registerAPIforNativeCalls:self];
+//- (void)initUnity{
+//    /* 判断Unity 是否已经初始化 */
+//    if ([self unityIsInitialized]) return;
+//    /* 初始化Unity */
+//    self.ufw = UnityFrameworkLoad();
+//    [self.ufw setDataBundleId:"com.unity3d.framework"];
+//    [self.ufw registerFrameworkListener:self];
+////    [NSClassFromString(@"FrameworkLibAPI") registerAPIforNativeCalls:self];
+//
+//    NSString *argvStr = [[NSUserDefaults standardUserDefaults] valueForKey:@"argv"];
+//    char **argv;
+//    sscanf([argvStr cStringUsingEncoding:NSUTF8StringEncoding], "%p",&argv);
+//    int argc = [[[NSUserDefaults standardUserDefaults] valueForKey:@"argc"] intValue];
+//    NSDictionary *launchOptions = [[NSUserDefaults standardUserDefaults] valueForKey:@"launchOptions"];
+//    [self.ufw runEmbeddedWithArgc:argc argv:argv appLaunchOpts:launchOptions];
+//}
 
-    NSString *argvStr = [[NSUserDefaults standardUserDefaults] valueForKey:@"argv"];
-    char **argv;
-    sscanf([argvStr cStringUsingEncoding:NSUTF8StringEncoding], "%p",&argv);
-    int argc = [[[NSUserDefaults standardUserDefaults] valueForKey:@"argc"] intValue];
-    NSDictionary *launchOptions = [[NSUserDefaults standardUserDefaults] valueForKey:@"launchOptions"];
-    [self.ufw runEmbeddedWithArgc:argc argv:argv appLaunchOpts:launchOptions];
-}
+//- (void)showUnityView
+//{
+//    if (![self unityIsInitialized]){
+//        NSLog(@"Unity 还未初始化");
+//        [self initUnity];
+//    }
+//
+//    [self.ufw showUnityWindow];
+//}
 
-- (void)showUnityView
-{
-    if (![self unityIsInitialized]){
-        NSLog(@"Unity 还未初始化");
-        [self initUnity];
-    }
-
-    [self.ufw showUnityWindow];
-}
-
-- (void)showNativeView
-{
-    [self.window makeKeyAndVisible];
-}
+//- (void)showNativeView
+//{
+//    [self.window makeKeyAndVisible];
+//}
 
 #pragma mark - UnityFrameworkListener
-- (void)unityDidUnload:(NSNotification *)notification
-{
-    NSLog(@"========== %s ============",__func__);
-    [self.window makeKeyAndVisible];
-    [[self ufw] unregisterFrameworkListener: self];
-    [self setUfw: nil];
-}
-
-- (void)unityDidQuit:(NSNotification *)notification
-{
-    NSLog(@"========== %s ============",__func__);
-}
+//- (void)unityDidUnload:(NSNotification *)notification
+//{
+//    NSLog(@"========== %s ============",__func__);
+//    [self.window makeKeyAndVisible];
+//    [[self ufw] unregisterFrameworkListener: self];
+//    [self setUfw: nil];
+//}
+//
+//- (void)unityDidQuit:(NSNotification *)notification
+//{
+//    NSLog(@"========== %s ============",__func__);
+//}
 
 #pragma mark -
 
@@ -630,21 +630,21 @@ BMKLocationAuthDelegate
 
 
 //TODO::Unity
-- (void)applicationWillResignActive:(UIApplication *)application {
-    [[[self ufw] appController] applicationWillResignActive: application];
-}
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[[self ufw] appController] applicationDidEnterBackground: application];
-}
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[[self ufw] appController] applicationWillEnterForeground: application];
-}
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[[self ufw] appController] applicationDidBecomeActive: application];
-}
-- (void)applicationWillTerminate:(UIApplication *)application {
-    [[[self ufw] appController] applicationWillTerminate: application];
-}
+//- (void)applicationWillResignActive:(UIApplication *)application {
+//    [[[self ufw] appController] applicationWillResignActive: application];
+//}
+//- (void)applicationDidEnterBackground:(UIApplication *)application {
+//    [[[self ufw] appController] applicationDidEnterBackground: application];
+//}
+//- (void)applicationWillEnterForeground:(UIApplication *)application {
+//    [[[self ufw] appController] applicationWillEnterForeground: application];
+//}
+//- (void)applicationDidBecomeActive:(UIApplication *)application {
+//    [[[self ufw] appController] applicationDidBecomeActive: application];
+//}
+//- (void)applicationWillTerminate:(UIApplication *)application {
+//    [[[self ufw] appController] applicationWillTerminate: application];
+//}
 
 #pragma mark - Core Data Saving support
 
@@ -663,18 +663,18 @@ BMKLocationAuthDelegate
 
 - (void)backHome
 {
-    [self unityDidUnload:nil]; //TODO::Unity
+//    [self unityDidUnload:nil]; //TODO::Unity
     [self.navHome popToRootViewControllerAnimated:YES];
 }
 
 - (void)back{
     //TODO::Unity
-    if([self unityIsInitialized]){
-        [self unityDidUnload:nil];
-    }
-    else{
+//    if([self unityIsInitialized]){
+//        [self unityDidUnload:nil];
+//    }
+//    else{
         [self.navHome popViewControllerAnimated:YES];
-    }
+//    }
 }
 
 @end

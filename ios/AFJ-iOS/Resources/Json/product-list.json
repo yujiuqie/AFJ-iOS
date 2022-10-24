@@ -1785,14 +1785,14 @@
 			{
 				"entrance": "AFJUnityViewController",
 				"title": "内嵌 Unity 页面",
-				"des": "基于 Unity 的混合开发示例",
+				"des": "基于 Unity 的混合开发示例(Demo 参考 dev-full 分支代码)",
 				"topic": [
 					"混合开发"
 				],
 				"technology": {},
 				"date": "2022-10-2 11:42:00",
 				"link": "https://www.jianshu.com/p/2acea24a792d",
-				"hasDemo": "1"
+				"hasDemo": "0"
 			}
 		]
 	},

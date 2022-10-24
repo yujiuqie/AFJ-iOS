@@ -10,7 +10,7 @@
 #import <Flutter/Flutter.h>
 #import "AFJCaseItemData.h"
 //TODO::Unity
-#include <UnityFramework/UnityFramework.h>
+//#include <UnityFramework/UnityFramework.h>
 
 #import "AFJMenuViewController.h"
 #import "AFJSearchListViewController.h"
@@ -26,14 +26,14 @@ typedef NS_ENUM(NSUInteger, AJFRootVCType) {
 
 @interface AppDelegate : UIResponder
 <
-UIApplicationDelegate,
-UnityFrameworkListener //TODO::Unity
+UIApplicationDelegate
+//UnityFrameworkListener //TODO::Unity
 >
 
 @property (nonatomic, strong) FlutterEngine *flutter_eng;
 @property (nonatomic, strong) UIWindow * window;
 @property (readonly, strong) NSPersistentCloudKitContainer *persistentContainer;
-@property (nonatomic, strong) UnityFramework *ufw; //TODO::Unity
+//@property (nonatomic, strong) UnityFramework *ufw; //TODO::Unity
 
 @property (nonatomic, strong) AFJSearchListViewController *homeVC;
 @property (nonatomic, strong) AFJMenuViewController *menuVC;
