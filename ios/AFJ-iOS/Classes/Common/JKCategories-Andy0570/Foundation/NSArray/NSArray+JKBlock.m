@@ -22,11 +22,11 @@
 
 - (NSArray *)jk_map:(id (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
-    
+
     for (id object in self) {
         [array addObject:block(object) ?: [NSNull null]];
     }
-    
+
     return array;
 }
 
@@ -56,10 +56,10 @@
 
 - (id)jk_reduce:(id)initial withBlock:(id (^)(id accumulator, id object))block {
     id accumulator = initial;
-    
-    for(id object in self)
+
+    for (id object in self)
         accumulator = accumulator ? block(accumulator, object) : object;
-    
+
     return accumulator;
 }
 @end

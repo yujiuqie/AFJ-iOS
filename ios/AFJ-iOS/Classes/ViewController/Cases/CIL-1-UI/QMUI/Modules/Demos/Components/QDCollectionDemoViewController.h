@@ -8,7 +8,7 @@
 
 #import "QDCommonViewController.h"
 
-@interface QDCollectionDemoViewController : QDCommonViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface QDCollectionDemoViewController : QDCommonViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, strong, readonly) UICollectionView *collectionView;
 @property(nonatomic, strong, readonly) QMUICollectionViewPagingLayout *collectionViewLayout;

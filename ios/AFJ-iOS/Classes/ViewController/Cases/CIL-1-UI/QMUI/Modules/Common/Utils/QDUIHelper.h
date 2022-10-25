@@ -63,7 +63,9 @@
 @interface QDUIHelper (UIButton)
 
 + (QMUIButton *)generateDarkFilledButton;
+
 + (QMUIButton *)generateLightBorderedButton;
+
 + (QMUIButton *)generateGhostButtonWithColor:(UIColor *)color;
 @end
 
@@ -87,7 +89,7 @@
 @interface QDUIHelper (Calculate)
 
 + (NSString *)humanReadableFileSize:(long long)size;
-    
+
 @end
 
 

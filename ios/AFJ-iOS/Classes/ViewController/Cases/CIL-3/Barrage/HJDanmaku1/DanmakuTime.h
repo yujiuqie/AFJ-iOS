@@ -10,7 +10,7 @@
 
 @interface DanmakuTime : NSObject
 
-@property (nonatomic, assign) float time;
-@property (nonatomic, assign) float interval;
+@property(nonatomic, assign) float time;
+@property(nonatomic, assign) float interval;
 
 @end

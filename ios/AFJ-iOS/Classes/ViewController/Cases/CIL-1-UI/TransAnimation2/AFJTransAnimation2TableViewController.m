@@ -8,10 +8,9 @@
 
 #import "AFJTransAnimation2TableViewController.h"
 
-@interface AFJTransAnimation2TableViewController ()
-{
+@interface AFJTransAnimation2TableViewController () {
     NSArray *_names;
-    
+
 }
 
 
@@ -22,23 +21,24 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     _names = @[@"Fade",
-               @"Push",@"Push",@"Push",@"Push",
-               @"Reveal",@"Reveal",@"Reveal",@"Reveal",
-               @"MoveIn",@"MoveIn",@"MoveIn",@"MoveIn",
-               @"Cube",@"Cube",@"Cube",@"Cube",
-               @"suckEffect",
-               @"oglFlip",@"oglFlip",@"oglFlip",@"oglFlip",
-               @"rippleEffect",
-               @"pageCurl",@"pageCurl",@"pageCurl",@"pageCurl",
-               @"pageUnCurl",@"pageUnCurl",@"pageUnCurl",@"pageUnCurl",
-               @"CameraIrisHollowOpen",
-               @"CameraIrisHollowClose"];
+            @"Push", @"Push", @"Push", @"Push",
+            @"Reveal", @"Reveal", @"Reveal", @"Reveal",
+            @"MoveIn", @"MoveIn", @"MoveIn", @"MoveIn",
+            @"Cube", @"Cube", @"Cube", @"Cube",
+            @"suckEffect",
+            @"oglFlip", @"oglFlip", @"oglFlip", @"oglFlip",
+            @"rippleEffect",
+            @"pageCurl", @"pageCurl", @"pageCurl", @"pageCurl",
+            @"pageUnCurl", @"pageUnCurl", @"pageUnCurl", @"pageUnCurl",
+            @"CameraIrisHollowOpen",
+            @"CameraIrisHollowClose"];
 
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,16 +48,18 @@
 #pragma mark - Table view data source
 
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return WXSTransitionAnimationTypeSysCameraIrisHollowClose;
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return section == 0 ? @"present" : @"push";
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"identifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -65,33 +67,33 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.textLabel.text = indexPath.row < WXSTransitionAnimationTypeSysCameraIrisHollowClose ? _names[indexPath.row] : @"转场动画";
-    
-    cell.backgroundColor = [UIColor whiteColor] ;
+
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     if (indexPath.section == 0) {
         PresentViewController *vc = [[PresentViewController alloc] init];
         [self wxs_presentViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
             transition.animationType = indexPath.row + 1;
-            transition.isSysBackAnimation = (int)rand()%2 < 1 ?  YES : NO;
-        } completion:nil];
-        
-    }else{
-        
+            transition.isSysBackAnimation = (int) rand() % 2 < 1 ? YES : NO;
+        }                    completion:nil];
+
+    } else {
+
         AFJTransAnimation2SecondViewController *vc = [[AFJTransAnimation2SecondViewController alloc] init];
-        
+
         [self.navigationController wxs_pushViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
             transition.animationType = indexPath.row + 1;
 //            transition.isSysBackAnimation = (int)rand()%2 < 1 ?  YES : NO;
         }];
-        
+
     }
 
-    
+
 }
 
 

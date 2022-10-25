@@ -10,9 +10,9 @@
 #import "AFJCaseItemData.h"
 #import "ISHPermissionKit.h"
 
-@interface AFJPermissionViewController()
+@interface AFJPermissionViewController ()
 
-@property (nonatomic, strong) GPJDataDrivenTableView  *tableView;
+@property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
 @end
 
@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     self.tableView = [[GPJDataDrivenTableView alloc] initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];

@@ -8,19 +8,16 @@
 
 @implementation NSNotificationCenter (JKMainThread)
 
-- (void)jk_postNotificationOnMainThread:(NSNotification *)notification
-{
+- (void)jk_postNotificationOnMainThread:(NSNotification *)notification {
     [self performSelectorOnMainThread:@selector(postNotification:) withObject:notification waitUntilDone:YES];
 }
 
-- (void)jk_postNotificationOnMainThreadName:(NSString *)aName object:(id)anObject
-{
+- (void)jk_postNotificationOnMainThreadName:(NSString *)aName object:(id)anObject {
     NSNotification *notification = [NSNotification notificationWithName:aName object:anObject];
     [self jk_postNotificationOnMainThread:notification];
 }
 
-- (void)jk_postNotificationOnMainThreadName:(NSString *)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo
-{
+- (void)jk_postNotificationOnMainThreadName:(NSString *)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo {
     NSNotification *notification = [NSNotification notificationWithName:aName object:anObject userInfo:aUserInfo];
     [self jk_postNotificationOnMainThread:notification];
 }

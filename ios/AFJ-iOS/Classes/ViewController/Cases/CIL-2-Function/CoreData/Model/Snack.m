@@ -11,7 +11,7 @@
 @implementation Snack
 
 + (instancetype)instanceWithId:(NSUInteger)ID {
-    
+
     Snack *snack = [Snack new];
     snack.snackId = ID;
     snack.name = [NSString stringWithFormat:@"snack%ld", ID];
@@ -28,7 +28,7 @@
 }
 
 + (NSDictionary *)primaryKeys {
-    return @{@"snackId" : @"snackId"};
+    return @{@"snackId": @"snackId"};
 }
 
 @end

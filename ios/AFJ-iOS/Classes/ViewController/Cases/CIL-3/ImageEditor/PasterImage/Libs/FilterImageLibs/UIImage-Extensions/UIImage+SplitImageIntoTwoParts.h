@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (SplitImageIntoTwoParts)
-+ (NSArray*)splitImageIntoTwoParts:(UIImage*)image;
++ (NSArray *)splitImageIntoTwoParts:(UIImage *)image;
 @end

@@ -11,9 +11,9 @@ static __weak id jk_currentFirstResponder;
 
 + (id)jk_currentFirstResponder {
     jk_currentFirstResponder = nil;
-    
+
     [[UIApplication sharedApplication] sendAction:@selector(jk_findCurrentFirstResponder:) to:nil from:nil forEvent:nil];
-    
+
     return jk_currentFirstResponder;
 }
 

@@ -8,23 +8,21 @@
 
 @implementation NSURL (JKParam)
 
-- (NSDictionary *)jk_parameters
-{
-    NSMutableDictionary * parametersDictionary = [NSMutableDictionary dictionary];
-    NSArray * queryComponents = [self.query componentsSeparatedByString:@"&"];
-    for (NSString * queryComponent in queryComponents) {
-        NSString * key = [queryComponent componentsSeparatedByString:@"="].firstObject;
+- (NSDictionary *)jk_parameters {
+    NSMutableDictionary *parametersDictionary = [NSMutableDictionary dictionary];
+    NSArray *queryComponents = [self.query componentsSeparatedByString:@"&"];
+    for (NSString *queryComponent in queryComponents) {
+        NSString *key = [queryComponent componentsSeparatedByString:@"="].firstObject;
         if (queryComponent.hash == key.hash) {
             continue;
         }
-        NSString * value = [queryComponent substringFromIndex:(key.length + 1)];
+        NSString *value = [queryComponent substringFromIndex:(key.length + 1)];
         [parametersDictionary setObject:value forKey:key];
     }
     return parametersDictionary;
 }
 
-- (NSString *)jk_valueForParameter:(NSString *)parameterKey
-{
+- (NSString *)jk_valueForParameter:(NSString *)parameterKey {
     return [[self jk_parameters] objectForKey:parameterKey];
 }
 

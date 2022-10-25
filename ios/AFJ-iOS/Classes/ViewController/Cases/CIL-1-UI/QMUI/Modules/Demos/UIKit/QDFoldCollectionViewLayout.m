@@ -35,7 +35,7 @@
     return CGSizeMake(self.collectionView.frame.size.width, self.collectionView.frame.size.height - self.collectionView.adjustedContentInset.top);
 }
 
-- (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect {
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray *attributesArray = [NSMutableArray array];
     for (NSInteger i = 0; i < _itemCount; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
@@ -46,32 +46,28 @@
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attributes.size = CGSizeMake(_itemWidth, _itemHeight);
     attributes.center = CGPointMake(self.collectionView.center.x, self.collectionView.center.y - 80);
     NSInteger maxShowItemCount = MIN(3, _itemCount);
     CATransform3D transform3D;
     if (indexPath == self.curIndexPath) {
         transform3D = CATransform3DMakeTranslation(self.curPoint.x, self.curPoint.y, 0);
-    }
-    else {
+    } else {
         if (self.isMoving) {
             CGFloat rate = fmin(fmax(fabs(self.curPoint.x), fabs(self.curPoint.y)) / 80, 1);
             if (indexPath.item == maxShowItemCount) {
                 transform3D = CATransform3DMakeTranslation(0, (indexPath.item - 1) * 5, 0);
                 transform3D = CATransform3DScale(transform3D, 1 - (indexPath.item - 1) * 0.05, 1, 1);
-            }
-            else {
+            } else {
                 transform3D = CATransform3DMakeTranslation(0, indexPath.item * 5 - rate * 5, 0);
                 transform3D = CATransform3DScale(transform3D, 1 - indexPath.item * 0.05 + 0.05 * rate, 1, 1);
             }
-        }
-        else {
+        } else {
             if (indexPath.item == maxShowItemCount) {
                 transform3D = CATransform3DMakeTranslation(0, (indexPath.item - 1) * 5, 0);
                 transform3D = CATransform3DScale(transform3D, 1 - (indexPath.item - 1) * 0.05, 1, 1);
-            }
-            else {
+            } else {
                 transform3D = CATransform3DMakeTranslation(0, indexPath.item * 5, 0);
                 transform3D = CATransform3DScale(transform3D, 1 - indexPath.item * 0.05, 1, 1);
             }
@@ -79,8 +75,7 @@
     }
     if (indexPath.item <= maxShowItemCount) {
         attributes.alpha = 1;
-    }
-    else {
+    } else {
         attributes.alpha = 0;
     }
     attributes.transform3D = transform3D;

@@ -11,9 +11,9 @@
 
 @interface XLCardCell ()
 
-@property (nonatomic, strong) UIImageView *imageView;
+@property(nonatomic, strong) UIImageView *imageView;
 
-@property (nonatomic, strong) UILabel *textLabel;
+@property(nonatomic, strong) UILabel *textLabel;
 
 @end
 
@@ -30,16 +30,16 @@
     self.layer.cornerRadius = 10.0f;
     self.layer.masksToBounds = true;
     self.backgroundColor = [UIColor whiteColor];
-    
+
     CGFloat labelHeight = self.bounds.size.height * 0.20f;
     CGFloat imageViewHeight = self.bounds.size.height - labelHeight;
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, imageViewHeight)];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.layer.masksToBounds = true;
     [self addSubview:self.imageView];
-    
+
     self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, imageViewHeight, self.bounds.size.width, labelHeight)];
-    self.textLabel.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
+    self.textLabel.textColor = [UIColor colorWithRed:102.0f / 255.0f green:102.0f / 255.0f blue:102.0f / 255.0f alpha:1];
     self.textLabel.font = [UIFont systemFontOfSize:22];
     self.textLabel.textAlignment = NSTextAlignmentCenter;
     self.textLabel.adjustsFontSizeToFitWidth = true;

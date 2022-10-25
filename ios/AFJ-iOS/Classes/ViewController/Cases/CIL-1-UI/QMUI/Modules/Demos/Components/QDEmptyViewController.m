@@ -66,7 +66,7 @@
     } else if (row == 3) {
         cell.textLabel.text = @"显示占位图及文字";
     }
-    
+
     return cell;
 }
 

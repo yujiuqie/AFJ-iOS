@@ -62,13 +62,13 @@
         cell.textLabel.textColor = UIColor.qd_mainTextColor;
         cell.detailTextLabel.textColor = UIColor.qd_descriptionTextColor;
     }
-    
+
     UIFont *font = fonts[indexPath.row];
     cell.textLabel.font = font;
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", @(indexPath.row + 1), font.fontName];
     cell.detailTextLabel.font = font;
     cell.detailTextLabel.text = @"中文的效果";
-    
+
     return cell;
 }
 

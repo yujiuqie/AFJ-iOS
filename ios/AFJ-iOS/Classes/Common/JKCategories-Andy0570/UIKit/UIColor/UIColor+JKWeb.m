@@ -12,8 +12,7 @@
  *
  *  @return canvas颜色
  */
-- (NSString *)jk_canvasColorString
-{
+- (NSString *)jk_canvasColorString {
     CGFloat *arrRGBA = [self jk_getRGB];
     int r = arrRGBA[0] * 255;
     int g = arrRGBA[1] * 255;
@@ -21,13 +20,13 @@
     float a = arrRGBA[3];
     return [NSString stringWithFormat:@"rgba(%d,%d,%d,%f)", r, g, b, a];
 }
+
 /**
  *  @brief  获取网页颜色字串
  *
  *  @return 网页颜色
  */
-- (NSString *)jk_webColorString
-{
+- (NSString *)jk_webColorString {
     CGFloat *arrRGBA = [self jk_getRGB];
     int r = arrRGBA[0] * 255;
     int g = arrRGBA[1] * 255;
@@ -37,14 +36,14 @@
     return webColor;
 }
 
-- (CGFloat *) jk_getRGB{
-    UIColor * uiColor = self;
+- (CGFloat *)jk_getRGB {
+    UIColor *uiColor = self;
     CGColorRef cgColor = [uiColor CGColor];
-    int numComponents = (int)CGColorGetNumberOfComponents(cgColor);
-    if (numComponents == 4){
-        static CGFloat * components = Nil;
+    int numComponents = (int) CGColorGetNumberOfComponents(cgColor);
+    if (numComponents == 4) {
+        static CGFloat *components = Nil;
         components = (CGFloat *) CGColorGetComponents(cgColor);
-        return (CGFloat *)components;
+        return (CGFloat *) components;
     } else { //否则默认返回黑色
         static CGFloat components[4] = {0};
         CGFloat f = 0;
@@ -60,7 +59,7 @@
         components[1] = f;
         components[2] = f;
         components[3] = 1.0;
-        return (CGFloat *)components;
+        return (CGFloat *) components;
     }
 }
 @end

@@ -9,19 +9,19 @@
 @implementation UISplitViewController (JKQuickAccess)
 
 - (UIViewController *)jk_leftController {
-    UIViewController * leftVC = [[self viewControllers] objectAtIndex:0];
-    
+    UIViewController *leftVC = [[self viewControllers] objectAtIndex:0];
+
     if ([leftVC isKindOfClass:[UINavigationController class]]) {
-        leftVC = [(UINavigationController *)leftVC topViewController];
+        leftVC = [(UINavigationController *) leftVC topViewController];
     }
-    return  leftVC;
+    return leftVC;
 }
 
 - (UIViewController *)jk_rightController {
-    UIViewController * rightVC = [[self viewControllers] lastObject];
-    
+    UIViewController *rightVC = [[self viewControllers] lastObject];
+
     if ([rightVC isKindOfClass:[UINavigationController class]]) {
-        rightVC = [(UINavigationController *)rightVC topViewController];
+        rightVC = [(UINavigationController *) rightVC topViewController];
     }
     return rightVC;
 }

@@ -24,59 +24,59 @@ const NSInteger kIdentifierForDoneCell = 999;
 - (void)initTableView {
     [super initTableView];
     self.tableView.qmui_staticCellDataSource = [[QMUIStaticTableViewCellDataSource alloc] initWithCellDataSections:@[
-  // section 0
-  @[({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = UIInterfaceOrientationMaskPortrait;
-        d.text = @"UIInterfaceOrientationMaskPortrait";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkEvent:);
-        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
-        d;
-    }),
-    ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = UIInterfaceOrientationMaskLandscapeLeft;
-        d.text = @"UIInterfaceOrientationMaskLandscapeLeft";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkEvent:);
-        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
-        d;
-    }),
-    ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = UIInterfaceOrientationMaskLandscapeRight;
-        d.text = @"UIInterfaceOrientationMaskLandscapeRight";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkEvent:);
-        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
-        d;
-    }),
-    ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = UIInterfaceOrientationMaskPortraitUpsideDown;
-        d.text = @"UIInterfaceOrientationMaskPortraitUpsideDown";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkEvent:);
-        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
-        d;
-    })],
-  
-  // section 1
-  @[
-      ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = kIdentifierForDoneCell;
-        d.text = @"完成方向选择，进入该界面";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleDoneCellEvent:);
-        d.cellForRowBlock = ^(UITableView *tableView, __kindof QMUITableViewCell *cell, QMUIStaticTableViewCellData *cellData) {
-            cell.textLabel.textAlignment = NSTextAlignmentCenter;
-            cell.textLabel.textColor = UIColor.qd_tintColor;
-        };
-        d;
-    })]]];
-    
+            // section 0
+            @[({
+                QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                d.identifier = UIInterfaceOrientationMaskPortrait;
+                d.text = @"UIInterfaceOrientationMaskPortrait";
+                d.didSelectTarget = self;
+                d.didSelectAction = @selector(handleCheckmarkEvent:);
+                d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
+                d;
+            }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.identifier = UIInterfaceOrientationMaskLandscapeLeft;
+                        d.text = @"UIInterfaceOrientationMaskLandscapeLeft";
+                        d.didSelectTarget = self;
+                        d.didSelectAction = @selector(handleCheckmarkEvent:);
+                        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.identifier = UIInterfaceOrientationMaskLandscapeRight;
+                        d.text = @"UIInterfaceOrientationMaskLandscapeRight";
+                        d.didSelectTarget = self;
+                        d.didSelectAction = @selector(handleCheckmarkEvent:);
+                        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.identifier = UIInterfaceOrientationMaskPortraitUpsideDown;
+                        d.text = @"UIInterfaceOrientationMaskPortraitUpsideDown";
+                        d.didSelectTarget = self;
+                        d.didSelectAction = @selector(handleCheckmarkEvent:);
+                        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeCheckmark;
+                        d;
+                    })],
+
+            // section 1
+            @[
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.identifier = kIdentifierForDoneCell;
+                        d.text = @"完成方向选择，进入该界面";
+                        d.didSelectTarget = self;
+                        d.didSelectAction = @selector(handleDoneCellEvent:);
+                        d.cellForRowBlock = ^(UITableView *tableView, __kindof QMUITableViewCell *cell, QMUIStaticTableViewCellData *cellData) {
+                            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+                            cell.textLabel.textColor = UIColor.qd_tintColor;
+                        };
+                        d;
+                    })]]];
+
     self.orientationLabel = [[QMUILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColor.qd_descriptionTextColor];
     self.orientationLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"当前界面支持的方向：\n%@", [self descriptionStringWithOrientationMask:self.supportedOrientationMask]] attributes:@{NSFontAttributeName: UIFontMake(14), NSForegroundColorAttributeName: UIColor.qd_descriptionTextColor, NSParagraphStyleAttributeName: [NSMutableParagraphStyle qmui_paragraphStyleWithLineHeight:22 lineBreakMode:NSLineBreakByWordWrapping textAlignment:NSTextAlignmentCenter]}];
     self.orientationLabel.numberOfLines = 2;
@@ -85,7 +85,7 @@ const NSInteger kIdentifierForDoneCell = 999;
     self.tableView.tableFooterView = self.orientationLabel;
 }
 
-#pragma mark - <QMUITableViewDataSource,  QMUITableViewDelegate>
+#pragma mark - <QMUITableViewDataSource, QMUITableViewDelegate>
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     QMUITableViewCell *cell = [tableView.qmui_staticCellDataSource cellForRowAtIndexPath:indexPath];
@@ -121,12 +121,12 @@ const NSInteger kIdentifierForDoneCell = 999;
             mask |= cellData.identifier;
         }
     }
-    
+
     QDOrientationViewController *viewController = [[QDOrientationViewController alloc] init];
-    
+
     // QMUICommonViewController 提供属性 supportedOrientationMask 用于控制界面所支持的显示方向，在 UIViewController (QMUI) 里会自动根据下一个要显示的界面去旋转设备的方向
     viewController.supportedOrientationMask = mask;
-    
+
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

@@ -10,7 +10,7 @@
 
 @interface ZLMultilineTextCell : UICollectionViewCell
 
-@property(nonatomic,strong)UILabel* label;
+@property(nonatomic, strong) UILabel *label;
 
 + (NSString *)cellIdentifier;
 

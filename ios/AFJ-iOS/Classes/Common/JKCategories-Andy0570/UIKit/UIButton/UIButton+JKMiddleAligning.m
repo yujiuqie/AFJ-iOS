@@ -12,8 +12,7 @@
 
 @implementation UIImage (MiddleAligning)
 
-- (UIImage *)jk_MiddleAlignedButtonImageScaleToSize:(CGSize)size
-{
+- (UIImage *)jk_MiddleAlignedButtonImageScaleToSize:(CGSize)size {
     UIGraphicsBeginImageContextWithOptions(size, NO, 0);
 
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -32,10 +31,9 @@
 
 @implementation UIButton (JKMiddleAligning)
 
-- (void)jk_middleAlignButtonWithSpacing:(CGFloat)spacing
-{
-    NSString *titleString = [self titleForState:UIControlStateNormal]?:@"";
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:titleString attributes:@{NSFontAttributeName : self.titleLabel.font}];
+- (void)jk_middleAlignButtonWithSpacing:(CGFloat)spacing {
+    NSString *titleString = [self titleForState:UIControlStateNormal] ?: @"";
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:titleString attributes:@{NSFontAttributeName: self.titleLabel.font}];
     CGSize titleSize = [attributedString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
     CGSize imageSize = [self imageForState:UIControlStateNormal].size;
     CGFloat maxImageHeight = CGRectGetHeight(self.frame) - titleSize.height - spacing * 2;

@@ -23,8 +23,8 @@
 - (void)setName:(NSString *)name {
     _name = name.copy;
     NSLog(@"QDObjectA setName invoke! name = %@", name);
-    
-    
+
+
 }
 
 
@@ -41,7 +41,6 @@
     [super func];
     NSLog(@"QDObjectB func invoke!");
 }
-
 
 
 @end
@@ -70,13 +69,14 @@
     block;\
 }];\
 
+
 - (void)baseSample1 {
-    
+
     QDObjectB *obj1 = [QDObjectB new];
     qmuiBefore(obj1, @selector(setName:), NSLog(@"🎈qmui before !"))
     qmuiAfter(obj1, @selector(setName:), NSLog(@"🎈qmui after !"))
     obj1.name = @"obj1 !";
-    
+
     QDObjectB *obj2 = [QDObjectB new];
     obj2.name = @"obj2 !";
 }
@@ -93,8 +93,8 @@
     obj1.name = @"after KVO";
     [obj1 removeObserver:self forKeyPath:@"name"];
     obj1.name = @"remove KVO";
-    
-    
+
+
     // KVO hook 移除 KVO
     QDObjectB *obj2 = [QDObjectB new];
     [obj2 addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
@@ -107,7 +107,7 @@
 }
 
 - (void)aspectSample1 {
-    
+
     QDObjectA *obj = [QDObjectA new];
     qmuiBefore(obj, @selector(setName:), NSLog(@"🎈qmui before !"))
     aspectBefore(obj, @selector(setName:), NSLog(@"aspect before !"))
@@ -119,10 +119,10 @@
 
 - (void)sampleAspect {
 
-    
+
 }
 
-typedef NSString * (^BlockA)(int a);
+typedef NSString *(^BlockA)(int a);
 
 typedef struct QDStruct {
     CGRect aRect;
@@ -150,54 +150,53 @@ typedef struct QDStruct {
 }
 
 - (void)test {
-    
 
-    
-     [self aspect_hookSelector:@selector(stringBy:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
-            __unsafe_unretained NSString *ori = nil;
-            [[aspectInfo originalInvocation] getReturnValue:&ori];
-            NSLog(@"");
 
-        } error:nil];
-        
-        [self qmui_hookSelector:@selector(stringBy:) afterBlock:^(QMUIHookContext * _Nonnull context) {
-            NSLog(@"🎈 stringBy:");
-    //            __unsafe_unretained NSString *arg = nil;
-    //            [context getReturnValue:&arg];
-    //
-    //            NSString *replace = @"haha";
-    //        [context setReturnValue:&replace];
-    //        [replace description];
+    [self aspect_hookSelector:@selector(stringBy:) withOptions:AspectPositionAfter usingBlock:^(id <AspectInfo> aspectInfo) {
+        __unsafe_unretained NSString *ori = nil;
+        [[aspectInfo originalInvocation] getReturnValue:&ori];
+        NSLog(@"");
 
-        }];
-    
+    }                   error:nil];
+
+    [self qmui_hookSelector:@selector(stringBy:) afterBlock:^(QMUIHookContext *_Nonnull context) {
+        NSLog(@"🎈 stringBy:");
+        //            __unsafe_unretained NSString *arg = nil;
+        //            [context getReturnValue:&arg];
+        //
+        //            NSString *replace = @"haha";
+        //        [context setReturnValue:&replace];
+        //        [replace description];
+
+    }];
+
     NSString *news = [self stringBy:@"aaaa"];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  //  [self baseSample1];
+    //  [self baseSample1];
     [self sampleKVO];
 //    [self aspectSample1];
 //    [self test];
     return;
-    
-    [self qmui_hookSelector:@selector(func) beforeBlock:^(QMUIHookContext * _Nonnull context) {
+
+    [self qmui_hookSelector:@selector(func) beforeBlock:^(QMUIHookContext *_Nonnull context) {
         NSLog(@"🎈 func! before");
     }];
-    
-    [self qmui_hookSelector:@selector(func) afterBlock:^(QMUIHookContext * _Nonnull context) {
+
+    [self qmui_hookSelector:@selector(func) afterBlock:^(QMUIHookContext *_Nonnull context) {
         NSLog(@"🎈 func! after");
     }];
-    
+
     [self func];
-    
-    [self qmui_hookSelector:@selector(setBool:) afterBlock:^(QMUIHookContext * _Nonnull context) {
+
+    [self qmui_hookSelector:@selector(setBool:) afterBlock:^(QMUIHookContext *_Nonnull context) {
         NSLog(@"🎈 setBool! after");
     }];
     [self setBool:YES];
-    
-    [self qmui_hookSelector:@selector(setA:) beforeBlock:^(QMUIHookContext * _Nonnull context) {
+
+    [self qmui_hookSelector:@selector(setA:) beforeBlock:^(QMUIHookContext *_Nonnull context) {
         NSString *ori = nil;
 //        [context getReturnValue:&ori];
 //        
@@ -210,28 +209,27 @@ typedef struct QDStruct {
 //        [context setReturnValue:&replace];
 //        [replace description];
     }];
-    
+
 //    [self qmui_hookSelector:@selector(str) afterBlock:^(QMUIHookContext * _Nonnull context) {
 //        NSString *replace = @"zie";
 //        [context setReturnValue:&replace];
 //        [replace description];
 //    }];
-    
-    NSString  *sss = [self str];
 
-    
+    NSString *sss = [self str];
+
+
 //
-   
-    
-    
+
+
+
     NSString *news = [self stringBy:@"aaaa"];
-    
-    
+
+
     [self setA:@"bbbc"];
     NSLog(@"%@", sss);
-    
-}
 
+}
 
 
 - (void)setBool:(BOOL)frame {
@@ -241,9 +239,9 @@ typedef struct QDStruct {
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"name"]) {
         id newValue = [change objectForKey:NSKeyValueChangeNewKey];
-        NSLog(@"🎁KVO  : %@",newValue);
+        NSLog(@"🎁KVO  : %@", newValue);
     }
-    
+
 }
 
 /*

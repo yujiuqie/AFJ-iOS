@@ -15,19 +15,22 @@
 
 @interface ARViewController : UIViewController
 
-@property (nonatomic, retain) NSMutableArray<SCNNode *> *sceneNode;
-@property (nonatomic, copy) NSString *sceneName;
-@property (nonatomic, assign) CGFloat currentYAngle;
+@property(nonatomic, retain) NSMutableArray<SCNNode *> *sceneNode;
+@property(nonatomic, copy) NSString *sceneName;
+@property(nonatomic, assign) CGFloat currentYAngle;
 
-@property (strong, nonatomic) IBOutlet ARSCNView *sceneView;
-@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
-@property (weak, nonatomic) IBOutlet UIButton *removeButton;
-@property (weak, nonatomic) IBOutlet UIButton *addNodeButton;
-@property (weak, nonatomic) IBOutlet UIButton *snapshotButton;
+@property(strong, nonatomic) IBOutlet ARSCNView *sceneView;
+@property(weak, nonatomic) IBOutlet UIButton *refreshButton;
+@property(weak, nonatomic) IBOutlet UIButton *removeButton;
+@property(weak, nonatomic) IBOutlet UIButton *addNodeButton;
+@property(weak, nonatomic) IBOutlet UIButton *snapshotButton;
 
 - (IBAction)refreshSessionAction:(id)sender;
+
 - (IBAction)removeAction:(id)sender;
+
 - (IBAction)addNodeAction:(id)sender;
+
 - (IBAction)snapshotAction:(id)sender;
 
 - (void)refreshSession;

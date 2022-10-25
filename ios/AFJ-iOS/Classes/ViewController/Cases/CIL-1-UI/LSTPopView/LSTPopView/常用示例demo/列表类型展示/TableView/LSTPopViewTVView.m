@@ -15,24 +15,24 @@
 #import "LSTPopViewTVCellView.h"
 #import <LSTGestureEvents.h>
 
-@interface LSTPopViewTVView ()< UITableViewDelegate,UITableViewDataSource >
+@interface LSTPopViewTVView () <UITableViewDelegate, UITableViewDataSource>
 
 /** 表 */
-@property (nonatomic,strong) UITableView *tableView;
+@property(nonatomic, strong) UITableView *tableView;
 
 /** <#.....#> */
-@property (nonatomic,strong) NSMutableArray *dataMarr;
+@property(nonatomic, strong) NSMutableArray *dataMarr;
 
 /** <#.....#> */
-@property (nonatomic,strong) UILabel *titleLab;
+@property(nonatomic, strong) UILabel *titleLab;
 /** <#.....#> */
-@property (nonatomic,strong) UIView *cutView;
+@property(nonatomic, strong) UIView *cutView;
 
 /** <#.....#> */
-@property (nonatomic,weak) LSTPopView *popView;
+@property(nonatomic, weak) LSTPopView *popView;
 
 /**  */
-@property (nonatomic,strong) UIView *topLine;
+@property(nonatomic, strong) UIView *topLine;
 
 @end
 
@@ -53,46 +53,44 @@
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)initSubViews {
-    
+
     self.backgroundColor = UIColor.whiteColor;
     [self addSubview:self.titleLab];
     [self addSubview:self.cutView];
     [self addSubview:self.tableView];
-    
+
     [self addSubview:self.topLine];
-    
-    
-    
-    
+
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(30);
         make.left.right.equalTo(self);
         make.height.mas_equalTo(40);
     }];
-    
+
     [_topLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(45, 5));
         make.top.equalTo(self).offset(10);
         make.centerX.equalTo(self);
     }];
-    
+
     [_cutView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(0.5);
         make.top.equalTo(_titleLab.mas_bottom);
         make.left.right.equalTo(self);
     }];
-    
+
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self);
         make.top.equalTo(_cutView.mas_bottom);
     }];
-    
-    
+
+
 }
 
 #pragma mark - ***** other 其他 *****
@@ -109,25 +107,25 @@
     cell.descLab.text = self.dataMarr[indexPath.row];
     cell.titleLab.text = [cell.descLab.text substringToIndex:1];
     LSTPopViewWK(self);
-    [cell.moreBtn addEventTouchUpInsideAction:^(id  _Nonnull sender) {
-        
+    [cell.moreBtn addEventTouchUpInsideAction:^(id _Nonnull sender) {
+
         if (wk_self.popView) {
             [wk_self.popView dismiss];
         }
         [wk_self openMoreView:cell];
     }];
-    
+
     return cell;
 }
 
 
 - (void)openMoreView:(LSTPopViewTVViewCell *)cell {
-    
+
     UIView *view = [LSTPopViewTVCellView getNibView:@"LSTPopViewTVCellView"];
     view.size = CGSizeMake(160, 80);
     view.backgroundColor = UIColor.whiteColor;
-    
-    
+
+
     LSTPopView *popView = [LSTPopView initWithCustomView:view parentView:cell.contentView popStyle:LSTPopStyleSmoothFromRight dismissStyle:LSTDismissStyleSmoothToRight];
     self.popView = popView;
     popView.hemStyle = LSTHemStyleRight;
@@ -137,15 +135,15 @@
         [wk_popView dismiss];
     };
     [popView pop];
-    
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     NSLog(@"点击了cell");
 }
 
@@ -160,7 +158,7 @@
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UITableView *)tableView {
-    if(_tableView) return _tableView;
+    if (_tableView) return _tableView;
     _tableView = [[UITableView alloc] init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -170,7 +168,7 @@
 }
 
 - (NSMutableArray *)dataMarr {
-    if(_dataMarr) return _dataMarr;
+    if (_dataMarr) return _dataMarr;
     _dataMarr = [NSMutableArray array];
     [_dataMarr addObject:@"赵丽颖"];
     [_dataMarr addObject:@"靳东"];
@@ -189,7 +187,7 @@
 }
 
 - (UILabel *)titleLab {
-    if(_titleLab) return _titleLab;
+    if (_titleLab) return _titleLab;
     _titleLab = [[UILabel alloc] init];
     _titleLab.textColor = UIColor.blackColor;
     _titleLab.text = @"我的好友";
@@ -198,14 +196,14 @@
 }
 
 - (UIView *)cutView {
-    if(_cutView) return _cutView;
+    if (_cutView) return _cutView;
     _cutView = [[UIView alloc] init];
     _cutView.backgroundColor = UIColor.lightGrayColor;
     return _cutView;
 }
 
 - (UIView *)topLine {
-    if(_topLine) return _topLine;
+    if (_topLine) return _topLine;
     _topLine = [[UIView alloc] init];
     _topLine.backgroundColor = UIColor.lightGrayColor;
     _topLine.layer.cornerRadius = 2.5;

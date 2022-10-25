@@ -23,7 +23,7 @@ static const uint32_t PTFrameNoTag = 0;
 static const uint32_t PTFrameTypeEndOfStream = 0;
 
 // NSError domain
-FOUNDATION_EXPORT NSString * const PTProtocolErrorDomain;
+FOUNDATION_EXPORT NSString *const PTProtocolErrorDomain;
 
 
 @interface PTProtocol : NSObject
@@ -32,7 +32,7 @@ FOUNDATION_EXPORT NSString * const PTProtocolErrorDomain;
 @property dispatch_queue_t queue;
 
 // Get the shared protocol object for *queue*
-+ (PTProtocol*)sharedProtocolForQueue:(dispatch_queue_t)queue;
++ (PTProtocol *)sharedProtocolForQueue:(dispatch_queue_t)queue;
 
 // Initialize a new protocol object to use a specific queue.
 - (id)initWithDispatchQueue:(dispatch_queue_t)queue;
@@ -52,7 +52,7 @@ FOUNDATION_EXPORT NSString * const PTProtocolErrorDomain;
                     tag:(uint32_t)tag
             withPayload:(dispatch_data_t)payload
             overChannel:(dispatch_io_t)channel
-               callback:(void(^)(NSError *error))callback;
+               callback:(void (^)(NSError *error))callback;
 
 #pragma mark Receiving frames
 
@@ -62,19 +62,19 @@ FOUNDATION_EXPORT NSString * const PTProtocolErrorDomain;
 // To stop reading frames, simply do not invoke *resumeReadingFrames*.
 // When the stream ends, a frame of type PTFrameTypeEndOfStream is received.
 - (void)readFramesOverChannel:(dispatch_io_t)channel
-                      onFrame:(void(^)(NSError *error,
-                                       uint32_t type,
-                                       uint32_t tag,
-                                       uint32_t payloadSize,
-                                       dispatch_block_t resumeReadingFrames))onFrame;
+                      onFrame:(void (^)(NSError *error,
+                              uint32_t type,
+                              uint32_t tag,
+                              uint32_t payloadSize,
+                              dispatch_block_t resumeReadingFrames))onFrame;
 
 // Read a single frame over *channel*. A frame of type PTFrameTypeEndOfStream
 // denotes the stream has ended.
 - (void)readFrameOverChannel:(dispatch_io_t)channel
-                    callback:(void(^)(NSError *error,
-                                      uint32_t frameType,
-                                      uint32_t frameTag,
-                                      uint32_t payloadSize))callback;
+                    callback:(void (^)(NSError *error,
+                            uint32_t frameType,
+                            uint32_t frameTag,
+                            uint32_t payloadSize))callback;
 
 #pragma mark Receiving frame payloads
 
@@ -86,15 +86,15 @@ FOUNDATION_EXPORT NSString * const PTProtocolErrorDomain;
 // returning from the callback.
 - (void)readPayloadOfSize:(size_t)payloadSize
               overChannel:(dispatch_io_t)channel
-                 callback:(void(^)(NSError *error,
-                                   dispatch_data_t contiguousData,
-                                   const uint8_t *buffer,
-                                   size_t bufferSize))callback;
+                 callback:(void (^)(NSError *error,
+                         dispatch_data_t contiguousData,
+                         const uint8_t *buffer,
+                         size_t bufferSize))callback;
 
 // Discard data of *size* waiting on *channel*. *callback* can be NULL.
 - (void)readAndDiscardDataOfSize:(size_t)size
                      overChannel:(dispatch_io_t)channel
-                        callback:(void(^)(NSError *error, BOOL endOfStream))callback;
+                        callback:(void (^)(NSError *error, BOOL endOfStream))callback;
 
 @end
 
@@ -104,7 +104,9 @@ FOUNDATION_EXPORT NSString * const PTProtocolErrorDomain;
 // holds a reference to the recevier. It's the callers responsibility to call
 // dispatch_release on the returned object when done.
 - (dispatch_data_t)createReferencingDispatchData;
+
 + (NSData *)dataWithContentsOfDispatchData:(dispatch_data_t)data;
+
 + (NSDictionary *)dictionaryWithContentsOfData:(NSData *)data;
 @end
 

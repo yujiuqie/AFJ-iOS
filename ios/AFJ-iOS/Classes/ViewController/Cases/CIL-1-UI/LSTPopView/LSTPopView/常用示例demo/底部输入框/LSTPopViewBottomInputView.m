@@ -13,17 +13,17 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    
-    
+
+
 }
+
 - (IBAction)dadad:(UIButton *)sender {
-    
+
 }
 
 
 - (IBAction)sureBtnAction:(UIButton *)sender {
-    self.pv_Height = self.pv_Height+10;
+    self.pv_Height = self.pv_Height + 10;
 }
 
 

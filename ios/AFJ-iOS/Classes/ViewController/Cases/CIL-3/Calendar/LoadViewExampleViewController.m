@@ -11,12 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoadViewExampleViewController()<FSCalendarDataSource,FSCalendarDelegate>
+@interface LoadViewExampleViewController () <FSCalendarDataSource, FSCalendarDelegate>
 
-@property (weak, nonatomic) FSCalendar *calendar;
+@property(weak, nonatomic) FSCalendar *calendar;
 
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
-@property (strong, nonatomic) NSDictionary<NSString *, UIImage *> *images;
+@property(strong, nonatomic) NSDateFormatter *dateFormatter;
+@property(strong, nonatomic) NSDictionary<NSString *, UIImage *> *images;
 
 @end
 
@@ -26,25 +26,23 @@ NS_ASSUME_NONNULL_END
 
 #pragma mark - Life cycle
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.title = @"FSCalendar";
-        self.images = @{@"2020/11/01":[UIImage imageNamed:@"icon_cat"],
-                        @"2020/11/05":[UIImage imageNamed:@"icon_footprint"],
-                        @"2020/11/20":[UIImage imageNamed:@"icon_cat"],
-                        @"2020/11/07":[UIImage imageNamed:@"icon_footprint"]};
+        self.images = @{@"2020/11/01": [UIImage imageNamed:@"icon_cat"],
+                @"2020/11/05": [UIImage imageNamed:@"icon_footprint"],
+                @"2020/11/20": [UIImage imageNamed:@"icon_cat"],
+                @"2020/11/07": [UIImage imageNamed:@"icon_footprint"]};
     }
     return self;
 }
 
-- (void)loadView
-{
+- (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.view = view;
-    
+
     // 450 for iPad and 300 for iPhone
     CGFloat height = [[UIDevice currentDevice].model hasPrefix:@"iPad"] ? 450 : 300;
     FSCalendar *calendar = [[FSCalendar alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), view.frame.size.width, height)];
@@ -52,19 +50,18 @@ NS_ASSUME_NONNULL_END
     calendar.delegate = self;
     calendar.scrollDirection = FSCalendarScrollDirectionVertical;
     calendar.backgroundColor = [UIColor whiteColor];
-    
+
     [view addSubview:calendar];
     self.calendar = calendar;
-    
+
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dateFormatter.dateFormat = @"yyyy/MM/dd";
-    
-    
+
+
     // [self.calendar selectDate:[self.dateFormatter dateFromString:@"2020/02/03"]];
 
     /*
@@ -75,57 +72,49 @@ NS_ASSUME_NONNULL_END
         });
     });
      */
-    
-    
+
+
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
 }
 
 #pragma mark - <FSCalendarDelegate>
 
-- (BOOL)calendar:(FSCalendar *)calendar shouldSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition
-{
-    NSLog(@"should select date %@",[self.dateFormatter stringFromDate:date]);
+- (BOOL)calendar:(FSCalendar *)calendar shouldSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition {
+    NSLog(@"should select date %@", [self.dateFormatter stringFromDate:date]);
     return YES;
 }
 
-- (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition
-{
-    NSLog(@"did select date %@",[self.dateFormatter stringFromDate:date]);
+- (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition {
+    NSLog(@"did select date %@", [self.dateFormatter stringFromDate:date]);
     if (monthPosition == FSCalendarMonthPositionNext || monthPosition == FSCalendarMonthPositionPrevious) {
         [calendar setCurrentPage:date animated:YES];
     }
 }
 
-- (void)calendarCurrentPageDidChange:(FSCalendar *)calendar
-{
-    NSLog(@"did change to page %@",[self.dateFormatter stringFromDate:calendar.currentPage]);
+- (void)calendarCurrentPageDidChange:(FSCalendar *)calendar {
+    NSLog(@"did change to page %@", [self.dateFormatter stringFromDate:calendar.currentPage]);
 }
 
-- (void)calendar:(FSCalendar *)calendar boundingRectWillChange:(CGRect)bounds animated:(BOOL)animated
-{
-    calendar.frame = (CGRect){calendar.frame.origin,bounds.size};
+- (void)calendar:(FSCalendar *)calendar boundingRectWillChange:(CGRect)bounds animated:(BOOL)animated {
+    calendar.frame = (CGRect) {calendar.frame.origin, bounds.size};
 }
 
 #pragma mark - <FSCalendarDataSource>
 
 
-- (NSDate *)minimumDateForCalendar:(FSCalendar *)calendar
-{
+- (NSDate *)minimumDateForCalendar:(FSCalendar *)calendar {
     return [self.dateFormatter dateFromString:@"2020/10/01"];
 }
 
-- (NSDate *)maximumDateForCalendar:(FSCalendar *)calendar
-{
+- (NSDate *)maximumDateForCalendar:(FSCalendar *)calendar {
     return [self.dateFormatter dateFromString:@"2023/10/10"];
 }
 
 
-- (UIImage *)calendar:(FSCalendar *)calendar imageForDate:(NSDate *)date
-{
+- (UIImage *)calendar:(FSCalendar *)calendar imageForDate:(NSDate *)date {
     NSString *dateString = [self.dateFormatter stringFromDate:date];
     return self.images[dateString];
 }

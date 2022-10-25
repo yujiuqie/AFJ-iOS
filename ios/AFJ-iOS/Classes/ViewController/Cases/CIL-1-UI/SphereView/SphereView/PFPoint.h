@@ -16,29 +16,29 @@
 #import "PFMatrix.h"
 
 struct PFPoint {
-	CGFloat x;
-	CGFloat y;
-	CGFloat z;
+    CGFloat x;
+    CGFloat y;
+    CGFloat z;
 };
 typedef struct PFPoint PFPoint;
 
 static PFPoint PFPointMake(CGFloat x, CGFloat y, CGFloat z) {
     PFPoint p;
-	p.x = x;
-	p.y = y;
-	p.z = z;
-	
-	return p;
+    p.x = x;
+    p.y = y;
+    p.z = z;
+
+    return p;
 }
 
 static PFPoint PFPointMakeFromMatrix(PFMatrix matrix) {
-	return PFPointMake(matrix.data[0][0], matrix.data[0][1], matrix.data[0][2]);
+    return PFPointMake(matrix.data[0][0], matrix.data[0][1], matrix.data[0][2]);
 }
 
 static NSString *NSStringFromPFPoint(PFPoint point) {
-	NSString *str = [NSString stringWithFormat:@"(%f,%f,%f)", point.x, point.y, point.z];
-	
-	return str;
+    NSString *str = [NSString stringWithFormat:@"(%f,%f,%f)", point.x, point.y, point.z];
+
+    return str;
 }
 
 
@@ -46,8 +46,8 @@ static NSString *NSStringFromPFPoint(PFPoint point) {
 #pragma mark CGPoint methods
 
 static CGPoint CGPointMakeNormalizedPoint(CGPoint point, CGFloat distance) {
-	CGPoint nPoint = CGPointMake(point.x * 1/distance, point.y * 1/distance);
-	
-	return nPoint;
+    CGPoint nPoint = CGPointMake(point.x * 1 / distance, point.y * 1 / distance);
+
+    return nPoint;
 }
 

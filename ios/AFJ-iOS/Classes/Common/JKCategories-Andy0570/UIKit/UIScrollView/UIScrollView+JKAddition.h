@@ -23,25 +23,37 @@ typedef NS_ENUM(NSInteger, JKScrollDirection) {
 @property(nonatomic) CGFloat jk_contentOffsetY;
 
 - (CGPoint)jk_topContentOffset;
+
 - (CGPoint)jk_bottomContentOffset;
+
 - (CGPoint)jk_leftContentOffset;
+
 - (CGPoint)jk_rightContentOffset;
 
 - (JKScrollDirection)jk_ScrollDirection;
 
 - (BOOL)jk_isScrolledToTop;
+
 - (BOOL)jk_isScrolledToBottom;
+
 - (BOOL)jk_isScrolledToLeft;
+
 - (BOOL)jk_isScrolledToRight;
+
 - (void)jk_scrollToTopAnimated:(BOOL)animated;
+
 - (void)jk_scrollToBottomAnimated:(BOOL)animated;
+
 - (void)jk_scrollToLeftAnimated:(BOOL)animated;
+
 - (void)jk_scrollToRightAnimated:(BOOL)animated;
 
 - (NSUInteger)jk_verticalPageIndex;
+
 - (NSUInteger)jk_horizontalPageIndex;
 
 - (void)jk_scrollToVerticalPageIndex:(NSUInteger)pageIndex animated:(BOOL)animated;
+
 - (void)jk_scrollToHorizontalPageIndex:(NSUInteger)pageIndex animated:(BOOL)animated;
 
 @end

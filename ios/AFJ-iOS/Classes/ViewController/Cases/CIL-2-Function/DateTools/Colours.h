@@ -25,28 +25,30 @@
 
 
 #pragma mark - Static String Keys
-static NSString * kColoursRGBA_R = @"RGBA-r";
-static NSString * kColoursRGBA_G = @"RGBA-g";
-static NSString * kColoursRGBA_B = @"RGBA-b";
-static NSString * kColoursRGBA_A = @"RGBA-a";
-static NSString * kColoursHSBA_H = @"HSBA-h";
-static NSString * kColoursHSBA_S = @"HSBA-s";
-static NSString * kColoursHSBA_B = @"HSBA-b";
-static NSString * kColoursHSBA_A = @"HSBA-a";
-static NSString * kColoursCIE_L = @"LABa-L";
-static NSString * kColoursCIE_A = @"LABa-A";
-static NSString * kColoursCIE_B = @"LABa-B";
-static NSString * kColoursCIE_alpha = @"LABa-a";
-static NSString * kColoursCMYK_C = @"CMYK-c";
-static NSString * kColoursCMYK_M = @"CMYK-m";
-static NSString * kColoursCMYK_Y = @"CMYK-y";
-static NSString * kColoursCMYK_K = @"CMYK-k";
+static NSString *kColoursRGBA_R = @"RGBA-r";
+static NSString *kColoursRGBA_G = @"RGBA-g";
+static NSString *kColoursRGBA_B = @"RGBA-b";
+static NSString *kColoursRGBA_A = @"RGBA-a";
+static NSString *kColoursHSBA_H = @"HSBA-h";
+static NSString *kColoursHSBA_S = @"HSBA-s";
+static NSString *kColoursHSBA_B = @"HSBA-b";
+static NSString *kColoursHSBA_A = @"HSBA-a";
+static NSString *kColoursCIE_L = @"LABa-L";
+static NSString *kColoursCIE_A = @"LABa-A";
+static NSString *kColoursCIE_B = @"LABa-B";
+static NSString *kColoursCIE_alpha = @"LABa-a";
+static NSString *kColoursCMYK_C = @"CMYK-c";
+static NSString *kColoursCMYK_M = @"CMYK-m";
+static NSString *kColoursCMYK_Y = @"CMYK-y";
+static NSString *kColoursCMYK_K = @"CMYK-k";
 
 
 #pragma mark - Create correct iOS/OSX interface
 
 #if TARGET_OS_IPHONE
+
 #import <UIKit/UIKit.h>
+
 @interface UIColor (Colours)
 
 #elif TARGET_OS_MAC
@@ -82,6 +84,7 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 
 
 #pragma mark - Color from Hex/RGBA/HSBA/CIE_LAB/CMYK
+
 /**
  Creates a Color from a Hex representation string
  @param hexString   Hex string that looks like @"#FF0000" or @"FF0000"
@@ -150,8 +153,8 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 + (instancetype)colorFromCMYKDictionary:(NSDictionary *)cmyk;
 
 
-
 #pragma mark - Hex/RGBA/HSBA/CIE_LAB/CMYK from Color
+
 /**
  Creates a Hex representation from a Color
  @return    NSString
@@ -212,6 +215,7 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 
 
 #pragma mark - Color Components
+
 /**
  *  Creates an NSDictionary with RGBA and HSBA color components inside.
  *
@@ -319,6 +323,7 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 
 
 #pragma mark - 4 Color Scheme from Color
+
 /**
  Creates an NSArray of 4 Colors that complement the Color.
  @param type ColorSchemeAnalagous, ColorSchemeMonochromatic, ColorSchemeTriad, ColorSchemeComplementary
@@ -328,6 +333,7 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 
 
 #pragma mark - Contrasting Color from Color
+
 /**
  Creates either [Color whiteColor] or [Color blackColor] depending on if the color this method is run on is dark or light.
  @return    Color
@@ -336,6 +342,7 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 
 
 #pragma mark - Complementary Color
+
 /**
  Creates a complementary color - a color directly opposite it on the color wheel.
  @return    Color
@@ -344,6 +351,7 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 
 
 #pragma mark - Distance between Colors
+
 /**
  *  Returns a float of the distance between 2 colors. Defaults to the
  *  CIE94 specification found here: http://en.wikipedia.org/wiki/Color_difference
@@ -367,123 +375,213 @@ typedef NS_ENUM(NSInteger, ColorDistance) {
 
 
 #pragma mark - Colors
+
 // System Colors
 + (instancetype)infoBlueColor;
+
 + (instancetype)successColor;
+
 + (instancetype)warningColor;
+
 + (instancetype)dangerColor;
 
 // Whites
 + (instancetype)antiqueWhiteColor;
+
 + (instancetype)oldLaceColor;
+
 + (instancetype)ivoryColor;
+
 + (instancetype)seashellColor;
+
 + (instancetype)ghostWhiteColor;
+
 + (instancetype)snowColor;
+
 + (instancetype)linenColor;
 
 // Grays
 + (instancetype)black25PercentColor;
+
 + (instancetype)black50PercentColor;
+
 + (instancetype)black75PercentColor;
+
 + (instancetype)warmGrayColor;
+
 + (instancetype)coolGrayColor;
+
 + (instancetype)charcoalColor;
 
 // Blues
 + (instancetype)tealColor;
+
 + (instancetype)steelBlueColor;
+
 + (instancetype)robinEggColor;
+
 + (instancetype)pastelBlueColor;
+
 + (instancetype)turquoiseColor;
+
 + (instancetype)skyBlueColor;
+
 + (instancetype)indigoColor;
+
 + (instancetype)denimColor;
+
 + (instancetype)blueberryColor;
+
 + (instancetype)cornflowerColor;
+
 + (instancetype)babyBlueColor;
+
 + (instancetype)midnightBlueColor;
+
 + (instancetype)fadedBlueColor;
+
 + (instancetype)icebergColor;
+
 + (instancetype)waveColor;
 
 // Greens
 + (instancetype)emeraldColor;
+
 + (instancetype)grassColor;
+
 + (instancetype)pastelGreenColor;
+
 + (instancetype)seafoamColor;
+
 + (instancetype)paleGreenColor;
+
 + (instancetype)cactusGreenColor;
+
 + (instancetype)chartreuseColor;
+
 + (instancetype)hollyGreenColor;
+
 + (instancetype)oliveColor;
+
 + (instancetype)oliveDrabColor;
+
 + (instancetype)moneyGreenColor;
+
 + (instancetype)honeydewColor;
+
 + (instancetype)limeColor;
+
 + (instancetype)cardTableColor;
 
 // Reds
 + (instancetype)salmonColor;
+
 + (instancetype)brickRedColor;
+
 + (instancetype)easterPinkColor;
+
 + (instancetype)grapefruitColor;
+
 + (instancetype)pinkColor;
+
 + (instancetype)indianRedColor;
+
 + (instancetype)strawberryColor;
+
 + (instancetype)coralColor;
+
 + (instancetype)maroonColor;
+
 + (instancetype)watermelonColor;
+
 + (instancetype)tomatoColor;
+
 + (instancetype)pinkLipstickColor;
+
 + (instancetype)paleRoseColor;
+
 + (instancetype)crimsonColor;
 
 // Purples
 + (instancetype)eggplantColor;
+
 + (instancetype)pastelPurpleColor;
+
 + (instancetype)palePurpleColor;
+
 + (instancetype)coolPurpleColor;
+
 + (instancetype)violetColor;
+
 + (instancetype)plumColor;
+
 + (instancetype)lavenderColor;
+
 + (instancetype)raspberryColor;
+
 + (instancetype)fuschiaColor;
+
 + (instancetype)grapeColor;
+
 + (instancetype)periwinkleColor;
+
 + (instancetype)orchidColor;
 
 // Yellows
 + (instancetype)goldenrodColor;
+
 + (instancetype)yellowGreenColor;
+
 + (instancetype)bananaColor;
+
 + (instancetype)mustardColor;
+
 + (instancetype)buttermilkColor;
+
 + (instancetype)goldColor;
+
 + (instancetype)creamColor;
+
 + (instancetype)lightCreamColor;
+
 + (instancetype)wheatColor;
+
 + (instancetype)beigeColor;
 
 // Oranges
 + (instancetype)peachColor;
+
 + (instancetype)burntOrangeColor;
+
 + (instancetype)pastelOrangeColor;
+
 + (instancetype)cantaloupeColor;
+
 + (instancetype)carrotColor;
+
 + (instancetype)mandarinColor;
 
 // Browns
 + (instancetype)chiliPowderColor;
+
 + (instancetype)burntSiennaColor;
+
 + (instancetype)chocolateColor;
+
 + (instancetype)coffeeColor;
+
 + (instancetype)cinnamonColor;
+
 + (instancetype)almondColor;
+
 + (instancetype)eggshellColor;
+
 + (instancetype)sandColor;
+
 + (instancetype)mudColor;
+
 + (instancetype)siennaColor;
+
 + (instancetype)dustColor;
 
 @end

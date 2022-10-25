@@ -11,30 +11,32 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 // Service name must be < 16 characters
-static NSString * const kServiceName = @"multipeer";
-static NSString * const kMessageKey = @"message";
+static NSString *const kServiceName = @"multipeer";
+static NSString *const kMessageKey = @"message";
 
 @interface MultipeerConnectivityViewController () <MCBrowserViewControllerDelegate,
-                                                   MCSessionDelegate>
+        MCSessionDelegate>
 
 // Required for both Browser and Advertiser roles
-@property (nonatomic, strong) MCPeerID *peerID;
-@property (nonatomic, strong) MCSession *session;
+@property(nonatomic, strong) MCPeerID *peerID;
+@property(nonatomic, strong) MCSession *session;
 
 // Browser using provided Apple UI
-@property (nonatomic, strong) MCBrowserViewController *browserView;
+@property(nonatomic, strong) MCBrowserViewController *browserView;
 
 // Advertiser assistant for declaring intent to receive invitations
-@property (nonatomic, strong) MCAdvertiserAssistant *advertiserAssistant;
+@property(nonatomic, strong) MCAdvertiserAssistant *advertiserAssistant;
 
-@property (weak, nonatomic) IBOutlet UIButton *launchBrowserButton;
-@property (weak, nonatomic) IBOutlet UIButton *launchAdvertiserButton;
-@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
-@property (weak, nonatomic) IBOutlet UIButton *sendMessageButton;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+@property(weak, nonatomic) IBOutlet UIButton *launchBrowserButton;
+@property(weak, nonatomic) IBOutlet UIButton *launchAdvertiserButton;
+@property(weak, nonatomic) IBOutlet UITextField *messageTextField;
+@property(weak, nonatomic) IBOutlet UIButton *sendMessageButton;
+@property(weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 - (IBAction)launchBrowserPressed:(id)sender;
+
 - (IBAction)launchAdvertiser:(id)sender;
+
 - (IBAction)sendMessageButtonPressed:(id)sender;
 
 @end
@@ -56,7 +58,7 @@ static NSString * const kMessageKey = @"message";
                                                                 session:_session];
     _browserView.delegate = self;
     [self presentViewController:_browserView animated:YES completion:nil];
-    
+
     _launchAdvertiserButton.hidden = YES;
     _launchBrowserButton.hidden = YES;
 }
@@ -69,7 +71,7 @@ static NSString * const kMessageKey = @"message";
                                                                 discoveryInfo:nil
                                                                       session:_session];
     [_advertiserAssistant start];
-    
+
     _launchAdvertiserButton.hidden = YES;
     _launchBrowserButton.hidden = YES;
     _activityView.hidden = NO;
@@ -77,7 +79,7 @@ static NSString * const kMessageKey = @"message";
 
 - (IBAction)sendMessageButtonPressed:(id)sender {
     NSString *message = _messageTextField.text;
-    NSDictionary *dataDict = @{ kMessageKey : message };
+    NSDictionary *dataDict = @{kMessageKey: message};
     NSData *data = [NSPropertyListSerialization dataWithPropertyList:dataDict
                                                               format:NSPropertyListBinaryFormat_v1_0
                                                              options:0
@@ -118,7 +120,7 @@ static NSString * const kMessageKey = @"message";
                 _sendMessageButton.hidden = NO;
                 _activityView.hidden = YES;
             });
-            
+
             // This line only necessary for the advertiser. We want to stop advertising our services
             // to other browsers when we successfully connect to one.
             [_advertiserAssistant stop];
@@ -159,26 +161,26 @@ static NSString * const kMessageKey = @"message";
 
 // Required MCSessionDelegate protocol methods but are unused in this application.
 
-- (void)                      session:(MCSession *)session
-    didStartReceivingResourceWithName:(NSString *)resourceName
-                             fromPeer:(MCPeerID *)peerID
-                         withProgress:(NSProgress *)progress {
-    
+- (void)                  session:(MCSession *)session
+didStartReceivingResourceWithName:(NSString *)resourceName
+                         fromPeer:(MCPeerID *)peerID
+                     withProgress:(NSProgress *)progress {
+
 }
 
-- (void)     session:(MCSession *)session
-    didReceiveStream:(NSInputStream *)stream
-            withName:(NSString *)streamName
-            fromPeer:(MCPeerID *)peerID {
-    
+- (void) session:(MCSession *)session
+didReceiveStream:(NSInputStream *)stream
+        withName:(NSString *)streamName
+        fromPeer:(MCPeerID *)peerID {
+
 }
 
-- (void)                       session:(MCSession *)session
-    didFinishReceivingResourceWithName:(NSString *)resourceName
-                              fromPeer:(MCPeerID *)peerID
-                                 atURL:(NSURL *)localURL
-                             withError:(NSError *)error {
-    
+- (void)                   session:(MCSession *)session
+didFinishReceivingResourceWithName:(NSString *)resourceName
+                          fromPeer:(MCPeerID *)peerID
+                             atURL:(NSURL *)localURL
+                         withError:(NSError *)error {
+
 }
 
 @end

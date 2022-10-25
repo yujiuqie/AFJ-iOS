@@ -51,12 +51,12 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.bounds = CGRectMake(0, 4, CGRectGetWidth(frame), CGRectGetHeight(frame));
-        
+
         self.textLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(12) textColor:UIColor.qd_titleTextColor];
         self.textLabel.text = @"具体说明请";
         [self.textLabel sizeToFit];
         [self addSubview:self.textLabel];
-        
+
         self.linkButton = [[QMUIButton alloc] init];
         self.linkButton.titleLabel.font = UIFontMake(12);
         [self.linkButton setTitle:@"查看详情" forState:UIControlStateNormal];
@@ -74,10 +74,10 @@
     [super layoutSubviews];
     CGFloat contentWidth = CGRectGetWidth(self.textLabel.frame) + CGRectGetWidth(self.linkButton.frame);
     CGFloat minX = CGFloatGetCenter(CGRectGetWidth(self.bounds), contentWidth);
-    
+
     self.textLabel.frame = CGRectSetXY(self.textLabel.frame, minX, CGRectGetMinYVerticallyCenterInParentRect(self.bounds, self.textLabel.frame));
     minX = CGRectGetMaxX(self.textLabel.frame);
-    
+
     self.linkButton.frame = CGRectSetXY(self.linkButton.frame, minX, CGRectGetMinYVerticallyCenterInParentRect(self.bounds, self.linkButton.frame));
 }
 

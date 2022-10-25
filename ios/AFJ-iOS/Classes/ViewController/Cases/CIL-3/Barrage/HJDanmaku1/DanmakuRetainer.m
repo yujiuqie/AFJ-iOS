@@ -11,8 +11,8 @@
 
 @interface DanmakuRetainer ()
 
-@property (nonatomic, strong) NSMutableDictionary *hitDanmakus;
-@property (nonatomic, assign) NSInteger maxPyIndex;
+@property(nonatomic, strong) NSMutableDictionary *hitDanmakus;
+@property(nonatomic, assign) NSInteger maxPyIndex;
 
 @end
 
@@ -20,7 +20,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _hitDanmakus = [[NSMutableDictionary alloc] initWithCapacity:self.configuration.maxShowCount+5];;
+        _hitDanmakus = [[NSMutableDictionary alloc] initWithCapacity:self.configuration.maxShowCount + 5];;
     }
     return self;
 }
@@ -42,7 +42,7 @@
 - (float)layoutPyForDanmaku:(DanmakuBaseModel *)danmaku {
     float py = -self.configuration.paintHeight;
     DanmakuBaseModel *tempDanmaku = nil;
-    for (u_int8_t index = 0; index<_maxPyIndex; index++) {
+    for (u_int8_t index = 0; index < _maxPyIndex; index++) {
         tempDanmaku = self.hitDanmakus[@(index)];
         if (!tempDanmaku) {
             self.hitDanmakus[@(index)] = danmaku;
@@ -58,7 +58,7 @@
     return py;
 }
 
-- (float )getpyDicForType:(DanmakuType)type Index:(u_int8_t)index {
+- (float)getpyDicForType:(DanmakuType)type Index:(u_int8_t)index {
     return index * self.configuration.paintHeight;
 }
 
@@ -70,8 +70,8 @@
         return YES;
     }
     float minRemainTime = MIN(danmakuL.remainTime, danmakuR.remainTime);
-    float px1 = [danmakuL pxWithScreenWidth:width remainTime:(danmakuL.remainTime-minRemainTime)];
-    float px2 = [danmakuR pxWithScreenWidth:width remainTime:(danmakuR.remainTime-minRemainTime)];
+    float px1 = [danmakuL pxWithScreenWidth:width remainTime:(danmakuL.remainTime - minRemainTime)];
+    float px2 = [danmakuR pxWithScreenWidth:width remainTime:(danmakuR.remainTime - minRemainTime)];
     if (px1 + danmakuL.size.width > px2) {
         return YES;
     }
@@ -102,7 +102,7 @@
 
 @implementation DanmakuFBRetainer
 
-- (float )getpyDicForType:(DanmakuType)type Index:(u_int8_t)index {
+- (float)getpyDicForType:(DanmakuType)type Index:(u_int8_t)index {
     return self.canvasSize.height - self.configuration.paintHeight * (index + 1);
 }
 

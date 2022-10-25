@@ -9,6 +9,7 @@
 #import "CoreWorker+CoreDataClass.h"
 #import "CoreSnack+CoreDataClass.h"
 #import "CoreTicket+CoreDataClass.h"
+
 @implementation CoreWorker
 
 @end

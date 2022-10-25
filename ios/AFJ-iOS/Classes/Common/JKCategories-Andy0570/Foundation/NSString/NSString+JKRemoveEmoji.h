@@ -12,15 +12,19 @@
 
 // 移除所有emoji，以“”替换
 - (NSString *)jk_stringByRemovingEmoji;
+
 // 移除所有emoji，以string替换
-- (NSString *)jk_stringByReplaceingEmojiWithString:(NSString*)string;
+- (NSString *)jk_stringByReplaceingEmojiWithString:(NSString *)string;
 
 // 字符串是否包含emoji
 - (BOOL)jk_containsEmoji;
+
 // 字符串中包含的所有emoji unicode格式
 - (NSArray<NSString *> *)jk_allEmoji;
+
 // 字符串中包含的所有emoji
 - (NSString *)jk_allEmojiString;
+
 // 字符串中包含的所有emoji rang
 - (NSArray<NSString *> *)jk_allEmojiRanges;
 

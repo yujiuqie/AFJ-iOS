@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** 倒计时lab */
-@property (nonatomic,strong) UILabel *timeLab;
+@property(nonatomic, strong) UILabel *timeLab;
 
 @end
 

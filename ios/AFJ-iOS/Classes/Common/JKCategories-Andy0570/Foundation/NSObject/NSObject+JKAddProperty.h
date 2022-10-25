@@ -16,9 +16,9 @@
 @interface NSObject (JKAddProperty)
 
 /// runtime 实现 get set 方法增加一个字符串属性
-@property (nonatomic,strong) NSString *jk_stringProperty;
+@property(nonatomic, strong) NSString *jk_stringProperty;
 
 /// runtime实现get set方法增加一个NSInteger属性
-@property (nonatomic,assign) NSInteger jk_integerProperty;
+@property(nonatomic, assign) NSInteger jk_integerProperty;
 
 @end

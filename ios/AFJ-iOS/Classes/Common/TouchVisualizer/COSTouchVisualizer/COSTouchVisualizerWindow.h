@@ -18,19 +18,22 @@ typedef NS_ENUM(NSUInteger, COSTouchVisualizerWindowTouchVisibility) {
 
 @interface COSTouchVisualizerWindow : UIWindow
 
-@property (nonatomic, readonly, getter=isMorphEnabled) BOOL morphEnabled;
-@property (nonatomic, readonly, nonnull) COSTouchConfig *touchContactConfig;
-@property (nonatomic, readonly, nonnull) COSTouchConfig *touchRippleConfig;
-@property (nonatomic, readonly) COSTouchVisualizerWindowTouchVisibility touchVisibility;
+@property(nonatomic, readonly, getter=isMorphEnabled) BOOL morphEnabled;
+@property(nonatomic, readonly, nonnull) COSTouchConfig *touchContactConfig;
+@property(nonatomic, readonly, nonnull) COSTouchConfig *touchRippleConfig;
+@property(nonatomic, readonly) COSTouchVisualizerWindowTouchVisibility touchVisibility;
 
--(nonnull instancetype)initWithFrame:(CGRect)frame
-                        morphEnabled:(BOOL)morphEnabled
-                          touchVisibility:(COSTouchVisualizerWindowTouchVisibility)touchVisibility
-                       contactConfig:(nullable COSTouchConfig*)contactConfig
-                        rippleConfig:(nullable COSTouchConfig*)rippleConfig NS_DESIGNATED_INITIALIZER;
--(nonnull instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
--(nonnull instancetype)init NS_UNAVAILABLE;
--(nonnull instancetype)initWithCoder:(nonnull NSCoder *)aDecoder NS_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame
+                         morphEnabled:(BOOL)morphEnabled
+                      touchVisibility:(COSTouchVisualizerWindowTouchVisibility)touchVisibility
+                        contactConfig:(nullable COSTouchConfig *)contactConfig
+                         rippleConfig:(nullable COSTouchConfig *)rippleConfig NS_DESIGNATED_INITIALIZER;
+
+- (nonnull instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+
+- (nonnull instancetype)init NS_UNAVAILABLE;
+
+- (nonnull instancetype)initWithCoder:(nonnull NSCoder *)aDecoder NS_UNAVAILABLE;
 
 
 @end

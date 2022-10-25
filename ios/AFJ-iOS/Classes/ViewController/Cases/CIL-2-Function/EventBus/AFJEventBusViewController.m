@@ -12,9 +12,9 @@
 #import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
 #import "AFJCaseItemData.h"
 
-@interface AFJEventBusViewController()
+@interface AFJEventBusViewController ()
 
-@property (nonatomic, strong) GPJDataDrivenTableView  *tableView;
+@property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
 @end
 
@@ -24,11 +24,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupListener];
-    
+
     self.tableView = [[GPJDataDrivenTableView alloc] initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-    
+
     __weak typeof(self) weakSelf = self;
     NSMutableArray *dataArray = [NSMutableArray array];
     {
@@ -63,36 +63,36 @@
         };
         [dataArray addObject:item];
     }
-   
+
     [self.tableView reloadDataArray:dataArray];
 }
 
-- (void)setupListener{
+- (void)setupListener {
     __weak typeof(self) weakSelf = self;
     [QTSub(self, DemoEvent) next:^(DemoEvent *event) {
-        NSLog(@"%ld",event.count);
-        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%ld",event.count]];
+        NSLog(@"%ld", event.count);
+        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%ld", event.count]];
     }];
     [QTSubNoti(self, @"name") next:^(NSNotification *event) {
-        NSLog(@"%@",@"Block 1 Receive Notification");
-        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%@",@"Block 1 Receive Notification"]];
+        NSLog(@"%@", @"Block 1 Receive Notification");
+        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%@", @"Block 1 Receive Notification"]];
     }];
     [QTSubNoti(self, @"name") next:^(NSNotification *event) {
-        NSLog(@"%@",@"Block 2 Receive Notification");
-        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%@",@"Block 2 Receive Notification"]];
+        NSLog(@"%@", @"Block 2 Receive Notification");
+        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%@", @"Block 2 Receive Notification"]];
     }];
     [QTSub(self, QTAppLifeCircleEvent).ofSubType(QTAppLifeCircleEvent.didEnterBackground)
-     next:^(QTAppLifeCircleEvent *event) {
-         NSLog(@"DemoViewController: %@",event.type);
-        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"DemoViewController: %@",event.type]];
-    }];
+            next:^(QTAppLifeCircleEvent *event) {
+                NSLog(@"DemoViewController: %@", event.type);
+                [weakSelf showToastWithMessage:[NSString stringWithFormat:@"DemoViewController: %@", event.type]];
+            }];
     [QTSubName(self, @"ButtonClickedEvent") next:^(NSString *event) {
-        NSLog(@"%@",@"Receive String Event");
-        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%@",@"Receive String Event"]];
+        NSLog(@"%@", @"Receive String Event");
+        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"%@", @"Receive String Event"]];
     }];
     [QTSubJSON(self, @"EventKey") next:^(QTJsonEvent *event) {
-        NSLog(@"Receive Json Event: %@",event.data);
-        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"Receive Json Event: %@",event.data]];
+        NSLog(@"Receive Json Event: %@", event.data);
+        [weakSelf showToastWithMessage:[NSString stringWithFormat:@"Receive Json Event: %@", event.data]];
     }];
 }
 
@@ -102,9 +102,9 @@
 
 - (void)dispatchEvent {
     static long _count = 1;
-    DemoEvent * event = [[DemoEvent alloc] init];
+    DemoEvent *event = [[DemoEvent alloc] init];
     event.count = _count;
-    _count ++;
+    _count++;
     [[QTEventBus shared] dispatch:event];
 }
 
@@ -113,8 +113,8 @@
 }
 
 - (void)dispatchJson {
-    QTJsonEvent * event = [QTJsonEvent eventWithId:@"EventKey"
-                                       jsonObject:@{@"Author" : @"LeoMobileDeveloper"}];
+    QTJsonEvent *event = [QTJsonEvent eventWithId:@"EventKey"
+                                       jsonObject:@{@"Author": @"LeoMobileDeveloper"}];
     [[QTEventBus shared] dispatch:event];
 }
 

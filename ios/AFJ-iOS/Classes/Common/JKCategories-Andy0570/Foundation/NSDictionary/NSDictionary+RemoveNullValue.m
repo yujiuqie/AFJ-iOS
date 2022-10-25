@@ -10,13 +10,13 @@
 
 - (NSDictionary *)jk_removeNullValue {
     NSMutableDictionary *prunedDict = [self mutableCopy];
-    
+
     NSArray *keysForNullValue = [self allKeysForObject:[NSNull null]];
     [prunedDict removeObjectForKey:keysForNullValue];
-    
+
     NSArray *keysForEmptyValye = [self allKeysForObject:@""];
     [prunedDict removeObjectForKey:keysForEmptyValye];
-    
+
     return [prunedDict copy];
 }
 

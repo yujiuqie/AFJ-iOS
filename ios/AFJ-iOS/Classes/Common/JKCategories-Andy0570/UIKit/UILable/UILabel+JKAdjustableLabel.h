@@ -23,12 +23,12 @@
 
 /// 本扩展的核心方法，如果 minSize 被设置为 CGSizeZero，那么它将被忽略
 - (void)jk_adjustLabelToMaximumSize:(CGSize)maxSize
-                     minimumSize:(CGSize)minSize 
-                 minimumFontSize:(int)minFontSize;
+                        minimumSize:(CGSize)minSize
+                    minimumFontSize:(int)minFontSize;
 
 /// 只使用最大尺寸（maxSize）和字体大小作为约束条件来调整标签
 - (void)jk_adjustLabelToMaximumSize:(CGSize)maxSize
-                 minimumFontSize:(int)minFontSize;
+                    minimumFontSize:(int)minFontSize;
 
 /// 只用字体大小作为约束条件来调整标签的尺寸
 /// （最大尺寸将根据屏幕尺寸自动计算）

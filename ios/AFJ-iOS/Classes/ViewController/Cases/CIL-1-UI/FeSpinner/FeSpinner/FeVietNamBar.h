@@ -10,13 +10,13 @@
 
 @interface FeVietNamBar : CALayer
 // init Vietnam Bar at index
--(id) initAtIndex:(NSInteger) index colors:(NSArray *) colors;
+- (id)initAtIndex:(NSInteger)index colors:(NSArray *)colors;
 
 // Start animation
--(void) startAnimation;
+- (void)startAnimation;
 
 // Stop animation
--(void) stopAnimation;
+- (void)stopAnimation;
 @end
 /*
  //// General Declarations

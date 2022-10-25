@@ -40,12 +40,17 @@
 #pragma mark - 类方法
 
 + (double)jk_CHtoWGSlatWithX:(double)x y:(double)y;
+
 + (double)jk_CHtoWGSlongWithX:(double)x y:(double)y;
+
 + (double)jk_WGStoCHyWithLatitude:(double)lat longitude:(double)lng;
+
 + (double)jk_WGStoCHxWithLatitude:(double)lat longitude:(double)lng;
 
 + (double)jk_decToSex:(double)angle;
+
 + (double)jk_degToSec:(double)angle;
+
 + (double)jk_sexToDec:(double)angle;
 
 @end

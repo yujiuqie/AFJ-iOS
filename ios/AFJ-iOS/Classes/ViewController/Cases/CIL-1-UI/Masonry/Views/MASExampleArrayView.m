@@ -12,8 +12,8 @@ static CGFloat const kArrayExampleIncrement = 10.0;
 
 @interface MASExampleArrayView ()
 
-@property (nonatomic, assign) CGFloat offset;
-@property (nonatomic, strong) NSArray *buttonViews;
+@property(nonatomic, assign) CGFloat offset;
+@property(nonatomic, strong) NSArray *buttonViews;
 
 @end
 
@@ -22,12 +22,12 @@ static CGFloat const kArrayExampleIncrement = 10.0;
 - (id)init {
     self = [super init];
     if (!self) return nil;
-    
+
     UIButton *raiseButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [raiseButton setTitle:@"Raise" forState:UIControlStateNormal];
     [raiseButton addTarget:self action:@selector(raiseAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:raiseButton];
-    
+
     UIButton *centerButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [centerButton setTitle:@"Center" forState:UIControlStateNormal];
     [centerButton addTarget:self action:@selector(centerAction) forControlEvents:UIControlEventTouchUpInside];
@@ -37,7 +37,7 @@ static CGFloat const kArrayExampleIncrement = 10.0;
     [lowerButton setTitle:@"Lower" forState:UIControlStateNormal];
     [lowerButton addTarget:self action:@selector(lowerAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:lowerButton];
-    
+
     [lowerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).with.offset(10.0);
     }];
@@ -49,9 +49,9 @@ static CGFloat const kArrayExampleIncrement = 10.0;
     [raiseButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).with.offset(-10);
     }];
-    
-    self.buttonViews = @[ raiseButton, lowerButton, centerButton ];
-    
+
+    self.buttonViews = @[raiseButton, lowerButton, centerButton];
+
     return self;
 }
 
@@ -76,7 +76,7 @@ static CGFloat const kArrayExampleIncrement = 10.0;
     [self.buttonViews mas_updateConstraints:^(MASConstraintMaker *make) {
         make.baseline.equalTo(self.mas_centerY).with.offset(self.offset);
     }];
-    
+
     //according to apple super should be called at end of method
     [super updateConstraints];
 }

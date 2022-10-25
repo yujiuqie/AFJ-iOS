@@ -11,14 +11,14 @@
 
 
 @interface QRCodeReaderViewController ()
-<TTMQRCodeReaderDelegate>
+        <TTMQRCodeReaderDelegate>
 @end
 
 
 @implementation QRCodeReaderViewController
 
 - (void)viewDidLoad {
-    
+
     [super viewDidLoad];
 }
 
@@ -28,9 +28,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+
     [super viewWillAppear:animated];
-    
+
     [[TTMQRCodeReader sharedReader] setDelegate:self];
     [[TTMQRCodeReader sharedReader] startReaderOnView:self.view];
 }
@@ -50,9 +50,9 @@
 #pragma mark - TTMQRCodeReaderDelegate
 
 - (void)didDetectQRCode:(AVMetadataMachineReadableCodeObject *)qrCode {
-    
+
     NSString *msg = [NSString stringWithFormat:@"Detected a QR code! type:%@, value:%@",
-                     qrCode.type, qrCode.stringValue];
+                                               qrCode.type, qrCode.stringValue];
     [SVProgressHUD showSuccessWithStatus:msg];
 }
 

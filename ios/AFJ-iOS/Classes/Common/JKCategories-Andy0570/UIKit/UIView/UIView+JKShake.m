@@ -16,7 +16,7 @@
     [self _jk_shake:times direction:1 currentTimes:0 withDelta:delta speed:0.03 shakeDirection:JKShakeDirectionHorizontal completion:nil];
 }
 
-- (void)jk_shake:(int)times withDelta:(CGFloat)delta completion:(void(^)(void))handler {
+- (void)jk_shake:(int)times withDelta:(CGFloat)delta completion:(void (^)(void))handler {
     [self _jk_shake:times direction:1 currentTimes:0 withDelta:delta speed:0.03 shakeDirection:JKShakeDirectionHorizontal completion:handler];
 }
 
@@ -24,7 +24,7 @@
     [self _jk_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:JKShakeDirectionHorizontal completion:nil];
 }
 
-- (void)jk_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval completion:(void(^)(void))handler {
+- (void)jk_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval completion:(void (^)(void))handler {
     [self _jk_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:JKShakeDirectionHorizontal completion:handler];
 }
 
@@ -39,11 +39,11 @@
 - (void)_jk_shake:(int)times direction:(int)direction currentTimes:(int)current withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakeDirection)shakeDirection completion:(void (^)(void))completionHandler {
     [UIView animateWithDuration:interval animations:^{
         self.layer.affineTransform = (shakeDirection == JKShakeDirectionHorizontal) ? CGAffineTransformMakeTranslation(delta * direction, 0) : CGAffineTransformMakeTranslation(0, delta * direction);
-    } completion:^(BOOL finished) {
-        if(current >= times) {
+    }                completion:^(BOOL finished) {
+        if (current >= times) {
             [UIView animateWithDuration:interval animations:^{
                 self.layer.affineTransform = CGAffineTransformIdentity;
-            } completion:^(BOOL finished){
+            }                completion:^(BOOL finished) {
                 if (completionHandler != nil) {
                     completionHandler();
                 }
@@ -51,12 +51,12 @@
             return;
         }
         [self _jk_shake:(times - 1)
-           direction:direction * -1
-        currentTimes:current + 1
-           withDelta:delta
-               speed:interval
-      shakeDirection:shakeDirection
-          completion:completionHandler];
+              direction:direction * -1
+           currentTimes:current + 1
+              withDelta:delta
+                  speed:interval
+         shakeDirection:shakeDirection
+             completion:completionHandler];
     }];
 }
 

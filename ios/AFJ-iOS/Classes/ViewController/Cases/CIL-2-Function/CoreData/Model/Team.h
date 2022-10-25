@@ -10,16 +10,17 @@
 
 @class Coach;
 @class Player;
+
 @interface Team : NSObject
 
-@property (copy, nonatomic) NSString *flag;
-@property (copy, nonatomic) NSString *summary;
+@property(copy, nonatomic) NSString *flag;
+@property(copy, nonatomic) NSString *summary;
 
-@property (assign, nonatomic) NSInteger date;
-@property (assign, nonatomic) NSInteger teamId;
+@property(assign, nonatomic) NSInteger date;
+@property(assign, nonatomic) NSInteger teamId;
 
-@property (strong, nonatomic) Coach *coach;
-@property (strong, nonatomic) NSArray<Player *> *players;
+@property(strong, nonatomic) Coach *coach;
+@property(strong, nonatomic) NSArray<Player *> *players;
 
 + (instancetype)instanceWithId:(NSUInteger)ID;
 @end

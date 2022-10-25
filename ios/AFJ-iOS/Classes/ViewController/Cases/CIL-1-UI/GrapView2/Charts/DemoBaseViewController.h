@@ -12,23 +12,24 @@
 #import <UIKit/UIKit.h>
 #import "AFJ_iOS-Swift.h"
 
-@interface DemoBaseViewController : UIViewController
-{
+@interface DemoBaseViewController : UIViewController {
 @protected
     NSArray *parties;
 }
 
-@property (nonatomic, strong) IBOutlet UIButton *optionsButton;
-@property (nonatomic, strong) IBOutlet NSArray *options;
+@property(nonatomic, strong) IBOutlet UIButton *optionsButton;
+@property(nonatomic, strong) IBOutlet NSArray *options;
 
-@property (nonatomic, assign) BOOL shouldHideData;
+@property(nonatomic, assign) BOOL shouldHideData;
 
 - (void)handleOption:(NSString *)key forChartView:(ChartViewBase *)chartView;
 
 - (void)updateChartData;
 
 - (void)setupPieChartView:(PieChartView *)chartView;
+
 - (void)setupRadarChartView:(RadarChartView *)chartView;
+
 - (void)setupBarLineChartView:(BarLineChartViewBase *)chartView;
 
 @end

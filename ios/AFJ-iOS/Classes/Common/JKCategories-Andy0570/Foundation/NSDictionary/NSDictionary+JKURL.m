@@ -11,9 +11,9 @@
 + (NSDictionary *)jk_dictionaryWithURLQuery:(NSString *)query {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSArray *parameters = [query componentsSeparatedByString:@"&"];
-    for(NSString *parameter in parameters) {
+    for (NSString *parameter in parameters) {
         NSArray *contents = [parameter componentsSeparatedByString:@"="];
-        if([contents count] == 2) {
+        if ([contents count] == 2) {
             NSString *key = [contents objectAtIndex:0];
             NSString *value = [contents objectAtIndex:1];
             // 通过删除百分比编码字符串

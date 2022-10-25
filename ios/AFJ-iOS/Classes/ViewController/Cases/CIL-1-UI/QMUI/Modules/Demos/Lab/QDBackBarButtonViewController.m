@@ -30,94 +30,94 @@
 
 - (void)initTableView {
     [super initTableView];
-    __weak __typeof(self)weakSelf = self;
+    __weak __typeof(self) weakSelf = self;
     self.tableView.qmui_staticCellDataSource = [[QMUIStaticTableViewCellDataSource alloc] initWithCellDataSections:@[
-        // section 0
-        @[
-            ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.style = UITableViewCellStyleSubtitle;
-        d.text = @"显示自定义的 backBarButtonItem";
-        d.detailText = @"与系统一致，设置在前一个界面，生效在下一个界面";
-        d.didSelectBlock = ^(UITableView * _Nonnull tableView, QMUIStaticTableViewCellData * _Nonnull cellData) {
-            [weakSelf clearState];
-            
-            // 为了方便演示，Demo 里会在当前界面设置前一个界面的 qmui_backBarButton，实际业务场景并不会这么写
-            weakSelf.badgeOfPreviousViewController = 8;
-        };
-        d;
-    }),
-            ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.style = UITableViewCellStyleSubtitle;
-        d.text = @"动态更新 backBarButtonItem";
-        d.detailText = @"子界面的返回按钮会实时更新";
-        d.didSelectBlock = ^(UITableView * _Nonnull tableView, QMUIStaticTableViewCellData * _Nonnull cellData) {
-            [weakSelf clearState];
-            
-            // 为了方便演示，Demo 里会在当前界面设置前一个界面的 qmui_backBarButton，实际业务场景并不会这么写
-            weakSelf.badgeOfPreviousViewController = 100;
-        };
-        d;
-    }),
-            ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.text = @"恢复为系统 backBarButtonItem";
-        d.didSelectBlock = ^(UITableView * _Nonnull tableView, QMUIStaticTableViewCellData * _Nonnull cellData) {
-            [weakSelf clearState];
-            
-            // 把 qmui_backBarButton 置为 nil 即可恢复系统的返回按钮
-            weakSelf.qmui_previousViewController.navigationItem.qmui_backBarButton = nil;
-        };
-        d;
-    }),
-            ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.text = @"同时显示 leftBarButtonItems 和返回按钮";
-        d.didSelectBlock = ^(UITableView * _Nonnull tableView, QMUIStaticTableViewCellData * _Nonnull cellData) {
-            [weakSelf clearState];
-            
-            weakSelf.navigationItem.leftItemsSupplementBackButton = YES;// 先让返回按钮能与 leftBarButtonItems 共存
-            weakSelf.navigationItem.leftBarButtonItems = @[
-                [UIBarButtonItem qmui_closeItemWithTarget:nil action:NULL],
-            ];
-        };
-        d;
-    }),
-            ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.text = @"只显示 leftBarButtonItems";
-        d.didSelectBlock = ^(UITableView * _Nonnull tableView, QMUIStaticTableViewCellData * _Nonnull cellData) {
-            [weakSelf clearState];
-            
-            weakSelf.navigationItem.leftItemsSupplementBackButton = NO;// 与系统用法一致，通过修改 leftItemsSupplementBackButton 为 NO 避免返回按钮与 leftBarButtonItems 同时显示
-            weakSelf.navigationItem.leftBarButtonItems = @[
-                [UIBarButtonItem qmui_closeItemWithTarget:nil action:NULL],
-            ];
-        };
-        d;
-    }),
-            ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.text = @"hidesBackButton";
-        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeSwitch;
-        d.accessorySwitchBlock = ^(UITableView * _Nonnull tableView, QMUIStaticTableViewCellData * _Nonnull cellData, UISwitch * _Nonnull switcher) {
-            weakSelf.navigationItem.hidesBackButton = switcher.on;
-        };
-        d;
-    }),
-            ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.text = @"切换导航栏的显隐";
-        d.detailText = @"导航栏不可见时也应能刷新 backBarButtonItem";
-        d.didSelectBlock = ^(UITableView * _Nonnull tableView, QMUIStaticTableViewCellData * _Nonnull cellData) {
-            [weakSelf clearState];
-            
-            [weakSelf.navigationController setNavigationBarHidden:!weakSelf.navigationController.navigationBarHidden animated:YES];
-        };
-        d;
-    }),
-        ],
+            // section 0
+            @[
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.style = UITableViewCellStyleSubtitle;
+                        d.text = @"显示自定义的 backBarButtonItem";
+                        d.detailText = @"与系统一致，设置在前一个界面，生效在下一个界面";
+                        d.didSelectBlock = ^(UITableView *_Nonnull tableView, QMUIStaticTableViewCellData *_Nonnull cellData) {
+                            [weakSelf clearState];
+
+                            // 为了方便演示，Demo 里会在当前界面设置前一个界面的 qmui_backBarButton，实际业务场景并不会这么写
+                            weakSelf.badgeOfPreviousViewController = 8;
+                        };
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.style = UITableViewCellStyleSubtitle;
+                        d.text = @"动态更新 backBarButtonItem";
+                        d.detailText = @"子界面的返回按钮会实时更新";
+                        d.didSelectBlock = ^(UITableView *_Nonnull tableView, QMUIStaticTableViewCellData *_Nonnull cellData) {
+                            [weakSelf clearState];
+
+                            // 为了方便演示，Demo 里会在当前界面设置前一个界面的 qmui_backBarButton，实际业务场景并不会这么写
+                            weakSelf.badgeOfPreviousViewController = 100;
+                        };
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.text = @"恢复为系统 backBarButtonItem";
+                        d.didSelectBlock = ^(UITableView *_Nonnull tableView, QMUIStaticTableViewCellData *_Nonnull cellData) {
+                            [weakSelf clearState];
+
+                            // 把 qmui_backBarButton 置为 nil 即可恢复系统的返回按钮
+                            weakSelf.qmui_previousViewController.navigationItem.qmui_backBarButton = nil;
+                        };
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.text = @"同时显示 leftBarButtonItems 和返回按钮";
+                        d.didSelectBlock = ^(UITableView *_Nonnull tableView, QMUIStaticTableViewCellData *_Nonnull cellData) {
+                            [weakSelf clearState];
+
+                            weakSelf.navigationItem.leftItemsSupplementBackButton = YES;// 先让返回按钮能与 leftBarButtonItems 共存
+                            weakSelf.navigationItem.leftBarButtonItems = @[
+                                    [UIBarButtonItem qmui_closeItemWithTarget:nil action:NULL],
+                            ];
+                        };
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.text = @"只显示 leftBarButtonItems";
+                        d.didSelectBlock = ^(UITableView *_Nonnull tableView, QMUIStaticTableViewCellData *_Nonnull cellData) {
+                            [weakSelf clearState];
+
+                            weakSelf.navigationItem.leftItemsSupplementBackButton = NO;// 与系统用法一致，通过修改 leftItemsSupplementBackButton 为 NO 避免返回按钮与 leftBarButtonItems 同时显示
+                            weakSelf.navigationItem.leftBarButtonItems = @[
+                                    [UIBarButtonItem qmui_closeItemWithTarget:nil action:NULL],
+                            ];
+                        };
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.text = @"hidesBackButton";
+                        d.accessoryType = QMUIStaticTableViewCellAccessoryTypeSwitch;
+                        d.accessorySwitchBlock = ^(UITableView *_Nonnull tableView, QMUIStaticTableViewCellData *_Nonnull cellData, UISwitch *_Nonnull switcher) {
+                            weakSelf.navigationItem.hidesBackButton = switcher.on;
+                        };
+                        d;
+                    }),
+                    ({
+                        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
+                        d.text = @"切换导航栏的显隐";
+                        d.detailText = @"导航栏不可见时也应能刷新 backBarButtonItem";
+                        d.didSelectBlock = ^(UITableView *_Nonnull tableView, QMUIStaticTableViewCellData *_Nonnull cellData) {
+                            [weakSelf clearState];
+
+                            [weakSelf.navigationController setNavigationBarHidden:!weakSelf.navigationController.navigationBarHidden animated:YES];
+                        };
+                        d;
+                    }),
+            ],
     ]];
 }
 
@@ -163,7 +163,7 @@
         [self.backIconImageView sizeToFit];
         self.backIconImageView.tintColor = NavBarTintColor;
         [self addSubview:self.backIconImageView];
-        
+
         self.countLabel = UILabel.new;
         self.countLabel.font = UIFontBoldMake(14);
         self.countLabel.textAlignment = NSTextAlignmentCenter;
@@ -171,10 +171,10 @@
         self.countLabel.textColor = self.backIconImageView.tintColor;
         self.countLabel.backgroundColor = [self.backIconImageView.tintColor colorWithAlphaComponent:.25];
         [self addSubview:self.countLabel];
-        
+
         self.countLabelPadding = UIEdgeInsetsMake(4, 6, 4, 6);
         self.spacingBetweenImageAndTitle = 5;
-        
+
         [self addTarget:self action:@selector(handlePopEvent) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
@@ -192,7 +192,7 @@
     countLabelSize.width = MAX(countLabelSize.width, countLabelSize.height);
     CGFloat resultWidth = CGRectGetWidth(self.backIconImageView.frame) + self.spacingBetweenImageAndTitle + countLabelSize.width;
     CGFloat resultHeight = MAX(CGRectGetHeight(self.backIconImageView.frame), countLabelSize.height);
-    
+
     return CGSizeMake(resultWidth, resultHeight);
 }
 
@@ -211,9 +211,9 @@
 }
 
 - (void)handlePopEvent {
-    UINavigationController *nav = (UINavigationController *)self.qmui_viewController;
+    UINavigationController *nav = (UINavigationController *) self.qmui_viewController;
     if ([self.qmui_viewController isKindOfClass:UINavigationController.class]) {
-        
+
         // QMUIBackBarButton 的目的是为了尽量模仿系统原生的返回按钮，而系统返回按钮被点击时会询问 QMUI 这个 delegate，所以这里也要调用一下
         // 实际场景：例如 webView 点返回按钮会执行网页的后退操作而不是 nav 的 pop 操作
         BOOL shouldPop = YES;

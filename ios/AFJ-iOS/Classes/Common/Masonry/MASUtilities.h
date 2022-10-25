@@ -9,36 +9,36 @@
 #import <Foundation/Foundation.h>
 
 
-
 #if TARGET_OS_IPHONE || TARGET_OS_TV
 
-    #import <UIKit/UIKit.h>
-    #define MAS_VIEW UIView
-    #define MAS_VIEW_CONTROLLER UIViewController
-    #define MASEdgeInsets UIEdgeInsets
+#import <UIKit/UIKit.h>
 
-    typedef UILayoutPriority MASLayoutPriority;
-    static const MASLayoutPriority MASLayoutPriorityRequired = UILayoutPriorityRequired;
-    static const MASLayoutPriority MASLayoutPriorityDefaultHigh = UILayoutPriorityDefaultHigh;
-    static const MASLayoutPriority MASLayoutPriorityDefaultMedium = 500;
-    static const MASLayoutPriority MASLayoutPriorityDefaultLow = UILayoutPriorityDefaultLow;
-    static const MASLayoutPriority MASLayoutPriorityFittingSizeLevel = UILayoutPriorityFittingSizeLevel;
+#define MAS_VIEW UIView
+#define MAS_VIEW_CONTROLLER UIViewController
+#define MASEdgeInsets UIEdgeInsets
+
+typedef UILayoutPriority MASLayoutPriority;
+static const MASLayoutPriority MASLayoutPriorityRequired = UILayoutPriorityRequired;
+static const MASLayoutPriority MASLayoutPriorityDefaultHigh = UILayoutPriorityDefaultHigh;
+static const MASLayoutPriority MASLayoutPriorityDefaultMedium = 500;
+static const MASLayoutPriority MASLayoutPriorityDefaultLow = UILayoutPriorityDefaultLow;
+static const MASLayoutPriority MASLayoutPriorityFittingSizeLevel = UILayoutPriorityFittingSizeLevel;
 
 #elif TARGET_OS_MAC
 
-    #import <AppKit/AppKit.h>
-    #define MAS_VIEW NSView
-    #define MASEdgeInsets NSEdgeInsets
+#import <AppKit/AppKit.h>
+#define MAS_VIEW NSView
+#define MASEdgeInsets NSEdgeInsets
 
-    typedef NSLayoutPriority MASLayoutPriority;
-    static const MASLayoutPriority MASLayoutPriorityRequired = NSLayoutPriorityRequired;
-    static const MASLayoutPriority MASLayoutPriorityDefaultHigh = NSLayoutPriorityDefaultHigh;
-    static const MASLayoutPriority MASLayoutPriorityDragThatCanResizeWindow = NSLayoutPriorityDragThatCanResizeWindow;
-    static const MASLayoutPriority MASLayoutPriorityDefaultMedium = 501;
-    static const MASLayoutPriority MASLayoutPriorityWindowSizeStayPut = NSLayoutPriorityWindowSizeStayPut;
-    static const MASLayoutPriority MASLayoutPriorityDragThatCannotResizeWindow = NSLayoutPriorityDragThatCannotResizeWindow;
-    static const MASLayoutPriority MASLayoutPriorityDefaultLow = NSLayoutPriorityDefaultLow;
-    static const MASLayoutPriority MASLayoutPriorityFittingSizeCompression = NSLayoutPriorityFittingSizeCompression;
+typedef NSLayoutPriority MASLayoutPriority;
+static const MASLayoutPriority MASLayoutPriorityRequired = NSLayoutPriorityRequired;
+static const MASLayoutPriority MASLayoutPriorityDefaultHigh = NSLayoutPriorityDefaultHigh;
+static const MASLayoutPriority MASLayoutPriorityDragThatCanResizeWindow = NSLayoutPriorityDragThatCanResizeWindow;
+static const MASLayoutPriority MASLayoutPriorityDefaultMedium = 501;
+static const MASLayoutPriority MASLayoutPriorityWindowSizeStayPut = NSLayoutPriorityWindowSizeStayPut;
+static const MASLayoutPriority MASLayoutPriorityDragThatCannotResizeWindow = NSLayoutPriorityDragThatCannotResizeWindow;
+static const MASLayoutPriority MASLayoutPriorityDefaultLow = NSLayoutPriorityDefaultLow;
+static const MASLayoutPriority MASLayoutPriorityFittingSizeCompression = NSLayoutPriorityFittingSizeCompression;
 
 #endif
 
@@ -81,52 +81,52 @@ static inline id _MASBoxValue(const char *type, ...) {
         id actual = va_arg(v, id);
         obj = actual;
     } else if (strcmp(type, @encode(CGPoint)) == 0) {
-        CGPoint actual = (CGPoint)va_arg(v, CGPoint);
+        CGPoint actual = (CGPoint) va_arg(v, CGPoint);
         obj = [NSValue value:&actual withObjCType:type];
     } else if (strcmp(type, @encode(CGSize)) == 0) {
-        CGSize actual = (CGSize)va_arg(v, CGSize);
+        CGSize actual = (CGSize) va_arg(v, CGSize);
         obj = [NSValue value:&actual withObjCType:type];
     } else if (strcmp(type, @encode(MASEdgeInsets)) == 0) {
-        MASEdgeInsets actual = (MASEdgeInsets)va_arg(v, MASEdgeInsets);
+        MASEdgeInsets actual = (MASEdgeInsets) va_arg(v, MASEdgeInsets);
         obj = [NSValue value:&actual withObjCType:type];
     } else if (strcmp(type, @encode(double)) == 0) {
-        double actual = (double)va_arg(v, double);
+        double actual = (double) va_arg(v, double);
         obj = [NSNumber numberWithDouble:actual];
     } else if (strcmp(type, @encode(float)) == 0) {
-        float actual = (float)va_arg(v, double);
+        float actual = (float) va_arg(v, double);
         obj = [NSNumber numberWithFloat:actual];
     } else if (strcmp(type, @encode(int)) == 0) {
-        int actual = (int)va_arg(v, int);
+        int actual = (int) va_arg(v, int);
         obj = [NSNumber numberWithInt:actual];
     } else if (strcmp(type, @encode(long)) == 0) {
-        long actual = (long)va_arg(v, long);
+        long actual = (long) va_arg(v, long);
         obj = [NSNumber numberWithLong:actual];
     } else if (strcmp(type, @encode(long long)) == 0) {
-        long long actual = (long long)va_arg(v, long long);
+        long long actual = (long long) va_arg(v, long long);
         obj = [NSNumber numberWithLongLong:actual];
     } else if (strcmp(type, @encode(short)) == 0) {
-        short actual = (short)va_arg(v, int);
+        short actual = (short) va_arg(v, int);
         obj = [NSNumber numberWithShort:actual];
     } else if (strcmp(type, @encode(char)) == 0) {
-        char actual = (char)va_arg(v, int);
+        char actual = (char) va_arg(v, int);
         obj = [NSNumber numberWithChar:actual];
     } else if (strcmp(type, @encode(bool)) == 0) {
-        bool actual = (bool)va_arg(v, int);
+        bool actual = (bool) va_arg(v, int);
         obj = [NSNumber numberWithBool:actual];
     } else if (strcmp(type, @encode(unsigned char)) == 0) {
-        unsigned char actual = (unsigned char)va_arg(v, unsigned int);
+        unsigned char actual = (unsigned char) va_arg(v, unsigned int);
         obj = [NSNumber numberWithUnsignedChar:actual];
     } else if (strcmp(type, @encode(unsigned int)) == 0) {
-        unsigned int actual = (unsigned int)va_arg(v, unsigned int);
+        unsigned int actual = (unsigned int) va_arg(v, unsigned int);
         obj = [NSNumber numberWithUnsignedInt:actual];
     } else if (strcmp(type, @encode(unsigned long)) == 0) {
-        unsigned long actual = (unsigned long)va_arg(v, unsigned long);
+        unsigned long actual = (unsigned long) va_arg(v, unsigned long);
         obj = [NSNumber numberWithUnsignedLong:actual];
     } else if (strcmp(type, @encode(unsigned long long)) == 0) {
-        unsigned long long actual = (unsigned long long)va_arg(v, unsigned long long);
+        unsigned long long actual = (unsigned long long) va_arg(v, unsigned long long);
         obj = [NSNumber numberWithUnsignedLongLong:actual];
     } else if (strcmp(type, @encode(unsigned short)) == 0) {
-        unsigned short actual = (unsigned short)va_arg(v, unsigned int);
+        unsigned short actual = (unsigned short) va_arg(v, unsigned int);
         obj = [NSNumber numberWithUnsignedShort:actual];
     }
     va_end(v);

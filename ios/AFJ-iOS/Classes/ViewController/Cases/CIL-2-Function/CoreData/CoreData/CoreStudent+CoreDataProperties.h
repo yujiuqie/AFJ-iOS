@@ -15,20 +15,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<CoreStudent *> *)fetchRequest;
 
-@property (nonatomic) int64_t age;
-@property (nonatomic) int64_t sex;
-@property (nonatomic) int64_t userId;
-@property (nullable, nonatomic, copy) NSNumber *salary;
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, retain) NSSet<CoreTeacher *> *teachers;
+@property(nonatomic) int64_t age;
+@property(nonatomic) int64_t sex;
+@property(nonatomic) int64_t userId;
+@property(nullable, nonatomic, copy) NSNumber *salary;
+@property(nullable, nonatomic, copy) NSString *name;
+@property(nullable, nonatomic, retain) NSSet<CoreTeacher *> *teachers;
 
 @end
 
 @interface CoreStudent (CoreDataGeneratedAccessors)
 
 - (void)addTeachersObject:(CoreTeacher *)value;
+
 - (void)removeTeachersObject:(CoreTeacher *)value;
+
 - (void)addTeachers:(NSSet<CoreTeacher *> *)values;
+
 - (void)removeTeachers:(NSSet<CoreTeacher *> *)values;
 
 @end

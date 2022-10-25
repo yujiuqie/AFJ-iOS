@@ -8,16 +8,16 @@
 
 #import "MyTestReusableView2.h"
 
-@interface MyTestReusableView2()
+@interface MyTestReusableView2 ()
 
-@property(nonatomic,strong)UIImageView* imgV;
+@property(nonatomic, strong) UIImageView *imgV;
 @end
 
 @implementation MyTestReusableView2
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
-        self.imgV = [[UIImageView alloc]init];
+        self.imgV = [[UIImageView alloc] init];
         self.imgV.contentMode = UIViewContentModeScaleToFill;
         [self addSubview:self.imgV];
         [self.imgV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -27,7 +27,7 @@
     return self;
 }
 
-- (void)updateImageView:(NSString*)url {
+- (void)updateImageView:(NSString *)url {
     [self.imgV sd_setImageWithURL:[NSURL URLWithString:url]];
 }
 

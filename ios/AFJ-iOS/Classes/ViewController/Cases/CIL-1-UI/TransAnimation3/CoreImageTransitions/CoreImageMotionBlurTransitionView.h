@@ -10,6 +10,6 @@
 
 @interface CoreImageMotionBlurTransitionView : CoreImageTransitionView
 
-@property (nonatomic, assign) BOOL presenting;
+@property(nonatomic, assign) BOOL presenting;
 
 @end

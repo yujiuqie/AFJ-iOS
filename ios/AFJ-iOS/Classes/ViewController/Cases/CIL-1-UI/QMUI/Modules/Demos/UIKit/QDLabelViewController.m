@@ -46,18 +46,18 @@
     };
     [self.label1 sizeToFit];
     [self.view addSubview:self.label1];
-    
+
     _label2 = [[QMUILabel alloc] init];
     self.label2.text = @"可设置 contentInsets";
     self.label2.font = UIFontMake(15);
     self.label2.textColor = UIColorWhite;
-    self.label2.backgroundColor = [UIColor qmui_colorWithThemeProvider:^UIColor * _Nonnull(__kindof QMUIThemeManager * _Nonnull manager, __kindof NSObject<NSCopying> * _Nullable identifier, NSObject<QDThemeProtocol> * _Nullable theme) {
+    self.label2.backgroundColor = [UIColor qmui_colorWithThemeProvider:^UIColor *_Nonnull(__kindof QMUIThemeManager *_Nonnull manager, __kindof NSObject <NSCopying> *_Nullable identifier, NSObject <QDThemeProtocol> *_Nullable theme) {
         return [theme.themeTintColor colorWithAlphaComponent:.5];
     }];
     self.label2.contentEdgeInsets = UIEdgeInsetsMake(8, 16, 8, 16);
     [self.label2 sizeToFit];
     [self.view addSubview:self.label2];
-    
+
     _label3 = [[QMUILabel alloc] init];
     self.label3.text = @"可支持文字缩略时显示自定义的 View（通常用于展开更多）。例如这个文字特别长，然后最多只显示3行，点击“更多”可以展开完整的文字。例如这个文字特别长，然后最多只显示3行，点击“更多”可以展开完整的文字。例如这个文字特别长，然后最多只显示3行，点击“更多”可以展开完整的文字。例如这个文字特别长，然后最多只显示3行，点击“更多”可以展开完整的文字。例如这个文字特别长，然后最多只显示3行，点击“更多”可以展开完整的文字。";
     self.label3.numberOfLines = 3;
@@ -74,13 +74,13 @@
         view;
     });
     [self.view addSubview:self.label3];
-    
+
     self.separatorLayer1 = [QDCommonUI generateSeparatorLayer];
     [self.view.layer addSublayer:self.separatorLayer1];
-    
+
     self.separatorLayer2 = [QDCommonUI generateSeparatorLayer];
     [self.view.layer addSublayer:self.separatorLayer2];
-    
+
     self.separatorLayer3 = [QDCommonUI generateSeparatorLayer];
     [self.view.layer addSublayer:self.separatorLayer3];
 
@@ -95,17 +95,17 @@
     [super viewDidLayoutSubviews];
     CGFloat contentMinY = self.qmui_navigationBarMaxYInViewCoordinator;
     CGFloat buttonSpacingHeight = QDButtonSpacingHeight;
-    
+
     self.label1.frame = CGRectSetXY(self.label1.frame, CGFloatGetCenter(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.label1.bounds)), contentMinY + CGFloatGetCenter(buttonSpacingHeight, CGRectGetHeight(self.label1.bounds)));
-    
+
     self.separatorLayer1.frame = CGRectMake(0, contentMinY + buttonSpacingHeight * 1, CGRectGetWidth(self.view.bounds), PixelOne);
-    
+
     self.label2.frame = CGRectSetXY(self.label2.frame, CGFloatGetCenter(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.label2.bounds)), CGRectGetMaxY(self.separatorLayer1.frame) + CGFloatGetCenter(buttonSpacingHeight, CGRectGetHeight(self.label2.bounds)));
-    
+
     self.separatorLayer2.frame = CGRectMake(0, contentMinY + buttonSpacingHeight * 2, CGRectGetWidth(self.view.bounds), PixelOne);
-    
+
     self.label3.frame = CGRectMake(32, CGRectGetMaxY(self.separatorLayer2.frame) + 32, CGRectGetWidth(self.view.bounds) - 32 * 2, QMUIViewSelfSizingHeight);
-    
+
     self.separatorLayer3.frame = CGRectMake(0, CGRectGetMaxY(self.label3.frame) + 32, CGRectGetWidth(self.view.bounds), PixelOne);
 }
 
@@ -120,7 +120,7 @@
         self.gradientMaskLayer.startPoint = CGPointMake(0, .5);
         self.gradientMaskLayer.endPoint = CGPointMake(1, .5);
         [self.layer addSublayer:self.gradientMaskLayer];
-        
+
         self.label = UILabel.new;
         [self addSubview:self.label];
     }
@@ -130,7 +130,7 @@
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     if ([self.superview isKindOfClass:UILabel.class]) {
-        UILabel *label = (UILabel *)self.superview;
+        UILabel *label = (UILabel *) self.superview;
         [self.label qmui_setTheSameAppearanceAsLabel:label];
         self.label.backgroundColor = self.gradientColor;
         [self setNeedsLayout];
@@ -139,7 +139,7 @@
 
 - (void)setGradientColor:(UIColor *)gradientColor {
     _gradientColor = gradientColor;
-    self.gradientMaskLayer.colors = @[(id)[gradientColor colorWithAlphaComponent:0].CGColor, (id)gradientColor.CGColor];
+    self.gradientMaskLayer.colors = @[(id) [gradientColor colorWithAlphaComponent:0].CGColor, (id) gradientColor.CGColor];
     self.label.backgroundColor = gradientColor;
 }
 

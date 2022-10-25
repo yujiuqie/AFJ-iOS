@@ -10,9 +10,9 @@
 #import <ISHPermissionKit/ISHPermissionKit.h>
 
 @interface GrantedPermissionsViewController : UITableViewController
-<
-ISHPermissionsViewControllerDataSource
->
+        <
+        ISHPermissionsViewControllerDataSource
+        >
 
-- (void)reloadPermissionsUsingDataSource:(id<ISHPermissionsViewControllerDataSource>)datasource;
+- (void)reloadPermissionsUsingDataSource:(id <ISHPermissionsViewControllerDataSource>)datasource;
 @end

@@ -15,7 +15,7 @@
 }
 
 + (instancetype)headerViewWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath {
-    VerticalHeaderView *headerView = (VerticalHeaderView*)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:[VerticalHeaderView headerViewIdentifier] forIndexPath:indexPath];
+    VerticalHeaderView *headerView = (VerticalHeaderView *) [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:[VerticalHeaderView headerViewIdentifier] forIndexPath:indexPath];
     headerView.backgroundColor = [UIColor clearColor];
     return headerView;
 }
@@ -24,13 +24,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.clipsToBounds = YES;
-        
+
         [self addSubview:self.headerLabel];
         [self.headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self).insets(UIEdgeInsetsMake(10, 5, 10, 5));
         }];
-        
-        UIView* line = [[UIView alloc]init];
+
+        UIView *line = [[UIView alloc] init];
         line.backgroundColor = UIColorFromRGB(0x666666);
         [self addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,9 +43,9 @@
     return self;
 }
 
-- (UILabel*)headerLabel {
+- (UILabel *)headerLabel {
     if (!_headerLabel) {
-        _headerLabel = [[UILabel alloc]init];
+        _headerLabel = [[UILabel alloc] init];
         _headerLabel.font = [UIFont systemFontOfSize:12];
         _headerLabel.numberOfLines = 0;
         _headerLabel.textAlignment = NSTextAlignmentCenter;

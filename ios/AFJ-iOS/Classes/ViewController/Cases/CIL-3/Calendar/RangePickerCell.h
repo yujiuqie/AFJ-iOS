@@ -11,9 +11,9 @@
 @interface RangePickerCell : FSCalendarCell
 
 // The start/end of the range
-@property (weak, nonatomic) CALayer *selectionLayer;
+@property(weak, nonatomic) CALayer *selectionLayer;
 
 // The middle of the range
-@property (weak, nonatomic) CALayer *middleLayer;
+@property(weak, nonatomic) CALayer *middleLayer;
 
 @end

@@ -11,93 +11,93 @@
 
 
 // ************** Enum **************
-typedef NS_ENUM(NSInteger,WXSTransitionAnimationType){
+typedef NS_ENUM(NSInteger, WXSTransitionAnimationType) {
     //----------- 系统 ------------
     WXSTransitionAnimationTypeSysFade = 1,                   //淡入淡出
-    
+
     WXSTransitionAnimationTypeSysPushFromRight,
     WXSTransitionAnimationTypeSysPushFromLeft,
     WXSTransitionAnimationTypeSysPushFromTop,
     WXSTransitionAnimationTypeSysPushFromBottom,//Push
-    
+
     WXSTransitionAnimationTypeSysRevealFromRight,
     WXSTransitionAnimationTypeSysRevealFromLeft,
     WXSTransitionAnimationTypeSysRevealFromTop,
     WXSTransitionAnimationTypeSysRevealFromBottom,//揭开
-    
+
     WXSTransitionAnimationTypeSysMoveInFromRight,
     WXSTransitionAnimationTypeSysMoveInFromLeft,
     WXSTransitionAnimationTypeSysMoveInFromTop,
     WXSTransitionAnimationTypeSysMoveInFromBottom,//覆盖
-    
+
     WXSTransitionAnimationTypeSysCubeFromRight,
     WXSTransitionAnimationTypeSysCubeFromLeft,
     WXSTransitionAnimationTypeSysCubeFromTop,
     WXSTransitionAnimationTypeSysCubeFromBottom,//立方体
-    
+
     WXSTransitionAnimationTypeSysSuckEffect,                 //吮吸
-    
+
     WXSTransitionAnimationTypeSysOglFlipFromRight,
     WXSTransitionAnimationTypeSysOglFlipFromLeft,
     WXSTransitionAnimationTypeSysOglFlipFromTop,
     WXSTransitionAnimationTypeSysOglFlipFromBottom, //翻转
-    
+
     WXSTransitionAnimationTypeSysRippleEffect,               //波纹
-    
+
     WXSTransitionAnimationTypeSysPageCurlFromRight,
     WXSTransitionAnimationTypeSysPageCurlFromLeft,
     WXSTransitionAnimationTypeSysPageCurlFromTop,
     WXSTransitionAnimationTypeSysPageCurlFromBottom,//翻页
-    
+
     WXSTransitionAnimationTypeSysPageUnCurlFromRight,
     WXSTransitionAnimationTypeSysPageUnCurlFromLeft,
     WXSTransitionAnimationTypeSysPageUnCurlFromTop,
     WXSTransitionAnimationTypeSysPageUnCurlFromBottom,//反翻页
-    
+
     WXSTransitionAnimationTypeSysCameraIrisHollowOpen,       //开镜头
-    
+
     WXSTransitionAnimationTypeSysCameraIrisHollowClose,      //关镜头
-    
+
     //----------- 自定义 ------------
     WXSTransitionAnimationTypeDefault,
-    
+
     WXSTransitionAnimationTypePageTransition,
-    
+
     WXSTransitionAnimationTypeViewMoveToNextVC,
     WXSTransitionAnimationTypeViewMoveNormalToNextVC,
-    
+
     WXSTransitionAnimationTypeCover,
-    
+
     WXSTransitionAnimationTypeSpreadFromRight,
     WXSTransitionAnimationTypeSpreadFromLeft,
     WXSTransitionAnimationTypeSpreadFromTop,
     WXSTransitionAnimationTypeSpreadFromBottom,
     WXSTransitionAnimationTypePointSpreadPresent,
-    
+
     WXSTransitionAnimationTypeBoom,
-    
+
     WXSTransitionAnimationTypeBrickOpenVertical,
     WXSTransitionAnimationTypeBrickOpenHorizontal,
-    WXSTransitionAnimationTypeBrickCloseVertical, 
+    WXSTransitionAnimationTypeBrickCloseVertical,
     WXSTransitionAnimationTypeBrickCloseHorizontal,
-    
+
     WXSTransitionAnimationTypeInsideThenPush,
-    
+
     WXSTransitionAnimationTypeFragmentShowFromRight,
     WXSTransitionAnimationTypeFragmentShowFromLeft,
     WXSTransitionAnimationTypeFragmentShowFromTop,
     WXSTransitionAnimationTypeFragmentShowFromBottom,
-    
+
     WXSTransitionAnimationTypeFragmentHideFromRight,
     WXSTransitionAnimationTypeFragmentHideFromLeft,
     WXSTransitionAnimationTypeFragmentHideFromTop,
     WXSTransitionAnimationTypeFragmentHideFromBottom,
     WXSTransitionAnimationTypeTipFlip,
-    
+
 };
 
-typedef NS_ENUM(NSInteger,WXSTransitionType){
-    
+typedef NS_ENUM(NSInteger, WXSTransitionType) {
+
     WXSTransitionTypePop,
     WXSTransitionTypePush,
     WXSTransitionTypePresent,
@@ -105,18 +105,18 @@ typedef NS_ENUM(NSInteger,WXSTransitionType){
 };
 
 
-typedef NS_ENUM(NSInteger,WXSGestureType){
+typedef NS_ENUM(NSInteger, WXSGestureType) {
 
     WXSGestureTypeNone,
     WXSGestureTypePanLeft,
     WXSGestureTypePanRight,
     WXSGestureTypePanUp,
     WXSGestureTypePanDown,
-    
+
 };
 //系统动画类型
-typedef NS_ENUM(NSInteger,WXSTransitionSysAnimationType){
-    
+typedef NS_ENUM(NSInteger, WXSTransitionSysAnimationType) {
+
     WXSTransitionSysAnimationTypeFade = 1,                   //淡入淡出
     WXSTransitionSysAnimationTypePush,                       //推挤
     WXSTransitionSysAnimationTypeReveal,                     //揭开
@@ -133,9 +133,8 @@ typedef NS_ENUM(NSInteger,WXSTransitionSysAnimationType){
     WXSTransitionSysAnimationTypeCurlUp,                     //上翻页
     WXSTransitionSysAnimationTypeFlipFromLeft,               //左翻转
     WXSTransitionSysAnimationTypeFlipFromRight,              //右翻转
-    
-};
 
+};
 
 
 #endif /* WXSTypedefConfig_h */

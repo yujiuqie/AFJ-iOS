@@ -11,7 +11,7 @@
 @implementation CoreSnack (CoreDataProperties)
 
 + (NSFetchRequest<CoreSnack *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"CoreSnack"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"CoreSnack"];
 }
 
 @dynamic taste;

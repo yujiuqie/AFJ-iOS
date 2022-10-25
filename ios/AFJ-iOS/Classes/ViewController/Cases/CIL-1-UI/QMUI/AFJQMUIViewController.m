@@ -10,9 +10,9 @@
 #import "QDComponentsViewController.h"
 #import "QDLabViewController.h"
 
-@interface AFJQMUIViewController()
+@interface AFJQMUIViewController ()
 
-@property (nonatomic, strong) GPJDataDrivenTableView  *tableView;
+@property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
 @end
 
@@ -21,11 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     self.tableView = [[GPJDataDrivenTableView alloc] initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-    
+
     __weak typeof(self) weakSelf = self;
     NSMutableArray *dataArray = [NSMutableArray array];
     {

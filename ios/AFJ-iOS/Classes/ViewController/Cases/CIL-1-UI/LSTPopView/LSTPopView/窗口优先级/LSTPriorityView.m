@@ -12,7 +12,6 @@
 @implementation LSTPriorityView
 
 
-
 #pragma mark - ***** 初始化 *****
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -32,19 +31,18 @@
     self.backgroundColor = UIColor.blueColor;
 
     [self addSubview:self.titleLab];
-    
-    
-    
+
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
     }];
-    
-    
+
+
 }
 
 #pragma mark - ***** other 其他 *****
@@ -53,7 +51,7 @@
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UILabel *)titleLab {
-    if(_titleLab) return _titleLab;
+    if (_titleLab) return _titleLab;
     _titleLab = [[UILabel alloc] init];
     _titleLab.textColor = UIColor.whiteColor;
     _titleLab.numberOfLines = 0;

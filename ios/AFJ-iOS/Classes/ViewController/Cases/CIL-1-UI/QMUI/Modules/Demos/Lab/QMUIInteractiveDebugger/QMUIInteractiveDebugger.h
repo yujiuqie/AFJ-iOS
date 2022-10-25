@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QMUIInteractiveDebugger : NSObject
 
 + (void)presentTabBarDebuggerInViewController:(UIViewController *)presentingViewController;
+
 + (void)presentNavigationBarDebuggerInViewController:(UIViewController *)presentingViewController;
 @end
 

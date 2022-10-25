@@ -16,6 +16,7 @@
 - (NSString *)jk_urlEncode {
     return [self jk_urlEncodeUsingEncoding:NSUTF8StringEncoding];
 }
+
 /**
  *  @brief  urlEncode
  *

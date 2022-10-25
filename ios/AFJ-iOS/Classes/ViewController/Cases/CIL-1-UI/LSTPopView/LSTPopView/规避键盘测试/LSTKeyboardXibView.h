@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSTKeyboardXibView : UIView
 
 /** <#...#> */
-@property (nonatomic, copy) LSTKeyboardXibViewBlock addBlock;
+@property(nonatomic, copy) LSTKeyboardXibViewBlock addBlock;
 
 @end
 

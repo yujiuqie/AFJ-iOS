@@ -9,38 +9,36 @@
 @implementation UIView (JKNib)
 
 #pragma mark - Nibs
-+ (UINib *)jk_loadNib
-{
+
++ (UINib *)jk_loadNib {
     return [self jk_loadNibNamed:NSStringFromClass([self class])];
 }
-+ (UINib *)jk_loadNibNamed:(NSString*)nibName
-{
+
++ (UINib *)jk_loadNibNamed:(NSString *)nibName {
     return [self jk_loadNibNamed:nibName bundle:[NSBundle mainBundle]];
 }
-+ (UINib *)jk_loadNibNamed:(NSString*)nibName bundle:(NSBundle *)bundle
-{
+
++ (UINib *)jk_loadNibNamed:(NSString *)nibName bundle:(NSBundle *)bundle {
     return [UINib nibWithNibName:nibName bundle:bundle];
 }
-+ (instancetype)jk_loadInstanceFromNib
-{
+
++ (instancetype)jk_loadInstanceFromNib {
     return [self jk_loadInstanceFromNibWithName:NSStringFromClass([self class])];
 }
-+ (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName
-{
+
++ (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName {
     return [self jk_loadInstanceFromNibWithName:nibName owner:nil];
 }
-+ (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName owner:(id)owner
-{
+
++ (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName owner:(id)owner {
     return [self jk_loadInstanceFromNibWithName:nibName owner:owner bundle:[NSBundle mainBundle]];
 }
-+ (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName owner:(id)owner bundle:(NSBundle *)bundle
-{
+
++ (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName owner:(id)owner bundle:(NSBundle *)bundle {
     UIView *result = nil;
-    NSArray* elements = [bundle loadNibNamed:nibName owner:owner options:nil];
-    for (id object in elements)
-    {
-        if ([object isKindOfClass:[self class]])
-        {
+    NSArray *elements = [bundle loadNibNamed:nibName owner:owner options:nil];
+    for (id object in elements) {
+        if ([object isKindOfClass:[self class]]) {
             result = object;
             break;
         }

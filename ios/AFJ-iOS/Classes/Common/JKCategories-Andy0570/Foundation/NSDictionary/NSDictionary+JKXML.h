@@ -29,7 +29,7 @@
  *
  *  @return XML 字符串
  */
-- (NSString *)jk_XMLStringDefaultDeclarationWithRootElement:(NSString*)rootElement;
+- (NSString *)jk_XMLStringDefaultDeclarationWithRootElement:(NSString *)rootElement;
 
 /**
  *  @brief  将NSDictionary转换成XML字符串, 自定义根节点  自定义xml声明
@@ -40,7 +40,7 @@
  *
  *  @return 标准合法 XML 字符串
  */
-- (NSString *)jk_XMLStringWithRootElement:(NSString*)rootElement declaration:(NSString*)declaration;
+- (NSString *)jk_XMLStringWithRootElement:(NSString *)rootElement declaration:(NSString *)declaration;
 
 /**
  *  @brief  将NSDictionary转换成Plist字符串

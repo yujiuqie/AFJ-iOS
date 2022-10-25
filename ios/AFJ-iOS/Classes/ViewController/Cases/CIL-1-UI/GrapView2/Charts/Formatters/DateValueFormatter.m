@@ -12,27 +12,23 @@
 
 #import "DateValueFormatter.h"
 
-@interface DateValueFormatter ()
-{
+@interface DateValueFormatter () {
     NSDateFormatter *_dateFormatter;
 }
 @end
 
 @implementation DateValueFormatter
 
-- (id)init
-{
+- (id)init {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _dateFormatter = [[NSDateFormatter alloc] init];
         _dateFormatter.dateFormat = @"dd MMM HH:mm";
     }
     return self;
 }
 
-- (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis
-{
+- (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis {
     return [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:value]];
 }
 

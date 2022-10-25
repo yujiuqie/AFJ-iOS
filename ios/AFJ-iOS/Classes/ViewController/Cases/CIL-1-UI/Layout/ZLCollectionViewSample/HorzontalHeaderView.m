@@ -15,7 +15,7 @@
 }
 
 + (instancetype)headerViewWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath {
-    HorzontalHeaderView *headerView = (HorzontalHeaderView*)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:[HorzontalHeaderView headerViewIdentifier] forIndexPath:indexPath];
+    HorzontalHeaderView *headerView = (HorzontalHeaderView *) [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:[HorzontalHeaderView headerViewIdentifier] forIndexPath:indexPath];
     headerView.backgroundColor = [UIColor clearColor];
     return headerView;
 }
@@ -28,8 +28,8 @@
             make.centerY.mas_equalTo(self);
             make.left.mas_equalTo(10);
         }];
-        
-        UIView* line = [[UIView alloc]init];
+
+        UIView *line = [[UIView alloc] init];
         line.backgroundColor = UIColorFromRGB(0x666666);
         [self addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -42,9 +42,9 @@
     return self;
 }
 
-- (UILabel*)headerLabel {
+- (UILabel *)headerLabel {
     if (!_headerLabel) {
-        _headerLabel = [[UILabel alloc]init];
+        _headerLabel = [[UILabel alloc] init];
         _headerLabel.font = [UIFont systemFontOfSize:12];
     }
     return _headerLabel;

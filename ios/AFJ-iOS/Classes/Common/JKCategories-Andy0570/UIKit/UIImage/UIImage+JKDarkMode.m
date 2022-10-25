@@ -16,33 +16,33 @@
         if (method == NULL) {
             return;
         }
-        
+
         IMP originalImp = class_getMethodImplementation(klass, selector);
         if (!originalImp) {
             return;
         }
-        
-        IMP dynamicColorCompatibleImp = imp_implementationWithBlock(^UIImage *(UIImage *_self, UIEdgeInsets insets, UIImageResizingMode resizingMode) {
-                UITraitCollection *lightTrait = [self lightTrait];
-                UITraitCollection *darkTrait = [self darkTrait];
 
-                UIImage *resizable = ((UIImage * (*)(UIImage *, SEL, UIEdgeInsets, UIImageResizingMode))
-                                          originalImp)(_self, selector, insets, resizingMode);
-                UIImage *resizableInLight = [_self.imageAsset imageWithTraitCollection:lightTrait];
-                UIImage *resizableInDark = [_self.imageAsset imageWithTraitCollection:darkTrait];
-            
-                if (resizableInLight) {
-                    [resizable.imageAsset registerImage:((UIImage * (*)(UIImage *, SEL, UIEdgeInsets, UIImageResizingMode))
-                                                             originalImp)(resizableInLight, selector, insets, resizingMode)
-                                    withTraitCollection:lightTrait];
-                }
-                if (resizableInDark) {
-                    [resizable.imageAsset registerImage:((UIImage * (*)(UIImage *, SEL, UIEdgeInsets, UIImageResizingMode))
-                                                             originalImp)(resizableInDark, selector, insets, resizingMode)
-                                    withTraitCollection:darkTrait];
-                }
-                return resizable;
-            });
+        IMP dynamicColorCompatibleImp = imp_implementationWithBlock(^UIImage *(UIImage *_self, UIEdgeInsets insets, UIImageResizingMode resizingMode) {
+            UITraitCollection *lightTrait = [self lightTrait];
+            UITraitCollection *darkTrait = [self darkTrait];
+
+            UIImage *resizable = ((UIImage *(*)(UIImage *, SEL, UIEdgeInsets, UIImageResizingMode))
+                    originalImp)(_self, selector, insets, resizingMode);
+            UIImage *resizableInLight = [_self.imageAsset imageWithTraitCollection:lightTrait];
+            UIImage *resizableInDark = [_self.imageAsset imageWithTraitCollection:darkTrait];
+
+            if (resizableInLight) {
+                [resizable.imageAsset registerImage:((UIImage *(*)(UIImage *, SEL, UIEdgeInsets, UIImageResizingMode))
+                                originalImp)(resizableInLight, selector, insets, resizingMode)
+                                withTraitCollection:lightTrait];
+            }
+            if (resizableInDark) {
+                [resizable.imageAsset registerImage:((UIImage *(*)(UIImage *, SEL, UIEdgeInsets, UIImageResizingMode))
+                                originalImp)(resizableInDark, selector, insets, resizingMode)
+                                withTraitCollection:darkTrait];
+            }
+            return resizable;
+        });
 
         class_replaceMethod(klass, selector, dynamicColorCompatibleImp, method_getTypeEncoding(method));
     }
@@ -53,8 +53,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         trait = [UITraitCollection traitCollectionWithTraitsFromCollections:@[
-            [UITraitCollection traitCollectionWithDisplayScale:UIScreen.mainScreen.scale],
-            [UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleLight]
+                [UITraitCollection traitCollectionWithDisplayScale:UIScreen.mainScreen.scale],
+                [UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleLight]
         ]];
     });
 
@@ -66,8 +66,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         trait = [UITraitCollection traitCollectionWithTraitsFromCollections:@[
-            [UITraitCollection traitCollectionWithDisplayScale:UIScreen.mainScreen.scale],
-            [UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleDark]
+                [UITraitCollection traitCollectionWithDisplayScale:UIScreen.mainScreen.scale],
+                [UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleDark]
         ]];
     });
 
@@ -75,11 +75,10 @@
 }
 
 + (UIImage *)jk_imageWithLightImageNamed:(NSString *)lightImageName
-                          darkImageNamed:(NSString *)darkImageNamed
-{
+                          darkImageNamed:(NSString *)darkImageNamed {
     UIImage *lightImage = [UIImage imageNamed:lightImageName];
-    if (!lightImage) { return nil; }
-    
+    if (!lightImage) {return nil;}
+
     if (@available(iOS 13.0, *)) {
         UIImage *darkImage = [UIImage imageNamed:darkImageNamed];
         UITraitCollection *const scaleTraitCollection = [UITraitCollection currentTraitCollection];

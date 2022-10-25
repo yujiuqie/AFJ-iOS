@@ -9,20 +9,19 @@
 @implementation CATransaction (JKAnimateWithDuration)
 
 + (void)jk_animateWithDuration:(NSTimeInterval)duration
-                   animations:(void (^)(void))animations
-                   completion:(void (^)(void))completion
-{
+                    animations:(void (^)(void))animations
+                    completion:(void (^)(void))completion {
     [CATransaction begin];
     [CATransaction setAnimationDuration:duration];
-    
+
     if (completion) {
         [CATransaction setCompletionBlock:completion];
     }
-    
+
     if (animations) {
         animations();
     }
-    
+
     [CATransaction commit];
 }
 

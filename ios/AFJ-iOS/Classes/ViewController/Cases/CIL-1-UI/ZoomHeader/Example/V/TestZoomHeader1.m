@@ -20,13 +20,13 @@
 - (void)buildUI {
     //设置背景图
     self.backgroundImage = [UIImage imageNamed:@"test_backGround"];
-    
-    
+
+
     //自定义内容
     UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 90, 90)];
     icon.image = [UIImage imageNamed:@"test_icon"];
-    icon.center = CGPointMake(self.bounds.size.width/2.0f, self.bounds.size.height/2.0f);
-    icon.layer.cornerRadius = icon.bounds.size.height/2.0f;
+    icon.center = CGPointMake(self.bounds.size.width / 2.0f, self.bounds.size.height / 2.0f);
+    icon.layer.cornerRadius = icon.bounds.size.height / 2.0f;
     icon.clipsToBounds = true;
     icon.layer.borderWidth = 2;
     icon.layer.borderColor = [UIColor whiteColor].CGColor;

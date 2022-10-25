@@ -10,9 +10,9 @@
 
 @interface MASExampleAnimatedView ()
 
-@property (nonatomic, strong) NSMutableArray *animatableConstraints;
-@property (nonatomic, assign) int padding;
-@property (nonatomic, assign) BOOL animating;
+@property(nonatomic, strong) NSMutableArray *animatableConstraints;
+@property(nonatomic, assign) int padding;
+@property(nonatomic, assign) BOOL animating;
 
 @end
 
@@ -48,8 +48,8 @@
 
     [greenView mas_makeConstraints:^(MASConstraintMaker *make) {
         [self.animatableConstraints addObjectsFromArray:@[
-            make.edges.equalTo(superview).insets(paddingInsets).priorityLow(),
-            make.bottom.equalTo(blueView.mas_top).offset(-padding),
+                make.edges.equalTo(superview).insets(paddingInsets).priorityLow(),
+                make.bottom.equalTo(blueView.mas_top).offset(-padding),
         ]];
 
         make.size.equalTo(redView);
@@ -58,9 +58,9 @@
 
     [redView mas_makeConstraints:^(MASConstraintMaker *make) {
         [self.animatableConstraints addObjectsFromArray:@[
-            make.edges.equalTo(superview).insets(paddingInsets).priorityLow(),
-            make.left.equalTo(greenView.mas_right).offset(padding),
-            make.bottom.equalTo(blueView.mas_top).offset(-padding),
+                make.edges.equalTo(superview).insets(paddingInsets).priorityLow(),
+                make.left.equalTo(greenView.mas_right).offset(padding),
+                make.bottom.equalTo(blueView.mas_top).offset(-padding),
         ]];
 
         make.size.equalTo(greenView);
@@ -69,7 +69,7 @@
 
     [blueView mas_makeConstraints:^(MASConstraintMaker *make) {
         [self.animatableConstraints addObjectsFromArray:@[
-            make.edges.equalTo(superview).insets(paddingInsets).priorityLow(),
+                make.edges.equalTo(superview).insets(paddingInsets).priorityLow(),
         ]];
 
         make.height.equalTo(greenView.mas_height);
@@ -103,7 +103,7 @@
 
     [UIView animateWithDuration:1 animations:^{
         [self layoutIfNeeded];
-    } completion:^(BOOL finished) {
+    }                completion:^(BOOL finished) {
         //repeat!
         [self animateWithInvertedInsets:!invertedInsets];
     }];

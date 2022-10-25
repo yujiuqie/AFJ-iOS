@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JFSearchViewController : UIViewController
 
-@property (nonatomic, strong) PDFDocument *pdfDocment;
-@property (nonatomic, weak) id<JFSearchViewControllerDelegate> delegate;
+@property(nonatomic, strong) PDFDocument *pdfDocment;
+@property(nonatomic, weak) id <JFSearchViewControllerDelegate> delegate;
 
 @end
 

@@ -11,10 +11,10 @@
 #import "LSViewTestKVOSuper.h"
 #import "NSNotificationTestObject.h"
 
-@interface LSViewTestKVOSuper()
+@interface LSViewTestKVOSuper ()
 
-@property (nonatomic,strong) NSNotificationTestObject *testObject;
-@property (nonatomic,strong) NSHashTable *table;
+@property(nonatomic, strong) NSNotificationTestObject *testObject;
+@property(nonatomic, strong) NSHashTable *table;
 @end
 
 @implementation LSViewTestKVOSuper
@@ -27,19 +27,18 @@
 }
 */
 
--(instancetype)initWithFrame:(CGRect)frame
-{
-    if (self=[super initWithFrame:frame]) {
-        self.testObject=[NSNotificationTestObject new];
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.testObject = [NSNotificationTestObject new];
 //        [self addObserver:self.testObject forKeyPath:@"326863287" options:(NSKeyValueObservingOptionNew) context:nil];
-        self.table=[[NSHashTable alloc]initWithOptions:(NSPointerFunctionsWeakMemory) capacity:10];
+        self.table = [[NSHashTable alloc] initWithOptions:(NSPointerFunctionsWeakMemory) capacity:10];
 //        [self.table addObject:self];
-        
+
     }
     return self;
 }
--(void)dealloc
-{
+
+- (void)dealloc {
     NSLog(@"");
 }
 

@@ -10,8 +10,7 @@
 
 @implementation XIBTestCell
 
-- (void)cellWillAppear
-{
+- (void)cellWillAppear {
     [super cellWillAppear];
     self.textLabel.text = @"";
     self.testLabel.text = self.testItem.title;

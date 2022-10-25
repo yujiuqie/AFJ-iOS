@@ -7,6 +7,7 @@
 //
 
 #import "WAAVSECommand.h"
+
 @class WAAVSEGearboxCommandModel;
 
 @interface WAAVSEGearboxCommand : WAAVSECommand

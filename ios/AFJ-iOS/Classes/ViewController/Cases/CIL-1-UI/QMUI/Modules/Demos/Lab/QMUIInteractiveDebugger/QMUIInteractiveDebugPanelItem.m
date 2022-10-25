@@ -53,7 +53,7 @@
     [self.titleLabel sizeToFit];
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title actionView:(__kindof UIView *)actionView valueGetter:(void (^)(__kindof UIView * _Nonnull))valueGetter valueSetter:(void (^)(__kindof UIView * _Nonnull))valueSetter {
++ (instancetype)itemWithTitle:(NSString *)title actionView:(__kindof UIView *)actionView valueGetter:(void (^)(__kindof UIView *_Nonnull))valueGetter valueSetter:(void (^)(__kindof UIView *_Nonnull))valueSetter {
     QMUIInteractiveDebugPanelItem *item = QMUIInteractiveDebugPanelItem.new;
     item.title = title;
     item.actionView = actionView;
@@ -62,7 +62,7 @@
     return item;
 }
 
-+ (instancetype)textItemWithTitle:(NSString *)title valueGetter:(void (^)(QMUITextField * _Nonnull))valueGetter valueSetter:(void (^)(QMUITextField * _Nonnull))valueSetter {
++ (instancetype)textItemWithTitle:(NSString *)title valueGetter:(void (^)(QMUITextField *_Nonnull))valueGetter valueSetter:(void (^)(QMUITextField *_Nonnull))valueSetter {
     QMUIInteractiveDebugPanelTextItem *item = QMUIInteractiveDebugPanelTextItem.new;
     item.title = title;
     item.actionView = item.textField;
@@ -71,7 +71,7 @@
     return item;
 }
 
-+ (instancetype)numbericItemWithTitle:(NSString *)title valueGetter:(void (^)(QMUITextField * _Nonnull))valueGetter valueSetter:(void (^)(QMUITextField * _Nonnull))valueSetter {
++ (instancetype)numbericItemWithTitle:(NSString *)title valueGetter:(void (^)(QMUITextField *_Nonnull))valueGetter valueSetter:(void (^)(QMUITextField *_Nonnull))valueSetter {
     QMUIInteractiveDebugPanelNumbericItem *item = QMUIInteractiveDebugPanelNumbericItem.new;
     item.title = title;
     item.actionView = item.textField;
@@ -80,7 +80,7 @@
     return item;
 }
 
-+ (instancetype)colorItemWithTitle:(NSString *)title valueGetter:(void (^)(QMUITextField * _Nonnull))valueGetter valueSetter:(void (^)(QMUITextField * _Nonnull))valueSetter {
++ (instancetype)colorItemWithTitle:(NSString *)title valueGetter:(void (^)(QMUITextField *_Nonnull))valueGetter valueSetter:(void (^)(QMUITextField *_Nonnull))valueSetter {
     QMUIInteractiveDebugPanelColorItem *item = QMUIInteractiveDebugPanelColorItem.new;
     item.title = title;
     item.actionView = item.textField;
@@ -89,7 +89,7 @@
     return item;
 }
 
-+ (instancetype)boolItemWithTitle:(NSString *)title valueGetter:(void (^)(UISwitch * _Nonnull))valueGetter valueSetter:(void (^)(UISwitch * _Nonnull))valueSetter {
++ (instancetype)boolItemWithTitle:(NSString *)title valueGetter:(void (^)(UISwitch *_Nonnull))valueGetter valueSetter:(void (^)(UISwitch *_Nonnull))valueSetter {
     QMUIInteractiveDebugPanelBoolItem *item = QMUIInteractiveDebugPanelBoolItem.new;
     item.title = title;
     item.actionView = item.switcher;
@@ -98,7 +98,7 @@
     return item;
 }
 
-+ (instancetype)enumItemWithTitle:(NSString *)title items:(NSArray<NSString *> *)items valueGetter:(void (^)(UISegmentedControl * _Nonnull))valueGetter valueSetter:(void (^)(UISegmentedControl * _Nonnull))valueSetter {
++ (instancetype)enumItemWithTitle:(NSString *)title items:(NSArray<NSString *> *)items valueGetter:(void (^)(UISegmentedControl *_Nonnull))valueGetter valueSetter:(void (^)(UISegmentedControl *_Nonnull))valueSetter {
     QMUIInteractiveDebugPanelEnumItem *item = [[QMUIInteractiveDebugPanelEnumItem alloc] initWithItems:items];
     item.title = title;
     item.actionView = item.segmentedControl;
@@ -157,7 +157,7 @@
     if (range.length > 0 && string.length <= 0) {
         return YES;
     }
-    
+
     return !![string qmui_stringMatchedByPattern:@"[-\\d\\.]"];// 模拟器里，通过电脑键盘输入“点”，输出的可能是中文的句号
 }
 
@@ -178,7 +178,7 @@
     if (range.length > 0 && string.length <= 0) {
         return YES;
     }
-    
+
     return !![string qmui_stringMatchedByPattern:@"[\\d\\s\\,\\.]+"];
 }
 

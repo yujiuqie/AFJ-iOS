@@ -9,14 +9,14 @@
 @implementation NSBundle (JKAppIcon)
 
 - (NSString *)jk_appIconPath {
-    NSString *iconFilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"] ;
-    NSString *iconBasename = [iconFilename stringByDeletingPathExtension] ;
-    NSString *iconExtension = [iconFilename pathExtension] ;
-    return [[NSBundle mainBundle] pathForResource:iconBasename ofType:iconExtension] ;
+    NSString *iconFilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
+    NSString *iconBasename = [iconFilename stringByDeletingPathExtension];
+    NSString *iconExtension = [iconFilename pathExtension];
+    return [[NSBundle mainBundle] pathForResource:iconBasename ofType:iconExtension];
 }
 
 - (UIImage *)jk_appIcon {
-    UIImage *appIcon = [[UIImage alloc] initWithContentsOfFile:[self jk_appIconPath]] ;
+    UIImage *appIcon = [[UIImage alloc] initWithContentsOfFile:[self jk_appIconPath]];
     return appIcon;
 }
 

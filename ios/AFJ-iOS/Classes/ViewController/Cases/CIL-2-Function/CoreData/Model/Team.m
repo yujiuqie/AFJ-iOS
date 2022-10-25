@@ -11,7 +11,7 @@
 @implementation Team
 
 + (instancetype)instanceWithId:(NSUInteger)ID {
-    
+
     Team *team = [Team new];
     team.teamId = ID;
     team.flag = [NSString stringWithFormat:@"flag%ld", ID];
@@ -21,25 +21,26 @@
 }
 
 #pragma mark - CoreData
+
 //XCode8以后 系统自动生成的CoreData类有时候通过NSClassFromString是取不到的 这种情况下要设置一下CoreData右侧的CodeGen为Manual/None取消自动生成 自己来生成对应的CoreData类 或者 不要用NSClassFromString直接Import算了
 + (Class)managedObjectClass {
     return NSClassFromString(@"CoreTeam");
 }
 
 + (NSDictionary *)primaryKeys {
-    return @{@"teamId" : @"teamId"};
+    return @{@"teamId": @"teamId"};
 }
 
 + (NSDictionary *)containerPropertyKeypathsForCoreData {
-    return @{@"players" : @"Player"};
+    return @{@"players": @"Player"};
 }
 
 + (NSDictionary *)oneToOneRelationship {
-    return @{@"coach" : @"team"};
+    return @{@"coach": @"team"};
 }
 
 + (NSDictionary *)oneToManyRelationship {
-    return @{@"players" : @"team"};
+    return @{@"players": @"team"};
 }
 
 @end

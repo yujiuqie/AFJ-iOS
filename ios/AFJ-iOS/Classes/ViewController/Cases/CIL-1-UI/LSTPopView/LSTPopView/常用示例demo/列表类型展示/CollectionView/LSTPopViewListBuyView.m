@@ -12,12 +12,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    
+
+
     self.titleLab.layer.cornerRadius = 40;
     self.titleLab.layer.masksToBounds = YES;
-    
-    
+
+
 }
 
 @end

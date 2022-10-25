@@ -11,7 +11,7 @@
 - (NSString *)jk_APNSToken {
     const char *data = [self bytes];
     NSMutableString *token = [NSMutableString string];
-    
+
     for (int i = 0; i < self.length; i++) {
         [token appendFormat:@"%02.2hhx", data[i]];
     }

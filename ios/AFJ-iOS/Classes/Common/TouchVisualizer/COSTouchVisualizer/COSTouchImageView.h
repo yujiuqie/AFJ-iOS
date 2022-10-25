@@ -10,8 +10,8 @@
 
 @interface COSTouchImageView : UIImageView
 
-@property (nonatomic) NSTimeInterval timestamp;
-@property (nonatomic) BOOL shouldAutomaticallyRemoveAfterTimeout;
-@property (nonatomic, getter=isFadingOut) BOOL fadingOut;
+@property(nonatomic) NSTimeInterval timestamp;
+@property(nonatomic) BOOL shouldAutomaticallyRemoveAfterTimeout;
+@property(nonatomic, getter=isFadingOut) BOOL fadingOut;
 
 @end

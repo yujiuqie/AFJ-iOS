@@ -19,7 +19,7 @@
     [self initDataSource];
 }
 
-#pragma mark - <QMUITableViewDataSource,QMUITableViewDelegate>
+#pragma mark - <QMUITableViewDataSource, QMUITableViewDelegate>
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self.dataSource count];
@@ -42,11 +42,11 @@
     }
     NSString *keyName = [self keyNameAtIndexPath:indexPath];
     cell.textLabel.text = keyName;
-    cell.detailTextLabel.text = (NSString *)[[self orderedDictionaryInSection:indexPath.section] objectForKey:keyName];
-    
+    cell.detailTextLabel.text = (NSString *) [[self orderedDictionaryInSection:indexPath.section] objectForKey:keyName];
+
     cell.textLabel.font = UIFontMake(15);
     cell.detailTextLabel.font = UIFontMake(13);
-    
+
     [cell updateCellAppearanceWithIndexPath:indexPath];
     return cell;
 }

@@ -12,6 +12,6 @@ typedef void (^JKTouchedButtonBlock)(NSInteger tag);
 
 @interface UIButton (JKBlock)
 
--(void)jk_addActionHandler:(JKTouchedButtonBlock)touchHandler;
+- (void)jk_addActionHandler:(JKTouchedButtonBlock)touchHandler;
 
 @end

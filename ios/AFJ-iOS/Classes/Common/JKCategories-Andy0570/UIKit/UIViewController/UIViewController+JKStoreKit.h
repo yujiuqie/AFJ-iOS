@@ -14,17 +14,19 @@
 @interface UIViewController (JKStoreKit)
 
 @property NSString *jk_campaignToken;
-@property (nonatomic, copy) void (^jk_loadingStoreKitItemBlock)(void);
-@property (nonatomic, copy) void (^jk_loadedStoreKitItemBlock)(void);
+@property(nonatomic, copy) void (^jk_loadingStoreKitItemBlock)(void);
+@property(nonatomic, copy) void (^jk_loadedStoreKitItemBlock)(void);
 
 - (void)jk_presentStoreKitItemWithIdentifier:(NSInteger)itemIdentifier;
 
-+ (NSURL*)jk_appURLForIdentifier:(NSInteger)identifier;
++ (NSURL *)jk_appURLForIdentifier:(NSInteger)identifier;
 
 + (void)jk_openAppURLForIdentifier:(NSInteger)identifier;
+
 + (void)jk_openAppReviewURLForIdentifier:(NSInteger)identifier;
 
-+ (BOOL)jk_containsITunesURLString:(NSString*)URLString;
-+ (NSInteger)jk_IDFromITunesURL:(NSString*)URLString;
++ (BOOL)jk_containsITunesURLString:(NSString *)URLString;
+
++ (NSInteger)jk_IDFromITunesURL:(NSString *)URLString;
 
 @end

@@ -15,19 +15,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTModel : NSObject
 
-@property (nonatomic, assign) NSTimeInterval timeInterval;
+@property(nonatomic, assign) NSTimeInterval timeInterval;
 /** 定时器执行block */
-@property (nonatomic, copy) LSTModelBlock handleBlock;
+@property(nonatomic, copy) LSTModelBlock handleBlock;
 /** 每次计时单位增量 */
-@property (nonatomic, assign) NSTimeInterval unit;
+@property(nonatomic, assign) NSTimeInterval unit;
 /** 是否递增 YES:递增 NO:递减 */
-@property (nonatomic, assign) BOOL increase;
+@property(nonatomic, assign) BOOL increase;
 /** 是否本地持久化保存定时数据 */
-@property (nonatomic,assign) BOOL isDisk;
+@property(nonatomic, assign) BOOL isDisk;
 /** 是否暂停 */
-@property (nonatomic,assign) BOOL isPause;
+@property(nonatomic, assign) BOOL isPause;
 /** 标识 */
-@property (nonatomic, copy) NSString *identifier;
+@property(nonatomic, copy) NSString *identifier;
 
 @end
 

@@ -44,7 +44,7 @@
     if ([identifier isEqualToString:@"subtitle"]) {
         NSString *keyName = self.dataSourceWithDetailText.allKeys[indexPath.row];
         cell.textLabel.text = keyName;
-        cell.detailTextLabel.text = (NSString *)[self.dataSourceWithDetailText objectForKey:keyName];
+        cell.detailTextLabel.text = (NSString *) [self.dataSourceWithDetailText objectForKey:keyName];
     } else {
         cell.textLabel.text = [self.dataSource objectAtIndex:indexPath.row];
     }
@@ -55,7 +55,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.dataSourceWithDetailText && ((NSString *)[self.dataSourceWithDetailText objectForKey:self.dataSourceWithDetailText.allKeys[indexPath.row]]).length) {
+    if (self.dataSourceWithDetailText && ((NSString *) [self.dataSourceWithDetailText objectForKey:self.dataSourceWithDetailText.allKeys[indexPath.row]]).length) {
         return UITableViewAutomaticDimension;
     }
     return TableViewCellNormalHeight;

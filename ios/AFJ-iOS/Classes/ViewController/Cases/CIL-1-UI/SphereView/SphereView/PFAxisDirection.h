@@ -14,41 +14,41 @@
 //along with SphereView.  If not, see <http://www.gnu.org/licenses/>.
 
 typedef enum {
-	PFAxisDirectionNone,
-	PFAxisDirectionPositive = 1,
-	PFAxisDirectionNegative = -1
+    PFAxisDirectionNone,
+    PFAxisDirectionPositive = 1,
+    PFAxisDirectionNegative = -1
 } PFAxisDirection;
 
 static CGFloat PFAxisDirectionMinimumDistance = 0.033f;
 
 static PFAxisDirection PFAxisDirectionMake(CGFloat fromCoordinate, CGFloat toCoordinate, BOOL sensitive) {
-	PFAxisDirection direction = PFAxisDirectionNone;
-	
-	CGFloat distance = fabs(fromCoordinate - toCoordinate);
-				
-	if (distance > PFAxisDirectionMinimumDistance || sensitive) {
-		if (fromCoordinate > toCoordinate) {
-			direction = PFAxisDirectionPositive;
-		} else if (fromCoordinate < toCoordinate) {
-			direction = PFAxisDirectionNegative;
-		}
-	}
-	
-	return direction;
+    PFAxisDirection direction = PFAxisDirectionNone;
+
+    CGFloat distance = fabs(fromCoordinate - toCoordinate);
+
+    if (distance > PFAxisDirectionMinimumDistance || sensitive) {
+        if (fromCoordinate > toCoordinate) {
+            direction = PFAxisDirectionPositive;
+        } else if (fromCoordinate < toCoordinate) {
+            direction = PFAxisDirectionNegative;
+        }
+    }
+
+    return direction;
 }
 
 static PFAxisDirection PFDirectionMakeXAxis(CGPoint fromPoint, CGPoint toPoint) {
-	return PFAxisDirectionMake(fromPoint.x, toPoint.x, NO);
+    return PFAxisDirectionMake(fromPoint.x, toPoint.x, NO);
 }
 
 static PFAxisDirection PFDirectionMakeYAxis(CGPoint fromPoint, CGPoint toPoint) {
-	return PFAxisDirectionMake(fromPoint.y, toPoint.y, NO);
+    return PFAxisDirectionMake(fromPoint.y, toPoint.y, NO);
 }
 
 static PFAxisDirection PFDirectionMakeXAxisSensitive(CGPoint fromPoint, CGPoint toPoint) {
-	return PFAxisDirectionMake(fromPoint.x, toPoint.x, YES);
+    return PFAxisDirectionMake(fromPoint.x, toPoint.x, YES);
 }
 
 static PFAxisDirection PFDirectionMakeYAxisSensitive(CGPoint fromPoint, CGPoint toPoint) {
-	return PFAxisDirectionMake(fromPoint.y, toPoint.y, YES);
+    return PFAxisDirectionMake(fromPoint.y, toPoint.y, YES);
 }

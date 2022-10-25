@@ -12,25 +12,25 @@
 
 - (void)initDataSource {
     self.dataSource = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                       @"默认", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                               @"UIFontMake", @"默认字重",
-                               @"UIFontLightMake", @"系统细体",
-                               @"UIFontMediumMake", @"系统加粗",
-                               @"UIFontBoldMake", @"系统加粗更粗",
-                               nil],
-                       @"斜体", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                               @"Regular-Italic", @"",
-                               @"Light-Italic", @"",
-                               @"Medium-Italic", @"",
-                               @"Bold-Italic", @"",
-                               nil],
-                       @"动态字体", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                 @"UIDynamicFontMake", @"",
-                                 @"UIDynamicFontLightMake", @"",
-                                 @"UIDynamicFontMediumMake", @"",
-                                 @"UIDynamicFontBoldMake", @"",
-                                 nil],
-                       nil];
+            @"默认", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+            @"UIFontMake", @"默认字重",
+            @"UIFontLightMake", @"系统细体",
+            @"UIFontMediumMake", @"系统加粗",
+            @"UIFontBoldMake", @"系统加粗更粗",
+                    nil],
+            @"斜体", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                    @"Regular-Italic", @"",
+                    @"Light-Italic", @"",
+                    @"Medium-Italic", @"",
+                    @"Bold-Italic", @"",
+                            nil],
+            @"动态字体", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                    @"UIDynamicFontMake", @"",
+                    @"UIDynamicFontLightMake", @"",
+                    @"UIDynamicFontMediumMake", @"",
+                    @"UIDynamicFontBoldMake", @"",
+                            nil],
+                    nil];
 }
 
 - (void)setupNavigationItems {
@@ -49,7 +49,7 @@
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+
     NSString *keyName = [self keyNameAtIndexPath:indexPath];
     UIFont *font = nil;
     CGFloat pointSize = 15;

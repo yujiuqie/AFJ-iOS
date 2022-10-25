@@ -8,6 +8,7 @@
 @interface SBNMainViewController : UIViewController
 
 - (IBAction)sliderDurationChanged:(UISlider *)sender;
+
 - (IBAction)btnShowNotificationPressed:(UIButton *)sender;
 
 @end

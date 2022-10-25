@@ -10,8 +10,11 @@
 
 @protocol YBFilterScrollViewDelegate <NSObject>
 @required;
+
 - (void)filterImage:(UIImage *)editedImage;
+
 @optional;
+
 // 测试有返回值的代理
 - (NSString *)deliverStr:(NSString *)originalStr;
 @end
@@ -20,19 +23,19 @@
 @interface YBFilterScrollView : UIScrollView
 
 /**滤镜scrollView的高*/
-@property (nonatomic, assign) CGFloat filterScrollViewW;
+@property(nonatomic, assign) CGFloat filterScrollViewW;
 /**内切间距*/
-@property (nonatomic, assign) CGFloat insert_space;
+@property(nonatomic, assign) CGFloat insert_space;
 /**名字数组*/
-@property (nonatomic, copy) NSArray *titleArray;
+@property(nonatomic, copy) NSArray *titleArray;
 /**label的高*/
-@property (nonatomic, assign) CGFloat labelH;
+@property(nonatomic, assign) CGFloat labelH;
 /**每个小方图的宽和高*/
-@property (nonatomic, assign) CGFloat perButtonW_H;
+@property(nonatomic, assign) CGFloat perButtonW_H;
 /**原始图片*/
-@property (nonatomic, strong) UIImage *originImage;
+@property(nonatomic, strong) UIImage *originImage;
 /**YBFilterScrollViewDelegate*/
-@property (nonatomic,weak) id<YBFilterScrollViewDelegate> filterDelegate;
+@property(nonatomic, weak) id <YBFilterScrollViewDelegate> filterDelegate;
 
 /**
  *  开始加载滤镜的scrollView

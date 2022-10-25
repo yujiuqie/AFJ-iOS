@@ -9,9 +9,10 @@
 #import "WXSTransitionProperty.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+
 @implementation WXSTransitionProperty
 
--(instancetype)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _animationTime = 0.400082;
@@ -22,7 +23,6 @@
     }
     return self;
 }
-
 
 
 @end

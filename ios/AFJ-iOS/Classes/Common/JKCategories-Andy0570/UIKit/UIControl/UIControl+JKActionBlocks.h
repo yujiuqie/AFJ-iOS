@@ -14,12 +14,14 @@
 typedef void (^UIControlJKActionBlock)(id weakSender);
 
 @interface UIControlJKActionBlockWrapper : NSObject
-@property (nonatomic, copy) UIControlJKActionBlock jk_actionBlock;
-@property (nonatomic, assign) UIControlEvents jk_controlEvents;
+@property(nonatomic, copy) UIControlJKActionBlock jk_actionBlock;
+@property(nonatomic, assign) UIControlEvents jk_controlEvents;
+
 - (void)jk_invokeBlock:(id)sender;
 @end
 
 @interface UIControl (JKActionBlocks)
 - (void)jk_handleControlEvents:(UIControlEvents)controlEvents withBlock:(UIControlJKActionBlock)actionBlock;
+
 - (void)jk_removeActionBlocksForControlEvents:(UIControlEvents)controlEvents;
 @end

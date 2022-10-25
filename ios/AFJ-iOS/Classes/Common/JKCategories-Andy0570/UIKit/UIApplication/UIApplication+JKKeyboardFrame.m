@@ -7,7 +7,7 @@
 //
 
 @implementation UIApplication (KeyboardFrame)
-static CGRect _jk_keyboardFrame = (CGRect){ (CGPoint){ 0.0f, 0.0f }, (CGSize){ 0.0f, 0.0f } };
+static CGRect _jk_keyboardFrame = (CGRect) {(CGPoint) {0.0f, 0.0f}, (CGSize) {0.0f, 0.0f}};
 
 - (CGRect)jk_keyboardFrame {
     return _jk_keyboardFrame;
@@ -15,16 +15,16 @@ static CGRect _jk_keyboardFrame = (CGRect){ (CGPoint){ 0.0f, 0.0f }, (CGSize){ 0
 
 + (void)load {
     [NSNotificationCenter.defaultCenter addObserverForName:UIKeyboardDidShowNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-         _jk_keyboardFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-     }];
-    
+        _jk_keyboardFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    }];
+
     [NSNotificationCenter.defaultCenter addObserverForName:UIKeyboardDidChangeFrameNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-         _jk_keyboardFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-     }];
-    
+        _jk_keyboardFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    }];
+
     [NSNotificationCenter.defaultCenter addObserverForName:UIKeyboardDidHideNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-         _jk_keyboardFrame = CGRectZero;
-     }];
+        _jk_keyboardFrame = CGRectZero;
+    }];
 }
 
 @end

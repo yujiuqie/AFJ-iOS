@@ -10,14 +10,15 @@
 #import "CollectionViewCell.h"
 #import "DetailViewController.h"
 #import "UINavigationController+WXSTransition.h"
-@interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
-@property (nonatomic,strong) UICollectionView *collectionView;
+
+@interface CollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property(nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
 @implementation CollectionViewController
 
-static NSString *identifier  = @"identifier";
+static NSString *identifier = @"identifier";
 
 
 - (void)viewDidLoad {
@@ -26,49 +27,54 @@ static NSString *identifier  = @"identifier";
     [self.view addSubview:self.collectionView];
     [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:identifier];
 }
--(void)viewWillAppear:(BOOL)animated{
+
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
+
 #pragma mark Delegate
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 10;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
     DetailViewController *vc = [[DetailViewController alloc] init];
-    __weak CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    __weak CollectionViewCell *cell = (CollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
     __weak DetailViewController *weakVC = vc;
-    
+
     if (indexPath.row % 2 == 0) {
         [self.navigationController wxs_pushViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
             transition.animationType = WXSTransitionAnimationTypeViewMoveToNextVC;
             transition.animationTime = 0.64;
-            transition.startView  = cell.imgView;
+            transition.startView = cell.imgView;
             transition.targetView = weakVC.imageView;
         }];
-    }else {
-        
+    } else {
+
         [self.navigationController wxs_pushViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
             transition.animationType = WXSTransitionAnimationTypeViewMoveNormalToNextVC;
             transition.animationTime = 0.4;
-            transition.startView  = cell.imgView;
+            transition.startView = cell.imgView;
             transition.targetView = weakVC.imageView;
         }];
     }
-    
+
 }
 
 #pragma mark Getter
--(UICollectionView *)collectionView{
+
+- (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.itemSize = CGSizeMake(100, 100);

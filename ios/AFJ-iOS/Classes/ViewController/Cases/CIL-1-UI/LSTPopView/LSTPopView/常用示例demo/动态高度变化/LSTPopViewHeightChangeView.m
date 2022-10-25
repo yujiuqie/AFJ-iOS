@@ -12,10 +12,10 @@
 
 @interface LSTPopViewHeightChangeView ()
 
-@property (weak, nonatomic) IBOutlet UIView *fileView;
+@property(weak, nonatomic) IBOutlet UIView *fileView;
 /**  */
-@property (nonatomic, assign) BOOL isOpen;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property(nonatomic, assign) BOOL isOpen;
+@property(weak, nonatomic) IBOutlet UIImageView *imgView;
 
 
 @end
@@ -35,27 +35,27 @@
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)initSubViews {
-    
-    [self.fileView addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+
+    [self.fileView addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         if (self.isOpen) {
             self.height = 170;
             self.isOpen = NO;
             self.imgView.image = [UIImage imageNamed:@"nav_right"];
 
-        }else {
-            self.height = 170+120;
+        } else {
+            self.height = 170 + 120;
             self.isOpen = YES;
             self.imgView.image = [UIImage imageNamed:@"nav_down"];
         }
     }];
-    
-    
+
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    
+
+
 }
 
 #pragma mark - ***** other 其他 *****

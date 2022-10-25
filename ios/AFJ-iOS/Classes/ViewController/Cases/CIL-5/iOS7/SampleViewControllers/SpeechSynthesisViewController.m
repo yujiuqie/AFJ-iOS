@@ -10,15 +10,14 @@
 
 
 @interface SpeechSynthesisViewController ()
-@property (nonatomic, weak) IBOutlet UITextField *textField;
-@property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
+@property(nonatomic, weak) IBOutlet UITextField *textField;
+@property(nonatomic, strong) AVSpeechSynthesizer *synthesizer;
 @end
 
 
 @implementation SpeechSynthesisViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -26,15 +25,13 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.synthesizer = [[AVSpeechSynthesizer alloc] init];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -46,11 +43,11 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
     if ([self.textField canResignFirstResponder]) {
-        
+
         [self.textField resignFirstResponder];
     }
-    
-    [super touchesBegan: touches withEvent: event];
+
+    [super touchesBegan:touches withEvent:event];
 }
 
 

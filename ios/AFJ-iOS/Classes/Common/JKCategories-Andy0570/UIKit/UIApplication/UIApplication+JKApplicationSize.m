@@ -9,12 +9,12 @@
 @implementation UIApplication (JKApplicationSize)
 
 - (NSString *)jk_applicationSize {
-    unsigned long long docSize   =  [self jk_sizeOfFolder:[self jk_documentPath]];
-    unsigned long long libSize   =  [self jk_sizeOfFolder:[self jk_libraryPath]];
-    unsigned long long cacheSize =  [self jk_sizeOfFolder:[self jk_cachePath]];
-    
+    unsigned long long docSize = [self jk_sizeOfFolder:[self jk_documentPath]];
+    unsigned long long libSize = [self jk_sizeOfFolder:[self jk_libraryPath]];
+    unsigned long long cacheSize = [self jk_sizeOfFolder:[self jk_cachePath]];
+
     unsigned long long total = docSize + libSize + cacheSize;
-    
+
     NSString *folderSizeStr = [NSByteCountFormatter stringFromByteCount:total countStyle:NSByteCountFormatterCountStyleFile];
     return folderSizeStr;
 }
@@ -37,14 +37,13 @@
     return basePath;
 }
 
--(unsigned long long)jk_sizeOfFolder:(NSString *)folderPath
-{
+- (unsigned long long)jk_sizeOfFolder:(NSString *)folderPath {
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
     NSEnumerator *contentsEnumurator = [contents objectEnumerator];
-    
+
     NSString *file;
     unsigned long long folderSize = 0;
-    
+
     while (file = [contentsEnumurator nextObject]) {
         NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[folderPath stringByAppendingPathComponent:file] error:nil];
         folderSize += [[fileAttributes objectForKey:NSFileSize] intValue];

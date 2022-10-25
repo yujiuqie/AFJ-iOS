@@ -11,7 +11,7 @@
 
 @interface PeripheralInfo : NSObject
 
-@property (nonatomic,strong) CBUUID *serviceUUID;
-@property (nonatomic,strong) NSMutableArray *characteristics;
+@property(nonatomic, strong) CBUUID *serviceUUID;
+@property(nonatomic, strong) NSMutableArray *characteristics;
 
 @end

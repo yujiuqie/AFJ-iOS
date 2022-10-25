@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 @interface NSNumber (JKCGFloat)
 
 - (CGFloat)jk_CGFloatValue;

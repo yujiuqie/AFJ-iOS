@@ -11,37 +11,37 @@
 
 QTAppModuleRegister(UserService, QTAppEventPriorityHigh)
 
-@interface UserService()<QTAppModule>
+@interface UserService () <QTAppModule>
 
 @end
 
 @implementation UserService
 
-+ (instancetype)shared{
++ (instancetype)shared {
     static dispatch_once_t onceToken;
-    static UserService * _instance;
+    static UserService *_instance;
     dispatch_once(&onceToken, ^{
         _instance = [[UserService alloc] init];
     });
     return _instance;
 }
 
-- (void)registerEventObserver{
+- (void)registerEventObserver {
     [QTSub(self, QTAppLifeCircleEvent) next:^(QTAppLifeCircleEvent *event) {
-        NSLog(@"UserService: %@",event.type);
+        NSLog(@"UserService: %@", event.type);
     }];
 }
 
-+ (id<QTAppModule>)moduleInstance {
++ (id <QTAppModule>)moduleInstance {
     return [UserService shared];
 }
 
-- (void)appDidFinishLaunch:(QTAppDidLaunchEvent *)event{
+- (void)appDidFinishLaunch:(QTAppDidLaunchEvent *)event {
     NSLog(@"UserService: appDidFinishLaunch");
     [[UserService shared] registerEventObserver];
 }
 
-- (void)appAllModuleInit:(QTAppAllModuleInitEvent *)event{
+- (void)appAllModuleInit:(QTAppAllModuleInitEvent *)event {
     NSLog(@"UserService: All app Module init");
 }
 

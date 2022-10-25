@@ -44,35 +44,35 @@ static CGFloat NextLabelStartValue = 0.01;
 
 - (void)buildUI {
     _labelContainer = [[UIView alloc] init];
-    _labelContainer.backgroundColor = [UIColor colorWithRed:46/255.0f green:43/255.0f blue:46/255.0f alpha:1];
+    _labelContainer.backgroundColor = [UIColor colorWithRed:46 / 255.0f green:43 / 255.0f blue:46 / 255.0f alpha:1];
     [self addSubview:_labelContainer];
-    
+
     _timeLabel = [[UILabel alloc] init];
     [self configLabel:_timeLabel];
     [_labelContainer addSubview:_timeLabel];
-    
+
     _nextLabel = [[UILabel alloc] init];
     [self configLabel:_nextLabel];
     _nextLabel.hidden = true;
     //设置显示角度，为了能够显示上半部分，下半部分隐藏
     _nextLabel.layer.transform = [self nextLabelStartTransform];
     [_labelContainer addSubview:_nextLabel];
-    
-    
+
+
     _foldLabel = [[UILabel alloc] init];
     [self configLabel:_foldLabel];
     [_labelContainer addSubview:_foldLabel];
-    
+
     _link = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateAnimateLabel)];
 }
 
 - (void)configLabel:(UILabel *)label {
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithRed:186/255.0f green:183/255.0f blue:186/255.0f alpha:1];
+    label.textColor = [UIColor colorWithRed:186 / 255.0f green:183 / 255.0f blue:186 / 255.0f alpha:1];
     label.font = [UIFont boldSystemFontOfSize:150];
     label.font = [UIFont fontWithName:@"AmericanTypewriter-Condensed" size:150];
     label.layer.masksToBounds = true;
-    label.backgroundColor = [UIColor colorWithRed:46/255.0f green:43/255.0f blue:46/255.0f alpha:1];
+    label.backgroundColor = [UIColor colorWithRed:46 / 255.0f green:43 / 255.0f blue:46 / 255.0f alpha:1];
 }
 
 - (void)layoutSubviews {
@@ -85,16 +85,18 @@ static CGFloat NextLabelStartValue = 0.01;
 
 #pragma mark -
 #pragma mark 默认label起始角度
+
 - (CATransform3D)nextLabelStartTransform {
     CATransform3D t = CATransform3DIdentity;
-    t.m34  = CGFLOAT_MIN;
-    t = CATransform3DRotate(t,M_PI * NextLabelStartValue, -1, 0, 0);
+    t.m34 = CGFLOAT_MIN;
+    t = CATransform3DRotate(t, M_PI * NextLabelStartValue, -1, 0, 0);
     return t;
 }
 
 
 #pragma mark -
 #pragma mark 动画相关方法
+
 - (void)start {
     [_link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
@@ -104,15 +106,15 @@ static CGFloat NextLabelStartValue = 0.01;
 }
 
 - (void)updateAnimateLabel {
-    _animateValue += 2/60.0f;
+    _animateValue += 2 / 60.0f;
     if (_animateValue >= 1) {
         [self stop];
         return;
     }
     CATransform3D t = CATransform3DIdentity;
-    t.m34  = CGFLOAT_MIN;
+    t.m34 = CGFLOAT_MIN;
     //绕x轴进行翻转
-    t = CATransform3DRotate(t, M_PI*_animateValue, -1, 0, 0);
+    t = CATransform3DRotate(t, M_PI * _animateValue, -1, 0, 0);
     if (_animateValue >= 0.5) {
         //当翻转到和屏幕垂直时，翻转y和z轴
         t = CATransform3DRotate(t, M_PI, 0, 0, 1);
@@ -127,6 +129,7 @@ static CGFloat NextLabelStartValue = 0.01;
 
 #pragma mark -
 #pragma mark Setter
+
 - (void)setFont:(UIFont *)font {
     _timeLabel.font = font;
     _foldLabel.font = font;
@@ -140,9 +143,9 @@ static CGFloat NextLabelStartValue = 0.01;
 }
 
 - (void)updateTime:(NSInteger)time nextTime:(NSInteger)nextTime {
-    _timeLabel.text = [NSString stringWithFormat:@"%zd",time];
-    _foldLabel.text = [NSString stringWithFormat:@"%zd",time];
-    _nextLabel.text = [NSString stringWithFormat:@"%zd",nextTime];
+    _timeLabel.text = [NSString stringWithFormat:@"%zd", time];
+    _foldLabel.text = [NSString stringWithFormat:@"%zd", time];
+    _nextLabel.text = [NSString stringWithFormat:@"%zd", nextTime];
     _nextLabel.layer.transform = [self nextLabelStartTransform];
     _nextLabel.hidden = true;
     _animateValue = 0.0f;

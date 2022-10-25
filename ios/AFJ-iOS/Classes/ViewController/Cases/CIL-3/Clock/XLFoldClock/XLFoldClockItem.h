@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger,XLFoldClockItemType) {
+typedef NS_ENUM(NSInteger, XLFoldClockItemType) {
     XLClockItemTypeHour = 0,
     XLClockItemTypeMinute,
     XLClockItemTypeSecond,
@@ -16,12 +16,12 @@ typedef NS_ENUM(NSInteger,XLFoldClockItemType) {
 
 @interface XLFoldClockItem : UIView
 
-@property (nonatomic, assign) XLFoldClockItemType type;
+@property(nonatomic, assign) XLFoldClockItemType type;
 
-@property (nonatomic, assign) NSInteger time;
+@property(nonatomic, assign) NSInteger time;
 
-@property (nonatomic, strong) UIFont *font;
+@property(nonatomic, strong) UIFont *font;
 
-@property (nonatomic, strong) UIColor *textColor;
+@property(nonatomic, strong) UIColor *textColor;
 
 @end

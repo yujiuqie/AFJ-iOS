@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JFThumbnailViewController : UIViewController
 
-@property (nonatomic, strong) PDFDocument *pdfDocument;
-@property (nonatomic, weak) id<JFThumbnailViewControllerDelegate> delegate;
+@property(nonatomic, strong) PDFDocument *pdfDocument;
+@property(nonatomic, weak) id <JFThumbnailViewControllerDelegate> delegate;
 
 @end
 

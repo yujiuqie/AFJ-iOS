@@ -8,55 +8,45 @@
 
 @implementation NSFileManager (JKPaths)
 
-+ (NSURL *)jk_URLForDirectory:(NSSearchPathDirectory)directory
-{
++ (NSURL *)jk_URLForDirectory:(NSSearchPathDirectory)directory {
     return [self.defaultManager URLsForDirectory:directory inDomains:NSUserDomainMask].lastObject;
 }
 
-+ (NSString *)jk_pathForDirectory:(NSSearchPathDirectory)directory
-{
++ (NSString *)jk_pathForDirectory:(NSSearchPathDirectory)directory {
     return NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES)[0];
 }
 
-+ (NSURL *)jk_documentsURL
-{
++ (NSURL *)jk_documentsURL {
     return [self jk_URLForDirectory:NSDocumentDirectory];
 }
 
-+ (NSString *)jk_documentsPath
-{
++ (NSString *)jk_documentsPath {
     return [self jk_pathForDirectory:NSDocumentDirectory];
 }
 
-+ (NSURL *)jk_libraryURL
-{
++ (NSURL *)jk_libraryURL {
     return [self jk_URLForDirectory:NSLibraryDirectory];
 }
 
-+ (NSString *)jk_libraryPath
-{
++ (NSString *)jk_libraryPath {
     return [self jk_pathForDirectory:NSLibraryDirectory];
 }
 
-+ (NSURL *)jk_cachesURL
-{
++ (NSURL *)jk_cachesURL {
     return [self jk_URLForDirectory:NSCachesDirectory];
 }
 
-+ (NSString *)jk_cachesPath
-{
++ (NSString *)jk_cachesPath {
     return [self jk_pathForDirectory:NSCachesDirectory];
 }
 
-+ (BOOL)jk_addSkipBackupAttributeToFile:(NSString *)path
-{
++ (BOOL)jk_addSkipBackupAttributeToFile:(NSString *)path {
     return [[NSURL.alloc initFileURLWithPath:path] setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:nil];
 }
 
-+ (double)jk_availableDiskSpace
-{
++ (double)jk_availableDiskSpace {
     NSDictionary *attributes = [self.defaultManager attributesOfFileSystemForPath:self.jk_documentsPath error:nil];
-    
-    return [attributes[NSFileSystemFreeSize] unsignedLongLongValue] / (double)0x100000;
+
+    return [attributes[NSFileSystemFreeSize] unsignedLongLongValue] / (double) 0x100000;
 }
 @end

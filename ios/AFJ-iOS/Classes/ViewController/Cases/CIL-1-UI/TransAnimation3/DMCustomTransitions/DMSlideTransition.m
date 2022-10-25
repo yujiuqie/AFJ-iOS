@@ -14,28 +14,26 @@
 #pragma mark - UIViewControllerAnimatedTransitioning
 
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     return 0.50f;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *containerView = [transitionContext containerView];
     [containerView setBackgroundColor:self.backgroundColor ? self.backgroundColor : [UIColor whiteColor]];
     if (self.isPresenting) {
-        
+
         [containerView addSubview:toVC.view];
         CGRect fromFrame = fromVC.view.frame;
         CGRect toFrame = toVC.view.frame;
-        
-        fromFrame.origin.y = -fromFrame.size.height/2;
+
+        fromFrame.origin.y = -fromFrame.size.height / 2;
         toFrame.origin.y = containerView.frame.size.height;
         [toVC.view setFrame:toFrame];
         toFrame.origin.y = 0;
-        
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0
              usingSpringWithDamping:0.92f
@@ -45,25 +43,24 @@
                              [fromVC.view setFrame:fromFrame];
                              [toVC.view setFrame:toFrame];
                          } completion:^(BOOL finished) {
-                             [transitionContext completeTransition:YES];
-                         }];
-        
-    }
-    else {
-        
+                    [transitionContext completeTransition:YES];
+                }];
+
+    } else {
+
         [containerView addSubview:toVC.view];
         [containerView addSubview:fromVC.view];
-        
+
         CGRect fromFrame = fromVC.view.frame;
         CGRect toFrame = toVC.view.frame;
-        
+
         fromFrame.origin.y = containerView.frame.size.height;
-        
+
         toFrame.origin.y = -containerView.frame.size.height;
         [toVC.view setFrame:toFrame];
         toFrame.origin.y = 0;
-        
-        
+
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0
              usingSpringWithDamping:0.92f
@@ -73,9 +70,9 @@
                              [fromVC.view setFrame:fromFrame];
                              [toVC.view setFrame:toFrame];
                          } completion:^(BOOL finished) {
-                             [transitionContext completeTransition:YES];
-                         }];
-        
+                    [transitionContext completeTransition:YES];
+                }];
+
     }
 }
 

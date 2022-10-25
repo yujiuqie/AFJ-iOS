@@ -12,7 +12,7 @@
 #import "LSTMutiPopView.h"
 
 #define LSTRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
-#define LSTRGBAColor(r, g, b ,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define LSTRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 #define LSTRandColor LSTRGBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 
 @interface LSTMutiPopViewVC ()
@@ -28,7 +28,6 @@
 }
 
 
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self open];
 }
@@ -39,9 +38,9 @@
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
     view.backgroundColor = LSTRandColor;
-    
+
     view.frame = CGRectMake(0, 0, 300, 300);
-    
+
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
     popView.hemStyle = LSTHemStyleCenter;
     popView.adjustY = 10;
@@ -53,11 +52,11 @@
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    
+
     view.closeBlock = ^{
         [wk_self open];
     };
-    
+
     [popView popWithStyle:LSTPopStyleSmoothFromTop duration:0.5];
 }
 

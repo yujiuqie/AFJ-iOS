@@ -15,6 +15,7 @@
  *  @return urlEncode 后的字符串
  */
 - (NSString *)jk_urlEncode;
+
 /**
  *  @brief  urlEncode
  *
@@ -23,12 +24,14 @@
  *  @return urlEncode 后的字符串
  */
 - (NSString *)jk_urlEncodeUsingEncoding:(NSStringEncoding)encoding;
+
 /**
  *  @brief  urlDecode
  *
  *  @return urlDecode 后的字符串
  */
 - (NSString *)jk_urlDecode;
+
 /**
  *  @brief  urlDecode
  *

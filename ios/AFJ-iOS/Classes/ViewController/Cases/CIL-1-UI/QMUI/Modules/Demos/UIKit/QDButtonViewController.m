@@ -16,8 +16,8 @@
 
 - (void)initDataSource {
     self.dataSource = @[@"QMUIButton",
-                        @"QMUINavigationButton",
-                        @"QMUIToolbarButton"];
+            @"QMUINavigationButton",
+            @"QMUIToolbarButton"];
 }
 
 - (void)didSelectCellWithTitle:(NSString *)title {

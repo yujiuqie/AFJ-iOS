@@ -12,8 +12,8 @@
 
 @interface YBTag : UIView
 
-@property (nonatomic, assign) BOOL isEnableClick;
-@property (nonatomic, copy) NSArray *contentArray;
+@property(nonatomic, assign) BOOL isEnableClick;
+@property(nonatomic, copy) NSArray *contentArray;
 
 
 - (instancetype)initSelf;

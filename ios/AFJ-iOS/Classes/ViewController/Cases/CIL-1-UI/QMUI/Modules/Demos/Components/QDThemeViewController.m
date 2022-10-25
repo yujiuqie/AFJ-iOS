@@ -20,7 +20,7 @@
 @property(nonatomic, copy) NSString *themeName;
 @end
 
-@interface QDThemeViewController ()<QMUIKeyboardManagerDelegate>
+@interface QDThemeViewController () <QMUIKeyboardManagerDelegate>
 
 @property(nonatomic, strong) NSArray<Class> *classes;
 @property(nonatomic, strong) UIScrollView *scrollView;
@@ -37,43 +37,43 @@
 
 - (void)didInitialize {
     [super didInitialize];
-    
+
     self.classes = @[
-                     QMUIConfigurationTemplate.class,
-                     QMUIConfigurationTemplateGrapefruit.class,
-                     QMUIConfigurationTemplateGrass.class,
-                     QMUIConfigurationTemplatePinkRose.class,
-                     QMUIConfigurationTemplateDark.class];
-    [self.classes enumerateObjectsUsingBlock:^(Class  _Nonnull class, NSUInteger idx, BOOL * _Nonnull stop) {
+            QMUIConfigurationTemplate.class,
+            QMUIConfigurationTemplateGrapefruit.class,
+            QMUIConfigurationTemplateGrass.class,
+            QMUIConfigurationTemplatePinkRose.class,
+            QMUIConfigurationTemplateDark.class];
+    [self.classes enumerateObjectsUsingBlock:^(Class _Nonnull class, NSUInteger idx, BOOL *_Nonnull stop) {
         BOOL hasInstance = NO;
-        for (NSObject<QDThemeProtocol> *theme in QMUIThemeManagerCenter.defaultThemeManager.themes) {
+        for (NSObject <QDThemeProtocol> *theme in QMUIThemeManagerCenter.defaultThemeManager.themes) {
             if ([theme isKindOfClass:class]) {
                 hasInstance = YES;
                 break;
             }
         }
         if (!hasInstance) {
-            NSObject<QDThemeProtocol> *theme = [class new];
+            NSObject <QDThemeProtocol> *theme = [class new];
             [QMUIThemeManagerCenter.defaultThemeManager addThemeIdentifier:theme.themeName theme:theme];
         }
     }];
-    
+
     self.themeButtons = [[NSMutableArray alloc] init];
-    
+
     self.keyboardManager = [[QMUIKeyboardManager alloc] initWithDelegate:self];
 }
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.scrollView];
-    
+
     self.buttonContainers = [[QMUIFloatLayoutView alloc] init];
     [self.scrollView addSubview:self.buttonContainers];
-    
-    [self.classes enumerateObjectsUsingBlock:^(Class  _Nonnull class, NSUInteger idx, BOOL * _Nonnull stop) {
-        for (NSObject<QDThemeProtocol> *theme in QMUIThemeManagerCenter.defaultThemeManager.themes) {
+
+    [self.classes enumerateObjectsUsingBlock:^(Class _Nonnull class, NSUInteger idx, BOOL *_Nonnull stop) {
+        for (NSObject <QDThemeProtocol> *theme in QMUIThemeManagerCenter.defaultThemeManager.themes) {
             if ([NSStringFromClass(theme.class) isEqualToString:NSStringFromClass(class)]) {
                 NSString *identifier = [QMUIThemeManagerCenter.defaultThemeManager identifierForTheme:theme];
                 BOOL isCurrentTheme = [QMUIThemeManagerCenter.defaultThemeManager.currentThemeIdentifier isEqual:identifier];
@@ -89,7 +89,7 @@
             }
         }
     }];
-    
+
     self.respondsSystemStyleSwitch = [[UISwitch alloc] init];
     if (@available(iOS 13.0, *)) {
         self.respondsSystemStyleSwitch.on = QMUIThemeManagerCenter.defaultThemeManager.respondsSystemStyleAutomatically;
@@ -98,25 +98,25 @@
         self.respondsSystemStyleSwitch.enabled = NO;
     }
     [self.scrollView addSubview:self.respondsSystemStyleSwitch];
-    
+
     self.respondsSystemStyleLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColor.qd_mainTextColor];
     self.respondsSystemStyleLabel.text = @"自动响应 iOS 13 系统样式(Dark Mode)";
     [self.respondsSystemStyleLabel sizeToFit];
     [self.scrollView addSubview:self.respondsSystemStyleLabel];
-    
+
     self.separatorLayer = [CALayer layer];
     self.separatorLayer.backgroundColor = UIColor.qd_tintColor.CGColor;
     [self.scrollView.layer addSublayer:self.separatorLayer];
-    
+
     self.exampleView = [[QDThemeExampleView alloc] init];
     [self.scrollView addSubview:self.exampleView];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
+
     self.scrollView.frame = self.view.bounds;
-    
+
     UIEdgeInsets paddings = UIEdgeInsetsMake(24, 24 + self.scrollView.safeAreaInsets.left, 24 + self.scrollView.safeAreaInsets.bottom, 24 + self.scrollView.safeAreaInsets.right);
     self.buttonContainers.itemMargins = UIEdgeInsetsMake(0, 0, 8, 8);
     // 窄屏幕一行两个，宽屏幕单行展示完整
@@ -127,20 +127,20 @@
         buttonWidth = (buttonWidth - self.buttonContainers.itemMargins.right) / 2;
     }
     buttonWidth = floor(buttonWidth);
-    [self.themeButtons enumerateObjectsUsingBlock:^(QDThemeButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.themeButtons enumerateObjectsUsingBlock:^(QDThemeButton *_Nonnull button, NSUInteger idx, BOOL *_Nonnull stop) {
         button.frame = CGRectSetSize(button.frame, CGSizeMake(buttonWidth, 32));
     }];
     self.buttonContainers.frame = CGRectMake(paddings.left, paddings.top, CGRectGetWidth(self.scrollView.bounds) - UIEdgeInsetsGetHorizontalValue(paddings), QMUIViewSelfSizingHeight);
-    
+
     self.respondsSystemStyleSwitch.qmui_left = self.buttonContainers.qmui_left;
     self.respondsSystemStyleSwitch.qmui_top = self.buttonContainers.qmui_bottom + 18;
     self.respondsSystemStyleLabel.qmui_left = self.respondsSystemStyleSwitch.qmui_right + 12;
     self.respondsSystemStyleLabel.qmui_top = self.respondsSystemStyleSwitch.qmui_top + CGFloatGetCenter(self.respondsSystemStyleSwitch.qmui_height, self.respondsSystemStyleLabel.qmui_height);
-    
+
     self.separatorLayer.frame = CGRectMake(paddings.left, CGRectGetMaxY(self.respondsSystemStyleSwitch.frame) + 18, CGRectGetWidth(self.scrollView.bounds) - UIEdgeInsetsGetHorizontalValue(paddings), PixelOne);
-    
+
     self.exampleView.frame = CGRectMake(paddings.left, CGRectGetMaxY(self.separatorLayer.frame) + 24, CGRectGetWidth(self.separatorLayer.frame), QMUIViewSelfSizingHeight);
-    
+
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.bounds), CGRectGetMaxY(self.exampleView.frame) + paddings.bottom);
 }
 
@@ -156,7 +156,7 @@
 
 - (void)qmui_themeDidChangeByManager:(QMUIThemeManager *)manager identifier:(NSString *)identifier theme:(__kindof NSObject *)theme {
     [super qmui_themeDidChangeByManager:manager identifier:identifier theme:theme];
-    [self.themeButtons enumerateObjectsUsingBlock:^(QDThemeButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.themeButtons enumerateObjectsUsingBlock:^(QDThemeButton *_Nonnull button, NSUInteger idx, BOOL *_Nonnull stop) {
         button.selected = [button.currentTitle isEqualToString:identifier];
     }];
 }
@@ -169,7 +169,7 @@
 
 - (void)keyboardWillChangeFrameWithUserInfo:(QMUIKeyboardUserInfo *)keyboardUserInfo {
     CGFloat marginToKeyboard = 16;
-    UIView *view = (UIView *)keyboardUserInfo.targetResponder;
+    UIView *view = (UIView *) keyboardUserInfo.targetResponder;
     CGRect rectInView = [view convertRect:view.bounds toView:self.view];
     CGFloat keyboardHeight = [keyboardUserInfo heightInView:self.view];
     if (keyboardHeight <= 0) {
@@ -177,7 +177,7 @@
         if (self.scrollView.contentOffset.y + CGRectGetHeight(self.scrollView.bounds) > self.scrollView.contentSize.height) {
             [UIView animateWithDuration:keyboardUserInfo.animationDuration delay:0 options:keyboardUserInfo.animationOptions animations:^{
                 [self.scrollView qmui_scrollToBottom];
-            } completion:nil];
+            }                completion:nil];
         }
     } else {
         // show
@@ -185,10 +185,10 @@
         if (delta < 0) {
             [UIView animateWithDuration:keyboardUserInfo.animationDuration delay:0 options:keyboardUserInfo.animationOptions animations:^{
                 [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y - delta)];
-            } completion:nil];
+            }                completion:nil];
         }
     }
-    
+
     self.scrollView.contentInset = UIEdgeInsetsSetBottom(self.scrollView.contentInset, keyboardHeight);
     self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
 }

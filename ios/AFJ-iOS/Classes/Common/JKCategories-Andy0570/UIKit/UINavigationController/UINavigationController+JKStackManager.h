@@ -16,19 +16,22 @@
  *
  *  @return viewcontroler对象
  */
-- (id)jk_findViewController:(NSString*)className;
+- (id)jk_findViewController:(NSString *)className;
+
 /**
  *  @brief  判断是否只有一个RootViewController
  *
  *  @return 是否只有一个RootViewController
  */
 - (BOOL)jk_isOnlyContainRootViewController;
+
 /**
  *  @brief  RootViewController
  *
  *  @return RootViewController
  */
 - (UIViewController *)jk_rootViewController;
+
 /**
  *  @brief  返回指定的viewcontroler
  *
@@ -37,7 +40,8 @@
  *
  *  @return pop之后的viewcontrolers
  */
-- (NSArray *)jk_popToViewControllerWithClassName:(NSString*)className animated:(BOOL)animated;
+- (NSArray *)jk_popToViewControllerWithClassName:(NSString *)className animated:(BOOL)animated;
+
 /**
  *  @brief  pop n层
  *

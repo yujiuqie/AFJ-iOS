@@ -11,7 +11,7 @@
 @implementation CoreWorker (CoreDataProperties)
 
 + (NSFetchRequest<CoreWorker *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"CoreWorker"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"CoreWorker"];
 }
 
 @dynamic age;

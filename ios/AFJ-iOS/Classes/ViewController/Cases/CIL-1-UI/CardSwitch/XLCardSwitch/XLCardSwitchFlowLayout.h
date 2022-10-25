@@ -12,6 +12,6 @@ typedef void(^XLCenterIndexPathBlock)(NSIndexPath *indexPath);
 
 @interface XLCardSwitchFlowLayout : UICollectionViewFlowLayout
 
-@property (nonatomic , strong) XLCenterIndexPathBlock centerBlock;
+@property(nonatomic, strong) XLCenterIndexPathBlock centerBlock;
 
 @end

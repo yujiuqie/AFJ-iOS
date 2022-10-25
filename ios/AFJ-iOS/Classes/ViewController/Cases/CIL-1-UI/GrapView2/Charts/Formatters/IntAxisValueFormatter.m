@@ -6,14 +6,12 @@
 
 #import "IntAxisValueFormatter.h"
 
-@implementation IntAxisValueFormatter
-{
+@implementation IntAxisValueFormatter {
 }
 
 - (NSString *)stringForValue:(double)value
-                        axis:(ChartAxisBase *)axis
-{
-    return [@((NSInteger)value) stringValue];
+                        axis:(ChartAxisBase *)axis {
+    return [@((NSInteger) value) stringValue];
 }
 
 @end

@@ -23,7 +23,7 @@
 }
 
 + (NSDictionary *)oneToOneRelationship {
-    return @{@"team" : @"coach"};
+    return @{@"team": @"coach"};
 }
 
 @end

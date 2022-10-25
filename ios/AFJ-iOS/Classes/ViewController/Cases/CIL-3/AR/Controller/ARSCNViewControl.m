@@ -20,13 +20,13 @@
     if (![anchor isKindOfClass:[ARPlaneAnchor class]]) {
         return;
     }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
         self.viewController.addNodeButton.hidden = NO;
         self.viewController.snapshotButton.hidden = NO;
         [self.alertController showOverlyText:@"SURFACE DETECTED, TAP TO PLACE AN OBJECT" withDuration:2];
     });
-    
+
 }
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer didUpdateNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {

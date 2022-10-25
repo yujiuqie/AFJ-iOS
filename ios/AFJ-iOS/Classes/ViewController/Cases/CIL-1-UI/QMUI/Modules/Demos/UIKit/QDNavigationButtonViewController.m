@@ -23,26 +23,26 @@ NSString *const kSectionTitleForCloseButton = @"关闭按钮";
 
 - (void)initDataSource {
     self.dataSource = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                       kSectionTitleForNormalButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                      @"[系统]文本按钮", @"",
-                                                      @"[QMUI]文本按钮", @"",
-                                                      nil],
-                       kSectionTitleForBoldButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                    @"[系统]加粗文本按钮", @"",
-                                                    @"[QMUI]加粗文本按钮", @"",
-                                                    nil],
-                       kSectionTitleForImageButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                     @"[系统]图片按钮", @"",
-                                                     @"[QMUI]图片按钮", @"",
-                                                     nil],
-                       kSectionTitleForBackButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                    @"[系统]返回按钮", @"",
-                                                    @"[QMUI]返回按钮", @"",
-                                                    nil],
-                       kSectionTitleForCloseButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                     @"[QMUI]关闭按钮", @"在 present 的场景经常使用这种关闭按钮",
-                                                     nil],
-                       nil];
+            kSectionTitleForNormalButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+            @"[系统]文本按钮", @"",
+            @"[QMUI]文本按钮", @"",
+                    nil],
+            kSectionTitleForBoldButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                    @"[系统]加粗文本按钮", @"",
+                    @"[QMUI]加粗文本按钮", @"",
+                            nil],
+            kSectionTitleForImageButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                    @"[系统]图片按钮", @"",
+                    @"[QMUI]图片按钮", @"",
+                            nil],
+            kSectionTitleForBackButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                    @"[系统]返回按钮", @"",
+                    @"[QMUI]返回按钮", @"",
+                            nil],
+            kSectionTitleForCloseButton, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                    @"[QMUI]关闭按钮", @"在 present 的场景经常使用这种关闭按钮",
+                            nil],
+                    nil];
 }
 
 // 可通过切换“系统”和“QMUI”，看 QMUI 的自定义按钮布局是否与系统的不一致，产生跳动
@@ -62,10 +62,10 @@ NSString *const kSectionTitleForCloseButton = @"关闭按钮";
         self.navigationItem.rightBarButtonItems = @[item];
     } else if ([title isEqualToString:@"[系统]图片按钮"]) {
         self.navigationItem.rightBarButtonItems = @[[UIBarButtonItem qmui_itemWithImage:UIImageMake(@"icon_nav_about") target:nil action:NULL],
-                                                    [UIBarButtonItem qmui_itemWithImage:UIImageMake(@"icon_nav_about") target:nil action:NULL]];
+                [UIBarButtonItem qmui_itemWithImage:UIImageMake(@"icon_nav_about") target:nil action:NULL]];
     } else if ([title isEqualToString:@"[QMUI]图片按钮"]) {
         self.navigationItem.rightBarButtonItems = @[[UIBarButtonItem qmui_itemWithButton:[[QMUINavigationButton alloc] initWithImage:UIImageMake(@"icon_nav_about")] target:nil action:NULL],
-                                                    [UIBarButtonItem qmui_itemWithButton:[[QMUINavigationButton alloc] initWithImage:UIImageMake(@"icon_nav_about")] target:nil action:NULL]];
+                [UIBarButtonItem qmui_itemWithButton:[[QMUINavigationButton alloc] initWithImage:UIImageMake(@"icon_nav_about")] target:nil action:NULL]];
     } else if ([title isEqualToString:@"[系统]返回按钮"]) {
         self.navigationItem.leftBarButtonItem = nil;// 只要不设置 leftBarButtonItem，就会显示系统的返回按钮
         self.navigationItem.rightBarButtonItems = nil;

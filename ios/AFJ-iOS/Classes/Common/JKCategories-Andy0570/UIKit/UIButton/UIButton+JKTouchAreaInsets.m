@@ -8,26 +8,23 @@
 
 @implementation UIButton (JKTouchAreaInsets)
 
-- (UIEdgeInsets)jk_touchAreaInsets
-{
-	return [objc_getAssociatedObject(self, @selector(jk_touchAreaInsets)) UIEdgeInsetsValue];
+- (UIEdgeInsets)jk_touchAreaInsets {
+    return [objc_getAssociatedObject(self, @selector(jk_touchAreaInsets)) UIEdgeInsetsValue];
 }
 
-- (void)setJk_touchAreaInsets:(UIEdgeInsets)touchAreaInsets
-{
+- (void)setJk_touchAreaInsets:(UIEdgeInsets)touchAreaInsets {
     NSValue *value = [NSValue valueWithUIEdgeInsets:touchAreaInsets];
-	objc_setAssociatedObject(self, @selector(jk_touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(jk_touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
-{
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     UIEdgeInsets touchAreaInsets = self.jk_touchAreaInsets;
     CGRect bounds = self.bounds;
     bounds = CGRectMake(bounds.origin.x - touchAreaInsets.left,
-                        bounds.origin.y - touchAreaInsets.top,
-                        bounds.size.width + touchAreaInsets.left + touchAreaInsets.right,
-                        bounds.size.height + touchAreaInsets.top + touchAreaInsets.bottom);
-	return CGRectContainsPoint(bounds, point);
+            bounds.origin.y - touchAreaInsets.top,
+            bounds.size.width + touchAreaInsets.left + touchAreaInsets.right,
+            bounds.size.height + touchAreaInsets.top + touchAreaInsets.bottom);
+    return CGRectContainsPoint(bounds, point);
 }
 
 @end

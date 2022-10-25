@@ -15,8 +15,7 @@
  *
  *  @return 图片
  */
-+ (UIImage *)jk_captureWithView:(UIView *)view
-{
++ (UIImage *)jk_captureWithView:(UIView *)view {
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, [UIScreen mainScreen].scale);
     // IOS7及其后续版本
     if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
@@ -24,14 +23,13 @@
     } else { // IOS7之前的版本
         [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     }
-    
+
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return screenshot;
 }
 
-+ (UIImage *)jk_getImageWithSize:(CGRect)myImageRect FromImage:(UIImage *)bigImage
-{
++ (UIImage *)jk_getImageWithSize:(CGRect)myImageRect FromImage:(UIImage *)bigImage {
     //大图bigImage
     //定义myImageRect，截图的区域
     CGImageRef imageRef = bigImage.CGImage;
@@ -42,7 +40,7 @@
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextDrawImage(context, myImageRect, subImageRef);
-    UIImage* smallImage = [UIImage imageWithCGImage:subImageRef];
+    UIImage *smallImage = [UIImage imageWithCGImage:subImageRef];
     CGImageRelease(subImageRef);
     UIGraphicsEndImageContext();
     return smallImage;
@@ -58,47 +56,44 @@
  *
  *  @return 截图
  */
-+ (UIImage *)jk_screenshotWithView:(UIView *)aView limitWidth:(CGFloat)maxWidth{
++ (UIImage *)jk_screenshotWithView:(UIView *)aView limitWidth:(CGFloat)maxWidth {
     CGAffineTransform oldTransform = aView.transform;
-    
+
     CGAffineTransform scaleTransform = CGAffineTransformIdentity;
-    if (!isnan(maxWidth) && maxWidth>0) {
-        CGFloat maxScale = maxWidth/CGRectGetWidth(aView.frame);
+    if (!isnan(maxWidth) && maxWidth > 0) {
+        CGFloat maxScale = maxWidth / CGRectGetWidth(aView.frame);
         CGAffineTransform transformScale = CGAffineTransformMakeScale(maxScale, maxScale);
         scaleTransform = CGAffineTransformConcat(oldTransform, transformScale);
-    
+
     }
-    if(!CGAffineTransformEqualToTransform(scaleTransform, CGAffineTransformIdentity)){
+    if (!CGAffineTransformEqualToTransform(scaleTransform, CGAffineTransformIdentity)) {
         aView.transform = scaleTransform;
     }
-    
+
     CGRect actureFrame = aView.frame; //已经变换过后的frame
-    CGRect actureBounds= aView.bounds;//CGRectApplyAffineTransform();
-    
+    CGRect actureBounds = aView.bounds;//CGRectApplyAffineTransform();
+
     //begin
     UIGraphicsBeginImageContextWithOptions(actureFrame.size, NO, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     //    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
-    CGContextTranslateCTM(context,actureFrame.size.width/2, actureFrame.size.height/2);
+    CGContextTranslateCTM(context, actureFrame.size.width / 2, actureFrame.size.height / 2);
     CGContextConcatCTM(context, aView.transform);
     CGPoint anchorPoint = aView.layer.anchorPoint;
     CGContextTranslateCTM(context,
-                          -actureBounds.size.width * anchorPoint.x,
-                          -actureBounds.size.height * anchorPoint.y);
-    if([aView respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)])
-    {
+            -actureBounds.size.width * anchorPoint.x,
+            -actureBounds.size.height * anchorPoint.y);
+    if ([aView respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
         [aView drawViewHierarchyInRect:aView.bounds afterScreenUpdates:NO];
-    }
-    else
-    {
+    } else {
         [aView.layer renderInContext:UIGraphicsGetCurrentContext()];
     }
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     //end
     aView.transform = oldTransform;
-    
+
     return screenshot;
 }
 

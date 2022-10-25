@@ -14,12 +14,12 @@
     if (self.isMeasured) {
         return;
     }
-    self.size = CGSizeMake([self.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.textSize]}].width, paintHeight);
+    self.size = CGSizeMake([self.text sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:self.textSize]}].width, paintHeight);
     self.isMeasured = YES;
 }
 
 - (void)layoutWithScreenWidth:(float)width; {
-    
+
 }
 
 - (float)pxWithScreenWidth:(float)width remainTime:(float)remainTime {
@@ -43,7 +43,7 @@
 }
 
 - (float)pxWithScreenWidth:(float)width remainTime:(float)remainTime {
-    return -self.size.width+(width+self.size.width)/self.duration*remainTime;
+    return -self.size.width + (width + self.size.width) / self.duration * remainTime;
 }
 
 @end
@@ -51,10 +51,10 @@
 @implementation DanmakuFTModel
 
 - (void)layoutWithScreenWidth:(float)width {
-    self.px = (width-self.size.width)/2;
+    self.px = (width - self.size.width) / 2;
     float alpha = 0;
-    if (self.remainTime>0 && self.remainTime<self.duration) {
-        alpha= 1;
+    if (self.remainTime > 0 && self.remainTime < self.duration) {
+        alpha = 1;
     }
     self.label.alpha = alpha;
 }
@@ -69,19 +69,19 @@
 
 - (void)drawTextInRect:(CGRect)rect {
     UIColor *textColor = self.textColor;
-    
+
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(c, 2);
     CGContextSetLineJoin(c, kCGLineJoinRound);
-    
+
     CGContextSetTextDrawingMode(c, kCGTextStroke);
     self.textColor = [UIColor colorWithWhite:0.2 alpha:1];
     [super drawTextInRect:rect];
-    
+
     CGContextSetTextDrawingMode(c, kCGTextFill);
     self.textColor = textColor;
     [super drawTextInRect:rect];
-    
+
     if (self.underLineEnable) {
         CGContextSetStrokeColorWithColor(c, [UIColor redColor].CGColor);
         CGContextSetLineWidth(c, 2.0f);

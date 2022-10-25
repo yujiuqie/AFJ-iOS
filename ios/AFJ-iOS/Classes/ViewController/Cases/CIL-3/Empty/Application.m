@@ -10,8 +10,7 @@
 
 @implementation Application
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict
-{
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
         self.displayName = dict[@"display_name"];
@@ -21,67 +20,63 @@
     return self;
 }
 
-+ (NSArray *)applicationsFromJSONAtPath:(NSString *)path
-{
++ (NSArray *)applicationsFromJSONAtPath:(NSString *)path {
     NSData *data = [NSData dataWithContentsOfFile:path];
-    NSArray *JSON = [[NSJSONSerialization JSONObjectWithData:data options:kNilOptions|NSJSONWritingPrettyPrinted error:nil] mutableCopy];
-    
+    NSArray *JSON = [[NSJSONSerialization JSONObjectWithData:data options:kNilOptions | NSJSONWritingPrettyPrinted error:nil] mutableCopy];
+
     return [self applicationsFromJSON:JSON];
 }
 
-+ (NSArray *)applicationsFromJSON:(id)JSON
-{
++ (NSArray *)applicationsFromJSON:(id)JSON {
     NSMutableArray *objects = [NSMutableArray new];
-    
+
     for (NSDictionary *dictionary in JSON) {
         Application *obj = [[Application alloc] initWithDictionary:dictionary];
         [objects addObject:obj];
     }
-    
+
     return objects;
 }
 
-- (void)setDisplayName:(NSString *)displayName
-{
+- (void)setDisplayName:(NSString *)displayName {
     _displayName = displayName;
-    
+
     self.iconName = [[[NSString stringWithFormat:@"icon_%@", self.displayName] lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-    
+
     self.type = applicationTypeFromString(self.displayName) + 1;
 }
 
-ApplicationType applicationTypeFromString(NSString *string)
-{
+ApplicationType applicationTypeFromString(NSString *string) {
     NSArray *arr = @[
-                     @"500px",
-                     @"Airbnb",
-                     @"AppStore",
-                     @"Camera",
-                     @"Dropbox",
-                     @"Facebook",
-                     @"Fancy",
-                     @"Foursquare",
-                     @"iCloud",
-                     @"Instagram",
-                     @"iTunes Connect",
-                     @"Kickstarter",
-                     @"Path",
-                     @"Pinterest",
-                     @"Photos",
-                     @"Podcasts",
-                     @"Remote",
-                     @"Safari",
-                     @"Skype",
-                     @"Slack",
-                     @"Tumblr",
-                     @"Twitter",
-                     @"Videos",
-                     @"Vesper",
-                     @"Vine",
-                     @"WhatsApp",
-                     @"WWDC"
-                     ];
-    return (ApplicationType)[arr indexOfObject:string];
+            @"500px",
+            @"Airbnb",
+            @"AppStore",
+            @"Camera",
+            @"Dropbox",
+            @"Facebook",
+            @"Fancy",
+            @"Foursquare",
+            @"iCloud",
+            @"Instagram",
+            @"iTunes Connect",
+            @"Kickstarter",
+            @"Path",
+            @"Pinterest",
+            @"Photos",
+            @"Podcasts",
+            @"Remote",
+            @"Safari",
+            @"Skype",
+            @"Slack",
+            @"Tumblr",
+            @"Twitter",
+            @"Videos",
+            @"Vesper",
+            @"Vine",
+            @"WhatsApp",
+            @"WWDC"
+    ];
+    return (ApplicationType) [arr indexOfObject:string];
 }
 
 @end

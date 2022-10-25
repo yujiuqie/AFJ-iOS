@@ -40,37 +40,37 @@
     }
     NSArray *pArray = [pString componentsSeparatedByString:@","];
     if (pArray.count < 5) {
-        return  nil;
+        return nil;
     }
-    
+
     DanmakuType type = [pArray[1] integerValue] % 3;
     DanmakuFont fontSize = [pArray[2] integerValue] % 2;
-    
+
     DanmakuBaseModel *danmaku = [DanmakuFactory createDanmakuWithDanmakuType:type
                                                                configuration:configuration];
-    danmaku.time = [pArray[0] floatValue]/1000.0;
+    danmaku.time = [pArray[0] floatValue] / 1000.0;
     danmaku.text = mString;
-    danmaku.textSize = fontSize == DanmakuFontLarge ? configuration.largeFontSize: configuration.fontSize;
+    danmaku.textSize = fontSize == DanmakuFontLarge ? configuration.largeFontSize : configuration.fontSize;
     danmaku.textColor = [self colorWithHexStr:pArray[3]];
     return danmaku;
 }
 
-#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define RGBCOLOR(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 
 + (UIColor *)colorWithHexStr:(NSString *)str {
     int i = 0;
     if ([str characterAtIndex:0] == '#')
         i = 1;
-    
+
     if (i + 6 > [str length])
         return [UIColor blackColor];
-    
+
     return RGBCOLOR([self intWithC1:[str characterAtIndex:i]
                                  C2:[str characterAtIndex:i + 1]],
-                    [self intWithC1:[str characterAtIndex:i + 2]
-                                 C2:[str characterAtIndex:i + 3]],
-                    [self intWithC1:[str characterAtIndex:i + 4]
-                                 C2:[str characterAtIndex:i + 5]]);
+            [self intWithC1:[str characterAtIndex:i + 2]
+                         C2:[str characterAtIndex:i + 3]],
+            [self intWithC1:[str characterAtIndex:i + 4]
+                         C2:[str characterAtIndex:i + 5]]);
 }
 
 + (int)intWithC1:(char)c1 C2:(char)c2 {

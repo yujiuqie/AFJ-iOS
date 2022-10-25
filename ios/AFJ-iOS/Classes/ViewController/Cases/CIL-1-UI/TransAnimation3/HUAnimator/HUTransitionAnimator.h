@@ -33,11 +33,11 @@
  @param max
  @result random number between min and max
  */
-#define RANDOM_FLOAT(MIN,MAX) (((CGFloat)arc4random() / 0x100000000) * (MAX - MIN) + MIN);
+#define RANDOM_FLOAT(MIN, MAX) (((CGFloat)arc4random() / 0x100000000) * (MAX - MIN) + MIN);
 
 
 @interface HUTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-@property (nonatomic, assign) BOOL presenting;
+@property(nonatomic, assign) BOOL presenting;
 @end
 
 

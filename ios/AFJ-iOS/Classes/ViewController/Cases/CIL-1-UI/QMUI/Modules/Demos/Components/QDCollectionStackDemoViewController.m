@@ -67,7 +67,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    QDCollectionViewDemoCell *cell = (QDCollectionViewDemoCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    QDCollectionViewDemoCell *cell = (QDCollectionViewDemoCell *) [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.contentLabel.text = [NSString stringWithFormat:@"%@", [self.datas objectAtIndex:indexPath.item]];
     [cell setNeedsLayout];
     return cell;
@@ -85,14 +85,12 @@
             self.collectionViewLayout.curIndexPath = indexPath;
             self.collectionViewLayout.isMoving = YES;
         }
-    }
-    else if (gesture.state == UIGestureRecognizerStateChanged) {
+    } else if (gesture.state == UIGestureRecognizerStateChanged) {
         NSLog(@"gesture chagned");
         CGPoint point = [gesture translationInView:self.collectionView];
         self.collectionViewLayout.curPoint = point;
         [self.collectionViewLayout invalidateLayout];
-    }
-    else if (gesture.state == UIGestureRecognizerStateCancelled || gesture.state == UIGestureRecognizerStateEnded) {
+    } else if (gesture.state == UIGestureRecognizerStateCancelled || gesture.state == UIGestureRecognizerStateEnded) {
         NSLog(@"gesture canceled or ended");
         CGFloat maxDistance = fmax(fabs(self.collectionViewLayout.curPoint.x), fabs(self.collectionViewLayout.curPoint.y));
         self.collectionViewLayout.isMoving = NO;
@@ -101,20 +99,20 @@
             NSIndexPath *deleteIndexPath = [NSIndexPath indexPathForItem:0 inSection:0];
             [self.datas removeObjectAtIndex:0];
             [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-                QDCollectionViewDemoCell *cell = (QDCollectionViewDemoCell *)[self.collectionView cellForItemAtIndexPath:deleteIndexPath];
+                QDCollectionViewDemoCell *cell = (QDCollectionViewDemoCell *) [self.collectionView cellForItemAtIndexPath:deleteIndexPath];
                 cell.layer.transform = CATransform3DMakeTranslation(self.collectionViewLayout.curPoint.x * 10, self.collectionViewLayout.curPoint.y * 10, 0);
                 cell.alpha = 0;
-            } completion:^(BOOL finished) {
+            }                completion:^(BOOL finished) {
                 [self.collectionView performBatchUpdates:^{
                     [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:deleteIndexPath]];
-                } completion:^(BOOL finished) {
+                }                             completion:^(BOOL finished) {
                     self.collectionViewLayout.curPoint = CGPointZero;
                 }];
             }];
         } else {
             [self.collectionView performBatchUpdates:^{
                 [self.collectionView reloadData];
-            } completion:^(BOOL finished) {
+            }                             completion:^(BOOL finished) {
                 self.collectionViewLayout.curPoint = CGPointZero;
             }];
         }

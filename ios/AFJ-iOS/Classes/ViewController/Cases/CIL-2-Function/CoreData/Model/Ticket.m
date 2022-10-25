@@ -25,7 +25,7 @@
 }
 
 + (NSDictionary *)primaryKeys {
-    return @{@"ticketId" : @"ticketId"};
+    return @{@"ticketId": @"ticketId"};
 }
 
 @end

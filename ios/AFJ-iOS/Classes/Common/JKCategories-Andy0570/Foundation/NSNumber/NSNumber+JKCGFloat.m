@@ -7,8 +7,7 @@
 
 @implementation NSNumber (JKCGFloat)
 
-- (CGFloat)jk_CGFloatValue
-{
+- (CGFloat)jk_CGFloatValue {
 #if (CGFLOAT_IS_DOUBLE == 1)
     CGFloat result = [self doubleValue];
 #else
@@ -17,8 +16,7 @@
     return result;
 }
 
-- (id)initWithJKCGFloat:(CGFloat)value
-{
+- (id)initWithJKCGFloat:(CGFloat)value {
 #if (CGFLOAT_IS_DOUBLE == 1)
     self = [self initWithDouble:value];
 #else
@@ -27,8 +25,7 @@
     return self;
 }
 
-+ (NSNumber *)jk_numberWithCGFloat:(CGFloat)value
-{
++ (NSNumber *)jk_numberWithCGFloat:(CGFloat)value {
     NSNumber *result = [[self alloc] initWithJKCGFloat:value];
     return result;
 }

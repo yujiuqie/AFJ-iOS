@@ -15,16 +15,16 @@
 /**
  插入时间
  */
-@property (nonatomic , assign) CMTime insertTime;
+@property(nonatomic, assign) CMTime insertTime;
 
 /**
  原音频音量 0.0~1.0
  */
-@property (nonatomic , assign) float audioVolume;
+@property(nonatomic, assign) float audioVolume;
 
 /**
  配音音量 0.0~1.0
  */
-@property (nonatomic , assign) float mixVolume;
+@property(nonatomic, assign) float mixVolume;
 
 @end

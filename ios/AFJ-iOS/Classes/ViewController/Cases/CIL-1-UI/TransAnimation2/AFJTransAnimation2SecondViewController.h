@@ -8,6 +8,7 @@
 
 #import "WXSBaseViewController.h"
 #import "UINavigationController+WXSTransition.h"
+
 @interface AFJTransAnimation2SecondViewController : WXSBaseViewController
 
 @end

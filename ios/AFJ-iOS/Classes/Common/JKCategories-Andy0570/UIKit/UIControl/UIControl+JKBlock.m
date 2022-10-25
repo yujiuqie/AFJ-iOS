@@ -54,18 +54,31 @@
 @implementation UIControl (JKBlock)
 
 JK_UICONTROL_EVENT(jk_touchDown, TouchDown)
+
 JK_UICONTROL_EVENT(jk_touchDownRepeat, TouchDownRepeat)
+
 JK_UICONTROL_EVENT(jk_touchDragInside, TouchDragInside)
+
 JK_UICONTROL_EVENT(jk_touchDragOutside, TouchDragOutside)
+
 JK_UICONTROL_EVENT(jk_touchDragEnter, TouchDragEnter)
+
 JK_UICONTROL_EVENT(jk_touchDragExit, TouchDragExit)
+
 JK_UICONTROL_EVENT(jk_touchUpInside, TouchUpInside)
+
 JK_UICONTROL_EVENT(jk_touchUpOutside, TouchUpOutside)
+
 JK_UICONTROL_EVENT(jk_touchCancel, TouchCancel)
+
 JK_UICONTROL_EVENT(jk_valueChanged, ValueChanged)
+
 JK_UICONTROL_EVENT(jk_editingDidBegin, EditingDidBegin)
+
 JK_UICONTROL_EVENT(jk_editingChanged, EditingChanged)
+
 JK_UICONTROL_EVENT(jk_editingDidEnd, EditingDidEnd)
+
 JK_UICONTROL_EVENT(jk_editingDidEndOnExit, EditingDidEndOnExit)
 
 //- (void)touchUpInside:(void (^)(void))eventBlock {

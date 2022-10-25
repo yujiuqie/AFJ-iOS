@@ -31,36 +31,36 @@
 - (void)buildUI {
     _leftLabel = [[XLFoldLabel alloc] init];
     [self addSubview:_leftLabel];
-    
+
     _rightLabel = [[XLFoldLabel alloc] init];
     [self addSubview:_rightLabel];
-    
+
     _line = [[UIView alloc] init];
     _line.backgroundColor = [UIColor blackColor];
     [self addSubview:_line];
-    
+
     _lastLeftTime = -1;
     _lastRightTime = -1;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGFloat labelW = self.bounds.size.width/2.0f;
+    CGFloat labelW = self.bounds.size.width / 2.0f;
     CGFloat labelH = self.bounds.size.height;
     _leftLabel.frame = CGRectMake(0, 0, labelW, labelH);
     _rightLabel.frame = CGRectMake(labelW, 0, labelW, labelH);
-    
-    self.layer.cornerRadius = self.bounds.size.height/10.0f;
+
+    self.layer.cornerRadius = self.bounds.size.height / 10.0f;
     self.layer.masksToBounds = true;
-    
+
     _line.bounds = CGRectMake(0, 0, self.bounds.size.width, 5);
-    _line.center = CGPointMake(self.bounds.size.width/2.0f, self.bounds.size.height/2.0f);
+    _line.center = CGPointMake(self.bounds.size.width / 2.0f, self.bounds.size.height / 2.0f);
 }
 
 - (void)setTime:(NSInteger)time {
     _time = time;
-    [self configLeftTimeLabel:time/10];
-    [self configRightTimeLabel:time%10];
+    [self configLeftTimeLabel:time / 10];
+    [self configRightTimeLabel:time % 10];
 }
 
 - (void)configLeftTimeLabel:(NSInteger)time {
@@ -105,6 +105,7 @@
 
 #pragma mark -
 #pragma mark Setter
+
 - (void)setFont:(UIFont *)font {
     _leftLabel.font = font;
     _rightLabel.font = font;

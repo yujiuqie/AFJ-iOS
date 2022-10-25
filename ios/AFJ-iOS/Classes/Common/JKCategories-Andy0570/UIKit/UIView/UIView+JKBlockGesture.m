@@ -23,7 +23,7 @@ static char jk_kActionHandlerLongPressGestureKey;
     objc_setAssociatedObject(self, &jk_kActionHandlerTapBlockKey, block, OBJC_ASSOCIATION_COPY);
 }
 
-- (void)jk_handleActionForTapGesture:(UITapGestureRecognizer*)gesture {
+- (void)jk_handleActionForTapGesture:(UITapGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateRecognized) {
         JKGestureActionBlock block = objc_getAssociatedObject(self, &jk_kActionHandlerTapBlockKey);
         if (block) {
@@ -42,7 +42,7 @@ static char jk_kActionHandlerLongPressGestureKey;
     objc_setAssociatedObject(self, &jk_kActionHandlerLongPressBlockKey, block, OBJC_ASSOCIATION_COPY);
 }
 
-- (void)jk_handleActionForLongPressGesture:(UITapGestureRecognizer*)gesture {
+- (void)jk_handleActionForLongPressGesture:(UITapGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateRecognized) {
         JKGestureActionBlock block = objc_getAssociatedObject(self, &jk_kActionHandlerLongPressBlockKey);
         if (block) {

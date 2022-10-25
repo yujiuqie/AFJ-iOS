@@ -12,8 +12,8 @@ static UIEdgeInsets const kPadding = {10, 10, 10, 10};
 
 @interface MASExampleLabelView ()
 
-@property (nonatomic, strong) UILabel *shortLabel;
-@property (nonatomic, strong) UILabel *longLabel;
+@property(nonatomic, strong) UILabel *shortLabel;
+@property(nonatomic, strong) UILabel *longLabel;
 
 @end
 

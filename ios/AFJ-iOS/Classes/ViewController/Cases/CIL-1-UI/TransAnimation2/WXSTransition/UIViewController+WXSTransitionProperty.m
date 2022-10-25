@@ -18,7 +18,6 @@ static NSString *wxs_transitioningDelegateKey = @"wxs_transitioningDelegateKey";
 static NSString *wxs_tempNavDelegateKey = @"wxs_tempNavDelegateKey";
 
 
-
 @implementation UIViewController (WXSTransitionProperty)
 
 
@@ -29,6 +28,7 @@ static NSString *wxs_tempNavDelegateKey = @"wxs_tempNavDelegateKey";
 - (void)setWxs_callBackTransition:(WXSTransitionBlock)wxs_callBackTransition {
     objc_setAssociatedObject(self, &wxs_callBackTransitionKey, wxs_callBackTransition, OBJC_ASSOCIATION_COPY);
 }
+
 - (WXSTransitionBlock)wxs_callBackTransition {
     return objc_getAssociatedObject(self, &wxs_callBackTransitionKey);
 }
@@ -37,8 +37,9 @@ static NSString *wxs_tempNavDelegateKey = @"wxs_tempNavDelegateKey";
 - (void)setWxs_delegateFlag:(BOOL)wxs_delegateFlag {
     objc_setAssociatedObject(self, &wxs_delegateFlagKey, @(wxs_delegateFlag), OBJC_ASSOCIATION_ASSIGN);
 }
--(BOOL)wxs_delegateFlag {
-    return [objc_getAssociatedObject(self, &wxs_delegateFlagKey) integerValue] == 0 ?  NO : YES;
+
+- (BOOL)wxs_delegateFlag {
+    return [objc_getAssociatedObject(self, &wxs_delegateFlagKey) integerValue] == 0 ? NO : YES;
 }
 
 
@@ -46,8 +47,9 @@ static NSString *wxs_tempNavDelegateKey = @"wxs_tempNavDelegateKey";
 - (void)setWxs_addTransitionFlag:(BOOL)wxs_addTransitionFlag {
     objc_setAssociatedObject(self, &wxs_addTransitionFlagKey, @(wxs_addTransitionFlag), OBJC_ASSOCIATION_ASSIGN);
 }
+
 - (BOOL)wxs_addTransitionFlag {
-    return [objc_getAssociatedObject(self, &wxs_addTransitionFlagKey) integerValue] == 0 ?  NO : YES;
+    return [objc_getAssociatedObject(self, &wxs_addTransitionFlagKey) integerValue] == 0 ? NO : YES;
 }
 
 
@@ -57,7 +59,7 @@ static NSString *wxs_tempNavDelegateKey = @"wxs_tempNavDelegateKey";
 }
 
 - (BOOL)wxs_backGestureEnable {
-    return [objc_getAssociatedObject(self , &wxs_backGestureEnableKey) integerValue] == 0 ? NO : YES;
+    return [objc_getAssociatedObject(self, &wxs_backGestureEnableKey) integerValue] == 0 ? NO : YES;
 }
 
 //----- Wxs_transitioningDelega
@@ -68,10 +70,12 @@ static NSString *wxs_tempNavDelegateKey = @"wxs_tempNavDelegateKey";
 - (id)wxs_transitioningDelegate {
     return objc_getAssociatedObject(self, &wxs_transitioningDelegateKey);
 }
+
 //----- wxs_tempNavDelegate
 - (void)setWxs_tempNavDelegate:(id)wxs_tempNavDelegate {
     objc_setAssociatedObject(self, &wxs_tempNavDelegateKey, wxs_tempNavDelegate, OBJC_ASSOCIATION_ASSIGN);
 }
+
 - (id)wxs_tempNavDelegate {
     return objc_getAssociatedObject(self, &wxs_tempNavDelegateKey);
 }

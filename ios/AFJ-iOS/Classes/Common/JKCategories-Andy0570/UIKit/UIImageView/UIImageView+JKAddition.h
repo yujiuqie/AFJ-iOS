@@ -17,7 +17,7 @@
  *
  *  @return imageview
  */
-+ (id)jk_imageViewWithImageNamed:(NSString*)imageName;
++ (id)jk_imageViewWithImageNamed:(NSString *)imageName;
 
 /**
  *  @brief  根据frame创建imageview
@@ -28,7 +28,7 @@
  */
 + (id)jk_imageViewWithFrame:(CGRect)frame;
 
-+ (id)jk_imageViewWithStretchableImage:(NSString*)imageName Frame:(CGRect)frame;
++ (id)jk_imageViewWithStretchableImage:(NSString *)imageName Frame:(CGRect)frame;
 
 /**
  *  @brief  创建imageview动画
@@ -38,15 +38,16 @@
  *
  *  @return imageview
  */
-+ (id)jk_imageViewWithImageArray:(NSArray*)imageArray duration:(NSTimeInterval)duration;
++ (id)jk_imageViewWithImageArray:(NSArray *)imageArray duration:(NSTimeInterval)duration;
 
-- (void)jk_setImageWithStretchableImage:(NSString*)imageName;
+- (void)jk_setImageWithStretchableImage:(NSString *)imageName;
 
 // 图片水印
 - (void)jk_setImage:(UIImage *)image withWaterMark:(UIImage *)mark inRect:(CGRect)rect;
 
 // 文字水印
 - (void)jk_setImage:(UIImage *)image withStringWaterMark:(NSString *)markString inRect:(CGRect)rect color:(UIColor *)color font:(UIFont *)font;
+
 - (void)jk_setImage:(UIImage *)image withStringWaterMark:(NSString *)markString atPoint:(CGPoint)point color:(UIColor *)color font:(UIFont *)font;
 
 @end

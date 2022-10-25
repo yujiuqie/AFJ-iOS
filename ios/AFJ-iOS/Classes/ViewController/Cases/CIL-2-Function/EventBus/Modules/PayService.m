@@ -11,17 +11,17 @@
 
 QTAppModuleRegister(PayService, QTAppEventPriorityDefault)
 
-@interface PayService()<QTAppModule>
+@interface PayService () <QTAppModule>
 
 @end
 
 @implementation PayService
 
-+ (id<QTAppModule>)moduleInstance{
++ (id <QTAppModule>)moduleInstance {
     return [[PayService alloc] init];
 }
 
-- (void)appDidFinishLaunch:(QTAppDidLaunchEvent *)event{
+- (void)appDidFinishLaunch:(QTAppDidLaunchEvent *)event {
     NSLog(@"PayService: appDidFinishLaunch");
 }
 

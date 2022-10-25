@@ -12,9 +12,13 @@
 @interface NSObject (JKBlocks)
 
 + (id)jk_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
+
 + (id)jk_performBlock:(void (^)(id arg))block withObject:(id)anObject afterDelay:(NSTimeInterval)delay;
+
 - (id)jk_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
+
 - (id)jk_performBlock:(void (^)(id arg))block withObject:(id)anObject afterDelay:(NSTimeInterval)delay;
+
 + (void)jk_cancelBlock:(id)block;
 
 @end

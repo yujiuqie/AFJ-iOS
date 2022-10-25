@@ -10,8 +10,8 @@
 
 @interface MASCompositeConstraint () <MASConstraintDelegate>
 
-@property (nonatomic, strong) id mas_key;
-@property (nonatomic, strong) NSMutableArray *childConstraints;
+@property(nonatomic, strong) id mas_key;
+@property(nonatomic, strong) NSMutableArray *childConstraints;
 
 @end
 
@@ -38,16 +38,16 @@
 }
 
 - (MASConstraint *)constraint:(MASConstraint __unused *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute {
-    id<MASConstraintDelegate> strongDelegate = self.delegate;
+    id <MASConstraintDelegate> strongDelegate = self.delegate;
     MASConstraint *newConstraint = [strongDelegate constraint:self addConstraintWithLayoutAttribute:layoutAttribute];
     newConstraint.delegate = self;
     [self.childConstraints addObject:newConstraint];
     return newConstraint;
 }
 
-#pragma mark - NSLayoutConstraint multiplier proxies 
+#pragma mark - NSLayoutConstraint multiplier proxies
 
-- (MASConstraint * (^)(CGFloat))multipliedBy {
+- (MASConstraint *(^)(CGFloat))multipliedBy {
     return ^id(CGFloat multiplier) {
         for (MASConstraint *constraint in self.childConstraints) {
             constraint.multipliedBy(multiplier);
@@ -56,7 +56,7 @@
     };
 }
 
-- (MASConstraint * (^)(CGFloat))dividedBy {
+- (MASConstraint *(^)(CGFloat))dividedBy {
     return ^id(CGFloat divider) {
         for (MASConstraint *constraint in self.childConstraints) {
             constraint.dividedBy(divider);
@@ -67,7 +67,7 @@
 
 #pragma mark - MASLayoutPriority proxy
 
-- (MASConstraint * (^)(MASLayoutPriority))priority {
+- (MASConstraint *(^)(MASLayoutPriority))priority {
     return ^id(MASLayoutPriority priority) {
         for (MASConstraint *constraint in self.childConstraints) {
             constraint.priority(priority);
@@ -78,7 +78,7 @@
 
 #pragma mark - NSLayoutRelation proxy
 
-- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation {
+- (MASConstraint *(^)(id, NSLayoutRelation))equalToWithRelation {
     return ^id(id attr, NSLayoutRelation relation) {
         for (MASConstraint *constraint in self.childConstraints.copy) {
             constraint.equalToWithRelation(attr, relation);
@@ -109,7 +109,7 @@
 
 #pragma mark - debug helpers
 
-- (MASConstraint * (^)(id))key {
+- (MASConstraint *(^)(id))key {
     return ^id(id key) {
         self.mas_key = key;
         int i = 0;

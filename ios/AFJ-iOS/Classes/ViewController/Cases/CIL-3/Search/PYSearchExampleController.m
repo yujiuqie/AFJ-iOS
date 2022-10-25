@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // set title
     self.title = @"PYSearch Example";
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -31,8 +31,8 @@
 }
 
 #pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
 
@@ -50,8 +50,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // 1. Create an Array of popular search
     NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
     // 2. Create a search view controller
@@ -62,11 +61,11 @@
     }];
     // 3. Set style for popular search and search history
     if (0 == indexPath.section) {
-        searchViewController.hotSearchStyle = (NSInteger)indexPath.row;
+        searchViewController.hotSearchStyle = (NSInteger) indexPath.row;
         searchViewController.searchHistoryStyle = PYHotSearchStyleDefault;
     } else {
         searchViewController.hotSearchStyle = PYHotSearchStyleDefault;
-        searchViewController.searchHistoryStyle = (NSInteger)indexPath.row; 
+        searchViewController.searchHistoryStyle = (NSInteger) indexPath.row;
     }
     // 4. Set delegate
     searchViewController.delegate = self;
@@ -81,17 +80,16 @@
     [self.navigationController pushViewController:searchViewController animated:YES];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return section ? NSLocalizedString(@"PYExampleTableSectionZeroTitle", @"选择搜索历史风格（热门搜索为默认风格)") : NSLocalizedString(@"PYExampleTableSectionZeroTitle", @"选择热门搜索风格（搜索历史为默认风格)");
 }
 
 #pragma mark - PYSearchViewControllerDelegate
-- (void)searchViewController:(PYSearchViewController *)searchViewController searchTextDidChange:(UISearchBar *)seachBar searchText:(NSString *)searchText
-{
+
+- (void)searchViewController:(PYSearchViewController *)searchViewController searchTextDidChange:(UISearchBar *)seachBar searchText:(NSString *)searchText {
     if (searchText.length) {
         // Simulate a send request to get a search suggestions
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             NSMutableArray *searchSuggestionsM = [NSMutableArray array];
             for (int i = 0; i < arc4random_uniform(5) + 10; i++) {
                 NSString *searchSuggestion = [NSString stringWithFormat:@"Search suggestion %d", i];

@@ -11,17 +11,17 @@
 
 @interface DanmakuConfiguration : NSObject
 
-@property (nonatomic) CGFloat duration;
-@property (nonatomic) CGFloat paintHeight;
+@property(nonatomic) CGFloat duration;
+@property(nonatomic) CGFloat paintHeight;
 
-@property (nonatomic) CGFloat fontSize;
-@property (nonatomic) CGFloat largeFontSize;
+@property(nonatomic) CGFloat fontSize;
+@property(nonatomic) CGFloat largeFontSize;
 
-@property (nonatomic) NSUInteger maxLRShowCount;
-@property (nonatomic) NSUInteger maxShowCount;
+@property(nonatomic) NSUInteger maxLRShowCount;
+@property(nonatomic) NSUInteger maxShowCount;
 
 //发送弹幕是否显示下划线
-@property (nonatomic) BOOL    isShowLineWhenSelf;
+@property(nonatomic) BOOL isShowLineWhenSelf;
 
 @end
 
@@ -32,8 +32,8 @@
 // "m": "olinone.com"
 @interface DanmakuSource : NSObject
 
-@property (nonatomic, strong) NSString *p;
-@property (nonatomic, strong) NSString *m;
+@property(nonatomic, strong) NSString *p;
+@property(nonatomic, strong) NSString *m;
 
 + (instancetype)createWithP:(NSString *)p M:(NSString *)m;
 
@@ -42,11 +42,12 @@
 //_______________________________________________________________________________________________________________
 
 @protocol DanmakuDelegate;
+
 @interface DanmakuView : UIView
 
-@property (nonatomic, weak) id<DanmakuDelegate> delegate;
-@property (nonatomic, readonly) BOOL isPrepared;
-@property (nonatomic, readonly) BOOL isPlaying;
+@property(nonatomic, weak) id <DanmakuDelegate> delegate;
+@property(nonatomic, readonly) BOOL isPrepared;
+@property(nonatomic, readonly) BOOL isPlaying;
 
 - (instancetype)initWithFrame:(CGRect)frame configuration:(DanmakuConfiguration *)configuration;
 
@@ -54,8 +55,11 @@
 - (void)prepareDanmakuSources:(NSArray<DanmakuSource *> *)danmakuSources;
 
 - (void)start;
+
 - (void)pause;
+
 - (void)resume;
+
 - (void)stop;
 
 - (void)sendDanmakuSource:(DanmakuSource *)danmakuSource;

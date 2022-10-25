@@ -10,7 +10,7 @@
 
 @interface AFJEmptyViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
-@property (nonatomic, strong) NSArray *applications;
+@property(nonatomic, strong) NSArray *applications;
 
 @property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
@@ -38,10 +38,10 @@
         };
         [dataArray addObject:item];
     }
-    
+
     NSString *path = [[NSBundle mainBundle] pathForResource:@"applications" ofType:@"json"];
     self.applications = [Application applicationsFromJSONAtPath:path];
-    
+
     for (Application *obj in _applications) {
         AFJCaseItemData *item = [AFJCaseItemData new];
         item.cName = obj.displayName;
@@ -53,7 +53,7 @@
         };
         [dataArray addObject:item];
     }
-    
+
     [self.tableView reloadDataArray:dataArray];
 }
 

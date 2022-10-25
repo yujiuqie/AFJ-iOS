@@ -11,7 +11,7 @@
 @implementation CorePlayer (CoreDataProperties)
 
 + (NSFetchRequest<CorePlayer *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"CorePlayer"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"CorePlayer"];
 }
 
 @dynamic age;

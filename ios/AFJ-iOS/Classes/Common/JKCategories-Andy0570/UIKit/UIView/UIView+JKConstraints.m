@@ -11,13 +11,13 @@
 - (NSLayoutConstraint *)jk_constraintForAttribute:(NSLayoutAttribute)attribute {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstAttribute = %d && (firstItem = %@ || secondItem = %@)", attribute, self, self];
     NSArray *constraintArray = [self.superview constraints];
-    
+
     if (attribute == NSLayoutAttributeWidth || attribute == NSLayoutAttributeHeight) {
         constraintArray = [self constraints];
     }
-    
+
     NSArray *fillteredArray = [constraintArray filteredArrayUsingPredicate:predicate];
-    if(fillteredArray.count == 0) {
+    if (fillteredArray.count == 0) {
         return nil;
     } else {
         return fillteredArray.firstObject;

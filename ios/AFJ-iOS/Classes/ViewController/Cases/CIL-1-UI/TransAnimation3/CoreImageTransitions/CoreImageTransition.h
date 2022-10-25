@@ -22,8 +22,8 @@
 
 @interface CoreImageTransition : NSObject <UIViewControllerAnimatedTransitioning>
 
-@property (nonatomic, assign) CoreImageTransitionType type;
-@property (nonatomic, assign) BOOL presenting;
+@property(nonatomic, assign) CoreImageTransitionType type;
+@property(nonatomic, assign) BOOL presenting;
 
 - (void)setTransitionTypeWithName:(NSString *)name;
 

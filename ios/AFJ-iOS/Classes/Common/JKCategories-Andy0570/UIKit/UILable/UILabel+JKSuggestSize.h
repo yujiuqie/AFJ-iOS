@@ -11,7 +11,9 @@
 @interface UILabel (JKSuggestSize)
 
 - (CGSize)jk_suggestedSizeForWidth:(CGFloat)width;
+
 - (CGSize)jk_suggestSizeForAttributedString:(NSAttributedString *)string width:(CGFloat)width;
+
 - (CGSize)jk_suggestSizeForString:(NSString *)string width:(CGFloat)width;
 
 @end

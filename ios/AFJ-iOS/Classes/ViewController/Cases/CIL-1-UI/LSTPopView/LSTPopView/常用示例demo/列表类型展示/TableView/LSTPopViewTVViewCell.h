@@ -13,10 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTPopViewTVViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
-@property (weak, nonatomic) IBOutlet UILabel *descLab;
-@property (weak, nonatomic) IBOutlet UIButton *moreBtn;
-
+@property(weak, nonatomic) IBOutlet UILabel *titleLab;
+@property(weak, nonatomic) IBOutlet UILabel *descLab;
+@property(weak, nonatomic) IBOutlet UIButton *moreBtn;
 
 
 @end

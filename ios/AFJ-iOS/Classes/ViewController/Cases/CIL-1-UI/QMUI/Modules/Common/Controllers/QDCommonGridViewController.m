@@ -21,10 +21,10 @@
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.scrollView];
-    
+
     _gridView = [[QMUIGridView alloc] init];
     for (NSInteger i = 0, l = self.dataSource.count; i < l; i++) {
         [self.gridView addSubview:[self generateButtonAtIndex:i]];
@@ -35,9 +35,9 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.scrollView.frame = self.view.bounds;
-    
+
     CGFloat gridViewWidth = CGRectGetWidth(self.scrollView.bounds) - UIEdgeInsetsGetHorizontalValue(self.scrollView.safeAreaInsets);
-    
+
     if (CGRectGetWidth(self.view.bounds) <= [QMUIHelper screenSizeFor55Inch].width) {
         self.gridView.columnCount = 3;
         CGFloat itemWidth = flat(gridViewWidth / self.gridView.columnCount);
@@ -58,7 +58,7 @@
             self.gridView.rowHeight = itemWidth;
         }
     }
-    
+
     for (NSInteger i = 0; i < self.gridView.subviews.count; i++) {
         UIView *item = self.gridView.subviews[i];
         item.qmui_borderPosition = QMUIViewBorderPositionLeft | QMUIViewBorderPositionTop;
@@ -71,7 +71,7 @@
             item.qmui_borderPosition |= QMUIViewBorderPositionBottom;
         }
     }
-    
+
     self.gridView.frame = CGRectMake(self.scrollView.safeAreaInsets.left, 0, gridViewWidth, QMUIViewSelfSizingHeight);
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.gridView.frame), CGRectGetMaxY(self.gridView.frame));
 }
@@ -79,9 +79,9 @@
 - (QDCommonGridButton *)generateButtonAtIndex:(NSInteger)index {
     NSString *keyName = self.dataSource.allKeys[index];
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:keyName attributes:@{NSForegroundColorAttributeName: UIColor.qd_descriptionTextColor, NSFontAttributeName: UIFontMake(11), NSParagraphStyleAttributeName: [NSMutableParagraphStyle qmui_paragraphStyleWithLineHeight:12 lineBreakMode:NSLineBreakByTruncatingTail textAlignment:NSTextAlignmentCenter]}];
-    UIImage *image = (UIImage *)self.dataSource[keyName];
+    UIImage *image = (UIImage *) self.dataSource[keyName];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    
+
     QDCommonGridButton *button = [[QDCommonGridButton alloc] init];
     button.tintColor = UIColor.qd_gridItemTintColor;
     [button setAttributedTitle:attributedString forState:UIControlStateNormal];
@@ -101,11 +101,11 @@
 @implementation QDCommonGridViewController (UISubclassingHooks)
 
 - (void)initDataSource {
-    
+
 }
 
 - (void)didSelectCellWithTitle:(NSString *)title {
-    
+
 }
 
 @end
@@ -127,16 +127,16 @@
 - (void)layoutSubviews {
     // 不用父类的，自己计算
     [super layoutSubviews];
-    
+
     if (CGRectIsEmpty(self.bounds)) {
         return;
     }
-    
+
     CGSize contentSize = CGSizeMake(CGRectGetWidth(self.bounds) - UIEdgeInsetsGetHorizontalValue(self.contentEdgeInsets), CGRectGetHeight(self.bounds) - UIEdgeInsetsGetVerticalValue(self.contentEdgeInsets));
     CGPoint center = CGPointMake(flat(self.contentEdgeInsets.left + contentSize.width / 2), flat(self.contentEdgeInsets.top + contentSize.height / 2));
-    
+
     self.imageView.center = CGPointMake(center.x, center.y - 12);
-    
+
     self.titleLabel.frame = CGRectFlatMake(self.contentEdgeInsets.left, center.y + 27, contentSize.width, QMUIViewSelfSizingHeight);
 }
 

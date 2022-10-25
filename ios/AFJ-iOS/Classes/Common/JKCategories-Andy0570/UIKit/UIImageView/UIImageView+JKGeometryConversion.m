@@ -9,167 +9,152 @@
 
 - (CGPoint)jk_convertPointFromImage:(CGPoint)imagePoint {
     CGPoint viewPoint = imagePoint;
-    
+
     CGSize imageSize = self.image.size;
-    CGSize viewSize  = self.bounds.size;
-    
+    CGSize viewSize = self.bounds.size;
+
     CGFloat ratioX = viewSize.width / imageSize.width;
     CGFloat ratioY = viewSize.height / imageSize.height;
-    
+
     UIViewContentMode contentMode = self.contentMode;
-    
+
     switch (contentMode) {
         case UIViewContentModeScaleToFill:
-        case UIViewContentModeRedraw:
-        {
+        case UIViewContentModeRedraw: {
             viewPoint.x *= ratioX;
             viewPoint.y *= ratioY;
             break;
         }
-            
+
         case UIViewContentModeScaleAspectFit:
-        case UIViewContentModeScaleAspectFill:
-        {
+        case UIViewContentModeScaleAspectFill: {
             CGFloat scale;
-            
+
             if (contentMode == UIViewContentModeScaleAspectFit) {
                 scale = MIN(ratioX, ratioY);
-            }
-            else /*if (contentMode == UIViewContentModeScaleAspectFill)*/ {
+            } else /*if (contentMode == UIViewContentModeScaleAspectFill)*/ {
                 scale = MAX(ratioX, ratioY);
             }
-            
+
             viewPoint.x *= scale;
             viewPoint.y *= scale;
-            
-            viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2.0f;
+
+            viewPoint.x += (viewSize.width - imageSize.width * scale) / 2.0f;
             viewPoint.y += (viewSize.height - imageSize.height * scale) / 2.0f;
-            
+
             break;
         }
-            
-        case UIViewContentModeCenter:
-        {
-            viewPoint.x += viewSize.width / 2.0  - imageSize.width  / 2.0f;
-            viewPoint.y += viewSize.height / 2.0 - imageSize.height / 2.0f;
-            
-            break;
-        }
-            
-        case UIViewContentModeTop:
-        {
+
+        case UIViewContentModeCenter: {
             viewPoint.x += viewSize.width / 2.0 - imageSize.width / 2.0f;
-            
+            viewPoint.y += viewSize.height / 2.0 - imageSize.height / 2.0f;
+
             break;
         }
-            
-        case UIViewContentModeBottom:
-        {
+
+        case UIViewContentModeTop: {
+            viewPoint.x += viewSize.width / 2.0 - imageSize.width / 2.0f;
+
+            break;
+        }
+
+        case UIViewContentModeBottom: {
             viewPoint.x += viewSize.width / 2.0 - imageSize.width / 2.0f;
             viewPoint.y += viewSize.height - imageSize.height;
-            
+
             break;
         }
-            
-        case UIViewContentModeLeft:
-        {
+
+        case UIViewContentModeLeft: {
             viewPoint.y += viewSize.height / 2.0 - imageSize.height / 2.0f;
-            
+
             break;
         }
-            
-        case UIViewContentModeRight:
-        {
+
+        case UIViewContentModeRight: {
             viewPoint.x += viewSize.width - imageSize.width;
             viewPoint.y += viewSize.height / 2.0 - imageSize.height / 2.0f;
-            
+
             break;
         }
-            
-        case UIViewContentModeTopRight:
-        {
+
+        case UIViewContentModeTopRight: {
             viewPoint.x += viewSize.width - imageSize.width;
-            
+
             break;
         }
-            
-            
-        case UIViewContentModeBottomLeft:
-        {
+
+
+        case UIViewContentModeBottomLeft: {
             viewPoint.y += viewSize.height - imageSize.height;
-            
+
             break;
         }
-            
-            
-        case UIViewContentModeBottomRight:
-        {
-            viewPoint.x += viewSize.width  - imageSize.width;
+
+
+        case UIViewContentModeBottomRight: {
+            viewPoint.x += viewSize.width - imageSize.width;
             viewPoint.y += viewSize.height - imageSize.height;
-            
+
             break;
         }
-            
+
         case UIViewContentModeTopLeft:
-        default:
-        {
+        default: {
             break;
         }
     }
-    
+
     return viewPoint;
 }
 
 - (CGRect)jk_convertRectFromImage:(CGRect)imageRect {
-    CGPoint imageTopLeft     = imageRect.origin;
+    CGPoint imageTopLeft = imageRect.origin;
     CGPoint imageBottomRight = CGPointMake(CGRectGetMaxX(imageRect),
-                                          CGRectGetMaxY(imageRect));
-    
-    CGPoint viewTopLeft     = [self jk_convertPointFromImage:imageTopLeft];
+            CGRectGetMaxY(imageRect));
+
+    CGPoint viewTopLeft = [self jk_convertPointFromImage:imageTopLeft];
     CGPoint viewBottomRight = [self jk_convertPointFromImage:imageBottomRight];
-    
+
     CGRect viewRect;
     viewRect.origin = viewTopLeft;
-    viewRect.size   = CGSizeMake(ABS(viewBottomRight.x - viewTopLeft.x),
-                                 ABS(viewBottomRight.y - viewTopLeft.y));
-    
+    viewRect.size = CGSizeMake(ABS(viewBottomRight.x - viewTopLeft.x),
+            ABS(viewBottomRight.y - viewTopLeft.y));
+
     return viewRect;
 }
 
 - (CGPoint)jk_convertPointFromView:(CGPoint)viewPoint {
     CGPoint imagePoint = viewPoint;
-    
+
     CGSize imageSize = self.image.size;
-    CGSize viewSize  = self.bounds.size;
-    
+    CGSize viewSize = self.bounds.size;
+
     CGFloat ratioX = viewSize.width / imageSize.width;
     CGFloat ratioY = viewSize.height / imageSize.height;
-    
+
     UIViewContentMode contentMode = self.contentMode;
-    
+
     switch (contentMode) {
         case UIViewContentModeScaleToFill:
-        case UIViewContentModeRedraw:
-        {
+        case UIViewContentModeRedraw: {
             imagePoint.x /= ratioX;
             imagePoint.y /= ratioY;
             break;
         }
-            
+
         case UIViewContentModeScaleAspectFit:
-        case UIViewContentModeScaleAspectFill:
-        {
+        case UIViewContentModeScaleAspectFill: {
             CGFloat scale;
-            
+
             if (contentMode == UIViewContentModeScaleAspectFit) {
                 scale = MIN(ratioX, ratioY);
-            }
-            else /*if (contentMode == UIViewContentModeScaleAspectFill)*/ {
+            } else /*if (contentMode == UIViewContentModeScaleAspectFill)*/ {
                 scale = MAX(ratioX, ratioY);
             }
-            
+
             // Remove the x or y margin added in FitMode
-            imagePoint.x -= (viewSize.width  - imageSize.width  * scale) / 2.0f;
+            imagePoint.x -= (viewSize.width - imageSize.width * scale) / 2.0f;
             imagePoint.y -= (viewSize.height - imageSize.height * scale) / 2.0f;
 
             imagePoint.x /= scale;
@@ -177,92 +162,83 @@
 
             break;
         }
-            
-        case UIViewContentModeCenter:
-        {
-            imagePoint.x -= (viewSize.width - imageSize.width)  / 2.0f;
+
+        case UIViewContentModeCenter: {
+            imagePoint.x -= (viewSize.width - imageSize.width) / 2.0f;
             imagePoint.y -= (viewSize.height - imageSize.height) / 2.0f;
-            
+
             break;
         }
-            
-        case UIViewContentModeTop:
-        {
-            imagePoint.x -= (viewSize.width - imageSize.width)  / 2.0f;
-            
+
+        case UIViewContentModeTop: {
+            imagePoint.x -= (viewSize.width - imageSize.width) / 2.0f;
+
             break;
         }
-            
-        case UIViewContentModeBottom:
-        {
-            imagePoint.x -= (viewSize.width - imageSize.width)  / 2.0f;
+
+        case UIViewContentModeBottom: {
+            imagePoint.x -= (viewSize.width - imageSize.width) / 2.0f;
             imagePoint.y -= (viewSize.height - imageSize.height);
-            
+
             break;
         }
-            
-        case UIViewContentModeLeft:
-        {
+
+        case UIViewContentModeLeft: {
             imagePoint.y -= (viewSize.height - imageSize.height) / 2.0f;
-            
+
             break;
         }
-            
-        case UIViewContentModeRight:
-        {
+
+        case UIViewContentModeRight: {
             imagePoint.x -= (viewSize.width - imageSize.width);
             imagePoint.y -= (viewSize.height - imageSize.height) / 2.0f;
 
             break;
         }
-            
-        case UIViewContentModeTopRight:
-        {
+
+        case UIViewContentModeTopRight: {
             imagePoint.x -= (viewSize.width - imageSize.width);
-            
+
             break;
         }
-            
-            
-        case UIViewContentModeBottomLeft:
-        {
+
+
+        case UIViewContentModeBottomLeft: {
             imagePoint.y -= (viewSize.height - imageSize.height);
-            
+
             break;
         }
-            
-            
-        case UIViewContentModeBottomRight:
-        {
+
+
+        case UIViewContentModeBottomRight: {
             imagePoint.x -= (viewSize.width - imageSize.width);
             imagePoint.y -= (viewSize.height - imageSize.height);
-            
+
             break;
         }
-            
+
         case UIViewContentModeTopLeft:
-        default:
-        {
+        default: {
             break;
         }
     }
-    
+
     return imagePoint;
 }
 
 - (CGRect)jk_convertRectFromView:(CGRect)viewRect {
     CGPoint viewTopLeft = viewRect.origin;
-    CGPoint viewBottomRight = CGPointMake(CGRectGetMaxX(viewRect), 
-                                          CGRectGetMaxY(viewRect));
-    
+    CGPoint viewBottomRight = CGPointMake(CGRectGetMaxX(viewRect),
+            CGRectGetMaxY(viewRect));
+
     CGPoint imageTopLeft = [self jk_convertPointFromView:viewTopLeft];
     CGPoint imageBottomRight = [self jk_convertPointFromView:viewBottomRight];
-    
+
     CGRect imageRect;
     imageRect.origin = imageTopLeft;
     imageRect.size = CGSizeMake(ABS(imageBottomRight.x - imageTopLeft.x),
-                                ABS(imageBottomRight.y - imageTopLeft.y));
-    
+            ABS(imageBottomRight.y - imageTopLeft.y));
+
     return imageRect;
 }
 

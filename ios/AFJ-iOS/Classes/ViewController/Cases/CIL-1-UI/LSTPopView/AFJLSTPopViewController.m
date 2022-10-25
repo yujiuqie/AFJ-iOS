@@ -30,9 +30,9 @@
 #import <UIKit/UIFeedbackGenerator.h>
 #import "LSTPopViewDragVC.h"
 
-@interface AFJLSTPopViewController()
+@interface AFJLSTPopViewController ()
 
-@property (nonatomic, strong) GPJDataDrivenTableView  *tableView;
+@property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
 @end
 
@@ -41,19 +41,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     self.tableView = [[GPJDataDrivenTableView alloc] initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-    
+
     __weak typeof(self) weakSelf = self;
     NSMutableArray *dataArray = [NSMutableArray array];
     {
         AFJCaseItemData *item = [AFJCaseItemData new];
         item.cName = @"拨打电话";
         item.didSelectAction = ^(id data) {
-            [weakSelf showInputAlert:@"拨打电话" placeholder:@"18501791217" complete:^(NSString * _Nonnull info) {
-                if([info length] > 0){
+            [weakSelf showInputAlert:@"拨打电话" placeholder:@"18501791217" complete:^(NSString *_Nonnull info) {
+                if ([info length] > 0) {
                     [FHXHelp makePhoneCallWithTelNumber:info];
                 }
             }];

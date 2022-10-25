@@ -11,7 +11,9 @@
 //代理方法
 @protocol YBPasterScrollViewDelegate <NSObject>
 @required;
+
 - (void)pasterTag:(NSInteger)pasterTag pasterImage:(UIImage *)pasterImage;
+
 @optional;
 @end
 
@@ -19,16 +21,16 @@
 @interface YBPasterScrollView : UIScrollView
 
 /**贴纸名字数组*/
-@property (nonatomic, copy) NSArray *pasterNameArray;
+@property(nonatomic, copy) NSArray *pasterNameArray;
 /**贴纸图片数组*/
-@property (nonatomic, copy) NSArray *pasterImageArray;
+@property(nonatomic, copy) NSArray *pasterImageArray;
 /**贴纸的高和宽*/
-@property (nonatomic, assign) CGFloat pasterImage_W_H;
+@property(nonatomic, assign) CGFloat pasterImage_W_H;
 /**YBPasterScrollViewDelegate*/
-@property (nonatomic,weak) id<YBPasterScrollViewDelegate> pasterDelegate;
+@property(nonatomic, weak) id <YBPasterScrollViewDelegate> pasterDelegate;
 
 /**默认选中的*/
-@property (nonatomic, strong) UIButton *defaultButton;
+@property(nonatomic, strong) UIButton *defaultButton;
 
 
 /**

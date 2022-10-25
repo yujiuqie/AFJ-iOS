@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface FeLoadingIconBox : UIView
-@property (assign, nonatomic, readonly) BOOL isAnimating;
--(id) initBoxAtIndex:(NSInteger) index;
+@property(assign, nonatomic, readonly) BOOL isAnimating;
 
--(void) playAnimate;
--(void) stopAnimate;
+- (id)initBoxAtIndex:(NSInteger)index;
+
+- (void)playAnimate;
+
+- (void)stopAnimate;
 @end

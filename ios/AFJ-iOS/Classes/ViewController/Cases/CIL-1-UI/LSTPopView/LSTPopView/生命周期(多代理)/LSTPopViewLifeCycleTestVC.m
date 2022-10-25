@@ -22,18 +22,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self layoutSubViewUI];
-    
-}
 
+    [self layoutSubViewUI];
+
+}
 
 
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)layoutSubViewUI {
     self.view.backgroundColor = UIColor.whiteColor;
-    
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -61,9 +60,9 @@
     };
     popView.showTime = 5;
     popView.popViewCountDownBlock = ^(LSTPopView *popView, NSTimeInterval timeInterval) {
-        view.timeLab.text = [NSString stringWithFormat:@"%.0lf",timeInterval];
+        view.timeLab.text = [NSString stringWithFormat:@"%.0lf", timeInterval];
     };
-    
+
     [popView pop];
 }
 
@@ -72,36 +71,42 @@
 /** 点击弹窗 回调 */
 - (void)lst_PopViewBgClick {
     NSLog(@"点了弹窗");
-    
+
 }
+
 /** 长按弹窗 回调 */
 - (void)lst_PopViewBgLongPress {
-     NSLog(@"长按弹窗");
+    NSLog(@"长按弹窗");
 }
 
 
 // ****** 生命周期 ******
 /** 将要显示 */
 - (void)lst_PopViewWillPopForPopView:(LSTPopView *)popView {
-     NSLog(@"将要显示");
+    NSLog(@"将要显示");
 }
+
 /** 已经显示完毕 */
 - (void)lst_PopViewDidPopForPopView:(LSTPopView *)popView {
-     NSLog(@"已经显示完毕");
+    NSLog(@"已经显示完毕");
 }
+
 - (void)lst_PopViewCountDownForPopView:(LSTPopView *)popView forCountDown:(NSTimeInterval)timeInterval {
-    NSLog(@"倒计时---%u",timeInterval);
+    NSLog(@"倒计时---%u", timeInterval);
 }
+
 - (void)lst_PopViewCountDownFinishForPopView:(LSTPopView *)popView {
     NSLog(@"倒计时完成");
 }
+
 /** 将要开始移除 */
 - (void)lst_PopViewWillDismissForPopView:(LSTPopView *)popView {
-     NSLog(@"将要开始移除");
+    NSLog(@"将要开始移除");
 }
+
 /** 已经移除完毕 */
 - (void)lst_PopViewDidDismissForPopView:(LSTPopView *)popView {
-     NSLog(@"已经移除完毕");
+    NSLog(@"已经移除完毕");
 }
 
 @end

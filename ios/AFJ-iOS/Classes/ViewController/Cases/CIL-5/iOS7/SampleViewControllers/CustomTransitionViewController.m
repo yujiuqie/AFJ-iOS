@@ -20,8 +20,7 @@ typedef enum {
 
 
 @interface CustomTransitionViewController ()
-<UINavigationControllerDelegate>
-{
+        <UINavigationControllerDelegate> {
     TransitionType type;
 }
 @end
@@ -29,8 +28,7 @@ typedef enum {
 
 @implementation CustomTransitionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -38,17 +36,15 @@ typedef enum {
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     type = TransitionTypeNormal;
-    
+
     self.navigationController.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -57,21 +53,20 @@ typedef enum {
 // =============================================================================
 #pragma mark - UINavigationControllerDelegate
 
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController *)fromVC
-                                                 toViewController:(UIViewController *)toVC
-{
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC {
     NSObject <UIViewControllerAnimatedTransitioning> *animator;
-    
+
     switch (type) {
         case TransitionTypeVerticalLines:
             animator = [[HUTransitionVerticalLinesAnimator alloc] init];
-            [(HUTransitionAnimator *)animator setPresenting:NO];
+            [(HUTransitionAnimator *) animator setPresenting:NO];
             break;
         case TransitionTypeHorizontalLines:
             animator = [[HUTransitionHorizontalLinesAnimator alloc] init];
-            [(HUTransitionAnimator *)animator setPresenting:NO];
+            [(HUTransitionAnimator *) animator setPresenting:NO];
             break;
         case TransitionTypeGravity:
             animator = [[ZBFallenBricksAnimator alloc] init];
@@ -79,7 +74,7 @@ typedef enum {
         default:
             animator = nil;
     }
-    
+
     return animator;
 }
 
@@ -88,12 +83,12 @@ typedef enum {
 #pragma mark - IBAction
 
 - (IBAction)pop:(UIButton *)sender {
-    
+
     switch (sender.tag) {
         case 0:
             type = TransitionTypeVerticalLines;
             break;
-            
+
         case 1:
             type = TransitionTypeHorizontalLines;
             break;
@@ -102,7 +97,7 @@ typedef enum {
             type = TransitionTypeGravity;
             break;
     }
-    
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

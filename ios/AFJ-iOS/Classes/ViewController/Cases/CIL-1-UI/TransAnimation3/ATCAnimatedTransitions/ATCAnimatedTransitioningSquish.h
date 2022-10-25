@@ -8,6 +8,6 @@
 
 #import "ATCAnimatedTransitioning.h"
 
-@interface ATCAnimatedTransitioningSquish : ATCAnimatedTransitioning 
+@interface ATCAnimatedTransitioningSquish : ATCAnimatedTransitioning
 
 @end

@@ -17,7 +17,7 @@
 
 @interface QDMultipleImagePickerPreviewViewController : QMUIImagePickerPreviewViewController
 
-@property(nonatomic, weak) id<QDMultipleImagePickerPreviewViewControllerDelegate> delegate;
+@property(nonatomic, weak) id <QDMultipleImagePickerPreviewViewControllerDelegate> delegate;
 @property(nonatomic, strong) QMUILabel *imageCountLabel;
 @property(nonatomic, strong) QMUIAssetsGroup *assetsGroup;
 @property(nonatomic, assign) BOOL shouldUseOriginImage;

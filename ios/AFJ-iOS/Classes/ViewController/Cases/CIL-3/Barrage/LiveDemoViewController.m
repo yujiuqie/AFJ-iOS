@@ -14,15 +14,15 @@
 
 @interface LiveDemoViewController () <HJDanmakuViewDateSource, HJDanmakuViewDelegate>
 
-@property (nonatomic, assign) NSUInteger index;
-@property (nonatomic, strong) NSArray *danmakus;
+@property(nonatomic, assign) NSUInteger index;
+@property(nonatomic, strong) NSArray *danmakus;
 
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (nonatomic, weak) IBOutlet UIView *panelView;
-@property (nonatomic, weak) IBOutlet UISlider *alphaSlider;
+@property(nonatomic, weak) IBOutlet UIImageView *imageView;
+@property(nonatomic, weak) IBOutlet UIView *panelView;
+@property(nonatomic, weak) IBOutlet UISlider *alphaSlider;
 
-@property (nonatomic, strong) HJDanmakuView *danmakuView;
-@property (nonatomic, strong) NSTimer *timer;
+@property(nonatomic, strong) HJDanmakuView *danmakuView;
+@property(nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -55,7 +55,7 @@
     [self.danmakuView registerClass:[DemoDanmakuCell class] forCellReuseIdentifier:@"cell"];
     self.danmakuView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view insertSubview:self.danmakuView aboveSubview:self.imageView];
-    
+
     NSString *danmakufile = [[NSBundle mainBundle] pathForResource:@"danmakufile" ofType:nil];
     self.danmakus = [NSArray arrayWithContentsOfFile:danmakufile];
 }
@@ -72,7 +72,7 @@
     [self.danmakuView sizeToFit];
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (IBAction)onPlayBtnClick:(UIButton *)sender {
     if (self.danmakuView.isPrepared) {
@@ -84,17 +84,17 @@
 }
 
 - (void)randomSendNewDanmaku {
-    self.index ++;
+    self.index++;
     if (self.index >= self.danmakus.count) {
         return;
     }
     NSDictionary *danmaku = self.danmakus[self.index];
     NSArray *pArray = [danmaku[@"p"] componentsSeparatedByString:@","];
-    
+
     HJDanmakuType type = [pArray[1] integerValue] % 3;
     DemoDanmakuModel *danmakuModel = [[DemoDanmakuModel alloc] initWithType:type];
     danmakuModel.text = danmaku[@"m"];
-    danmakuModel.textFont = [pArray[2] integerValue] == 1 ? [UIFont systemFontOfSize:20]: [UIFont systemFontOfSize:18];
+    danmakuModel.textFont = [pArray[2] integerValue] == 1 ? [UIFont systemFontOfSize:20] : [UIFont systemFontOfSize:18];
     danmakuModel.textColor = [DanmakuFactory colorWithHexStr:pArray[3]];
     [self.danmakuView sendDanmaku:danmakuModel forceRender:NO];
 }
@@ -116,7 +116,7 @@
 - (IBAction)onSetBtnClick:(UIButton *)sender {
     sender.selected = !sender.isSelected;
     CGRect rect = self.panelView.frame;
-    rect.size.height = sender.isSelected ? 83: 45;
+    rect.size.height = sender.isSelected ? 83 : 45;
     rect.origin.y = CGRectGetHeight(self.view.bounds) - rect.size.height;
     [UIView animateWithDuration:0.3 animations:^{
         self.panelView.frame = rect;
@@ -151,12 +151,12 @@
 #pragma mark - dataSource
 
 - (CGFloat)danmakuView:(HJDanmakuView *)danmakuView widthForDanmaku:(HJDanmakuModel *)danmaku {
-    DemoDanmakuModel *model = (DemoDanmakuModel *)danmaku;
+    DemoDanmakuModel *model = (DemoDanmakuModel *) danmaku;
     return [model.text sizeWithAttributes:@{NSFontAttributeName: model.textFont}].width + 1.0f;
 }
 
 - (HJDanmakuCell *)danmakuView:(HJDanmakuView *)danmakuView cellForDanmaku:(HJDanmakuModel *)danmaku {
-    DemoDanmakuModel *model = (DemoDanmakuModel *)danmaku;
+    DemoDanmakuModel *model = (DemoDanmakuModel *) danmaku;
     DemoDanmakuCell *cell = [danmakuView dequeueReusableCellWithIdentifier:@"cell"];
     cell.selectionStyle = HJDanmakuCellSelectionStyleDefault;
     cell.alpha = self.alphaSlider.value;

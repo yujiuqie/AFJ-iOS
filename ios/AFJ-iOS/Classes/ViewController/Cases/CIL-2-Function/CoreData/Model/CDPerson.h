@@ -10,12 +10,12 @@
 
 @interface CDPerson : NSObject
 
-@property (copy, nonatomic) NSString *name;
+@property(copy, nonatomic) NSString *name;
 
-@property (assign, nonatomic) float salary;
-@property (assign, nonatomic) NSInteger sex;
-@property (assign, nonatomic) NSInteger age;
-@property (assign, nonatomic) NSInteger userId;
+@property(assign, nonatomic) float salary;
+@property(assign, nonatomic) NSInteger sex;
+@property(assign, nonatomic) NSInteger age;
+@property(assign, nonatomic) NSInteger userId;
 
 + (instancetype)instanceWithId:(NSUInteger)ID;
 

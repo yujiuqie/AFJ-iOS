@@ -11,7 +11,7 @@
 @implementation CDPerson
 
 + (instancetype)instanceWithId:(NSUInteger)ID {
-    
+
     CDPerson *person = [self new];
     person.userId = ID;
     person.name = [NSString stringWithFormat:@"%@%ld", NSStringFromClass([self class]), ID];
@@ -24,7 +24,7 @@
 #pragma mark - CoreData
 
 + (NSDictionary *)primaryKeys {
-    return @{@"userId" : @"userId"};
+    return @{@"userId": @"userId"};
 }
 
 @end

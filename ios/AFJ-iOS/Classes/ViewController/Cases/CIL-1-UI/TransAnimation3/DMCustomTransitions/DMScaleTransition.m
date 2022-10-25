@@ -14,51 +14,48 @@
 #pragma mark - UIViewControllerAnimatedTransitioning
 
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     return 0.30f;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *containerView = [transitionContext containerView];
-    
+
     if (self.isPresenting) {
-        
+
         [containerView addSubview:toVC.view];
         [toVC.view setAlpha:0];
         CGAffineTransform xForm = toVC.view.transform;
         toVC.view.transform = CGAffineTransformScale(xForm, 2.0f, 2.0f);
-        
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                          animations:^{
                              [toVC.view setAlpha:1];
                              toVC.view.transform =
-                             CGAffineTransformScale(xForm, 1.0f, 1.0f);
+                                     CGAffineTransformScale(xForm, 1.0f, 1.0f);
                              fromVC.view.transform =
-                             CGAffineTransformScale(fromVC.view.transform, 0.9f, 0.9f);
+                                     CGAffineTransformScale(fromVC.view.transform, 0.9f, 0.9f);
                          }
                          completion:^(BOOL finished) {
                              [transitionContext completeTransition:YES];
                          }];
-    }
-    else {
-        
+    } else {
+
         [containerView addSubview:toVC.view];
         [containerView addSubview:fromVC.view];
-        
+
         CGAffineTransform xForm = toVC.view.transform;
         toVC.view.transform = CGAffineTransformScale(toVC.view.transform, 0.9f, 0.9f);
-        
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                          animations:^{
                              [fromVC.view setAlpha:0];
                              fromVC.view.transform =
-                             CGAffineTransformScale(xForm, 2.0f, 2.0f);
+                                     CGAffineTransformScale(xForm, 2.0f, 2.0f);
                              toVC.view.transform =
-                             CGAffineTransformScale(CGAffineTransformIdentity, 1.0f, 1.0f);
+                                     CGAffineTransformScale(CGAffineTransformIdentity, 1.0f, 1.0f);
                          }
                          completion:^(BOOL finished) {
                              [transitionContext completeTransition:YES];

@@ -14,14 +14,12 @@ static volatile int32_t numberOfActiveNetworkConnectionsxxx;
 
 #pragma mark Public API
 
-- (void)jk_beganNetworkActivity
-{
-	self.networkActivityIndicatorVisible = OSAtomicAdd32(1, &numberOfActiveNetworkConnectionsxxx) > 0;
+- (void)jk_beganNetworkActivity {
+    self.networkActivityIndicatorVisible = OSAtomicAdd32(1, &numberOfActiveNetworkConnectionsxxx) > 0;
 }
 
-- (void)jk_endedNetworkActivity
-{
-	self.networkActivityIndicatorVisible = OSAtomicAdd32(-1, &numberOfActiveNetworkConnectionsxxx) > 0;
+- (void)jk_endedNetworkActivity {
+    self.networkActivityIndicatorVisible = OSAtomicAdd32(-1, &numberOfActiveNetworkConnectionsxxx) > 0;
 }
 
 @end

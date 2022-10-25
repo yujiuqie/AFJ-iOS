@@ -9,24 +9,24 @@
 #import "PFAxisDirection.h"
 
 @interface ZYQSphereView : UIView {
-	NSMutableDictionary *pointMap; 
-	
-	CGPoint originalLocationInView;
-	CGPoint previousLocationInView;
-	
-	PFAxisDirection lastXAxisDirection;
-	PFAxisDirection lastYAxisDirection;
-	
-	CGRect originalSphereViewBounds;
+    NSMutableDictionary *pointMap;
+
+    CGPoint originalLocationInView;
+    CGPoint previousLocationInView;
+
+    PFAxisDirection lastXAxisDirection;
+    PFAxisDirection lastYAxisDirection;
+
+    CGRect originalSphereViewBounds;
 }
 
-@property(nonatomic,assign)BOOL isPanTimerStart;
-@property(nonatomic,getter = isTimerStart,readonly)BOOL isTimerStart;
+@property(nonatomic, assign) BOOL isPanTimerStart;
+@property(nonatomic, getter = isTimerStart, readonly) BOOL isTimerStart;
 
 - (void)setItems:(NSArray *)items;
 
--(void)timerStart;
+- (void)timerStart;
 
--(void)timerStop;
+- (void)timerStop;
 
 @end

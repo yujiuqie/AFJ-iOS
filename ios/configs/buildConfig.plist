@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>BUILD_TIME</key>
-	<string>2022-10-25T14:28:36+0800</string>
+	<string>2022-10-25T14:41:08+0800</string>
 	<key>GIT_SHA</key>
-	<string>bb321e7</string>
+	<string>346a1eb</string>
 	<key>TOTAL_CODE_NUM</key>
-	<string>1134753</string>
+	<string>1133332</string>
 	<key>TOTAL_FILE_NUM</key>
 	<string>13402</string>
 	<key>TOTAL_IMAGE_NUM</key>
@@ -23,7 +23,7 @@
 	<key>{c}_FILE_NUM</key>
 	<string>53</string>
 	<key>{h}_CODE_NUM</key>
-	<string>303703</string>
+	<string>304516</string>
 	<key>{h}_FILE_NUM</key>
 	<string>5003</string>
 	<key>{java}_CODE_NUM</key>
@@ -39,7 +39,7 @@
 	<key>{mm}_FILE_NUM</key>
 	<string>64</string>
 	<key>{m}_CODE_NUM</key>
-	<string>741735</string>
+	<string>739501</string>
 	<key>{m}_FILE_NUM</key>
 	<string>4148</string>
 	<key>{py}_CODE_NUM</key>

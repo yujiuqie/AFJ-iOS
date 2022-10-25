@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, ATCTransitionAnimationDirection) {
  * @brief Some of our subclasses are going to be able to dictate
  * which direction the transition appears from
  */
-@property (nonatomic) ATCTransitionAnimationDirection direction;
+@property(nonatomic) ATCTransitionAnimationDirection direction;
 
 /**
  * @class duration
@@ -38,33 +38,33 @@ typedef NS_ENUM(NSInteger, ATCTransitionAnimationDirection) {
  * 
  * Oh, alright. The duration of the animation.
  */
-@property (nonatomic) NSTimeInterval duration;
+@property(nonatomic) NSTimeInterval duration;
 
 /**
  * @class dismissal
  * @brief Are we in the throws of a passionate dismissal?
  */
-@property (nonatomic, getter = isDismissal) BOOL dismissal;
+@property(nonatomic, getter = isDismissal) BOOL dismissal;
 
 /**
  * @class interacting
  * @brief Are we currently seeing user interaction
  */
-@property (nonatomic, getter = isInteracting) BOOL interacting;
+@property(nonatomic, getter = isInteracting) BOOL interacting;
 
 /**
  * @class isPush
  * @brief Did this transition come from a navigation controller?
  */
-@property (nonatomic) BOOL isPush;
+@property(nonatomic) BOOL isPush;
 
 /**
  * @class interactiveTransition
  */
-@property (nonatomic, strong) UIPercentDrivenInteractiveTransition *interactiveTransition;
+@property(nonatomic, strong) UIPercentDrivenInteractiveTransition *interactiveTransition;
 
--(void)handlePanGesture:(UIPanGestureRecognizer *)recognizer inViewController:(UIViewController *)controller;
+- (void)handlePanGesture:(UIPanGestureRecognizer *)recognizer inViewController:(UIViewController *)controller;
 
--(ATCTransitionAnimationDirection)adjustDirectionForOrientation:(UIInterfaceOrientation)orientation;
+- (ATCTransitionAnimationDirection)adjustDirectionForOrientation:(UIInterfaceOrientation)orientation;
 
 @end

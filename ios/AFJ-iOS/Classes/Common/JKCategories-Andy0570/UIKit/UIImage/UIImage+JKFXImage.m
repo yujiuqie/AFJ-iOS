@@ -9,202 +9,164 @@
 
 @implementation UIImage (JKFXImage)
 
-- (UIImage *)jk_imageCroppedToRect:(CGRect)rect
-{
+- (UIImage *)jk_imageCroppedToRect:(CGRect)rect {
     //create drawing context
-	UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0f);
-    
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0f);
+
     //draw
     [self drawAtPoint:CGPointMake(-rect.origin.x, -rect.origin.y)];
-    
+
     //capture resultant image
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return image
-	return image;
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return image
+    return image;
 }
 
-- (UIImage *)jk_imageScaledToSize:(CGSize)size
-{   
+- (UIImage *)jk_imageScaledToSize:(CGSize)size {
     //avoid redundant drawing
-    if (CGSizeEqualToSize(self.size, size))
-    {
+    if (CGSizeEqualToSize(self.size, size)) {
         return self;
     }
-    
+
     //create drawing context
-	UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
-    
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+
     //draw
     [self drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
-    
+
     //capture resultant image
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return image
-	return image;
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return image
+    return image;
 }
 
-- (UIImage *)jk_imageScaledToFitSize:(CGSize)size
-{
+- (UIImage *)jk_imageScaledToFitSize:(CGSize)size {
     //calculate rect
     CGFloat aspect = self.size.width / self.size.height;
-    if (size.width / aspect <= size.height)
-    {
+    if (size.width / aspect <= size.height) {
         return [self jk_imageScaledToSize:CGSizeMake(size.width, size.width / aspect)];
-    }
-    else
-    {
+    } else {
         return [self jk_imageScaledToSize:CGSizeMake(size.height * aspect, size.height)];
     }
 }
 
-- (UIImage *)jk_imageScaledToFillSize:(CGSize)size
-{
-    if (CGSizeEqualToSize(self.size, size))
-    {
+- (UIImage *)jk_imageScaledToFillSize:(CGSize)size {
+    if (CGSizeEqualToSize(self.size, size)) {
         return self;
     }
     //calculate rect
     CGFloat aspect = self.size.width / self.size.height;
-    if (size.width / aspect >= size.height)
-    {
+    if (size.width / aspect >= size.height) {
         return [self jk_imageScaledToSize:CGSizeMake(size.width, size.width / aspect)];
-    }
-    else
-    {
+    } else {
         return [self jk_imageScaledToSize:CGSizeMake(size.height * aspect, size.height)];
     }
 }
 
 - (UIImage *)jk_imageCroppedAndScaledToSize:(CGSize)size
-                             contentMode:(UIViewContentMode)contentMode
-                                padToFit:(BOOL)padToFit;
-{
+                                contentMode:(UIViewContentMode)contentMode
+                                   padToFit:(BOOL)padToFit; {
     //calculate rect
     CGRect rect = CGRectZero;
-    switch (contentMode)
-    {
-        case UIViewContentModeScaleAspectFit:
-        {
+    switch (contentMode) {
+        case UIViewContentModeScaleAspectFit: {
             CGFloat aspect = self.size.width / self.size.height;
-            if (size.width / aspect <= size.height)
-            {
+            if (size.width / aspect <= size.height) {
                 rect = CGRectMake(0.0f, (size.height - size.width / aspect) / 2.0f, size.width, size.width / aspect);
-            }
-            else
-            {
+            } else {
                 rect = CGRectMake((size.width - size.height * aspect) / 2.0f, 0.0f, size.height * aspect, size.height);
             }
             break;
         }
-        case UIViewContentModeScaleAspectFill:
-        {
+        case UIViewContentModeScaleAspectFill: {
             CGFloat aspect = self.size.width / self.size.height;
-            if (size.width / aspect >= size.height)
-            {
+            if (size.width / aspect >= size.height) {
                 rect = CGRectMake(0.0f, (size.height - size.width / aspect) / 2.0f, size.width, size.width / aspect);
-            }
-            else
-            {
+            } else {
                 rect = CGRectMake((size.width - size.height * aspect) / 2.0f, 0.0f, size.height * aspect, size.height);
             }
             break;
         }
-        case UIViewContentModeCenter:
-        {
+        case UIViewContentModeCenter: {
             rect = CGRectMake((size.width - self.size.width) / 2.0f, (size.height - self.size.height) / 2.0f, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeTop:
-        {
+        case UIViewContentModeTop: {
             rect = CGRectMake((size.width - self.size.width) / 2.0f, 0.0f, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeBottom:
-        {
+        case UIViewContentModeBottom: {
             rect = CGRectMake((size.width - self.size.width) / 2.0f, size.height - self.size.height, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeLeft:
-        {
+        case UIViewContentModeLeft: {
             rect = CGRectMake(0.0f, (size.height - self.size.height) / 2.0f, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeRight:
-        {
+        case UIViewContentModeRight: {
             rect = CGRectMake(size.width - self.size.width, (size.height - self.size.height) / 2.0f, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeTopLeft:
-        {
+        case UIViewContentModeTopLeft: {
             rect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeTopRight:
-        {
+        case UIViewContentModeTopRight: {
             rect = CGRectMake(size.width - self.size.width, 0.0f, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeBottomLeft:
-        {
+        case UIViewContentModeBottomLeft: {
             rect = CGRectMake(0.0f, size.height - self.size.height, self.size.width, self.size.height);
             break;
         }
-        case UIViewContentModeBottomRight:
-        {
+        case UIViewContentModeBottomRight: {
             rect = CGRectMake(size.width - self.size.width, size.height - self.size.height, self.size.width, self.size.height);
             break;
-        }  
-        default:
-        {
+        }
+        default: {
             rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
             break;
         }
     }
-    
-    if (!padToFit)
-    {
+
+    if (!padToFit) {
         //remove padding
-        if (rect.size.width < size.width)
-        {
+        if (rect.size.width < size.width) {
             size.width = rect.size.width;
             rect.origin.x = 0.0f;
         }
-        if (rect.size.height < size.height)
-        {
+        if (rect.size.height < size.height) {
             size.height = rect.size.height;
             rect.origin.y = 0.0f;
         }
     }
-    
+
     //avoid redundant drawing
-    if (CGSizeEqualToSize(self.size, size))
-    {
+    if (CGSizeEqualToSize(self.size, size)) {
         return self;
     }
-    
+
     //create drawing context
-	UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
-    
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+
     //draw
     [self drawInRect:rect];
-    
+
     //capture resultant image
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return image
-	return image;
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return image
+    return image;
 }
 
-+ (CGImageRef)jk_gradientMask
-{
++ (CGImageRef)jk_gradientMask {
     static CGImageRef sharedMask = NULL;
-    if (sharedMask == NULL)
-    {
+    if (sharedMask == NULL) {
         //create gradient mask
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 256), YES, 0.0);
         CGContextRef gradientContext = UIGraphicsGetCurrentContext();
@@ -214,7 +176,7 @@
         CGPoint gradientStartPoint = CGPointMake(0, 0);
         CGPoint gradientEndPoint = CGPointMake(0, 256);
         CGContextDrawLinearGradient(gradientContext, gradient, gradientStartPoint,
-                                    gradientEndPoint, kCGGradientDrawsAfterEndLocation);
+                gradientEndPoint, kCGGradientDrawsAfterEndLocation);
         sharedMask = CGBitmapContextCreateImage(gradientContext);
         CGGradientRelease(gradient);
         CGColorSpaceRelease(colorSpace);
@@ -223,88 +185,84 @@
     return sharedMask;
 }
 
-- (UIImage *)jk_reflectedImageWithScale:(CGFloat)scale
-{
-	//get reflection dimensions
-	CGFloat height = ceil(self.size.height * scale);
-	CGSize size = CGSizeMake(self.size.width, height);
-	CGRect bounds = CGRectMake(0.0f, 0.0f, size.width, size.height);
-	
-	//create drawing context
-	UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	
-	//clip to gradient
-	CGContextClipToMask(context, bounds, [[self class] jk_gradientMask]);
-	
-	//draw reflected image
-	CGContextScaleCTM(context, 1.0f, -1.0f);
-	CGContextTranslateCTM(context, 0.0f, -self.size.height);
-	[self drawInRect:CGRectMake(0.0f, 0.0f, self.size.width, self.size.height)];
-	
-	//capture resultant image
-	UIImage *reflection = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return reflection image
-	return reflection;
+- (UIImage *)jk_reflectedImageWithScale:(CGFloat)scale {
+    //get reflection dimensions
+    CGFloat height = ceil(self.size.height * scale);
+    CGSize size = CGSizeMake(self.size.width, height);
+    CGRect bounds = CGRectMake(0.0f, 0.0f, size.width, size.height);
+
+    //create drawing context
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    //clip to gradient
+    CGContextClipToMask(context, bounds, [[self class] jk_gradientMask]);
+
+    //draw reflected image
+    CGContextScaleCTM(context, 1.0f, -1.0f);
+    CGContextTranslateCTM(context, 0.0f, -self.size.height);
+    [self drawInRect:CGRectMake(0.0f, 0.0f, self.size.width, self.size.height)];
+
+    //capture resultant image
+    UIImage *reflection = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return reflection image
+    return reflection;
 }
 
-- (UIImage *)jk_imageWithReflectionWithScale:(CGFloat)scale gap:(CGFloat)gap alpha:(CGFloat)alpha
-{
+- (UIImage *)jk_imageWithReflectionWithScale:(CGFloat)scale gap:(CGFloat)gap alpha:(CGFloat)alpha {
     //get reflected image
     UIImage *reflection = [self jk_reflectedImageWithScale:scale];
     CGFloat reflectionOffset = reflection.size.height + gap;
-    
+
     //create drawing context
-	UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.size.width, self.size.height + reflectionOffset * 2.0f), NO, 0.0f);
-    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.size.width, self.size.height + reflectionOffset * 2.0f), NO, 0.0f);
+
     //draw reflection
     [reflection drawAtPoint:CGPointMake(0.0f, reflectionOffset + self.size.height + gap) blendMode:kCGBlendModeNormal alpha:alpha];
-    
+
     //draw image
     [self drawAtPoint:CGPointMake(0.0f, reflectionOffset)];
-    
+
     //capture resultant image
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return image
-	return image;
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return image
+    return image;
 }
 
-- (UIImage *)jk_imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur
-{
+- (UIImage *)jk_imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur {
     //get size
     //CGSize border = CGSizeMake(fabsf(offset.width) + blur, fabsf(offset.height) + blur);
     CGSize border = CGSizeMake(fabs(offset.width) + blur, fabs(offset.height) + blur);
 
     CGSize size = CGSizeMake(self.size.width + border.width * 2.0f, self.size.height + border.height * 2.0f);
-    
+
     //create drawing context
-	UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
+
     //set up shadow
     CGContextSetShadowWithColor(context, offset, blur, color.CGColor);
-    
+
     //draw with shadow
     [self drawAtPoint:CGPointMake(border.width, border.height)];
-    
+
     //capture resultant image
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return image
-	return image;
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return image
+    return image;
 }
 
-- (UIImage *)jk_imageWithCornerRadius:(CGFloat)radius
-{
+- (UIImage *)jk_imageWithCornerRadius:(CGFloat)radius {
     //create drawing context
-	UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
+
     //clip image
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, 0.0f, radius);
@@ -317,76 +275,71 @@
     CGContextAddLineToPoint(context, radius, 0.0f);
     CGContextAddArc(context, radius, radius, radius, -M_PI / 2.0f, M_PI, 1);
     CGContextClip(context);
-    
+
     //draw image
     [self drawAtPoint:CGPointZero];
-    
-    //capture resultant image
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return image
-	return image;
-}
 
-- (UIImage *)jk_imageWithAlpha:(CGFloat)alpha
-{
-    //create drawing context
-	UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
-    
-    //draw with alpha
-    [self drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:alpha];
-    
-    //capture resultant image
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	//return image
-	return image;
-}
-
-- (UIImage *)jk_imageWithMask:(UIImage *)maskImage;
-{
-    //create drawing context
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    //apply mask
-    CGContextClipToMask(context, CGRectMake(0.0f, 0.0f, self.size.width, self.size.height), maskImage.CGImage);
-    
-    //draw image
-    [self drawAtPoint:CGPointZero];
-    
     //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+
     //return image
     return image;
 }
 
-- (UIImage *)jk_maskImageFromImageAlpha
-{
+- (UIImage *)jk_imageWithAlpha:(CGFloat)alpha {
+    //create drawing context
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+
+    //draw with alpha
+    [self drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:alpha];
+
+    //capture resultant image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return image
+    return image;
+}
+
+- (UIImage *)jk_imageWithMask:(UIImage *)maskImage; {
+    //create drawing context
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    //apply mask
+    CGContextClipToMask(context, CGRectMake(0.0f, 0.0f, self.size.width, self.size.height), maskImage.CGImage);
+
+    //draw image
+    [self drawAtPoint:CGPointZero];
+
+    //capture resultant image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    //return image
+    return image;
+}
+
+- (UIImage *)jk_maskImageFromImageAlpha {
     //get dimensions
     NSInteger width = CGImageGetWidth(self.CGImage);
     NSInteger height = CGImageGetHeight(self.CGImage);
-    
+
     //create alpha image
     NSInteger bytesPerRow = ((width + 3) / 4) * 4;
     void *data = calloc(bytesPerRow * height, sizeof(unsigned char *));
     CGContextRef context = CGBitmapContextCreate(data, width, height, 8, bytesPerRow, NULL, kCGImageAlphaOnly);
     CGContextDrawImage(context, CGRectMake(0.0f, 0.0f, width, height), self.CGImage);
-    
+
     //invert alpha pixels
-    for (int y = 0; y < height; y++)
-    {
-        for (int x = 0; x < width; x++)
-        {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
             NSInteger index = y * bytesPerRow + x;
-            ((unsigned char *)data)[index] = 255 - ((unsigned char *)data)[index];
+            ((unsigned char *) data)[index] = 255 - ((unsigned char *) data)[index];
         }
     }
-    
+
     //create mask image
     CGImageRef maskRef = CGBitmapContextCreateImage(context);
     CGContextRelease(context);
@@ -395,7 +348,7 @@
     free(data);
 
     //return image
-	return mask;
+    return mask;
 }
 
 @end

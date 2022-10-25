@@ -8,6 +8,7 @@
 
 #import "CoreStudent+CoreDataClass.h"
 #import "CoreTeacher+CoreDataClass.h"
+
 @implementation CoreStudent
 
 @end

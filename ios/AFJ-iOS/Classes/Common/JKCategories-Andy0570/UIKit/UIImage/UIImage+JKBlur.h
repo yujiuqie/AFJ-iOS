@@ -14,14 +14,19 @@ FOUNDATION_EXPORT const unsigned char ImageEffectsVersionString[];
 @interface UIImage (JKBlur)
 
 - (UIImage *)jk_lightImage;
+
 - (UIImage *)jk_extraLightImage;
+
 - (UIImage *)jk_darkImage;
+
 - (UIImage *)jk_tintedImageWithColor:(UIColor *)tintColor;
 
 - (UIImage *)jk_blurredImageWithRadius:(CGFloat)blurRadius;
+
 - (UIImage *)jk_blurredImageWithSize:(CGSize)blurSize;
+
 - (UIImage *)jk_blurredImageWithSize:(CGSize)blurSize
-                        tintColor:(UIColor *)tintColor
-            saturationDeltaFactor:(CGFloat)saturationDeltaFactor
-                        maskImage:(UIImage *)maskImage;
+                           tintColor:(UIColor *)tintColor
+               saturationDeltaFactor:(CGFloat)saturationDeltaFactor
+                           maskImage:(UIImage *)maskImage;
 @end

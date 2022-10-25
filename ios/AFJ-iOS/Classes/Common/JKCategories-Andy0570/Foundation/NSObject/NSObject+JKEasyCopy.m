@@ -8,21 +8,20 @@
 
 @implementation NSObject (JKEasyCopy)
 
-- (BOOL)jk_easyShallowCopy:(NSObject *)instance
-{
+- (BOOL)jk_easyShallowCopy:(NSObject *)instance {
     Class currentClass = [self class];
     Class instanceClass = [instance class];
-    
+
     if (self == instance) {
         //相同实例
         return NO;
     }
-    
-    if (![instance isMemberOfClass:currentClass] ) {
+
+    if (![instance isMemberOfClass:currentClass]) {
         //不是当前类的实例
         return NO;
     }
-    
+
     while (instanceClass != [NSObject class]) {
         unsigned int propertyListCount = 0;
         objc_property_t *propertyList = class_copyPropertyList(currentClass, &propertyListCount);
@@ -44,25 +43,24 @@
         free(propertyList);
         instanceClass = class_getSuperclass(instanceClass);
     }
-    
+
     return YES;
 }
 
-- (BOOL)jk_easyDeepCopy:(NSObject *)instance
-{
+- (BOOL)jk_easyDeepCopy:(NSObject *)instance {
     Class currentClass = [self class];
     Class instanceClass = [instance class];
-    
+
     if (self == instance) {
         //相同实例
         return NO;
     }
-    
-    if (![instance isMemberOfClass:currentClass] ) {
+
+    if (![instance isMemberOfClass:currentClass]) {
         //不是当前类的实例
         return NO;
     }
-    
+
     while (instanceClass != [NSObject class]) {
         unsigned int propertyListCount = 0;
         objc_property_t *propertyList = class_copyPropertyList(currentClass, &propertyListCount);
@@ -82,12 +80,12 @@
                     if ([propertyValue conformsToProtocol:@protocol(NSCopying)]) {
                         NSObject *copyValue = [propertyValue copy];
                         [self setValue:copyValue forKey:propertyName];
-                    }else{
-                        NSObject *copyValue = [[[propertyValue class]alloc]init];
+                    } else {
+                        NSObject *copyValue = [[[propertyValue class] alloc] init];
                         [copyValue jk_easyDeepCopy:propertyValue];
                         [self setValue:copyValue forKey:propertyName];
                     }
-                }else{
+                } else {
                     [self setValue:propertyValue forKey:propertyName];
                 }
             }
@@ -97,22 +95,22 @@
         free(propertyList);
         instanceClass = class_getSuperclass(instanceClass);
     }
-    
+
     return YES;
 }
 
 
-+ (BOOL)jk_isNSObjectClass:(Class)clazz{
-    
++ (BOOL)jk_isNSObjectClass:(Class)clazz {
+
     BOOL flag = class_conformsToProtocol(clazz, @protocol(NSObject));
     if (flag) {
         return flag;
-    }else{
+    } else {
         Class superClass = class_getSuperclass(clazz);
         if (!superClass) {
             return NO;
-        }else{
-            return  [NSObject jk_isNSObjectClass:superClass];
+        } else {
+            return [NSObject jk_isNSObjectClass:superClass];
         }
     }
 }

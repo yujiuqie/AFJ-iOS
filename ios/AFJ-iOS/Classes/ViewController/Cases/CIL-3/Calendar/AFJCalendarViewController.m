@@ -7,9 +7,9 @@
 
 #import "AFJCalendarViewController.h"
 
-@interface AFJCalendarViewController()
+@interface AFJCalendarViewController ()
 
-@property (nonatomic, strong) GPJDataDrivenTableView  *tableView;
+@property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
 @end
 
@@ -18,13 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     self.tableView = [[GPJDataDrivenTableView alloc] initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-    
+
     NSMutableArray *dataArray = [NSMutableArray array];
-    
+
     NSArray *array = @[
             @[@"Range Picker", @"RangePickerViewController"],
             @[@"DIY", @"DIYExampleViewController"],
@@ -46,7 +46,7 @@
         };
         [dataArray addObject:item];
     }
-    
+
     [self.tableView reloadDataArray:dataArray];
 }
 

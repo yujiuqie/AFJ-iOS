@@ -17,17 +17,17 @@
 /**
  *  The view which the reciever relates to. Can be nil if item is not a view.
  */
-@property (nonatomic, weak, readonly) MAS_VIEW *view;
+@property(nonatomic, weak, readonly) MAS_VIEW *view;
 
 /**
  *  The item which the reciever relates to.
  */
-@property (nonatomic, weak, readonly) id item;
+@property(nonatomic, weak, readonly) id item;
 
 /**
  *  The attribute which the reciever relates to
  */
-@property (nonatomic, assign, readonly) NSLayoutAttribute layoutAttribute;
+@property(nonatomic, assign, readonly) NSLayoutAttribute layoutAttribute;
 
 /**
  *  Convenience initializer.

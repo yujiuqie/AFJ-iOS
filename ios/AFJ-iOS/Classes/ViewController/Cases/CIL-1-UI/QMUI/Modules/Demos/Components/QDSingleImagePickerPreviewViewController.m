@@ -31,19 +31,19 @@
         case QMUIAssetDownloadStatusSucceed:
             _confirmButton.hidden = NO;
             break;
-            
+
         case QMUIAssetDownloadStatusDownloading:
             _confirmButton.hidden = YES;
             break;
-            
+
         case QMUIAssetDownloadStatusCanceled:
             _confirmButton.hidden = NO;
             break;
-            
+
         case QMUIAssetDownloadStatusFailed:
             _confirmButton.hidden = YES;
             break;
-            
+
         default:
             break;
     }

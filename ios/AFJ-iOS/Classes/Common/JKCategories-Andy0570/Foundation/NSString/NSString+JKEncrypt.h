@@ -21,7 +21,7 @@
  *
  *  @return data
  */
-- (NSString*)jk_encryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv;
+- (NSString *)jk_encryptedWithAESUsingKey:(NSString *)key andIV:(NSData *)iv;
 
 /**
  *  AES解密数据
@@ -31,7 +31,7 @@
  *
  *  @return data
  */
-- (NSString*)jk_decryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv;
+- (NSString *)jk_decryptedWithAESUsingKey:(NSString *)key andIV:(NSData *)iv;
 
 /**
  *  DES加密数据
@@ -41,7 +41,7 @@
  *
  *  @return data
  */
-- (NSString*)jk_encryptedWithDESUsingKey:(NSString*)key andIV:(NSData*)iv;
+- (NSString *)jk_encryptedWithDESUsingKey:(NSString *)key andIV:(NSData *)iv;
 
 /**
  *  DE解密数据
@@ -51,7 +51,7 @@
  *
  *  @return data
  */
-- (NSString*)jk_decryptedWithDESUsingKey:(NSString*)key andIV:(NSData*)iv;
+- (NSString *)jk_decryptedWithDESUsingKey:(NSString *)key andIV:(NSData *)iv;
 
 /**
  *  3DES加密数据 
@@ -61,7 +61,7 @@
  *
  *  @return data
  */
-- (NSString*)jk_encryptedWith3DESUsingKey:(NSString*)key andIV:(NSData*)iv;
+- (NSString *)jk_encryptedWith3DESUsingKey:(NSString *)key andIV:(NSData *)iv;
 
 /**
  *  3DES解密数据
@@ -71,6 +71,6 @@
  *
  *  @return data
  */
-- (NSString*)jk_decryptedWith3DESUsingKey:(NSString*)key andIV:(NSData*)iv;
+- (NSString *)jk_decryptedWith3DESUsingKey:(NSString *)key andIV:(NSData *)iv;
 
 @end

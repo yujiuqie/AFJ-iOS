@@ -8,9 +8,9 @@
 
 #import "MyTestReusableView.h"
 
-@interface MyTestReusableView()
+@interface MyTestReusableView ()
 
-@property(nonatomic,strong)UIImageView* imgV;
+@property(nonatomic, strong) UIImageView *imgV;
 @end
 
 @implementation MyTestReusableView
@@ -18,7 +18,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.imgV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"xingkong"]];
+        self.imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"xingkong"]];
         self.imgV.contentMode = UIViewContentModeScaleToFill;
         [self addSubview:self.imgV];
         [self.imgV mas_makeConstraints:^(MASConstraintMaker *make) {

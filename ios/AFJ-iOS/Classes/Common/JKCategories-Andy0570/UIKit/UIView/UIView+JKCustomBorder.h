@@ -17,14 +17,20 @@ typedef NS_OPTIONS(NSUInteger, JKExcludePoint) {
 /// 为视图添加边框
 @interface UIView (JKCustomBorder)
 
-- (void)jk_addTopBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth;
-- (void)jk_addLeftBorderWithColor: (UIColor *) color width:(CGFloat) borderWidth;
-- (void)jk_addBottomBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth;
-- (void)jk_addRightBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth;
+- (void)jk_addTopBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth;
+
+- (void)jk_addLeftBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth;
+
+- (void)jk_addBottomBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth;
+
+- (void)jk_addRightBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth;
 
 - (void)jk_removeTopBorder;
+
 - (void)jk_removeLeftBorder;
+
 - (void)jk_removeBottomBorder;
+
 - (void)jk_removeRightBorder;
 
 - (void)jk_addTopBorderWithColor:(UIColor *)color

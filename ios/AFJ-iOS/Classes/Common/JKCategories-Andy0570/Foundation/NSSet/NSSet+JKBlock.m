@@ -17,45 +17,45 @@
     __block int counter = 0;
     [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         block(obj, counter);
-        counter ++;
+        counter++;
     }];
 }
 
 - (NSArray *)jk_map:(id (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
-    
-    
+
+
     for (id object in self) {
         id mappedObject = block(object);
-        if(mappedObject) {
+        if (mappedObject) {
             [array addObject:mappedObject];
         }
     }
-    
+
     return array;
 }
 
 - (NSArray *)jk_select:(BOOL (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
-    
+
     for (id object in self) {
         if (block(object)) {
             [array addObject:object];
         }
     }
-    
+
     return array;
 }
 
 - (NSArray *)jk_reject:(BOOL (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
-    
+
     for (id object in self) {
         if (block(object) == NO) {
             [array addObject:object];
         }
     }
-    
+
     return array;
 }
 
@@ -70,10 +70,10 @@
 
 - (id)jk_reduce:(id)initial withBlock:(id(^)(id accumulator, id object))block {
     id accumulator = initial;
-    
-    for(id object in self)
+
+    for (id object in self)
         accumulator = accumulator ? block(accumulator, object) : object;
-    
+
     return accumulator;
 }
 

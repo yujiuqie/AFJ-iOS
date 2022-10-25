@@ -13,31 +13,29 @@
 
 
 @interface WebPaginationViewController ()
-<UIWebViewDelegate>
-@property (nonatomic, weak) IBOutlet UIWebView *webView;
+        <UIWebViewDelegate>
+@property(nonatomic, weak) IBOutlet UIWebView *webView;
 @end
 
 
 @implementation WebPaginationViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
     self.webView.scrollView.pagingEnabled = YES;
-    
+
     [SVProgressHUD showWithStatus:@"Loading..."
                          maskType:SVProgressHUDMaskTypeGradient];
-    
+
     NSURL *url = [NSURL URLWithString:kURL];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -47,7 +45,7 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
+
     [SVProgressHUD dismiss];
 }
 
@@ -61,9 +59,9 @@
 #pragma mark - IBAction
 
 - (IBAction)segmentChanged:(UISegmentedControl *)sender {
-    
+
     // Change pagination mode
-    
+
     switch (sender.selectedSegmentIndex) {
         case 0:
         default:
@@ -83,9 +81,9 @@
             [self.webView setPaginationMode:UIWebPaginationModeRightToLeft];
             break;
     }
-    
+
     NSLog(@"gapBetweenPages:%f", self.webView.gapBetweenPages);
-    NSLog(@"pagaCount:%lu", (unsigned long)self.webView.pageCount);
+    NSLog(@"pagaCount:%lu", (unsigned long) self.webView.pageCount);
     NSLog(@"pageLength:%f", self.webView.pageLength);
 }
 

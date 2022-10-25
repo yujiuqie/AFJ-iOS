@@ -11,11 +11,12 @@
 
 @interface ARGestureControl : NSObject
 
-@property (nonatomic, strong) SCNNode *selectedNode;
+@property(nonatomic, strong) SCNNode *selectedNode;
 
-@property (nonatomic, weak) ARViewController *viewController;
+@property(nonatomic, weak) ARViewController *viewController;
 
 - (void)setupGestureRecognizer;
+
 - (void)removeARObject:(id)sender;
 
 @end

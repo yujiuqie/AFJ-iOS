@@ -20,16 +20,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.layer.cornerRadius = 3;
-        
+
         _contentLabel = [[UILabel alloc] qmui_initWithFont:UIFontLightMake(100) textColor:UIColorWhite];
         self.contentLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.contentLabel];
-        
+
         self.prevLayer = [CALayer layer];
         [self.prevLayer qmui_removeDefaultAnimations];
         self.prevLayer.backgroundColor = UIColorMakeWithRGBA(0, 0, 0, .3).CGColor;
         [self.contentView.layer addSublayer:self.prevLayer];
-        
+
         self.nextLayer = [CALayer layer];
         [self.nextLayer qmui_removeDefaultAnimations];
         self.nextLayer.backgroundColor = self.prevLayer.backgroundColor;
@@ -48,7 +48,7 @@
     [super layoutSubviews];
     [self.contentLabel sizeToFit];
     self.contentLabel.center = CGPointMake(CGRectGetWidth(self.contentView.bounds) / 2, CGRectGetHeight(self.contentView.bounds) / 2);
-    
+
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
         self.prevLayer.frame = CGRectMake(0, CGRectGetHeight(self.contentView.bounds) * (1 - self.pagingThreshold), CGRectGetWidth(self.contentView.bounds), PixelOne);
         self.nextLayer.frame = CGRectSetY(self.prevLayer.frame, CGRectGetHeight(self.contentView.bounds) * self.pagingThreshold);

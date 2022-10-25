@@ -18,7 +18,7 @@
 - (void)initDataSource {
     [super initDataSource];
     self.dataSource = @[@"进入显示 navigationBar 的界面",
-                        @"进入隐藏 navigationBar 的界面"];
+            @"进入隐藏 navigationBar 的界面"];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
@@ -26,7 +26,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    QMUITableViewHeaderFooterView *footerView = (QMUITableViewHeaderFooterView *)[super tableView:tableView viewForFooterInSection:section];
+    QMUITableViewHeaderFooterView *footerView = (QMUITableViewHeaderFooterView *) [super tableView:tableView viewForFooterInSection:section];
     footerView.backgroundView.backgroundColor = UIColorClear;
     footerView.contentEdgeInsets = UIEdgeInsetsSetTop(footerView.contentEdgeInsets, 0);
     footerView.titleLabel.font = UIFontMake(12);
@@ -46,7 +46,7 @@
     [super viewWillAppear:animated];
     // 主动在转场过程中触发布局的重新运算
     [self.view setNeedsLayout];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.view setNeedsLayout];
     });
 }
@@ -55,7 +55,7 @@
     [super viewWillDisappear:animated];
     // 主动在转场过程中触发布局的重新运算
     [self.view setNeedsLayout];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.view setNeedsLayout];
     });
 }

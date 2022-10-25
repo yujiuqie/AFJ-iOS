@@ -11,6 +11,6 @@
 
 @interface NSNotificationTestObject : NSObject
 
-@property (nonatomic,weak) LSViewTestKVO *kvo;
-@property (nonatomic,copy)NSString *name;
+@property(nonatomic, weak) LSViewTestKVO *kvo;
+@property(nonatomic, copy) NSString *name;
 @end

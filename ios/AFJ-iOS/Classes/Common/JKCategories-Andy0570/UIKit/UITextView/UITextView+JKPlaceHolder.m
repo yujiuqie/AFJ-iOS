@@ -12,6 +12,7 @@ static const char *jk_placeHolderTextView = "jk_placeHolderTextView";
 - (UITextView *)jk_placeHolderTextView {
     return objc_getAssociatedObject(self, jk_placeHolderTextView);
 }
+
 - (void)setJk_placeHolderTextView:(UITextView *)placeHolderTextView {
     objc_setAssociatedObject(self, jk_placeHolderTextView, placeHolderTextView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -28,29 +29,34 @@ static const char *jk_placeHolderTextView = "jk_placeHolderTextView";
         textView.text = placeHolder;
         [self addSubview:textView];
         [self setJk_placeHolderTextView:textView];
-        
+
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidEndEditing:) name:UITextViewTextDidEndEditingNotification object:self];
 
     }
     self.jk_placeHolderTextView.text = placeHolder;
 }
+
 # pragma mark -
 # pragma mark - UITextViewDelegate
+
 - (void)textViewDidBeginEditing:(NSNotification *)noti {
     self.jk_placeHolderTextView.hidden = YES;
 }
+
 - (void)textViewDidEndEditing:(UITextView *)noti {
     if (self.text && [self.text isEqualToString:@""]) {
         self.jk_placeHolderTextView.hidden = NO;
     }
 }
+
 + (void)load {
 //    [super load];
     Method origMethod = class_getInstanceMethod([self class], NSSelectorFromString(@"dealloc"));
     Method newMethod = class_getInstanceMethod([self class], @selector(jk_textView_placeholder_swizzledDealloc));
     method_exchangeImplementations(origMethod, newMethod);
 }
+
 - (void)jk_textView_placeholder_swizzledDealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self jk_textView_placeholder_swizzledDealloc];

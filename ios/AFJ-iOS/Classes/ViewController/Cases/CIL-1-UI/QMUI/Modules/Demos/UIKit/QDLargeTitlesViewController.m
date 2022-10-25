@@ -22,11 +22,11 @@
 - (void)initDataSource {
     [super initDataSource];
     self.dataSourceWithDetailText = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                     @"push 一个不显示大标题的 vc", @"LargeTitleDisplayModeNever",
-                                     @"push 一个显示大标题的 vc", @"LargeTitleDisplayModeAlways",
-                                     @"push 一个跟随上页设置的 vc", @"LargeTitleDisplayModeAutomatic",
-                                     @"滚动试试", @"这是一个可以滚动的页面",
-                                     nil];
+            @"push 一个不显示大标题的 vc", @"LargeTitleDisplayModeNever",
+            @"push 一个显示大标题的 vc", @"LargeTitleDisplayModeAlways",
+            @"push 一个跟随上页设置的 vc", @"LargeTitleDisplayModeAutomatic",
+            @"滚动试试", @"这是一个可以滚动的页面",
+                    nil];
 }
 
 - (void)setupNavigationItems {
@@ -46,7 +46,7 @@
         [self.tableView qmui_clearsSelection];
     } else {
         QDLargeTitlesViewController *largeTitlesViewController = [[QDLargeTitlesViewController alloc] init];
-        
+
         UINavigationItemLargeTitleDisplayMode displayMode;
         if ([title isEqualToString:@"push 一个不显示大标题的 vc"]) {
             displayMode = UINavigationItemLargeTitleDisplayModeNever;
@@ -55,7 +55,7 @@
         } else {
             displayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
         }
-        
+
         largeTitlesViewController.navigationItem.largeTitleDisplayMode = displayMode;
         [self.navigationController pushViewController:largeTitlesViewController animated:YES];
     }

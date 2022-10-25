@@ -18,33 +18,34 @@
 #define perLabelH 40 //文字label的高
 #define addLabelW 5 //
 
-typedef void(^myBlock)(NSString *string,CGPoint centerPoint,NSArray *dataArray);
+typedef void(^myBlock)(NSString *string, CGPoint centerPoint, NSArray *dataArray);
+
 typedef void(^tagInfoBlock)(NSDictionary *dic);
 
 @interface YBTagView : UIView
 
 /**按住拖动手势*/
-@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property(nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 /**是否打开按住拖动功能*/
-@property (nonatomic, assign) BOOL isPanGestureOnTagViewed;
+@property(nonatomic, assign) BOOL isPanGestureOnTagViewed;
 /**tag的数组*/
-@property (nonatomic, strong) NSArray *tagArray;
+@property(nonatomic, strong) NSArray *tagArray;
 
-@property (nonatomic, strong) NSArray *tagDicArray;
+@property(nonatomic, strong) NSArray *tagDicArray;
 
-@property (nonatomic, assign) CGPoint tagViewCenterPoint;
+@property(nonatomic, assign) CGPoint tagViewCenterPoint;
 
-@property (nonatomic, assign) CGPoint selfCenter;
+@property(nonatomic, assign) CGPoint selfCenter;
 
-@property (nonatomic, copy) NSString *whichTag;
+@property(nonatomic, copy) NSString *whichTag;
 
-@property (nonatomic, copy) myBlock block;
+@property(nonatomic, copy) myBlock block;
 
-@property (nonatomic, copy) tagInfoBlock tagBlock;
+@property(nonatomic, copy) tagInfoBlock tagBlock;
 
-@property (nonatomic, assign) BOOL isClick;
+@property(nonatomic, assign) BOOL isClick;
 
-@property (nonatomic, assign) NSInteger defaultStyle;
+@property(nonatomic, assign) NSInteger defaultStyle;
 
 /**
  *  根据点来确定加上的标签页
@@ -54,7 +55,6 @@ typedef void(^tagInfoBlock)(NSDictionary *dic);
  *  @return
  */
 - (instancetype)initWithPoint:(CGPoint)point;
-
 
 
 /**

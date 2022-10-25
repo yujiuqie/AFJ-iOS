@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JFOutlineViewController : UIViewController
 
-@property (nonatomic, strong) PDFOutline *outlineRoot;
-@property (nonatomic, weak) id<JFOutlineViewControllerDelegate> delegate;
+@property(nonatomic, strong) PDFOutline *outlineRoot;
+@property(nonatomic, weak) id <JFOutlineViewControllerDelegate> delegate;
 
 @end
 

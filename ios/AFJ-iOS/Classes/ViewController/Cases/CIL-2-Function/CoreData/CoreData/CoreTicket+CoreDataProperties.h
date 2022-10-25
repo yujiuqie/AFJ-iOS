@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<CoreTicket *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSNumber *ticketId;
-@property (nullable, nonatomic, copy) NSNumber *price;
-@property (nullable, nonatomic, copy) NSDate *date;
+@property(nullable, nonatomic, copy) NSNumber *ticketId;
+@property(nullable, nonatomic, copy) NSNumber *price;
+@property(nullable, nonatomic, copy) NSDate *date;
 
 @end
 

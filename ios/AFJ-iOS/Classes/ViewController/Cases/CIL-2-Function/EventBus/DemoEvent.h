@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "QTEventBus.h"
 
-@interface DemoEvent : NSObject<QTEvent>
+@interface DemoEvent : NSObject <QTEvent>
 
-@property (assign, nonatomic) long count;
+@property(assign, nonatomic) long count;
 
 @end

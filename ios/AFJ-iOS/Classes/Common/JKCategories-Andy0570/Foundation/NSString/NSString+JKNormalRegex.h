@@ -89,6 +89,7 @@
  *  手机号码的有效性:分电信、联通、移动和小灵通
  */
 - (BOOL)jk_isMobileNumberClassification;
+
 /**
  *  手机号有效性
  */
@@ -161,9 +162,9 @@
  @return    正则验证成功返回YES, 否则返回NO
  */
 - (BOOL)jk_isValidWithMinLenth:(NSInteger)minLenth
-                   maxLenth:(NSInteger)maxLenth
-             containChinese:(BOOL)containChinese
-        firstCannotBeDigtal:(BOOL)firstCannotBeDigtal;
+                      maxLenth:(NSInteger)maxLenth
+                containChinese:(BOOL)containChinese
+           firstCannotBeDigtal:(BOOL)firstCannotBeDigtal;
 
 /**
  @brief     是否符合最小长度、最长长度，是否包含中文,数字，字母，其他字符，首字母是否可以为数字
@@ -177,11 +178,11 @@
  @return    正则验证成功返回YES, 否则返回NO
  */
 - (BOOL)jk_isValidWithMinLenth:(NSInteger)minLenth
-                   maxLenth:(NSInteger)maxLenth
-             containChinese:(BOOL)containChinese
-              containDigtal:(BOOL)containDigtal
-              containLetter:(BOOL)containLetter
-      containOtherCharacter:(NSString *)containOtherCharacter
-        firstCannotBeDigtal:(BOOL)firstCannotBeDigtal;
+                      maxLenth:(NSInteger)maxLenth
+                containChinese:(BOOL)containChinese
+                 containDigtal:(BOOL)containDigtal
+                 containLetter:(BOOL)containLetter
+         containOtherCharacter:(NSString *)containOtherCharacter
+           firstCannotBeDigtal:(BOOL)firstCannotBeDigtal;
 
 @end

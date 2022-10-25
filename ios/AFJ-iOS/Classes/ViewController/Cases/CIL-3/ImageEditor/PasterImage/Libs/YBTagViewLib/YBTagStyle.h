@@ -88,7 +88,7 @@ typedef NS_ENUM(NSInteger, YBOneTagStyle) {
     /**
      *  1个在右边，有倾斜角度
      */
-    YBOneTagStyleRightAskew=0,
+    YBOneTagStyleRightAskew = 0,
     /**
      *  1个在左边，有倾斜角度
      */
@@ -106,9 +106,9 @@ typedef NS_ENUM(NSInteger, YBOneTagStyle) {
 
 @interface YBTagStyle : NSObject
 
-@property (nonatomic, assign) YBFourTagStyle YBFourTagStyle;
-@property (nonatomic, assign) YBThreeTagStyle YBThreeTagStyle;
-@property (nonatomic, assign) YBTwoTagStyle YBTwoTagStyle;
-@property (nonatomic, assign) YBOneTagStyle YBOneTagStyle;
+@property(nonatomic, assign) YBFourTagStyle YBFourTagStyle;
+@property(nonatomic, assign) YBThreeTagStyle YBThreeTagStyle;
+@property(nonatomic, assign) YBTwoTagStyle YBTwoTagStyle;
+@property(nonatomic, assign) YBOneTagStyle YBOneTagStyle;
 
 @end

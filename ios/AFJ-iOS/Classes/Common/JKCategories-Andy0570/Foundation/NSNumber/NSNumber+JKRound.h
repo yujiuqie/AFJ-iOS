@@ -11,19 +11,20 @@
 @interface NSNumber (JKRound)
 
 /// 展示
-- (NSString*)jk_toDisplayNumberWithDigit:(NSInteger)digit;
-- (NSString*)jk_toDisplayPercentageWithDigit:(NSInteger)digit;
+- (NSString *)jk_toDisplayNumberWithDigit:(NSInteger)digit;
+
+- (NSString *)jk_toDisplayPercentageWithDigit:(NSInteger)digit;
 
 /// 四舍五入
 /// @param digit 限制最大位数
-- (NSNumber*)jk_doRoundWithDigit:(NSUInteger)digit;
+- (NSNumber *)jk_doRoundWithDigit:(NSUInteger)digit;
 
 /// 向上取整
 /// @param digit 限制最大位数
-- (NSNumber*)jk_doCeilWithDigit:(NSUInteger)digit;
+- (NSNumber *)jk_doCeilWithDigit:(NSUInteger)digit;
 
 /// 向下取整
 /// @param digit 限制最大位数
-- (NSNumber*)jk_doFloorWithDigit:(NSUInteger)digit;
+- (NSNumber *)jk_doFloorWithDigit:(NSUInteger)digit;
 
 @end

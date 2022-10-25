@@ -14,7 +14,8 @@
 
 @interface NSInvocation (JKBlock)
 
-+ (instancetype)jk_invocationWithBlock:(id) block;
-+ (instancetype)jk_invocationWithBlockAndArguments:(id) block ,...;
++ (instancetype)jk_invocationWithBlock:(id)block;
+
++ (instancetype)jk_invocationWithBlockAndArguments:(id)block, ...;
 
 @end

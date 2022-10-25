@@ -31,52 +31,69 @@
 // Note: firstDayOfNextMonth returns midnight of the first day of next month,
 // which is effectively the same as the "last moment" of the current month.
 + (NSDate *)jk_firstDayOfCurrentMonth;
+
 + (NSDate *)jk_firstDayOfPreviousMonth;
+
 + (NSDate *)jk_firstDayOfNextMonth;
 
 // Returns midnight of the first day of the current, previous or next Quarter.
 // Note: firstDayOfNextQuarter returns midnight of the first day of next quarter,
 // which is effectively the same as the "last moment" of the current quarter.
 + (NSDate *)jk_firstDayOfCurrentQuarter;
+
 + (NSDate *)jk_firstDayOfPreviousQuarter;
+
 + (NSDate *)jk_firstDayOfNextQuarter;
 
 // Returns midnight of the first day of the current, previous or next Year.
 // Note: firstDayOfNextYear returns midnight of the first day of next year,
 // which is effectively the same as the "last moment" of the current year.
 + (NSDate *)jk_firstDayOfCurrentYear;
+
 + (NSDate *)jk_firstDayOfPreviousYear;
+
 + (NSDate *)jk_firstDayOfNextYear;
 
 - (NSDate *)jk_dateFloor;
+
 - (NSDate *)jk_dateCeil;
 
 - (NSDate *)jk_startOfWeek;
+
 - (NSDate *)jk_endOfWeek;
 
 - (NSDate *)jk_startOfMonth;
+
 - (NSDate *)jk_endOfMonth;
 
 - (NSDate *)jk_startOfYear;
+
 - (NSDate *)jk_endOfYear;
 
 - (NSDate *)jk_previousDay;
+
 - (NSDate *)jk_nextDay;
 
 - (NSDate *)jk_previousWeek;
+
 - (NSDate *)jk_nextWeek;
 
 - (NSDate *)jk_previousMonth;
-- (NSDate *)jk_previousMonth:(NSUInteger) monthsToMove;
+
+- (NSDate *)jk_previousMonth:(NSUInteger)monthsToMove;
+
 - (NSDate *)jk_nextMonth;
-- (NSDate *)jk_nextMonth:(NSUInteger) monthsToMove;
+
+- (NSDate *)jk_nextMonth:(NSUInteger)monthsToMove;
 
 #ifdef DEBUG
+
 // For testing only. A helper function to format and display a date
 // with an optional comment. For example:
 //     NSDate *test = [NSDate firstDayOfCurrentMonth];
 //     [test logWithComment:@"First day of current month: "];
 - (void)jk_logWithComment:(NSString *)comment;
+
 #endif
 
 @end

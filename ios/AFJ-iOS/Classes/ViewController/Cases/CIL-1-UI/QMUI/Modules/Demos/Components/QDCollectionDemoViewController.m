@@ -24,17 +24,17 @@
 
 - (void)setupNavigationItems {
     [super setupNavigationItems];
-    
+
     self.titleView.userInteractionEnabled = YES;
     [self.titleView addTarget:self action:@selector(handleTitleViewTouchEvent) forControlEvents:UIControlEventTouchUpInside];
-    
+
     self.navigationItem.rightBarButtonItems = @[[UIBarButtonItem qmui_itemWithTitle:self.collectionViewLayout.debug ? @"普通模式" : @"调试模式" target:self action:@selector(handleDebugItemEvent)],
-                                                [UIBarButtonItem qmui_itemWithTitle:self.collectionViewLayout.scrollDirection == UICollectionViewScrollDirectionVertical ? @"水平" : @"垂直" target:self action:@selector(handleDirectionItemEvent)]];
+            [UIBarButtonItem qmui_itemWithTitle:self.collectionViewLayout.scrollDirection == UICollectionViewScrollDirectionVertical ? @"水平" : @"垂直" target:self action:@selector(handleDirectionItemEvent)]];
 }
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.collectionViewLayout];
     self.collectionView.backgroundColor = UIColorClear;
     self.collectionView.showsHorizontalScrollIndicator = NO;
@@ -42,7 +42,7 @@
     self.collectionView.dataSource = self;
     [self.collectionView registerClass:[QDCollectionViewDemoCell class] forCellWithReuseIdentifier:@"cell"];
     [self.view addSubview:self.collectionView];
-    
+
     self.collectionViewLayout.sectionInset = [self sectionInset];
 }
 
@@ -64,7 +64,7 @@
     [self.collectionViewLayout invalidateLayout];
     [self.collectionView qmui_scrollToTopAnimated:YES];
     [self.collectionView reloadData];
-    
+
     [self setupNavigationItems];
     [self.view setNeedsLayout];
 }
@@ -75,7 +75,7 @@
     [self.collectionViewLayout invalidateLayout];
     [self.collectionView qmui_scrollToTopAnimated:YES];
     [self.collectionView reloadData];
-    
+
     [self setupNavigationItems];
 }
 
@@ -101,7 +101,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    QDCollectionViewDemoCell *cell = (QDCollectionViewDemoCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    QDCollectionViewDemoCell *cell = (QDCollectionViewDemoCell *) [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.debug = self.collectionViewLayout.debug;
     cell.pagingThreshold = self.collectionViewLayout.pagingThreshold;
     cell.scrollDirection = self.collectionViewLayout.scrollDirection;
@@ -113,11 +113,11 @@
 
 #pragma mark - <UICollectionViewDelegateFlowLayout>
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.collectionViewLayout.debug) {
         return CGSizeMake(100, 100);
     }
-    
+
     CGSize size = CGSizeMake(CGRectGetWidth(collectionView.bounds) - UIEdgeInsetsGetHorizontalValue(self.collectionViewLayout.sectionInset) - UIEdgeInsetsGetHorizontalValue(self.collectionView.adjustedContentInset), CGRectGetHeight(collectionView.bounds) - UIEdgeInsetsGetVerticalValue(self.collectionViewLayout.sectionInset) - UIEdgeInsetsGetVerticalValue(self.collectionView.adjustedContentInset));
     return size;
 }

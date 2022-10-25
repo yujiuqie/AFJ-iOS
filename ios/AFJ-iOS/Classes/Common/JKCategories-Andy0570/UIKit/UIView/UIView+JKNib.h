@@ -12,12 +12,17 @@
 @interface UIView (JKNib)
 
 + (UINib *)jk_loadNib;
-+ (UINib *)jk_loadNibNamed:(NSString*)nibName;
-+ (UINib *)jk_loadNibNamed:(NSString*)nibName bundle:(NSBundle *)bundle;
+
++ (UINib *)jk_loadNibNamed:(NSString *)nibName;
+
++ (UINib *)jk_loadNibNamed:(NSString *)nibName bundle:(NSBundle *)bundle;
 
 + (instancetype)jk_loadInstanceFromNib;
+
 + (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName;
+
 + (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName owner:(id)owner;
+
 + (instancetype)jk_loadInstanceFromNibWithName:(NSString *)nibName owner:(id)owner bundle:(NSBundle *)bundle;
 
 @end

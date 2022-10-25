@@ -11,40 +11,39 @@
 
 @interface XIBTestViewController ()
 
-@property (strong, readwrite, nonatomic) RETableViewManager *manager;
+@property(strong, readwrite, nonatomic) RETableViewManager *manager;
 
 @end
 
 @implementation XIBTestViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"XIB Support";
-    
+
     // Create manager
     //
     self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
-    
+
     // Map item to a cell, this will also register the XIBTestCell.xib for the XIBTestItem identifier
     //
     self.manager[@"XIBTestItem"] = @"XIBTestCell";
-    
+
     // Add a section
     //
     RETableViewSection *section = [RETableViewSection section];
     [self.manager addSection:section];
-    
+
     for (NSInteger i = 1; i < 100; i++) {
         NSString *title = [NSString stringWithFormat:@"Item %li", (long) i];
         XIBTestItem *item = [XIBTestItem itemWithTitle:title
                                          accessoryType:UITableViewCellAccessoryNone
                                       selectionHandler:^(RETableViewItem *item) {
-            [item deselectRowAnimated:YES];
-        }];
+                                          [item deselectRowAnimated:YES];
+                                      }];
         [section addItem:item];
     }
-    
+
     // Cell is being assigned an automatic identifier
     //
     // You can manually set it if you want to:

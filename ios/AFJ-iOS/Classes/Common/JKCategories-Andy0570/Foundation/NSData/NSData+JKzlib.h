@@ -61,7 +61,7 @@ typedef NS_ENUM(NSUInteger, JKZlibErrorCode) {
  @returns @p YES if the compression succeeded; otherwise, @p NO.
  */
 - (BOOL)jk_writeDeflatedToFile:(NSString *)path
-                          error:(NSError *__autoreleasing *)error;
+                         error:(NSError *__autoreleasing *)error;
 
 /**
  Apply zlib decompression and write the result to a file at path
@@ -74,6 +74,6 @@ typedef NS_ENUM(NSUInteger, JKZlibErrorCode) {
  @returns @p YES if the compression succeeded; otherwise, @p NO.
  */
 - (BOOL)jk_writeInflatedToFile:(NSString *)path
-                          error:(NSError *__autoreleasing *)error;
+                         error:(NSError *__autoreleasing *)error;
 
 @end

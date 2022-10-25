@@ -11,7 +11,7 @@
 @implementation CoreTeacher (CoreDataProperties)
 
 + (NSFetchRequest<CoreTeacher *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"CoreTeacher"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"CoreTeacher"];
 }
 
 @dynamic age;

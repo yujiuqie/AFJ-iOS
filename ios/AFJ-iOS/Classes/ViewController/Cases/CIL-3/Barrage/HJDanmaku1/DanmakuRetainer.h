@@ -9,15 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "DanmakuView.h"
+
 @class DanmakuBaseModel;
 
 @interface DanmakuRetainer : NSObject
 
-@property (nonatomic, assign) CGSize canvasSize;
-@property (nonatomic, weak) DanmakuConfiguration *configuration;
+@property(nonatomic, assign) CGSize canvasSize;
+@property(nonatomic, weak) DanmakuConfiguration *configuration;
 
 - (void)clearVisibleDanmaku:(DanmakuBaseModel *)danmaku;
+
 - (float)layoutPyForDanmaku:(DanmakuBaseModel *)danmaku;
+
 - (void)clear;
 
 @end

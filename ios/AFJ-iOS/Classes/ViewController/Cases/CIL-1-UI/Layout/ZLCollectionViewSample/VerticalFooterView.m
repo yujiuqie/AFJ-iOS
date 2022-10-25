@@ -15,7 +15,7 @@
 }
 
 + (instancetype)footerViewWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath {
-    VerticalFooterView *footerView = (VerticalFooterView*)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:[VerticalFooterView footerViewIdentifier] forIndexPath:indexPath];
+    VerticalFooterView *footerView = (VerticalFooterView *) [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:[VerticalFooterView footerViewIdentifier] forIndexPath:indexPath];
     footerView.backgroundColor = [UIColor clearColor];
     return footerView;
 }
@@ -24,8 +24,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.clipsToBounds = YES;
-        
-        UILabel* label = [UILabel new];
+
+        UILabel *label = [UILabel new];
         label.font = [UIFont boldSystemFontOfSize:16];
         label.text = @"这是footerView";
         [self addSubview:label];

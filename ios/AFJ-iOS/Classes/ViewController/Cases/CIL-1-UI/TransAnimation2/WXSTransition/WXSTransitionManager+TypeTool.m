@@ -11,142 +11,142 @@
 @implementation WXSTransitionManager (TypeTool)
 
 
--(void)backAnimationTypeFromAnimationType:(WXSTransitionAnimationType)type{
-    
+- (void)backAnimationTypeFromAnimationType:(WXSTransitionAnimationType)type {
+
     switch (type) {
-        case WXSTransitionAnimationTypeSysFade:{
+        case WXSTransitionAnimationTypeSysFade: {
             self.backAnimationType = WXSTransitionAnimationTypeSysFade;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromRight:{
+        case WXSTransitionAnimationTypeSysPushFromRight: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPushFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromLeft:{
+        case WXSTransitionAnimationTypeSysPushFromLeft: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPushFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromTop:{
+        case WXSTransitionAnimationTypeSysPushFromTop: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPushFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromBottom:{
+        case WXSTransitionAnimationTypeSysPushFromBottom: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPushFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromRight:{
+        case WXSTransitionAnimationTypeSysRevealFromRight: {
             self.backAnimationType = WXSTransitionAnimationTypeSysMoveInFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromLeft:{
+        case WXSTransitionAnimationTypeSysRevealFromLeft: {
             self.backAnimationType = WXSTransitionAnimationTypeSysMoveInFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromTop:{
+        case WXSTransitionAnimationTypeSysRevealFromTop: {
             self.backAnimationType = WXSTransitionAnimationTypeSysMoveInFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromBottom:{
+        case WXSTransitionAnimationTypeSysRevealFromBottom: {
             self.backAnimationType = WXSTransitionAnimationTypeSysMoveInFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromRight:{
+        case WXSTransitionAnimationTypeSysMoveInFromRight: {
             self.backAnimationType = WXSTransitionAnimationTypeSysRevealFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromLeft:{
+        case WXSTransitionAnimationTypeSysMoveInFromLeft: {
             self.backAnimationType = WXSTransitionAnimationTypeSysRevealFromRight;
-            
+
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromTop:{
+        case WXSTransitionAnimationTypeSysMoveInFromTop: {
             self.backAnimationType = WXSTransitionAnimationTypeSysRevealFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromBottom:{
+        case WXSTransitionAnimationTypeSysMoveInFromBottom: {
             self.backAnimationType = WXSTransitionAnimationTypeSysRevealFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromRight:{
+        case WXSTransitionAnimationTypeSysCubeFromRight: {
             self.backAnimationType = WXSTransitionAnimationTypeSysCubeFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromLeft:{
+        case WXSTransitionAnimationTypeSysCubeFromLeft: {
             self.backAnimationType = WXSTransitionAnimationTypeSysCubeFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromTop:{
+        case WXSTransitionAnimationTypeSysCubeFromTop: {
             self.backAnimationType = WXSTransitionAnimationTypeSysCubeFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromBottom:{
+        case WXSTransitionAnimationTypeSysCubeFromBottom: {
             self.backAnimationType = WXSTransitionAnimationTypeSysCubeFromTop;
-            
+
         }
             break;
-        case WXSTransitionAnimationTypeSysSuckEffect:{
+        case WXSTransitionAnimationTypeSysSuckEffect: {
             self.backAnimationType = WXSTransitionAnimationTypeSysSuckEffect;
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromRight:{
+        case WXSTransitionAnimationTypeSysOglFlipFromRight: {
             self.backAnimationType = WXSTransitionAnimationTypeSysOglFlipFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromLeft:{
+        case WXSTransitionAnimationTypeSysOglFlipFromLeft: {
             self.backAnimationType = WXSTransitionAnimationTypeSysOglFlipFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromTop:{
+        case WXSTransitionAnimationTypeSysOglFlipFromTop: {
             self.backAnimationType = WXSTransitionAnimationTypeSysOglFlipFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromBottom:{
+        case WXSTransitionAnimationTypeSysOglFlipFromBottom: {
             self.backAnimationType = WXSTransitionAnimationTypeSysOglFlipFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysRippleEffect:{
+        case WXSTransitionAnimationTypeSysRippleEffect: {
             self.backAnimationType = WXSTransitionAnimationTypeSysRippleEffect;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromRight:{
+        case WXSTransitionAnimationTypeSysPageCurlFromRight: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageUnCurlFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromLeft:{
+        case WXSTransitionAnimationTypeSysPageCurlFromLeft: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageUnCurlFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromTop:{
+        case WXSTransitionAnimationTypeSysPageCurlFromTop: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageUnCurlFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromBottom:{
+        case WXSTransitionAnimationTypeSysPageCurlFromBottom: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageUnCurlFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromRight:{
+        case WXSTransitionAnimationTypeSysPageUnCurlFromRight: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageCurlFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromLeft:{
+        case WXSTransitionAnimationTypeSysPageUnCurlFromLeft: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageCurlFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromTop:{
+        case WXSTransitionAnimationTypeSysPageUnCurlFromTop: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageCurlFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromBottom:{
+        case WXSTransitionAnimationTypeSysPageUnCurlFromBottom: {
             self.backAnimationType = WXSTransitionAnimationTypeSysPageCurlFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysCameraIrisHollowOpen:{
+        case WXSTransitionAnimationTypeSysCameraIrisHollowOpen: {
             self.backAnimationType = WXSTransitionAnimationTypeSysCameraIrisHollowClose;
         }
             break;
-        case WXSTransitionAnimationTypeSysCameraIrisHollowClose:{
+        case WXSTransitionAnimationTypeSysCameraIrisHollowClose: {
             self.backAnimationType = WXSTransitionAnimationTypeSysCameraIrisHollowOpen;
-            
+
         }
             break;
         default:
@@ -154,171 +154,171 @@
     }
 }
 
--(CATransition *)getSysTransitionWithType:(WXSTransitionAnimationType )type{
-    
-    CATransition *tranAnimation=[CATransition animation];
-    tranAnimation.duration= self.animationTime;
+- (CATransition *)getSysTransitionWithType:(WXSTransitionAnimationType)type {
+
+    CATransition *tranAnimation = [CATransition animation];
+    tranAnimation.duration = self.animationTime;
     tranAnimation.delegate = self;
     switch (type) {
-        case WXSTransitionAnimationTypeSysFade:{
-            tranAnimation.type=kCATransitionFade;
+        case WXSTransitionAnimationTypeSysFade: {
+            tranAnimation.type = kCATransitionFade;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromRight:{
+        case WXSTransitionAnimationTypeSysPushFromRight: {
             tranAnimation.type = kCATransitionPush;
-            tranAnimation.subtype=kCATransitionFromRight;
+            tranAnimation.subtype = kCATransitionFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromLeft:{
+        case WXSTransitionAnimationTypeSysPushFromLeft: {
             tranAnimation.type = kCATransitionPush;
-            tranAnimation.subtype=kCATransitionFromLeft;
+            tranAnimation.subtype = kCATransitionFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromTop:{
+        case WXSTransitionAnimationTypeSysPushFromTop: {
             tranAnimation.type = kCATransitionPush;
-            tranAnimation.subtype=kCATransitionFromTop;
+            tranAnimation.subtype = kCATransitionFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysPushFromBottom:{
+        case WXSTransitionAnimationTypeSysPushFromBottom: {
             tranAnimation.type = kCATransitionPush;
-            tranAnimation.subtype=kCATransitionFromBottom;
-            
+            tranAnimation.subtype = kCATransitionFromBottom;
+
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromRight:{
+        case WXSTransitionAnimationTypeSysRevealFromRight: {
             tranAnimation.type = kCATransitionReveal;
-            tranAnimation.subtype=kCATransitionFromRight;
+            tranAnimation.subtype = kCATransitionFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromLeft:{
+        case WXSTransitionAnimationTypeSysRevealFromLeft: {
             tranAnimation.type = kCATransitionReveal;
-            tranAnimation.subtype=kCATransitionFromLeft;
+            tranAnimation.subtype = kCATransitionFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromTop:{
+        case WXSTransitionAnimationTypeSysRevealFromTop: {
             tranAnimation.type = kCATransitionReveal;
-            tranAnimation.subtype=kCATransitionFromTop;
+            tranAnimation.subtype = kCATransitionFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysRevealFromBottom:{
+        case WXSTransitionAnimationTypeSysRevealFromBottom: {
             tranAnimation.type = kCATransitionReveal;
-            tranAnimation.subtype=kCATransitionFromBottom;
+            tranAnimation.subtype = kCATransitionFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromRight:{
+        case WXSTransitionAnimationTypeSysMoveInFromRight: {
             tranAnimation.type = kCATransitionMoveIn;
-            tranAnimation.subtype=kCATransitionFromRight;
+            tranAnimation.subtype = kCATransitionFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromLeft:{
+        case WXSTransitionAnimationTypeSysMoveInFromLeft: {
             tranAnimation.type = kCATransitionMoveIn;
-            tranAnimation.subtype=kCATransitionFromLeft;
+            tranAnimation.subtype = kCATransitionFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromTop:{
+        case WXSTransitionAnimationTypeSysMoveInFromTop: {
             tranAnimation.type = kCATransitionMoveIn;
-            tranAnimation.subtype=kCATransitionFromTop;
+            tranAnimation.subtype = kCATransitionFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysMoveInFromBottom:{
+        case WXSTransitionAnimationTypeSysMoveInFromBottom: {
             tranAnimation.type = kCATransitionMoveIn;
-            tranAnimation.subtype=kCATransitionFromBottom;
+            tranAnimation.subtype = kCATransitionFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromRight:{
+        case WXSTransitionAnimationTypeSysCubeFromRight: {
             tranAnimation.type = @"cube";
-            tranAnimation.subtype=kCATransitionFromRight;
+            tranAnimation.subtype = kCATransitionFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromLeft:{
+        case WXSTransitionAnimationTypeSysCubeFromLeft: {
             tranAnimation.type = @"cube";
-            tranAnimation.subtype=kCATransitionFromLeft;
+            tranAnimation.subtype = kCATransitionFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromTop:{
-            tranAnimation.type=@"cube";
-            tranAnimation.subtype=kCATransitionFromTop;
+        case WXSTransitionAnimationTypeSysCubeFromTop: {
+            tranAnimation.type = @"cube";
+            tranAnimation.subtype = kCATransitionFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysCubeFromBottom:{
-            tranAnimation.type=@"cube";
-            tranAnimation.subtype=kCATransitionFromBottom;
+        case WXSTransitionAnimationTypeSysCubeFromBottom: {
+            tranAnimation.type = @"cube";
+            tranAnimation.subtype = kCATransitionFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysSuckEffect:{
-            tranAnimation.type=@"suckEffect";
+        case WXSTransitionAnimationTypeSysSuckEffect: {
+            tranAnimation.type = @"suckEffect";
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromRight:{
-            tranAnimation.type=@"oglFlip";
-            tranAnimation.subtype=kCATransitionFromRight;
+        case WXSTransitionAnimationTypeSysOglFlipFromRight: {
+            tranAnimation.type = @"oglFlip";
+            tranAnimation.subtype = kCATransitionFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromLeft:{
-            tranAnimation.type=@"oglFlip";
-            tranAnimation.subtype=kCATransitionFromLeft;
+        case WXSTransitionAnimationTypeSysOglFlipFromLeft: {
+            tranAnimation.type = @"oglFlip";
+            tranAnimation.subtype = kCATransitionFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromTop:{
-            tranAnimation.type=@"oglFlip";
-            tranAnimation.subtype=kCATransitionFromTop;
+        case WXSTransitionAnimationTypeSysOglFlipFromTop: {
+            tranAnimation.type = @"oglFlip";
+            tranAnimation.subtype = kCATransitionFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysOglFlipFromBottom:{
-            tranAnimation.type=@"oglFlip";
-            tranAnimation.subtype=kCATransitionFromBottom;
+        case WXSTransitionAnimationTypeSysOglFlipFromBottom: {
+            tranAnimation.type = @"oglFlip";
+            tranAnimation.subtype = kCATransitionFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysRippleEffect:{
-            tranAnimation.type=@"rippleEffect";
+        case WXSTransitionAnimationTypeSysRippleEffect: {
+            tranAnimation.type = @"rippleEffect";
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromRight:{
-            tranAnimation.type=@"pageCurl";
-            tranAnimation.subtype=kCATransitionFromRight;
+        case WXSTransitionAnimationTypeSysPageCurlFromRight: {
+            tranAnimation.type = @"pageCurl";
+            tranAnimation.subtype = kCATransitionFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromLeft:{
-            tranAnimation.type=@"pageCurl";
-            tranAnimation.subtype=kCATransitionFromLeft;
+        case WXSTransitionAnimationTypeSysPageCurlFromLeft: {
+            tranAnimation.type = @"pageCurl";
+            tranAnimation.subtype = kCATransitionFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromTop:{
-            tranAnimation.type=@"pageCurl";
-            tranAnimation.subtype=kCATransitionFromTop;
+        case WXSTransitionAnimationTypeSysPageCurlFromTop: {
+            tranAnimation.type = @"pageCurl";
+            tranAnimation.subtype = kCATransitionFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageCurlFromBottom:{
-            tranAnimation.type=@"pageCurl";
-            tranAnimation.subtype=kCATransitionFromBottom;
+        case WXSTransitionAnimationTypeSysPageCurlFromBottom: {
+            tranAnimation.type = @"pageCurl";
+            tranAnimation.subtype = kCATransitionFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromRight:{
-            tranAnimation.type=@"pageUnCurl";
-            tranAnimation.subtype=kCATransitionFromRight;
+        case WXSTransitionAnimationTypeSysPageUnCurlFromRight: {
+            tranAnimation.type = @"pageUnCurl";
+            tranAnimation.subtype = kCATransitionFromRight;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromLeft:{
-            tranAnimation.type=@"pageUnCurl";
-            tranAnimation.subtype=kCATransitionFromLeft;
+        case WXSTransitionAnimationTypeSysPageUnCurlFromLeft: {
+            tranAnimation.type = @"pageUnCurl";
+            tranAnimation.subtype = kCATransitionFromLeft;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromTop:{
-            tranAnimation.type=@"pageUnCurl";
-            tranAnimation.subtype=kCATransitionFromTop;
+        case WXSTransitionAnimationTypeSysPageUnCurlFromTop: {
+            tranAnimation.type = @"pageUnCurl";
+            tranAnimation.subtype = kCATransitionFromTop;
         }
             break;
-        case WXSTransitionAnimationTypeSysPageUnCurlFromBottom:{
-            tranAnimation.type=@"pageUnCurl";
-            tranAnimation.subtype=kCATransitionFromBottom;
+        case WXSTransitionAnimationTypeSysPageUnCurlFromBottom: {
+            tranAnimation.type = @"pageUnCurl";
+            tranAnimation.subtype = kCATransitionFromBottom;
         }
             break;
-        case WXSTransitionAnimationTypeSysCameraIrisHollowOpen:{
-            tranAnimation.type=@"cameraIrisHollowOpen";
+        case WXSTransitionAnimationTypeSysCameraIrisHollowOpen: {
+            tranAnimation.type = @"cameraIrisHollowOpen";
         }
             break;
-        case WXSTransitionAnimationTypeSysCameraIrisHollowClose:{
-            tranAnimation.type=@"cameraIrisHollowClose";
+        case WXSTransitionAnimationTypeSysCameraIrisHollowClose: {
+            tranAnimation.type = @"cameraIrisHollowClose";
         }
             break;
         default:

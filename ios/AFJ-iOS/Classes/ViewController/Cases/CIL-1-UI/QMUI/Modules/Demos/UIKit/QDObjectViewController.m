@@ -20,9 +20,9 @@
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
         self.shouldShowSearchBar = YES;
-        
+
         self.autocompletionClasses = [[NSMutableArray alloc] init];
-        
+
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             self.allClasses = [self allClassesArray];
         });
@@ -51,7 +51,7 @@
     Class *classes = nil;
     int numberOfClasses = objc_getClassList(nil, 0);
     if (numberOfClasses > 0) {
-        classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numberOfClasses);
+        classes = (__unsafe_unretained Class *) malloc(sizeof(Class) * numberOfClasses);
         numberOfClasses = objc_getClassList(classes, numberOfClasses);
         for (int i = 0; i < numberOfClasses; i++) {
             Class c = classes[i];
@@ -70,15 +70,15 @@
      3. 特别的，如果 className 与搜索词完全匹配，则权重最高，为 1
      4. 最终权重越高者排序越靠前
      */
-    
+
     className = className.lowercaseString;
     searchString = searchString.lowercaseString;
-    
+
     if ([className isEqualToString:searchString]) {
         return 1;
     }
-    
-    double matchingWeight = (double)searchString.length / (double)className.length;
+
+    double matchingWeight = (double) searchString.length / (double) className.length;
     if ([className hasPrefix:searchString]) {
         return matchingWeight * 1.0 / 3.0 + 2.0 / 3.0;
     }
@@ -86,7 +86,7 @@
         return matchingWeight * 1.0 / 3.0;
     }
     matchingWeight = matchingWeight * 1.0 / 3.0 + 1.0 / 3.0;
-    
+
     return matchingWeight;
 }
 
@@ -127,14 +127,14 @@
 
 - (void)searchController:(QMUISearchController *)searchController updateResultsForSearchString:(NSString *)searchString {
     [self.autocompletionClasses removeAllObjects];
-    
+
     if (searchString.length > 2) {
         for (NSString *className in self.allClasses) {
             if ([className.lowercaseString containsString:searchString.lowercaseString]) {
                 [self.autocompletionClasses addObject:className];
             }
         }
-        
+
         [self.autocompletionClasses sortUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
             double matchingWeight1 = [self matchingWeightForResult:obj1 withSearchString:searchString];
             double matchingWeight2 = [self matchingWeightForResult:obj2 withSearchString:searchString];
@@ -142,7 +142,7 @@
             return result;
         }];
     }
-    
+
     [searchController.tableView reloadData];
 }
 

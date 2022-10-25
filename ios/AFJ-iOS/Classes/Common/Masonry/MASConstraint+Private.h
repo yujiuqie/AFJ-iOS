@@ -16,12 +16,12 @@
 /**
  *  Whether or not to check for an existing constraint instead of adding constraint
  */
-@property (nonatomic, assign) BOOL updateExisting;
+@property(nonatomic, assign) BOOL updateExisting;
 
 /**
  *	Usually MASConstraintMaker but could be a parent MASConstraint
  */
-@property (nonatomic, weak) id<MASConstraintDelegate> delegate;
+@property(nonatomic, weak) id <MASConstraintDelegate> delegate;
 
 /**
  *  Based on a provided value type, is equal to calling:
@@ -43,7 +43,7 @@
  *    MASViewAttribute, UIView, NSValue, NSArray
  *  see readme for more details.
  */
-- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation;
+- (MASConstraint *(^)(id, NSLayoutRelation))equalToWithRelation;
 
 /**
  *	Override to set a custom chaining behaviour

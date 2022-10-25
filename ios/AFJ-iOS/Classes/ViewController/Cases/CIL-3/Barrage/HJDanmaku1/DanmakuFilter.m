@@ -39,7 +39,7 @@
             minIndex = index;
         }
     }
-    return [danmakus subarrayWithRange:NSMakeRange(maxIndex, count-maxIndex)];
+    return [danmakus subarrayWithRange:NSMakeRange(maxIndex, count - maxIndex)];
 }
 
 @end

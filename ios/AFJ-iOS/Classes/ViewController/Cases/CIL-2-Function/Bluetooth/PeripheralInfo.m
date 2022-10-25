@@ -10,10 +10,10 @@
 
 @implementation PeripheralInfo
 
--(instancetype)init{
+- (instancetype)init {
     self = [super init];
     if (self) {
-        _characteristics = [[NSMutableArray alloc]init];
+        _characteristics = [[NSMutableArray alloc] init];
     }
     return self;
 }

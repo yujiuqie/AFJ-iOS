@@ -21,7 +21,9 @@ typedef NS_ENUM(NSUInteger, QDActivityIndicatorStyle) {
 @property(nonatomic, assign) BOOL hidesWhenStopped; // 默认为YES
 
 - (void)startAnimating;
+
 - (void)stopAnimating;
+
 - (BOOL)isAnimating;
 
 - (instancetype)initWithStyle:(QDActivityIndicatorStyle)style;

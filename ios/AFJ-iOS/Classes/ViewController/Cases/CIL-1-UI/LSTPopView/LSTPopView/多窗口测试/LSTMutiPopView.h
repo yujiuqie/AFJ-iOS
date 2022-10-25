@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSTMutiPopView : UIView
 
 /** <#...#> */
-@property (nonatomic, copy) LSTMutiPopViewBlock closeBlock;
+@property(nonatomic, copy) LSTMutiPopViewBlock closeBlock;
 
 @end
 

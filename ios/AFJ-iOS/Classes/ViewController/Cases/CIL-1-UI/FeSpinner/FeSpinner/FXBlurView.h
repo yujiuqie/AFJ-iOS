@@ -45,14 +45,16 @@
 @interface FXBlurView : UIView
 
 + (void)setBlurEnabled:(BOOL)blurEnabled;
+
 + (void)setUpdatesEnabled;
+
 + (void)setUpdatesDisabled;
 
-@property (nonatomic, getter = isBlurEnabled) BOOL blurEnabled;
-@property (nonatomic, getter = isDynamic) BOOL dynamic;
-@property (nonatomic, assign) NSUInteger iterations;
-@property (nonatomic, assign) NSTimeInterval updateInterval;
-@property (nonatomic, assign) CGFloat blurRadius;
-@property (nonatomic, strong) UIColor *tintColor;
+@property(nonatomic, getter = isBlurEnabled) BOOL blurEnabled;
+@property(nonatomic, getter = isDynamic) BOOL dynamic;
+@property(nonatomic, assign) NSUInteger iterations;
+@property(nonatomic, assign) NSTimeInterval updateInterval;
+@property(nonatomic, assign) CGFloat blurRadius;
+@property(nonatomic, strong) UIColor *tintColor;
 
 @end

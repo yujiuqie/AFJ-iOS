@@ -6,16 +6,15 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-static void JKSVGApplier(void* info, const CGPathElement* element);
+static void JKSVGApplier(void *info, const CGPathElement *element);
 
 @implementation UIBezierPath (ZTKit)
 
-- (NSString*)jk_SVGString
-{
+- (NSString *)jk_SVGString {
     CGPathRef path = [self CGPath];
-    NSMutableString* SVGString = [NSMutableString string];
+    NSMutableString *SVGString = [NSMutableString string];
     [SVGString appendString:@"<path id=\"temporaryID\" d=\""];
-    CGPathApply(path, (__bridge_retained void*)SVGString, JKSVGApplier);
+    CGPathApply(path, (__bridge_retained void *) SVGString, JKSVGApplier);
     NSString *lineCap;
     switch (self.lineCapStyle) {
         case kCGLineCapRound:
@@ -28,18 +27,16 @@ static void JKSVGApplier(void* info, const CGPathElement* element);
             lineCap = @"butt";
             break;
     }
-    [SVGString appendFormat:@"\" stroke-linecap=\"%@\" stroke-width=\"%i\" fill=\"none\" stroke=\"red\" />", lineCap, (int)self.lineWidth];
+    [SVGString appendFormat:@"\" stroke-linecap=\"%@\" stroke-width=\"%i\" fill=\"none\" stroke=\"red\" />", lineCap, (int) self.lineWidth];
     return [NSString stringWithFormat:@"%@", SVGString];
 }
 @end
 
-static void JKSVGApplier(void* info, const CGPathElement* element)
-{
-    NSMutableString* SVGString = (__bridge NSMutableString*) info;
+static void JKSVGApplier(void *info, const CGPathElement *element) {
+    NSMutableString *SVGString = (__bridge NSMutableString *) info;
     int nPoints;
     char elementKey;
-    switch (element->type)
-    {
+    switch (element->type) {
         case kCGPathElementMoveToPoint:
             nPoints = 1;
             elementKey = 'M';
@@ -64,9 +61,9 @@ static void JKSVGApplier(void* info, const CGPathElement* element)
             SVGString = nil;
             return;
     }
-    NSString* nextElement = [NSString stringWithFormat:@" %c", elementKey];
+    NSString *nextElement = [NSString stringWithFormat:@" %c", elementKey];
     for (int i = 0; i < nPoints; i++) {
-        nextElement = [nextElement stringByAppendingString:[NSString stringWithFormat:@" %i %i", (int)element->points[i].x, (int)element->points[i].y]];
+        nextElement = [nextElement stringByAppendingString:[NSString stringWithFormat:@" %i %i", (int) element->points[i].x, (int) element->points[i].y]];
     }
     [SVGString appendString:nextElement];
 }

@@ -15,9 +15,11 @@
 @interface UIImageView (JKGeometryConversion)
 
 - (CGPoint)jk_convertPointFromImage:(CGPoint)imagePoint;
+
 - (CGRect)jk_convertRectFromImage:(CGRect)imageRect;
 
 - (CGPoint)jk_convertPointFromView:(CGPoint)viewPoint;
+
 - (CGRect)jk_convertRectFromView:(CGRect)viewRect;
 
 @end

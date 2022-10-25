@@ -12,7 +12,7 @@
 @interface LSTPopViewTranspondView ()
 
 /** <#.....#> */
-@property (nonatomic,strong) UIImageView *imgView;
+@property(nonatomic, strong) UIImageView *imgView;
 
 @end
 
@@ -34,18 +34,18 @@
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)initSubViews {
-    
+
     [self addSubview:self.imgView];
-    
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.equalTo(self);
     }];
-    
+
 }
 
 #pragma mark - ***** other 其他 *****
@@ -54,7 +54,7 @@
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UIImageView *)imgView {
-    if(_imgView) return _imgView;
+    if (_imgView) return _imgView;
     _imgView = [[UIImageView alloc] init];
     _imgView.image = [UIImage imageNamed:@"转发"];
     return _imgView;

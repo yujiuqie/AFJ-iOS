@@ -8,6 +8,7 @@
 
 #import "CoreCoach+CoreDataClass.h"
 #import "CoreTeam+CoreDataClass.h"
+
 @implementation CoreCoach
 
 @end

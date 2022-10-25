@@ -21,8 +21,7 @@ extern NSTimeInterval const UILabelAWDefaultDuration;
 
 extern unichar const UILabelAWDefaultCharacter;
 
-typedef NS_ENUM(NSInteger, UILabelJKlinkingMode)
-{
+typedef NS_ENUM(NSInteger, UILabelJKlinkingMode) {
     UILabelJKlinkingModeNone,
     UILabelJKlinkingModeUntilFinish,
     UILabelJKlinkingModeUntilFinishKeeping,
@@ -33,8 +32,8 @@ typedef NS_ENUM(NSInteger, UILabelJKlinkingMode)
 
 @interface UILabel (JKAutomaticWriting)
 
-@property (strong, nonatomic) NSOperationQueue *jk_automaticWritingOperationQueue;
-@property (assign, nonatomic) UIEdgeInsets jk_edgeInsets;
+@property(strong, nonatomic) NSOperationQueue *jk_automaticWritingOperationQueue;
+@property(assign, nonatomic) UIEdgeInsets jk_edgeInsets;
 
 - (void)jk_setTextWithAutomaticWritingAnimation:(NSString *)text;
 

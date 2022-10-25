@@ -13,7 +13,7 @@
     while (view) {
         UIResponder *nextResponder = [view nextResponder];
         if ([nextResponder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)nextResponder;
+            return (UIViewController *) nextResponder;
         }
         view = view.superview;
     }
@@ -24,12 +24,12 @@
     UIResponder *responder = self.nextResponder;
     do {
         if ([responder isKindOfClass:[UINavigationController class]]) {
-            return (UINavigationController *)responder;
+            return (UINavigationController *) responder;
         }
-        
+
         responder = responder.nextResponder;
     } while (responder);
-    
+
     return nil;
 }
 
@@ -37,12 +37,12 @@
     UIResponder *responder = self.nextResponder;
     do {
         if ([responder isKindOfClass:[UITabBarController class]]) {
-            return (UITabBarController *)responder;
+            return (UITabBarController *) responder;
         }
-        
+
         responder = responder.nextResponder;
     } while (responder);
-    
+
     return nil;
 }
 
@@ -52,7 +52,7 @@
             return subView;
         }
     }
-    
+
     return nil;
 }
 
@@ -73,7 +73,7 @@
         [self resignFirstResponder];
         return YES;
     }
-    
+
     for (UIView *v in self.subviews) {
         if ([v jk_findAndResignFirstResponder]) {
             return YES;
@@ -84,17 +84,17 @@
 
 - (UIView *)jk_findFirstResponder {
     if (([self isKindOfClass:[UITextField class]] || [self isKindOfClass:[UITextView class]])
-        && (self.isFirstResponder)) {
+            && (self.isFirstResponder)) {
         return self;
     }
-    
+
     for (UIView *v in self.subviews) {
         UIView *fv = [v jk_findFirstResponder];
         if (fv) {
             return fv;
         }
     }
-    
+
     return nil;
 }
 

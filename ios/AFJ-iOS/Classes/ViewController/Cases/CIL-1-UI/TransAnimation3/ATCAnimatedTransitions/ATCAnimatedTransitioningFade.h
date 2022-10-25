@@ -8,8 +8,7 @@
 
 #import "ATCAnimatedTransitioning.h"
 
-@interface ATCAnimatedTransitioningFade : ATCAnimatedTransitioning 
-
+@interface ATCAnimatedTransitioningFade : ATCAnimatedTransitioning
 
 
 @end

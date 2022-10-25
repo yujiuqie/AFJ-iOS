@@ -10,7 +10,8 @@
 
 @interface WXSTransitionManager (BoomAnimation)
 
--(void)boomPresentTransitionNextAnimation:(id<UIViewControllerContextTransitioning>)transitionContext;
--(void)boomPresentTransitionBackAnimation:(id<UIViewControllerContextTransitioning>)transitionContext;
+- (void)boomPresentTransitionNextAnimation:(id <UIViewControllerContextTransitioning>)transitionContext;
+
+- (void)boomPresentTransitionBackAnimation:(id <UIViewControllerContextTransitioning>)transitionContext;
 
 @end

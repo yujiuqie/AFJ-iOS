@@ -15,7 +15,7 @@ static const NSTimeInterval COSTouchConfigRippleFadeDuration = 0.2;
 
 @implementation COSTouchConfig
 
--(instancetype)initWithTouchConfigType:(COSTouchConfigTpye)configType {
+- (instancetype)initWithTouchConfigType:(COSTouchConfigTpye)configType {
     self = [super init];
     if (self) {
         switch (configType) {
@@ -32,7 +32,7 @@ static const NSTimeInterval COSTouchConfigRippleFadeDuration = 0.2;
 
 #pragma mark - Private
 
--(void)_configureContact {
+- (void)_configureContact {
     self.strokeColor = [UIColor blackColor];
     self.fillColor = [UIColor blackColor];
     self.alpha = COSTouchConfigContactAlpha;

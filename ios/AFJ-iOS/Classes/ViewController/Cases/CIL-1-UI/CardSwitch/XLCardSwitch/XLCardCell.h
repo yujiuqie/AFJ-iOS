@@ -11,6 +11,6 @@
 
 @interface XLCardCell : UICollectionViewCell
 
-@property (nonatomic, strong) XLCardModel *model;
+@property(nonatomic, strong) XLCardModel *model;
 
 @end

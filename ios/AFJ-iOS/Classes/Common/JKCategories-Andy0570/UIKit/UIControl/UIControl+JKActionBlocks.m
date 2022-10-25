@@ -19,14 +19,14 @@ static const void *UIControlJKActionBlockArray = &UIControlJKActionBlockArray;
 
 
 @implementation UIControl (JKActionBlocks)
--(void)jk_handleControlEvents:(UIControlEvents)controlEvents withBlock:(UIControlJKActionBlock)actionBlock {
+- (void)jk_handleControlEvents:(UIControlEvents)controlEvents withBlock:(UIControlJKActionBlock)actionBlock {
     NSMutableArray *actionBlocksArray = [self jk_actionBlocksArray];
-    
+
     UIControlJKActionBlockWrapper *blockActionWrapper = [[UIControlJKActionBlockWrapper alloc] init];
     blockActionWrapper.jk_actionBlock = actionBlock;
     blockActionWrapper.jk_controlEvents = controlEvents;
     [actionBlocksArray addObject:blockActionWrapper];
-    
+
     [self addTarget:blockActionWrapper action:@selector(jk_invokeBlock:) forControlEvents:controlEvents];
 }
 
@@ -34,7 +34,7 @@ static const void *UIControlJKActionBlockArray = &UIControlJKActionBlockArray;
 - (void)jk_removeActionBlocksForControlEvents:(UIControlEvents)controlEvents {
     NSMutableArray *actionBlocksArray = [self jk_actionBlocksArray];
     NSMutableArray *wrappersToRemove = [NSMutableArray arrayWithCapacity:[actionBlocksArray count]];
-    
+
     [actionBlocksArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIControlJKActionBlockWrapper *wrapperTmp = obj;
         if (wrapperTmp.jk_controlEvents == controlEvents) {
@@ -42,7 +42,7 @@ static const void *UIControlJKActionBlockArray = &UIControlJKActionBlockArray;
             [self removeTarget:wrapperTmp action:@selector(jk_invokeBlock:) forControlEvents:controlEvents];
         }
     }];
-    
+
     [actionBlocksArray removeObjectsInArray:wrappersToRemove];
 }
 

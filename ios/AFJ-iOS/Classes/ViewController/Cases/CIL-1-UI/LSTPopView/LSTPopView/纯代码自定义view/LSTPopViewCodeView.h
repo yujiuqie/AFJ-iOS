@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSTPopViewCodeView : UIView
 
 /** <#...#> */
-@property (nonatomic, copy) LSTPopViewCodeViewBlock closeBlock;
+@property(nonatomic, copy) LSTPopViewCodeViewBlock closeBlock;
 
 @end
 

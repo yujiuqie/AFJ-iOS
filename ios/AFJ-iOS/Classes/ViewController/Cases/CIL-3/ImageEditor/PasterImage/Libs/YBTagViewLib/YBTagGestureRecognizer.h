@@ -10,6 +10,6 @@
 
 @interface YBTagGestureRecognizer : UITapGestureRecognizer
 
-@property (nonatomic, copy) NSString *gestureString;
+@property(nonatomic, copy) NSString *gestureString;
 
 @end

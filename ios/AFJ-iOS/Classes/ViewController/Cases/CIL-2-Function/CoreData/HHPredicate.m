@@ -8,10 +8,10 @@
 
 #import "HHPredicate.h"
 
-@interface HHPredicate()
+@interface HHPredicate ()
 
-@property (strong, nonatomic) NSDictionary *equalKeys;
-@property (strong, nonatomic) NSDictionary *containKeys;
+@property(strong, nonatomic) NSDictionary *equalKeys;
+@property(strong, nonatomic) NSDictionary *containKeys;
 
 @end
 
@@ -26,7 +26,7 @@
 }
 
 + (HHPredicate *)predicateWithEqualProperties:(NSArray *)equalProperties containProperties:(NSArray *)containProperties {
-    
+
     HHPredicate *predicate = [HHPredicate new];
     predicate.equalKeys = [NSDictionary dictionaryWithObjects:equalProperties forKeys:equalProperties];;
     predicate.containKeys = [NSDictionary dictionaryWithObjects:containProperties forKeys:containProperties];;
@@ -42,7 +42,7 @@
 }
 
 + (HHPredicate *)predicateWithEqualKeys:(NSDictionary *)equalKeys containKeys:(NSDictionary *)containKeys {
-    
+
     HHPredicate *predicate = [HHPredicate new];
     predicate.equalKeys = equalKeys;
     predicate.containKeys = containKeys;
@@ -62,35 +62,35 @@
 }
 
 - (void)setEqualkeys:(NSDictionary *)equalKeys containKeys:(NSDictionary *)containKeys {
-    
+
     if (equalKeys.count > 0) {
         self.equalKeys = [NSMutableDictionary dictionaryWithDictionary:self.equalKeys];
-        [(NSMutableDictionary *)self.equalKeys setValuesForKeysWithDictionary:equalKeys];
+        [(NSMutableDictionary *) self.equalKeys setValuesForKeysWithDictionary:equalKeys];
     }
     if (containKeys.count > 0) {
         self.containKeys = [NSMutableDictionary dictionaryWithDictionary:self.containKeys];
-        [(NSMutableDictionary *)self.containKeys setValuesForKeysWithDictionary:containKeys];
+        [(NSMutableDictionary *) self.containKeys setValuesForKeysWithDictionary:containKeys];
     }
 }
 
 - (NSPredicate *)makePredicateWithObjcet:(id)objcet {
-    
+
     NSPredicate *predicate;
     if (self.equalKeys.count > 0 && objcet != nil) {
-        
+
         NSMutableArray *keyArray = [NSMutableArray array];
         NSMutableArray *argumentArray = [NSMutableArray array];
-        [self.equalKeys enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull objectKey, id  _Nonnull managedObjectKey, BOOL * _Nonnull stop) {
+        [self.equalKeys enumerateKeysAndObjectsUsingBlock:^(id _Nonnull objectKey, id _Nonnull managedObjectKey, BOOL *_Nonnull stop) {
             [keyArray addObject:@"%K = %@"];
-            
+
             [argumentArray addObject:managedObjectKey];
             [argumentArray addObject:[objcet valueForKey:objectKey]];
         }];
-        
+
         NSString *format = [keyArray componentsJoinedByString:@"&&"];
         predicate = [NSPredicate predicateWithFormat:format argumentArray:argumentArray];
     }
-    
+
     return predicate;
 }
 
@@ -100,38 +100,38 @@
 }
 
 - (NSPredicate *)makePredicateWithObjcets:(NSArray *)objcets {
-    
+
     NSPredicate *predicate;
     if (objcets.count > 0) {
-        
+
         NSMutableArray *keyArray = [NSMutableArray array];
         NSMutableArray *argumentArray = [NSMutableArray array];
         if (self.equalKeys.count > 0) {
-            
+
             id object = [objcets firstObject];
-            [self.equalKeys enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull objectKey, id  _Nonnull managedObjectKey, BOOL * _Nonnull stop) {
+            [self.equalKeys enumerateKeysAndObjectsUsingBlock:^(id _Nonnull objectKey, id _Nonnull managedObjectKey, BOOL *_Nonnull stop) {
                 [keyArray addObject:@"%K = %@"];
-                
+
                 [argumentArray addObject:managedObjectKey];
                 [argumentArray addObject:[object valueForKey:objectKey]];
             }];
         }
-        
-        [self.containKeys enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull objectKey, id  _Nonnull managedObjectKey, BOOL * _Nonnull stop) {
+
+        [self.containKeys enumerateKeysAndObjectsUsingBlock:^(id _Nonnull objectKey, id _Nonnull managedObjectKey, BOOL *_Nonnull stop) {
             [keyArray addObject:@"%K in %@"];
-            
+
             NSMutableArray *values = [NSMutableArray array];
-            for (id model in objcets) { [values addObject:[model valueForKey:objectKey]]; }
+            for (id model in objcets) {[values addObject:[model valueForKey:objectKey]];}
             [argumentArray addObject:managedObjectKey];
             [argumentArray addObject:values];
         }];
-        
+
         if (keyArray.count > 0) {
             NSString *format = [keyArray componentsJoinedByString:@"&&"];
             predicate = [NSPredicate predicateWithFormat:format argumentArray:argumentArray];
         }
     }
-    
+
     return predicate;
 }
 
@@ -149,17 +149,17 @@
 }
 
 - (NSString *)identifierWithKeys:(NSArray *)keys objcet:(id)object {
-    
+
     if (keys.count > 0) {
-        
+
         if (keys.count > 1) {
-            keys = [keys sortedArrayUsingComparator:^NSComparisonResult(NSString * _Nonnull obj1, NSString *  _Nonnull obj2) {
+            keys = [keys sortedArrayUsingComparator:^NSComparisonResult(NSString *_Nonnull obj1, NSString *_Nonnull obj2) {
                 return [obj1 compare:obj2];
             }];
         }
-        
+
         NSMutableString *identifier = [NSMutableString string];
-        [keys enumerateObjectsUsingBlock:^(id  _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        [keys enumerateObjectsUsingBlock:^(id _Nonnull key, NSUInteger idx, BOOL *_Nonnull stop) {
             [identifier appendFormat:@"%@:", [object valueForKey:key]];
         }];
         return [identifier copy];

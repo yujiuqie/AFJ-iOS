@@ -21,7 +21,7 @@
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     _textView = [[QMUITextView alloc] init];
     self.textView.backgroundColor = UIColor.qd_backgroundColorLighten;
     self.textView.placeholder = @"请输入个人简介...";
@@ -33,7 +33,7 @@
     self.textView.delegate = self;
     self.textView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     [self.view addSubview:self.textView];
-    
+
     _textCountLabel = [[UILabel alloc] init];
     self.textCountLabel.font = UIFontMake(14);
     self.textCountLabel.numberOfLines = 0;
@@ -41,7 +41,7 @@
     self.textCountLabel.text = @"请在下方输入内容，并点击返回按钮或者手势返回：";
     [self.textCountLabel sizeToFit];
     [self.view addSubview:self.textCountLabel];
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {

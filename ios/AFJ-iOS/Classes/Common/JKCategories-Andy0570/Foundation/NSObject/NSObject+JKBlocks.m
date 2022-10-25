@@ -7,7 +7,7 @@
 //
 
 static inline dispatch_time_t jk_dTimeDelay(NSTimeInterval time) {
-    int64_t delta = (int64_t)(NSEC_PER_SEC * time);
+    int64_t delta = (int64_t) (NSEC_PER_SEC * time);
     return dispatch_time(DISPATCH_TIME_NOW, delta);
 }
 
@@ -15,9 +15,9 @@ static inline dispatch_time_t jk_dTimeDelay(NSTimeInterval time) {
 
 + (id)jk_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay {
     if (!block) return nil;
-    
+
     __block BOOL cancelled = NO;
-    
+
     void (^wrappingBlock)(BOOL) = ^(BOOL cancel) {
         if (cancel) {
             cancelled = YES;
@@ -27,17 +27,19 @@ static inline dispatch_time_t jk_dTimeDelay(NSTimeInterval time) {
     };
 
     wrappingBlock = [wrappingBlock copy];
-    
-	dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{  wrappingBlock(NO); });
-    
+
+    dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{
+        wrappingBlock(NO);
+    });
+
     return wrappingBlock;
 }
 
 + (id)jk_performBlock:(void (^)(id arg))block withObject:(id)anObject afterDelay:(NSTimeInterval)delay {
     if (!block) return nil;
-    
+
     __block BOOL cancelled = NO;
-    
+
     void (^wrappingBlock)(BOOL, id) = ^(BOOL cancel, id arg) {
         if (cancel) {
             cancelled = YES;
@@ -45,20 +47,22 @@ static inline dispatch_time_t jk_dTimeDelay(NSTimeInterval time) {
         }
         if (!cancelled) block(arg);
     };
-    
+
     wrappingBlock = [wrappingBlock copy];
-    
-	dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{  wrappingBlock(NO, anObject); });
-    
+
+    dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{
+        wrappingBlock(NO, anObject);
+    });
+
     return wrappingBlock;
 }
 
 - (id)jk_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay {
-    
+
     if (!block) return nil;
-    
+
     __block BOOL cancelled = NO;
-    
+
     void (^wrappingBlock)(BOOL) = ^(BOOL cancel) {
         if (cancel) {
             cancelled = YES;
@@ -66,19 +70,21 @@ static inline dispatch_time_t jk_dTimeDelay(NSTimeInterval time) {
         }
         if (!cancelled) block();
     };
-    
+
     wrappingBlock = [wrappingBlock copy];
-    
-	dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{  wrappingBlock(NO); });
+
+    dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{
+        wrappingBlock(NO);
+    });
 
     return wrappingBlock;
 }
 
 - (id)jk_performBlock:(void (^)(id arg))block withObject:(id)anObject afterDelay:(NSTimeInterval)delay {
     if (!block) return nil;
-    
+
     __block BOOL cancelled = NO;
-    
+
     void (^wrappingBlock)(BOOL, id) = ^(BOOL cancel, id arg) {
         if (cancel) {
             cancelled = YES;
@@ -86,17 +92,19 @@ static inline dispatch_time_t jk_dTimeDelay(NSTimeInterval time) {
         }
         if (!cancelled) block(arg);
     };
-    
+
     wrappingBlock = [wrappingBlock copy];
-    
-	dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{  wrappingBlock(NO, anObject); });
-    
+
+    dispatch_after(jk_dTimeDelay(delay), dispatch_get_main_queue(), ^{
+        wrappingBlock(NO, anObject);
+    });
+
     return wrappingBlock;
 }
 
 + (void)jk_cancelBlock:(id)block {
     if (!block) return;
-    void (^aWrappingBlock)(BOOL) = (void(^)(BOOL))block;
+    void (^aWrappingBlock)(BOOL) = (void (^)(BOOL)) block;
     aWrappingBlock(YES);
 }
 

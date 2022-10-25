@@ -8,8 +8,8 @@
 
 @implementation UITableViewCell (JKNIB)
 
-+ (UINib *)jk_nib{
-   return  [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
++ (UINib *)jk_nib {
+    return [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
 }
 
 @end

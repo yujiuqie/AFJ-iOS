@@ -11,7 +11,7 @@
 @interface LSTMutiPopView ()
 
 /** <#.....#> */
-@property (nonatomic,strong) UIButton *closeBtn;
+@property(nonatomic, strong) UIButton *closeBtn;
 
 @end
 
@@ -32,18 +32,17 @@
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)initSubViews {
-    
+
     self.backgroundColor = UIColor.whiteColor;
     [self addSubview:self.closeBtn];
-   
+
     _closeBtn.frame = CGRectMake(150, 80, 100, 44);
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
 
-    
+
 }
 
 #pragma mark - ***** other 其他 *****
@@ -58,7 +57,7 @@
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UIButton *)closeBtn {
-    if(_closeBtn) return _closeBtn;
+    if (_closeBtn) return _closeBtn;
     _closeBtn = [[UIButton alloc] init];
     _closeBtn.backgroundColor = UIColor.orangeColor;
     [_closeBtn setTitle:@"添加窗口" forState:UIControlStateNormal];

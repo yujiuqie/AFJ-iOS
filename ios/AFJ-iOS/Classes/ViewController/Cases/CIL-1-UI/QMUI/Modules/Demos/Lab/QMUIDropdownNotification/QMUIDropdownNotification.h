@@ -20,8 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void)willShowNotification;
+
 - (void)didShowNotification;
+
 - (void)willHideNotification;
+
 - (void)didHideNotification;
 
 @end
@@ -45,10 +48,10 @@ extern const NSTimeInterval QMUIDropdownNotificationDurationInfinite;
  */
 @interface QMUIDropdownNotification : NSObject
 
-+ (instancetype)notificationWithViewClass:(Class)viewClass configuration:(void (^ __nullable)(__kindof UIControl<QMUIDropdownNotificationViewProtocol> *view))configuration;
++ (instancetype)notificationWithViewClass:(Class)viewClass configuration:(void (^ __nullable)(__kindof UIControl <QMUIDropdownNotificationViewProtocol> *view))configuration;
 
 /// 获取/设置该 notification 对应的 view。该 view 的点击事件可以业务自己添加，也可以通过 didTouchBlock 来绑定。
-@property(nullable, nonatomic, strong) __kindof UIControl<QMUIDropdownNotificationViewProtocol> *view;
+@property(nullable, nonatomic, strong) __kindof UIControl <QMUIDropdownNotificationViewProtocol> *view;
 
 /// 表示 notification 显示的持续时长，到达该时长后自动消失。默认为 3s，可以赋值为 QMUIDropdownNotificationDurationInfinite 以使其不会自动消失。
 @property(nonatomic, assign) NSTimeInterval duration;

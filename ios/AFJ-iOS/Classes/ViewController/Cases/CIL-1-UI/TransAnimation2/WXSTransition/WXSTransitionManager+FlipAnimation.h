@@ -10,7 +10,8 @@
 
 @interface WXSTransitionManager (FlipAnimation)
 
-- (void)tipFlipToNextAnimationContext:(id<UIViewControllerContextTransitioning>)transitionContext;
-- (void)tipFlipBackAnimationContext:(id<UIViewControllerContextTransitioning>)transitionContext;
+- (void)tipFlipToNextAnimationContext:(id <UIViewControllerContextTransitioning>)transitionContext;
+
+- (void)tipFlipBackAnimationContext:(id <UIViewControllerContextTransitioning>)transitionContext;
 
 @end

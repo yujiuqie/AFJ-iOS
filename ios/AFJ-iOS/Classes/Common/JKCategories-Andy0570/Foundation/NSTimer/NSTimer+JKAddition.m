@@ -9,20 +9,20 @@
 @implementation NSTimer (JKAddition)
 
 - (void)jk_resumeTimer {
-    if (![self isValid]) { return; }
-    
+    if (![self isValid]) {return;}
+
     [self setFireDate:[NSDate date]];
 }
 
 - (void)jk_pauseTimer {
-    if (![self isValid]) { return; }
-    
+    if (![self isValid]) {return;}
+
     [self setFireDate:[NSDate distantFuture]];
 }
 
 - (void)jk_resumeTimerAfterTimeInterval:(NSTimeInterval)interval {
-    if (![self isValid]) { return; }
-    
+    if (![self isValid]) {return;}
+
     [self setFireDate:[NSDate dateWithTimeIntervalSinceNow:interval]];
 }
 

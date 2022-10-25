@@ -9,48 +9,43 @@
 #import "UIView+MotionBlur.h"
 
 @interface AFJMotionBluSamplerController ()
-@property (weak, nonatomic) IBOutlet UIImageView *topMenu;
+@property(weak, nonatomic) IBOutlet UIImageView *topMenu;
 // strong, because we'll be deactivating it, so view will stop referencing it
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topMenuHiddenConstraint;
-@property (weak, nonatomic) IBOutlet UIButton *toggleButton;
+@property(strong, nonatomic) IBOutlet NSLayoutConstraint *topMenuHiddenConstraint;
+@property(weak, nonatomic) IBOutlet UIButton *toggleButton;
 @end
 
 @implementation AFJMotionBluSamplerController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     [self.toggleButton setTitle:@"Creating motion blurred layer…" forState:UIControlStateNormal];
     self.toggleButton.enabled = NO;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    __weak typeof(self)weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     [self.topMenu enableBlurWithAngle:M_PI_2 completion:^{
         [weakSelf.toggleButton setTitle:@"Toggle" forState:UIControlStateNormal];
         weakSelf.toggleButton.enabled = YES;
     }];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 
     [self.topMenu disableBlur];
 }
 
-- (IBAction)move:(UIButton *)sender
-{
+- (IBAction)move:(UIButton *)sender {
     self.topMenuHiddenConstraint.constant = self.topMenuHiddenConstraint.constant == -20 ? -800 : -20;
 
     BOOL hiding = self.topMenuHiddenConstraint.constant == -800;
@@ -63,10 +58,9 @@
                      animations:^{
 
                          [self.topMenu.superview layoutIfNeeded];
-                         self.view.backgroundColor = hiding ? [UIColor colorWithWhite:0.907 alpha:1.000] : [UIColor colorWithWhite:0.8 alpha:1.000];
-;
+                         self.view.backgroundColor = hiding ? [UIColor colorWithWhite:0.907 alpha:1.000] : [UIColor colorWithWhite:0.8 alpha:1.000];;
 
-    } completion:nil];
+                     } completion:nil];
 }
 
 @end

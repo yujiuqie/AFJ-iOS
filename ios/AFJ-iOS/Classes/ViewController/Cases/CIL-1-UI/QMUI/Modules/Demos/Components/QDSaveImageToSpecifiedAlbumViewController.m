@@ -33,17 +33,17 @@
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     self.testImageView = [[UIImageView alloc] init];
     [self.testImageView setImage:[self randomImage]];
     [self.view addSubview:self.testImageView];
-    
+
     // 普通按钮
     self.changeImageButton = [QDUIHelper generateLightBorderedButton];
     [self.changeImageButton setTitle:@"更换随机图片" forState:UIControlStateNormal];
     [self.changeImageButton addTarget:self action:@selector(handleGeneratedButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.changeImageButton];
-    
+
     // 边框按钮
     self.saveButton = [QDUIHelper generateDarkFilledButton];
     [self.saveButton setTitle:@"保存图片到指定相册" forState:UIControlStateNormal];
@@ -62,7 +62,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     CGFloat contentMinY = self.qmui_navigationBarMaxYInViewCoordinator;
-    
+
     self.testImageView.frame = CGRectMake(CGFloatGetCenter(CGRectGetWidth(self.view.bounds), TestImageSize.width), contentMinY + 60, TestImageSize.width, TestImageSize.height);
     self.changeImageButton.frame = CGRectSetXY(self.changeImageButton.frame, CGFloatGetCenter(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.changeImageButton.frame)), CGRectGetMaxY(self.testImageView.frame) + 50);
     self.saveButton.frame = CGRectSetY(self.changeImageButton.frame, CGRectGetMaxY(self.changeImageButton.frame) + 30);
@@ -72,7 +72,7 @@
     UIFont *font = UIFontMake(95);
     NSDictionary *fontAttributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: textColor};
     CGSize size = [text sizeWithAttributes:fontAttributes];
-    
+
     return [UIImage qmui_imageWithSize:size opaque:NO scale:0 actions:^(CGContextRef contextRef) {
         [text drawAtPoint:CGPointMake(0.0, 0.0) withAttributes:fontAttributes];
     }];

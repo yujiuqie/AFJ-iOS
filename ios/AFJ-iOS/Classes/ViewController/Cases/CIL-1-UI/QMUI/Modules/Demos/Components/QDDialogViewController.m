@@ -8,9 +8,9 @@
 
 #import "QDDialogViewController.h"
 
-static NSString * const kSectionTitleForNormal = @"QMUIDialogViewController";
-static NSString * const kSectionTitleForSelection = @"QMUIDialogSelectionViewController";
-static NSString * const kSectionTitleForTextField = @"QMUIDialogTextFieldViewController";
+static NSString *const kSectionTitleForNormal = @"QMUIDialogViewController";
+static NSString *const kSectionTitleForSelection = @"QMUIDialogSelectionViewController";
+static NSString *const kSectionTitleForTextField = @"QMUIDialogTextFieldViewController";
 
 @interface QDDialogViewController ()
 
@@ -22,71 +22,70 @@ static NSString * const kSectionTitleForTextField = @"QMUIDialogTextFieldViewCon
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
         self.dataSource = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                         kSectionTitleForNormal, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                                  @"普通弹窗", @"",
-                                                                  @"支持自定义样式", @"可通过 appearance 方式来统一修改全局样式",
-                                                                  nil],
-                                         kSectionTitleForSelection, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                                     @"列表弹窗", @"支持显示一个列表",
-                                                                     @"支持单选", @"最多只能勾选一个 item，不可不选",
-                                                                     @"支持多选", @"可同时勾选多个 item，可全部取消勾选",
-                                                                     nil],
-                                         kSectionTitleForTextField, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                                     @"输入框弹窗", @"",
-                                                                     @"支持通过键盘 Return 按键触发弹窗提交按钮事件", @"默认开启，当需要自己管理输入框 shouldReturn 事件时请将其关闭",
-                                                                     @"支持自动控制提交按钮的 enable 状态", @"默认开启，只要文字不为空则允许点击",
-                                                                     @"支持自定义提交按钮的 enable 状态", @"通过 block 来控制状态",
-                                                                     nil],
-                                         nil];
+                kSectionTitleForNormal, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                @"普通弹窗", @"",
+                @"支持自定义样式", @"可通过 appearance 方式来统一修改全局样式",
+                        nil],
+                kSectionTitleForSelection, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                        @"列表弹窗", @"支持显示一个列表",
+                        @"支持单选", @"最多只能勾选一个 item，不可不选",
+                        @"支持多选", @"可同时勾选多个 item，可全部取消勾选",
+                                nil],
+                kSectionTitleForTextField, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                        @"输入框弹窗", @"",
+                        @"支持通过键盘 Return 按键触发弹窗提交按钮事件", @"默认开启，当需要自己管理输入框 shouldReturn 事件时请将其关闭",
+                        @"支持自动控制提交按钮的 enable 状态", @"默认开启，只要文字不为空则允许点击",
+                        @"支持自定义提交按钮的 enable 状态", @"通过 block 来控制状态",
+                                nil],
+                        nil];
     }
     return self;
 }
 
 
-
 - (void)didSelectCellWithTitle:(NSString *)title {
     [self.tableView qmui_clearsSelection];
-    
+
     if ([title isEqualToString:@"普通弹窗"]) {
         [self showNormalDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"支持自定义样式"]) {
         [self showAppearanceDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"列表弹窗"]) {
         [self showNormalSelectionDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"支持单选"]) {
         [self showRadioSelectionDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"支持多选"]) {
         [self showMultipleSelectionDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"输入框弹窗"]) {
         [self showNormalTextFieldDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"支持通过键盘 Return 按键触发弹窗提交按钮事件"]) {
         [self showReturnKeyDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"支持自动控制提交按钮的 enable 状态"]) {
         [self showSubmitButtonEnablesDialogViewController];
         return;
     }
-    
+
     if ([title isEqualToString:@"支持自定义提交按钮的 enable 状态"]) {
         [self showCustomSubmitButtonEnablesDialogViewController];
         return;
@@ -123,31 +122,31 @@ static NSString * const kSectionTitleForTextField = @"QMUIDialogTextFieldViewCon
     label.center = CGPointMake(CGRectGetWidth(contentView.bounds) / 2.0, CGRectGetHeight(contentView.bounds) / 2.0);
     [contentView addSubview:label];
     dialogViewController.contentView = contentView;
-    
+
     [dialogViewController addCancelButtonWithText:@"取消" block:nil];
     [dialogViewController addSubmitButtonWithText:@"确定" block:^(QMUIDialogViewController *aDialogViewController) {
         [aDialogViewController hide];
     }];
-    
+
     // === 自定义样式 ===
     dialogViewController.headerViewBackgroundColor = UIColor.qd_tintColor;
     dialogViewController.headerSeparatorColor = nil;
     dialogViewController.footerSeparatorColor = nil;
-    
+
     // titleView
     dialogViewController.titleView.style = QMUINavigationTitleViewStyleSubTitleVertical;
     dialogViewController.titleView.verticalTitleFont = UIFontBoldMake(17);
     dialogViewController.titleTintColor = UIColorWhite;
     dialogViewController.titleLabelTextColor = nil;
     dialogViewController.subTitleLabelTextColor = nil;
-    
+
     dialogViewController.buttonHighlightedBackgroundColor = [dialogViewController.headerViewBackgroundColor qmui_colorWithAlphaAddedToWhite:.3];
     NSMutableDictionary *buttonTitleAttributes = dialogViewController.buttonTitleAttributes.mutableCopy;
     buttonTitleAttributes[NSForegroundColorAttributeName] = dialogViewController.headerViewBackgroundColor;
     dialogViewController.buttonTitleAttributes = buttonTitleAttributes;
     [dialogViewController.submitButton setImage:[[UIImageMake(@"icon_emotion") qmui_imageResizedInLimitedSize:CGSizeMake(18, 18) resizingMode:QMUIImageResizingModeScaleToFill] qmui_imageWithTintColor:buttonTitleAttributes[NSForegroundColorAttributeName]] forState:UIControlStateNormal];
     dialogViewController.submitButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 8);
-    
+
     [dialogViewController show];
 }
 
@@ -158,7 +157,7 @@ static NSString * const kSectionTitleForTextField = @"QMUIDialogTextFieldViewCon
     dialogViewController.cellForItemBlock = ^(QMUIDialogSelectionViewController *aDialogViewController, QMUITableViewCell *cell, NSUInteger itemIndex) {
         cell.accessoryType = UITableViewCellAccessoryNone;// 移除点击时默认加上右边的checkbox
     };
-    dialogViewController.heightForItemBlock = ^CGFloat (QMUIDialogSelectionViewController *aDialogViewController, NSUInteger itemIndex) {
+    dialogViewController.heightForItemBlock = ^CGFloat(QMUIDialogSelectionViewController *aDialogViewController, NSUInteger itemIndex) {
         return 54;// 修改默认的行高，默认为 TableViewCellNormalHeight
     };
     dialogViewController.didSelectItemBlock = ^(QMUIDialogSelectionViewController *aDialogViewController, NSUInteger itemIndex) {
@@ -169,23 +168,23 @@ static NSString * const kSectionTitleForTextField = @"QMUIDialogTextFieldViewCon
 
 - (void)showRadioSelectionDialogViewController {
     QMUIOrderedDictionary *citys = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                    @"北京", @"吃到的第一个菜肯定是烤鸭吧！",
-                                    @"广东", @"听说那里的人一日三餐都吃🐍🐸🐛🦂😋",
-                                    @"上海", @"好像现在全世界的蟹都叫大闸蟹？",
-                                    @"成都", @"你分得清冒菜和麻辣烫、龙抄手和馄饨吗？",
-                                    nil];
+            @"北京", @"吃到的第一个菜肯定是烤鸭吧！",
+            @"广东", @"听说那里的人一日三餐都吃🐍🐸🐛🦂😋",
+            @"上海", @"好像现在全世界的蟹都叫大闸蟹？",
+            @"成都", @"你分得清冒菜和麻辣烫、龙抄手和馄饨吗？",
+                    nil];
     QMUIDialogSelectionViewController *dialogViewController = [[QMUIDialogSelectionViewController alloc] init];
     dialogViewController.title = @"你去过哪里？";
     dialogViewController.items = citys.allKeys;
     [dialogViewController addCancelButtonWithText:@"取消" block:nil];
     [dialogViewController addSubmitButtonWithText:@"确定" block:^(QMUIDialogViewController *aDialogViewController) {
-        QMUIDialogSelectionViewController *d = (QMUIDialogSelectionViewController *)aDialogViewController;
+        QMUIDialogSelectionViewController *d = (QMUIDialogSelectionViewController *) aDialogViewController;
         if (d.selectedItemIndex == QMUIDialogSelectionViewControllerSelectedItemIndexNone) {
             [QMUITips showError:@"请至少选一个" inView:d.qmui_modalPresentationViewController.view hideAfterDelay:1.2];
             return;
         }
         NSString *city = d.items[d.selectedItemIndex];
-        NSString *resultString = (NSString *)[citys objectForKey:city];
+        NSString *resultString = (NSString *) [citys objectForKey:city];
         [aDialogViewController hideWithAnimated:YES completion:^(BOOL finished) {
             QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:resultString message:nil preferredStyle:QMUIAlertControllerStyleAlert];
             QMUIAlertAction *action = [QMUIAlertAction actionWithTitle:@"好" style:QMUIAlertActionStyleCancel handler:nil];
@@ -211,11 +210,11 @@ static NSString * const kSectionTitleForTextField = @"QMUIDialogTextFieldViewCon
         }
     };
     [dialogViewController addCancelButtonWithText:@"取消" block:nil];
-    __weak __typeof(self)weakSelf = self;
+    __weak __typeof(self) weakSelf = self;
     [dialogViewController addSubmitButtonWithText:@"确定" block:^(QMUIDialogViewController *aDialogViewController) {
-        QMUIDialogSelectionViewController *d = (QMUIDialogSelectionViewController *)aDialogViewController;
+        QMUIDialogSelectionViewController *d = (QMUIDialogSelectionViewController *) aDialogViewController;
         [d hide];
-        
+
         if ([d.selectedItemIndexes containsObject:@(5)]) {
             [QMUITips showInfo:@"PHP 是世界上最好的编程语言" inView:weakSelf.view hideAfterDelay:1.8];
             return;
@@ -258,7 +257,7 @@ static NSString * const kSectionTitleForTextField = @"QMUIDialogTextFieldViewCon
     [dialogViewController addSubmitButtonWithText:@"确定" block:^(QMUIDialogTextFieldViewController *aDialogViewController) {
         if (aDialogViewController.textFields.firstObject.text.length > 0) {
             [aDialogViewController hide];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [QMUITips showSucceed:@"提交成功" inView:self.view hideAfterDelay:1.2];
             });
         } else {

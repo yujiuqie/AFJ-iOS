@@ -14,12 +14,12 @@
     [super setupNavigationItems];
     if (!self.segmentedTitleView) {
         self.segmentedTitleView = [[UISegmentedControl alloc] initWithItems:@[
-            @"Plain",
-            @"Grouped",
-            @"InsetGrouped"
+                @"Plain",
+                @"Grouped",
+                @"InsetGrouped"
         ]];
         [self.segmentedTitleView addTarget:self action:@selector(handleTableViewStyleChanged:) forControlEvents:UIControlEventValueChanged];
-        
+
         UIColor *tintColor = self.navigationController.navigationBar.tintColor;
         if (@available(iOS 13.0, *)) {
             self.segmentedTitleView.selectedSegmentTintColor = tintColor;

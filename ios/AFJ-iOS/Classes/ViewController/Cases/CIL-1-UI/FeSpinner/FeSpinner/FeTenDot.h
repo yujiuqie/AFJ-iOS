@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface FeTenDot : UIView
-@property (assign, nonatomic) CATransform3D originalTransform3D;
--(id) initDotAtMainView:(UIView *) mainView atIndex:(NSInteger) index;
+@property(assign, nonatomic) CATransform3D originalTransform3D;
 
--(void) start;
--(void) stop;
--(void) reset;
+- (id)initDotAtMainView:(UIView *)mainView atIndex:(NSInteger)index;
+
+- (void)start;
+
+- (void)stop;
+
+- (void)reset;
 @end

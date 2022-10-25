@@ -11,7 +11,7 @@
 @implementation CoreTeam (CoreDataProperties)
 
 + (NSFetchRequest<CoreTeam *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"CoreTeam"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"CoreTeam"];
 }
 
 @dynamic teamId;

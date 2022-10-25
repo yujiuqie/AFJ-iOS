@@ -10,7 +10,7 @@
 
 @interface ListImageItem : RETableViewItem
 
-@property (copy, readwrite, nonatomic) NSString *imageName;
+@property(copy, readwrite, nonatomic) NSString *imageName;
 
 + (ListImageItem *)itemWithImageNamed:(NSString *)imageName;
 

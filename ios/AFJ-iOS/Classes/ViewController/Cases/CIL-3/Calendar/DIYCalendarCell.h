@@ -19,10 +19,10 @@ typedef NS_ENUM(NSUInteger, SelectionType) {
 
 @interface DIYCalendarCell : FSCalendarCell
 
-@property (weak, nonatomic) UIImageView *circleImageView;
+@property(weak, nonatomic) UIImageView *circleImageView;
 
-@property (weak, nonatomic) CAShapeLayer *selectionLayer;
+@property(weak, nonatomic) CAShapeLayer *selectionLayer;
 
-@property (assign, nonatomic) SelectionType selectionType;
+@property(assign, nonatomic) SelectionType selectionType;
 
 @end

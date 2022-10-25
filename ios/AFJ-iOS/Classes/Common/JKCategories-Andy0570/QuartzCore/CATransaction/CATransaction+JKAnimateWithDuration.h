@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param animations 动画执行的 Block 块
 /// @param completion 动画结束的回调
 + (void)jk_animateWithDuration:(NSTimeInterval)duration
-                   animations:(nullable void (^)(void))animations
-                   completion:(nullable void (^)(void))completion;
+                    animations:(nullable void (^)(void))animations
+                    completion:(nullable void (^)(void))completion;
 
 @end
 

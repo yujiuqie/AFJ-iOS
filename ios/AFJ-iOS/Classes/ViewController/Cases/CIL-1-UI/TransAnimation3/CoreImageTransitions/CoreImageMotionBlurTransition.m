@@ -10,37 +10,34 @@
 
 
 @interface CoreImageMotionBlurTransition ()
-@property (nonatomic, strong) CoreImageMotionBlurTransitionView *transitionView;
+@property(nonatomic, strong) CoreImageMotionBlurTransitionView *transitionView;
 @end
-
 
 
 @implementation CoreImageMotionBlurTransition
 
 - (void)setTransitionTypeWithName:(NSString *)name {
-    
+
     self.type = CoreImageTransitionTypeDissolve;
-    
+
     if ([name isEqualToString:kCoreImageTransitionTypeNameMotionBlur]) {
         self.type = CoreImageTransitionTypeMotionBlur;
     }
 }
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     return 0.5;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toVC   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
+    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+
     UIView *containerView = [transitionContext containerView];
-    
+
     [containerView addSubview:toVC.view];
-    
-    
+
+
     UIImage *snapshot;
     CGRect initialFrame;
     CGRect targetFrame;
@@ -49,17 +46,17 @@
     if (self.presenting) {
 
         snapshot = [toVC.view snapshot];
-        targetFrame  = [transitionContext finalFrameForViewController:toVC];
+        targetFrame = [transitionContext finalFrameForViewController:toVC];
         initialFrame = CGRectMake(targetFrame.size.width, 0, targetFrame.size.width, targetFrame.size.height);
 
         [containerView addSubview:fromVC.view];
     }
-    // Animating view: fromVC.view
+        // Animating view: fromVC.view
     else {
 
         snapshot = [fromVC.view snapshot];
         initialFrame = [transitionContext initialFrameForViewController:fromVC];
-        targetFrame  = CGRectMake(initialFrame.size.width, 0, initialFrame.size.width, initialFrame.size.height);
+        targetFrame = CGRectMake(initialFrame.size.width, 0, initialFrame.size.width, initialFrame.size.height);
 
         [containerView addSubview:toVC.view];
     }
@@ -74,17 +71,17 @@
     self.transitionView.frame = initialFrame;
     [[transitionContext containerView] addSubview:self.transitionView];
     [self.transitionView start];
-    
+
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.transitionView.frame = targetFrame;
                      } completion:^(BOOL finished) {
-                         [self.transitionView stop];
-                         [self.transitionView removeFromSuperview];
-                         [transitionContext completeTransition:YES];
-                     }];
+                [self.transitionView stop];
+                [self.transitionView removeFromSuperview];
+                [transitionContext completeTransition:YES];
+            }];
 }
 
 @end

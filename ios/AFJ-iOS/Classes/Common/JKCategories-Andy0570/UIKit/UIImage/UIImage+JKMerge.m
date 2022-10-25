@@ -8,7 +8,7 @@
 
 @implementation UIImage (JKMerge)
 
-+ (UIImage*)jk_mergeImage:(UIImage*)firstImage withImage:(UIImage*)secondImage {
++ (UIImage *)jk_mergeImage:(UIImage *)firstImage withImage:(UIImage *)secondImage {
     CGImageRef firstImageRef = firstImage.CGImage;
     CGFloat firstWidth = CGImageGetWidth(firstImageRef);
     CGFloat firstHeight = CGImageGetHeight(firstImageRef);

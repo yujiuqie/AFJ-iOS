@@ -111,6 +111,7 @@
 #import <JKCategories/UIViewController+JKVisible.h>
 #import <JKCategories/UIWindow+JKHierarchy.h>
 #else
+
 #import "UIApplication+JKApplicationSize.h"
 #import "UIApplication+JKKeyboardFrame.h"
 #import "UIApplication+JKNetworkActivityIndicator.h"
@@ -214,6 +215,7 @@
 #import "UIViewController+JKStoreKit.h"
 #import "UIViewController+JKVisible.h"
 #import "UIWindow+JKHierarchy.h"
+
 #endif
 
 

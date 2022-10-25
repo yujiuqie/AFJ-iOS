@@ -9,9 +9,9 @@
 #import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
 #import "AFJCaseItemData.h"
 
-@interface AFJAliCrashLogViewController()
+@interface AFJAliCrashLogViewController ()
 
-@property (nonatomic, strong) GPJDataDrivenTableView  *tableView;
+@property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
 @end
 
@@ -20,11 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     self.tableView = [[GPJDataDrivenTableView alloc] initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-    
+
     __weak typeof(self) weakSelf = self;
     NSMutableArray *dataArray = [NSMutableArray array];
     {
@@ -35,12 +35,12 @@
             [AlicloudCrashProvider configCustomInfoWithKey:@"key-Test1" value:@"value-Test1"];//配置项：自定义环境信息（configCustomInfoWithKey/value）
 
             //按异常类型上报自定义信息
-            [AlicloudCrashProvider setCrashCallBack:^NSDictionary * _Nonnull(NSString * _Nonnull type) {
-                return @{@"key-Test2":@"value-Test2"};//配置项：异常信息（key/value）
+            [AlicloudCrashProvider setCrashCallBack:^NSDictionary *_Nonnull(NSString *_Nonnull type) {
+                return @{@"key-Test2": @"value-Test2"};//配置项：异常信息（key/value）
             }];
-            
+
             //上报自定义错误
-            NSError *error = [NSError errorWithDomain:@"AFJAliCrashLogViewController" code:10002 userInfo:@{@"errorInfoKeyAFJAliCrashLogViewController":@"errorInfoValueAFJAliCrashLogViewController"}];
+            NSError *error = [NSError errorWithDomain:@"AFJAliCrashLogViewController" code:10002 userInfo:@{@"errorInfoKeyAFJAliCrashLogViewController": @"errorInfoValueAFJAliCrashLogViewController"}];
             [AlicloudCrashProvider reportCustomError:error];//配置项：自定义错误信息（errorWithDomain/code/userInfo）
             [weakSelf showToastWithMessage:@"已上传自定义测试异常"];
         };

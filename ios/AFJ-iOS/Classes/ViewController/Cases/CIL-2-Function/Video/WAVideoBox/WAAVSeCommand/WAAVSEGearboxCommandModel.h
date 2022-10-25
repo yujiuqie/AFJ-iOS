@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+
 @interface WAAVSEGearboxCommandModel : NSObject
 
-@property (nonatomic , assign) CMTime beganDuration;
+@property(nonatomic, assign) CMTime beganDuration;
 
-@property (nonatomic , assign) CMTime duration;
+@property(nonatomic, assign) CMTime duration;
 
-@property (nonatomic , assign) CGFloat scale;
+@property(nonatomic, assign) CGFloat scale;
 
 
 @end

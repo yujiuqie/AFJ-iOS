@@ -11,33 +11,33 @@
 @interface UIView (JKFrame)
 
 /// frame.origin.x
-@property (nonatomic) CGFloat jk_left;
+@property(nonatomic) CGFloat jk_left;
 
 /// frame.origin.x + frame.size.width
-@property (nonatomic) CGFloat jk_right;
+@property(nonatomic) CGFloat jk_right;
 
 /// frame.origin.y
-@property (nonatomic) CGFloat jk_top;
+@property(nonatomic) CGFloat jk_top;
 
 /// frame.origin.y + frame.size.height
-@property (nonatomic) CGFloat jk_bottom;
+@property(nonatomic) CGFloat jk_bottom;
 
 /// frame.size.width
-@property (nonatomic) CGFloat jk_width;
+@property(nonatomic) CGFloat jk_width;
 
 /// frame.size.height
-@property (nonatomic) CGFloat jk_height;
+@property(nonatomic) CGFloat jk_height;
 
 /// center.x
-@property (nonatomic) CGFloat jk_centerX;
+@property(nonatomic) CGFloat jk_centerX;
 
 /// center.y
-@property (nonatomic) CGFloat jk_centerY;
+@property(nonatomic) CGFloat jk_centerY;
 
 /// frame.origin
-@property (nonatomic, assign) CGPoint jk_origin;
+@property(nonatomic, assign) CGPoint jk_origin;
 
 /// frame.size
-@property (nonatomic, assign) CGSize jk_size;
+@property(nonatomic, assign) CGSize jk_size;
 
 @end

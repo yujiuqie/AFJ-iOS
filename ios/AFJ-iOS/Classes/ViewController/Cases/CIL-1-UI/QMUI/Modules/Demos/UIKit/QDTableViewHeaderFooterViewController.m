@@ -86,8 +86,8 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    QMUITableViewHeaderFooterView *headerView = (QMUITableViewHeaderFooterView *)[super tableView:tableView viewForHeaderInSection:section];
-    QMUIButton *button = (QMUIButton *)headerView.accessoryView;
+    QMUITableViewHeaderFooterView *headerView = (QMUITableViewHeaderFooterView *) [super tableView:tableView viewForHeaderInSection:section];
+    QMUIButton *button = (QMUIButton *) headerView.accessoryView;
     if (!button) {
         button = [QDUIHelper generateLightBorderedButton];
         [button setTitle:@"Button" forState:UIControlStateNormal];
@@ -124,18 +124,18 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
+
         self.userInteractionEnabled = NO;
         self.backgroundColor = UIColorMakeWithRGBA(0, 0, 0, .7);
-        
+
         self.visibleHeadersLabel = [self generateTitleLabel];
         self.visibleHeadersLabel.text = @"可视的 sectionHeaders";
         self.visibleHeadersValue = [self generateValueLabel];
-        
+
         self.pinnedHeaderLabel = [self generateTitleLabel];
         self.pinnedHeaderLabel.text = @"正在 pinned（悬浮）的 header";
         self.pinnedHeaderValue = [self generateValueLabel];
-        
+
         self.headerPinnedLabel = [self generateTitleLabel];
         self.headerPinnedLabel.text = @"section0 和 section1 的 pinned";
         self.headerPinnedValue = [self generateValueLabel];
@@ -160,16 +160,16 @@
 
 - (void)renderWithTableView:(UITableView *)tableView {
     self.visibleHeadersValue.text = [tableView.qmui_indexForVisibleSectionHeaders componentsJoinedByString:@", "];
-    
+
     NSInteger indexOfPinnedSectionHeader = tableView.qmui_indexOfPinnedSectionHeader;
     NSString *pinnedHeaderString = [NSString qmui_stringWithNSInteger:indexOfPinnedSectionHeader];
     self.pinnedHeaderValue.text = pinnedHeaderString;
     self.pinnedHeaderValue.textColor = indexOfPinnedSectionHeader == -1 ? UIColorRed : UIColorWhite;
-    
+
     BOOL isSectionHeader0Pinned = [tableView qmui_isHeaderPinnedForSection:0];
     BOOL isSectionHeader1Pinned = [tableView qmui_isHeaderPinnedForSection:1];
     NSMutableAttributedString *headerPinnedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"0: %@ | 1: %@", StringFromBOOL(isSectionHeader0Pinned), StringFromBOOL(isSectionHeader1Pinned)] attributes:@{NSFontAttributeName: self.pinnedHeaderValue.font, NSForegroundColorAttributeName: UIColorWhite}];
-    
+
     NSRange range0 = isSectionHeader0Pinned ? NSMakeRange(3, 3) : NSMakeRange(3, 2);
     NSRange range1 = isSectionHeader1Pinned ? NSMakeRange(headerPinnedString.length - 3, 3) : NSMakeRange(headerPinnedString.length - 2, 2);
     [headerPinnedString addAttribute:NSForegroundColorAttributeName value:isSectionHeader0Pinned ? UIColorGreen : UIColorRed range:range0];
@@ -182,12 +182,12 @@
     UIEdgeInsets padding = UIEdgeInsetsConcat(UIEdgeInsetsMake(24, 24, 24, 24), self.safeAreaInsets);
     NSArray<UILabel *> *leftLabels = @[self.visibleHeadersLabel, self.pinnedHeaderLabel, self.headerPinnedLabel];
     NSArray<UILabel *> *rightLabels = @[self.visibleHeadersValue, self.pinnedHeaderValue, self.headerPinnedValue];
-    
+
     CGFloat contentWidth = self.qmui_width - UIEdgeInsetsGetHorizontalValue(padding);
     CGFloat labelHorizontalSpacing = 16;
     CGFloat labelVerticalSpacing = 16;
     CGFloat minY = padding.top;
-    
+
     // 左边的 label
     CGFloat leftLabelWidth = flat((contentWidth - labelHorizontalSpacing) * 3 / 5);
     for (NSInteger i = 0; i < leftLabels.count; i++) {
@@ -195,7 +195,7 @@
         label.frame = CGRectFlatMake(padding.left, minY, leftLabelWidth, label.qmui_height);
         minY = label.qmui_bottom + labelVerticalSpacing;
     }
-    
+
     // 右边的 label
     minY = padding.top;
     CGFloat rightLabelMinX = leftLabels.firstObject.qmui_right + labelHorizontalSpacing;
@@ -205,7 +205,7 @@
         label.frame = CGRectFlatMake(rightLabelMinX, minY, rightLabelWidth, label.qmui_height);
         minY = label.qmui_bottom + labelVerticalSpacing;
     }
-    
+
     self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.layer.cornerRadius].CGPath;
 }
 

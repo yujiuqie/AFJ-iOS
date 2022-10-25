@@ -33,22 +33,22 @@
 @interface DanmakuView () {
     CADisplayLink *_displayLink;
     float _timeCount;
-    
+
     float _frameInterval;
     DanmakuTime *_danmakuTime;
 }
 
-@property (nonatomic, strong) DanmakuConfiguration *configuration;
+@property(nonatomic, strong) DanmakuConfiguration *configuration;
 
-@property (nonatomic, assign) BOOL isPrepared;
-@property (nonatomic, assign) BOOL isPlaying;
-@property (nonatomic, assign) BOOL isPreFilter;
+@property(nonatomic, assign) BOOL isPrepared;
+@property(nonatomic, assign) BOOL isPlaying;
+@property(nonatomic, assign) BOOL isPreFilter;
 
-@property (nonatomic, strong) NSArray  *danmakus;
-@property (nonatomic, strong) NSArray  *curDanmakus;
+@property(nonatomic, strong) NSArray *danmakus;
+@property(nonatomic, strong) NSArray *curDanmakus;
 
-@property (nonatomic, strong) DanmakuFilter   *danmakuFilter;
-@property (nonatomic, strong) DanmakuRenderer *danmakuRenderer;
+@property(nonatomic, strong) DanmakuFilter *danmakuFilter;
+@property(nonatomic, strong) DanmakuRenderer *danmakuRenderer;
 
 @end
 
@@ -86,8 +86,8 @@
     self.danmakus = nil;
     self.curDanmakus = nil;
     NSArray *items = danmakus;
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
         NSMutableArray *danmakus = [NSMutableArray arrayWithCapacity:items.count];
         for (NSDictionary *dic in items.objectEnumerator) {
             if ([dic isKindOfClass:[NSDictionary class]]) {
@@ -101,11 +101,11 @@
                 }
             }
         }
-        
+
         [danmakus sortUsingComparator:^NSComparisonResult(DanmakuBaseModel *obj1, DanmakuBaseModel *obj2) {
-            return obj1.time < obj2.time ? NSOrderedAscending: NSOrderedDescending;
+            return obj1.time < obj2.time ? NSOrderedAscending : NSOrderedDescending;
         }];
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             self.danmakus = danmakus;
             self.isPrepared = YES;
@@ -122,8 +122,8 @@
     self.danmakus = nil;
     self.curDanmakus = nil;
     NSArray *items = danmakuSources;
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
         NSMutableArray *danmakus = [NSMutableArray arrayWithCapacity:items.count];
         for (DanmakuSource *danmakuSource in items.objectEnumerator) {
             if ([danmakuSource isKindOfClass:[DanmakuSource class]]) {
@@ -134,11 +134,11 @@
                 }
             }
         }
-        
+
         [danmakus sortUsingComparator:^NSComparisonResult(DanmakuBaseModel *obj1, DanmakuBaseModel *obj2) {
-            return obj1.time < obj2.time ? NSOrderedAscending: NSOrderedDescending;
+            return obj1.time < obj2.time ? NSOrderedAscending : NSOrderedDescending;
         }];
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             self.danmakus = danmakus;
             self.isPrepared = YES;
@@ -196,23 +196,23 @@
     if (playTime <= 0) {
         return;
     }
-    
-    float interval = playTime -_danmakuTime.time;
+
+    float interval = playTime - _danmakuTime.time;
     _danmakuTime.time = playTime;
     _danmakuTime.interval = _frameInterval;
-    
-    if (self.isPreFilter || interval<0 || interval > DanmakuFilterInterval) {
+
+    if (self.isPreFilter || interval < 0 || interval > DanmakuFilterInterval) {
         self.isPreFilter = NO;
         self.curDanmakus = [self.danmakuFilter filterDanmakus:self.danmakus time:_danmakuTime];
     }
-    
+
     BOOL isBuffering = [self.delegate danmakuViewIsBuffering:self];
     [self.danmakuRenderer drawDanmakus:self.curDanmakus time:_danmakuTime isBuffering:isBuffering];
-    
+
     _timeCount += _frameInterval;
     if (_timeCount > DanmakuFilterInterval) {
         _timeCount = 0;
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSArray *filterArray = [self.danmakuFilter filterDanmakus:self.danmakus time:self->_danmakuTime];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.curDanmakus = filterArray;
@@ -229,12 +229,12 @@
     if (!sendDanmaku) {
         return;
     }
-    
+
     sendDanmaku.isSelfID = self.configuration.isShowLineWhenSelf;
-    
+
     __block NSMutableArray *newDanmakus = [NSMutableArray arrayWithArray:self.danmakus];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
         DanmakuBaseModel *lastDanmaku = newDanmakus.lastObject;
         if (newDanmakus.count < 1 || sendDanmaku.time > lastDanmaku.time) {
             [newDanmakus addObject:sendDanmaku];
@@ -248,7 +248,7 @@
                 }
             }
         }
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             self.danmakus = newDanmakus;
             self.isPreFilter = YES;

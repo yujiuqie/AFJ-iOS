@@ -26,7 +26,7 @@
         self.toastView.contentView.alpha = 1.0;
         self.toastView.backgroundView.layer.transform = CATransform3DIdentity;
         self.toastView.contentView.layer.transform = CATransform3DIdentity;
-    } completion:^(BOOL finished) {
+    }                completion:^(BOOL finished) {
         self.isAnimating = NO;
         if (completion) {
             completion(finished);
@@ -42,7 +42,7 @@
         self.toastView.contentView.alpha = 0.0;
         self.toastView.backgroundView.layer.transform = CATransform3DMakeTranslation(0, -30, 0);
         self.toastView.contentView.layer.transform = CATransform3DMakeTranslation(0, -30, 0);
-    } completion:^(BOOL finished) {
+    }                completion:^(BOOL finished) {
         self.isAnimating = NO;
         self.toastView.backgroundView.layer.transform = CATransform3DIdentity;
         self.toastView.contentView.layer.transform = CATransform3DIdentity;

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-
 typedef void(^LSTPopViewXibViewBlock)(void);
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSTPopViewXibView : UIView
 
 /** <#...#> */
-@property (nonatomic, copy) LSTPopViewXibViewBlock clickBlock;
-@property (weak, nonatomic) IBOutlet UIButton *bgBtn;
+@property(nonatomic, copy) LSTPopViewXibViewBlock clickBlock;
+@property(weak, nonatomic) IBOutlet UIButton *bgBtn;
 
 @end
 

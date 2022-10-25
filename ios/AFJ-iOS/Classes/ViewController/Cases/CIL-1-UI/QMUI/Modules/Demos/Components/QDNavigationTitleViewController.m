@@ -8,7 +8,7 @@
 
 #import "QDNavigationTitleViewController.h"
 
-@interface QDNavigationTitleViewController ()<QMUINavigationTitleViewDelegate>
+@interface QDNavigationTitleViewController () <QMUINavigationTitleViewDelegate>
 
 @property(nonatomic, strong) QMUIPopupMenuView *popupMenuView;
 @property(nonatomic, assign) UIControlContentHorizontalAlignment horizontalAlignment;
@@ -41,10 +41,10 @@
         self.popupMenuView.preferLayoutDirection = QMUIPopupContainerViewLayoutDirectionBelow;
         self.popupMenuView.maximumWidth = 220;
         self.popupMenuView.items = @[[QMUIPopupMenuButtonItem itemWithImage:UIImageMake(@"icon_emotion") title:@"分类 1" handler:nil],
-                                     [QMUIPopupMenuButtonItem itemWithImage:UIImageMake(@"icon_emotion") title:@"分类 2" handler:nil],
-                                     [QMUIPopupMenuButtonItem itemWithImage:UIImageMake(@"icon_emotion") title:@"分类 3" handler:nil]];
+                [QMUIPopupMenuButtonItem itemWithImage:UIImageMake(@"icon_emotion") title:@"分类 2" handler:nil],
+                [QMUIPopupMenuButtonItem itemWithImage:UIImageMake(@"icon_emotion") title:@"分类 3" handler:nil]];
         self.popupMenuView.sourceView = self.titleView;
-        __weak __typeof(self)weakSelf = self;
+        __weak __typeof(self) weakSelf = self;
         self.popupMenuView.didHideBlock = ^(BOOL hidesByUserTap) {
             weakSelf.titleView.active = NO;
         };
@@ -53,23 +53,23 @@
 
 - (void)initDataSource {
     self.dataSource = @[@"显示左边的 loading",
-                        @"显示右边的 accessoryView",
-                        @"显示副标题",
-                        @"切换为上下两行显示",
-                        @"水平方向的对齐方式",
-                        @"模拟标题的 loading 状态切换",
-                        @"标题搭配浮层使用的示例",
-                        @"显示 Debug 背景色"];
+            @"显示右边的 accessoryView",
+            @"显示副标题",
+            @"切换为上下两行显示",
+            @"水平方向的对齐方式",
+            @"模拟标题的 loading 状态切换",
+            @"标题搭配浮层使用的示例",
+            @"显示 Debug 背景色"];
 }
 
 #pragma mark - <QMUITableViewDataSource, QMUITableViewDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     // 因为有第 6 行的存在，所以每次都要重置一下这几个属性，避免影响其他 Demo 的展示
     self.titleView.userInteractionEnabled = NO;
     self.titleView.delegate = nil;
-    
+
     switch (indexPath.row) {
         case 0:
             // 切换 loading 的显示/隐藏
@@ -120,7 +120,7 @@
             self.titleView.subtitle = nil;
             self.titleView.style = QMUINavigationTitleViewStyleDefault;
             self.titleView.accessoryType = QMUINavigationTitleViewAccessoryTypeNone;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.titleView.needsLoadingPlaceholderSpace = YES;
                 self.titleView.loadingViewHidden = YES;
                 self.titleView.title = @"主标题";
@@ -142,15 +142,15 @@
             self.titleView.qmui_shouldShowDebugColor = YES;
             break;
     }
-    
+
     [tableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QMUITableViewCell *cell = (QMUITableViewCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
+    QMUITableViewCell *cell = (QMUITableViewCell *) [super tableView:tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.detailTextLabel.text = nil;
-    
+
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = self.titleView.loadingViewHidden ? @"显示左边的 loading" : @"隐藏左边的 loading";

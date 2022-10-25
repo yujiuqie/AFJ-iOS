@@ -21,7 +21,9 @@
 @property(nonatomic, assign) CGFloat titleLabelMarginBottom;    // default to 12
 
 - (UIView *)generateCircleWithColor:(UIColor *)color;
+
 - (UIImageView *)generateArrowIcon;
+
 - (UIImageView *)generatePlusIcon;
 
 @end

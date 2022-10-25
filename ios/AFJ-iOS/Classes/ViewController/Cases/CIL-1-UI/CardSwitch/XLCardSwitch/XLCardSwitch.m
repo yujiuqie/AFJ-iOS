@@ -10,15 +10,15 @@
 #import "XLCardSwitchFlowLayout.h"
 #import "XLCardCell.h"
 
-@interface XLCardSwitch ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface XLCardSwitch () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property(nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, assign) CGFloat dragStartX;
+@property(nonatomic, assign) CGFloat dragStartX;
 
-@property (nonatomic, assign) CGFloat dragEndX;
+@property(nonatomic, assign) CGFloat dragEndX;
 
-@property (nonatomic, assign) CGFloat dragAtIndex;
+@property(nonatomic, assign) CGFloat dragAtIndex;
 
 @end
 
@@ -46,7 +46,7 @@
     //避免UINavigation对UIScrollView产生的偏移问题
     [self addSubview:[UIView new]];
     XLCardSwitchFlowLayout *flowLayout = [[XLCardSwitchFlowLayout alloc] init];
-    __weak typeof(self)weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     flowLayout.centerBlock = ^(NSIndexPath *indexPath) {
         [weakSelf updateSelectedIndex:indexPath];
     };
@@ -74,6 +74,7 @@
 
 #pragma mark -
 #pragma mark Setter
+
 - (void)setModels:(NSArray<XLCardModel *> *)models {
     _models = models;
     [self.collectionView reloadData];
@@ -81,6 +82,7 @@
 
 #pragma mark -
 #pragma mark CollectionDelegate
+
 //配置cell居中
 - (void)fixCellToCenter {
     if (_selectedIndex != [self dragAtIndex]) {
@@ -88,10 +90,10 @@
         return;
     }
     //最小滚动距离
-    float dragMiniDistance = self.bounds.size.width/20.0f;
-    if (self.dragStartX -  self.dragEndX >= dragMiniDistance) {
+    float dragMiniDistance = self.bounds.size.width / 20.0f;
+    if (self.dragStartX - self.dragEndX >= dragMiniDistance) {
         _selectedIndex -= 1;//向右
-    }else if(self.dragEndX -  self.dragStartX >= dragMiniDistance){
+    } else if (self.dragEndX - self.dragStartX >= dragMiniDistance) {
         _selectedIndex += 1;//向左
     }
     NSInteger maxIndex = [self.collectionView numberOfItemsInSection:0] - 1;
@@ -140,14 +142,15 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* cellId = @"XLCardCell";
-    XLCardCell* card = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    static NSString *cellId = @"XLCardCell";
+    XLCardCell *card = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     card.model = self.models[indexPath.row];
-    return  card;
+    return card;
 }
 
 #pragma mark -
 #pragma mark 功能方法
+
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
     [self switchToIndex:selectedIndex animated:false];

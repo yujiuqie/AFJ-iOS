@@ -10,9 +10,9 @@
 #import "ARViewController.h"
 #import "ARAlertController.h"
 
-@interface ARSCNViewControl : NSObject<ARSCNViewDelegate, ARSessionDelegate>
+@interface ARSCNViewControl : NSObject <ARSCNViewDelegate, ARSessionDelegate>
 
-@property (nonatomic, weak) ARViewController *viewController;
-@property (nonatomic, weak) ARAlertController *alertController;
+@property(nonatomic, weak) ARViewController *viewController;
+@property(nonatomic, weak) ARAlertController *alertController;
 
 @end

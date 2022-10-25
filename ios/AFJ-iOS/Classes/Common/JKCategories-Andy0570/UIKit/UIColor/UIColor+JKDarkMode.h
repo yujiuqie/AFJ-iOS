@@ -15,11 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)jk_colorWithLightColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor;
 
 + (UIColor *)jk_systemRedColor;
+
 + (UIColor *)jk_systemGreenColor;
+
 + (UIColor *)jk_systemBlueColor;
+
 + (UIColor *)jk_systemOrangeColor;
+
 + (UIColor *)jk_systemYelloColor;
+
 + (UIColor *)jk_systemPurpleColor;
+
 + (UIColor *)jk_systemGrayColor;
 
 + (UIColor *)jk_systemBackgroundColor;

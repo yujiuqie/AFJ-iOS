@@ -13,9 +13,9 @@ static NSString *XLZoomHeaderContentOffsetKey = @"contentOffset";
 
 @interface XLZoomHeader ()
 
-@property (nonatomic, strong) UIImageView *backGroundImageView;
+@property(nonatomic, strong) UIImageView *backGroundImageView;
 
-@property (nonatomic, weak) UIScrollView *scrollView;
+@property(nonatomic, weak) UIScrollView *scrollView;
 
 @end
 
@@ -53,13 +53,14 @@ static NSString *XLZoomHeaderContentOffsetKey = @"contentOffset";
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     if (![newSuperview isKindOfClass:[UIScrollView class]]) {return;}
-    self.scrollView = (UIScrollView *)newSuperview;
+    self.scrollView = (UIScrollView *) newSuperview;
     [self initHeaderRect];
     [self addObservers];
 }
 
 #pragma mark -
 #pragma mark add observers
+
 - (void)addObservers {
     NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
     [self.scrollView addObserver:self forKeyPath:XLZoomHeaderContentOffsetKey options:options context:nil];
@@ -69,16 +70,17 @@ static NSString *XLZoomHeaderContentOffsetKey = @"contentOffset";
     [self.scrollView removeObserver:self forKeyPath:XLZoomHeaderContentOffsetKey];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey, id> *)change context:(void *)context {
     if ([keyPath isEqualToString:XLZoomHeaderContentOffsetKey]) {
         [self scrollViewContentOffsetDidChange:change];
-    }else{
+    } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
 #pragma mark -
 #pragma mark zoom animation
+
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change {
     //set top inset
     CGFloat top = 0;
@@ -87,12 +89,12 @@ static NSString *XLZoomHeaderContentOffsetKey = @"contentOffset";
     }
     //move offset
     CGFloat offset = fabs(self.scrollView.contentOffset.y) - top;
-    
+
     CGFloat height = [self imageViewRect].size.height + offset;
-    
-    CGFloat width = height * ([self imageViewRect].size.width/[self imageViewRect].size.height);
+
+    CGFloat width = height * ([self imageViewRect].size.width / [self imageViewRect].size.height);
     //x
-    CGFloat x = -(width - [self imageViewRect].size.width)/2.0f + [self imageViewRect].origin.x;
+    CGFloat x = -(width - [self imageViewRect].size.width) / 2.0f + [self imageViewRect].origin.x;
     //y
     CGFloat y = -offset + [self imageViewRect].origin.y;
     //set frame
@@ -114,6 +116,7 @@ static NSString *XLZoomHeaderContentOffsetKey = @"contentOffset";
 
 #pragma mark -
 #pragma mark Setter
+
 - (void)setBackgroundImage:(UIImage *)backgroundImage {
     _backgroundImage = backgroundImage;
     self.backGroundImageView.image = backgroundImage;
@@ -124,7 +127,7 @@ static NSString *XLZoomHeaderContentOffsetKey = @"contentOffset";
 }
 
 @end
- 
+
 static NSString *XLZoomHeaderKey = @"XLZoomHeaderKey";
 
 @implementation UIScrollView (XLZoomHeader)
@@ -134,7 +137,7 @@ static NSString *XLZoomHeaderKey = @"XLZoomHeaderKey";
         [self.xl_zoomHeader removeFromSuperview];
         [self insertSubview:xl_zoomHeader atIndex:0];
         objc_setAssociatedObject(self, &XLZoomHeaderKey,
-                                 xl_zoomHeader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                xl_zoomHeader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 

@@ -8,11 +8,11 @@
 
 @implementation CALayer (JKBorderColor)
 
--(void)setJk_borderColor:(UIColor *)jk_borderColor{
+- (void)setJk_borderColor:(UIColor *)jk_borderColor {
     self.borderColor = jk_borderColor.CGColor;
 }
 
-- (UIColor*)jk_borderColor {
+- (UIColor *)jk_borderColor {
     return [UIColor colorWithCGColor:self.borderColor];
 }
 

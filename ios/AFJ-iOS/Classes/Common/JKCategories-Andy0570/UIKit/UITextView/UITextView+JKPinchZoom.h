@@ -22,8 +22,8 @@
 
 @interface UITextView (JKPinchZoom)
 
-@property (nonatomic) CGFloat jk_maxFontSize, jk_minFontSize;
+@property(nonatomic) CGFloat jk_maxFontSize, jk_minFontSize;
 
-@property (nonatomic, getter = isJk_zoomEnabled) BOOL jk_zoomEnabled;
+@property(nonatomic, getter = isJk_zoomEnabled) BOOL jk_zoomEnabled;
 
 @end

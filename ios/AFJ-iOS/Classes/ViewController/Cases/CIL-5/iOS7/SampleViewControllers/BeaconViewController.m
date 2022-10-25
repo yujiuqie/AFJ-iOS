@@ -16,28 +16,27 @@
 
 
 @interface BeaconViewController ()
-<CLLocationManagerDelegate, CBPeripheralManagerDelegate>
+        <CLLocationManagerDelegate, CBPeripheralManagerDelegate>
 
 // for central
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLBeaconRegion *beaconRegion;
-@property (nonatomic, weak) IBOutlet UILabel *statusLabel;
-@property (nonatomic, weak) IBOutlet UILabel *proximityLabel;
-@property (nonatomic, weak) IBOutlet UILabel *rssiLabel;
-@property (nonatomic, weak) IBOutlet UILabel *accuracyLabel;
+@property(nonatomic, strong) CLLocationManager *locationManager;
+@property(nonatomic, strong) CLBeaconRegion *beaconRegion;
+@property(nonatomic, weak) IBOutlet UILabel *statusLabel;
+@property(nonatomic, weak) IBOutlet UILabel *proximityLabel;
+@property(nonatomic, weak) IBOutlet UILabel *rssiLabel;
+@property(nonatomic, weak) IBOutlet UILabel *accuracyLabel;
 
 // for peripheral
-@property (nonatomic, strong) CBPeripheralManager *peripheralManager;
-@property (nonatomic, weak) IBOutlet UIView *overlayView;
-@property (nonatomic, weak) IBOutlet UILabel *stateLabel;
+@property(nonatomic, strong) CBPeripheralManager *peripheralManager;
+@property(nonatomic, weak) IBOutlet UIView *overlayView;
+@property(nonatomic, weak) IBOutlet UILabel *stateLabel;
 
 @end
 
 
 @implementation BeaconViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -45,18 +44,16 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.overlayView.hidden = YES;
     [self resetLabels];
-    
+
     [self startRegionMonitoring];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -66,9 +63,9 @@
 #pragma mark - for central
 
 - (void)resetLabels {
-    
+
     self.statusLabel.text = @"No Beacons";
-    
+
     self.proximityLabel.text = nil;
     self.rssiLabel.text = nil;
     self.accuracyLabel.text = nil;
@@ -77,15 +74,15 @@
 - (void)startRegionMonitoring {
 
     if ([CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
-        
+
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
-        
+
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:kProximityUUID];
-        
+
         self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                identifier:kIdentifier];
-        
+
         [self.locationManager startMonitoringForRegion:self.beaconRegion];
     }
 }
@@ -105,12 +102,11 @@
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    
+
     NSLog(@"status:%d", status);
-    
+
     switch (status) {
-        case kCLAuthorizationStatusNotDetermined:
-        {
+        case kCLAuthorizationStatusNotDetermined: {
             if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
                 [self.locationManager requestAlwaysAuthorization];
             }
@@ -119,35 +115,33 @@
         case kCLAuthorizationStatusAuthorizedWhenInUse:
         case kCLAuthorizationStatusAuthorizedAlways:
             break;
-            
+
         default:
             break;
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
-    
+
     NSLog(@"Start monitoring for region");
     [self.locationManager requestStateForRegion:self.beaconRegion];
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-    
+
     NSLog(@"Failed monitoring with error:%@", error);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    
+
     NSLog(@"didFailWithError:%@", error);
 }
 
 - (void)locationManager:(CLLocationManager *)manager
       didDetermineState:(CLRegionState)state
-              forRegion:(CLRegion *)region
-{
+              forRegion:(CLRegion *)region {
     switch (state) {
-        case CLRegionStateInside:
-        {
+        case CLRegionStateInside: {
             [self startRangingInRegion:region];
             break;
         }
@@ -159,62 +153,55 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager
-         didEnterRegion:(CLRegion *)region
-{
+         didEnterRegion:(CLRegion *)region {
     [self startRangingInRegion:region];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
-          didExitRegion:(CLRegion *)region
-{
+          didExitRegion:(CLRegion *)region {
     [self resetLabels];
-    
+
     // stop ranging
     if ([region isMemberOfClass:[CLBeaconRegion class]] && [CLLocationManager isRangingAvailable]) {
-        
-        [self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
+
+        [self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *) region];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
         didRangeBeacons:(NSArray *)beacons
-               inRegion:(CLBeaconRegion *)region
-{
+               inRegion:(CLBeaconRegion *)region {
     CLBeacon *beacon = beacons.firstObject;
-    
+
     NSString *proximityStr;
-    
+
     switch (beacon.proximity) {
-            
-        case CLProximityImmediate:
-        {
+
+        case CLProximityImmediate: {
             proximityStr = @"Immediate";
-            
+
             break;
         }
-        case CLProximityNear:
-        {
+        case CLProximityNear: {
             proximityStr = @"Near";
-            
+
             break;
         }
-        case CLProximityFar:
-        {
+        case CLProximityFar: {
             proximityStr = @"Far";
-         
+
             break;
         }
-        default:
-        {
+        default: {
             proximityStr = @"Unknown";
-            
+
             break;
         }
     }
-    
+
     self.proximityLabel.text = proximityStr;
 
-    self.rssiLabel.text = [NSString stringWithFormat:@"%ld [dB]", (long)beacon.rssi];
+    self.rssiLabel.text = [NSString stringWithFormat:@"%ld [dB]", (long) beacon.rssi];
     self.accuracyLabel.text = [NSString stringWithFormat:@"%.0f [m]", beacon.accuracy];
 }
 
@@ -223,32 +210,32 @@
 #pragma mark - for peripheral
 
 - (void)startAdvertising {
-    
+
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:kProximityUUID];
-    
+
     CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                       identifier:kIdentifier];
-    
+
     NSDictionary *beaconPeripheralData = [beaconRegion peripheralDataWithMeasuredPower:nil];
-    
+
     [self.peripheralManager startAdvertising:beaconPeripheralData];
 }
 
 - (IBAction)pressTurnIntoBeacon {
-    
+
     self.locationManager.delegate = nil;
     [self.locationManager stopMonitoringForRegion:self.beaconRegion];
     [self resetLabels];
     self.statusLabel.text = nil;
-    
+
     self.overlayView.hidden = NO;
-    
+
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil
                                                                    options:nil];
-    
+
     if (self.peripheralManager.state == CBPeripheralManagerStatePoweredOn) {
-        
+
         [self startAdvertising];
     }
 }
@@ -258,15 +245,14 @@
 #pragma mark - CBPeripheralManagerDelegate
 
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(NSError *)error {
-    
+
     if (error) {
-        
+
         NSLog(@"Failed to start advertising with error:%@", error);
-    }
-    else {
-        
+    } else {
+
         NSLog(@"Start advertising");
-        
+
         // Show beacon's pulse
         PulsingHaloLayer *layer = [PulsingHaloLayer layer];
         layer.position = self.overlayView.center;
@@ -275,51 +261,43 @@
     }
 }
 
-- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
-{
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     NSString *stateStr;
-    
+
     switch (peripheral.state) {
-        case CBPeripheralManagerStatePoweredOff:
-        {
+        case CBPeripheralManagerStatePoweredOff: {
             stateStr = @"PoweredOff";
             break;
         }
-        case CBPeripheralManagerStatePoweredOn:
-        {
+        case CBPeripheralManagerStatePoweredOn: {
             stateStr = @"PoweredOn";
-            
+
             [self startAdvertising];
-            
+
             break;
         }
-        case CBPeripheralManagerStateResetting:
-        {
+        case CBPeripheralManagerStateResetting: {
             stateStr = @"Resetting";
             break;
         }
-        case CBPeripheralManagerStateUnauthorized:
-        {
+        case CBPeripheralManagerStateUnauthorized: {
             stateStr = @"Unauthorized";
             break;
         }
-        case CBPeripheralManagerStateUnknown:
-        {
+        case CBPeripheralManagerStateUnknown: {
             stateStr = @"Unknown";
             break;
         }
-        case CBPeripheralManagerStateUnsupported:
-        {
+        case CBPeripheralManagerStateUnsupported: {
             stateStr = @"Unsupported";
             break;
         }
-        default:
-        {
+        default: {
             stateStr = nil;
             break;
         }
     }
-    
+
     self.stateLabel.text = [NSString stringWithFormat:@"%@", stateStr];
 }
 

@@ -14,6 +14,6 @@
 @interface UIButton (JKTouchAreaInsets)
 
 /// 设置按钮额外热区
-@property (nonatomic, assign) UIEdgeInsets jk_touchAreaInsets;
+@property(nonatomic, assign) UIEdgeInsets jk_touchAreaInsets;
 
 @end

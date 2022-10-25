@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     [self jk_addLeftBorderWithColor:color width:borderWidth excludePoint:0 edgeType:0];
 }
 
-- (void)jk_addBottomBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth {
+- (void)jk_addBottomBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth {
     [self jk_addBottomBorderWithColor:color width:borderWidth excludePoint:0 edgeType:0];
 }
 
@@ -65,34 +65,34 @@ typedef NS_ENUM(NSInteger, EdgeType) {
 
 - (void)jk_addTopBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
     [self jk_removeTopBorder];
-    
+
     UIView *border = [[UIView alloc] init];
     if (!self.translatesAutoresizingMaskIntoConstraints) {
         border.translatesAutoresizingMaskIntoConstraints = NO;
     }
-    
+
     border.userInteractionEnabled = NO;
     border.backgroundColor = color;
     border.tag = TopBorder;
-    
+
     [self addSubview:border];
-    
+
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
     if (edge & JKExcludeStartPoint) {
         startPoint += point;
     }
-    
+
     if (edge & JKExcludeEndPoint) {
         endPoint += point;
     }
-    
+
     if (border.translatesAutoresizingMaskIntoConstraints) {
         CGFloat borderLenght = self.bounds.size.width - endPoint - startPoint;
         border.frame = CGRectMake(startPoint, 0.0, borderLenght, borderWidth);
         return;
     }
-    
+
     // AutoLayout
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:startPoint]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
@@ -102,44 +102,44 @@ typedef NS_ENUM(NSInteger, EdgeType) {
 
 - (void)jk_addLeftBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
     [self jk_removeLeftBorder];
-    
+
     UIView *border = [[UIView alloc] init];
     if (!self.translatesAutoresizingMaskIntoConstraints) {
         border.translatesAutoresizingMaskIntoConstraints = NO;
     }
-    
+
     border.userInteractionEnabled = NO;
     border.backgroundColor = color;
     border.tag = LeftBorder;
     [self addSubview:border];
-    
+
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
     if (edge & JKExcludeStartPoint) {
         startPoint += point;
     }
-    
+
     if (edge & JKExcludeEndPoint) {
         endPoint += point;
     }
-    
+
     if (border.translatesAutoresizingMaskIntoConstraints) {
         CGFloat borderLength = self.bounds.size.height - startPoint - endPoint;
         border.frame = CGRectMake(0.0, startPoint, borderWidth, borderLength);
         return;
     }
-    
+
     // AutoLayout
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:startPoint]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-endPoint]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:borderWidth]];
-    
+
 }
 
 - (void)jk_addBottomBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
     [self jk_removeBottomBorder];
-    
+
     UIView *border = [[UIView alloc] init];
     if (!self.translatesAutoresizingMaskIntoConstraints) {
         border.translatesAutoresizingMaskIntoConstraints = NO;
@@ -148,24 +148,24 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     border.backgroundColor = color;
     border.tag = BottomBorder;
     [self addSubview:border];
-    
+
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
     if (edge & JKExcludeStartPoint) {
         startPoint += point;
     }
-    
+
     if (edge & JKExcludeEndPoint) {
         endPoint += point;
     }
 
-    
+
     if (border.translatesAutoresizingMaskIntoConstraints) {
         CGFloat borderLength = self.bounds.size.width - startPoint - endPoint;
         border.frame = CGRectMake(startPoint, self.bounds.size.height - borderWidth, borderLength, borderWidth);
         return;
     }
-    
+
     // AutoLayout
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:startPoint]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
@@ -175,7 +175,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
 
 - (void)jk_addRightBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
     [self jk_removeRightBorder];
-    
+
     UIView *border = [[UIView alloc] init];
     if (!self.translatesAutoresizingMaskIntoConstraints) {
         border.translatesAutoresizingMaskIntoConstraints = NO;
@@ -184,13 +184,13 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     border.backgroundColor = color;
     border.tag = RightBorder;
     [self addSubview:border];
-    
+
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
     if (edge & JKExcludeStartPoint) {
         startPoint += point;
     }
-    
+
     if (edge & JKExcludeEndPoint) {
         endPoint += point;
     }
@@ -200,7 +200,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
         border.frame = CGRectMake(self.bounds.size.width - borderWidth, startPoint, borderWidth, borderLength);
         return;
     }
-    
+
     // AutoLayout
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:startPoint]];

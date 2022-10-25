@@ -9,6 +9,7 @@
 #import "CoreTeam+CoreDataClass.h"
 #import "CoreCoach+CoreDataClass.h"
 #import "CorePlayer+CoreDataClass.h"
+
 @implementation CoreTeam
 
 @end

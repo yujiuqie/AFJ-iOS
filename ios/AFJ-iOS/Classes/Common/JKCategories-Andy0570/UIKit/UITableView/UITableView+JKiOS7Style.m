@@ -23,7 +23,7 @@
         CGMutablePathRef pathRef = CGPathCreateMutable();
         CGRect bounds = cell.bounds; // CGRectInset(cell.bounds, 10, 0);
         BOOL addLine = NO;
-        if (indexPath.row == 0 && indexPath.row == [self numberOfRowsInSection:indexPath.section]-1) {
+        if (indexPath.row == 0 && indexPath.row == [self numberOfRowsInSection:indexPath.section] - 1) {
             CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius);
         } else if (indexPath.row == 0) {
             CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds));
@@ -31,7 +31,7 @@
             CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
             CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds));
             addLine = YES;
-        } else if (indexPath.row == [self numberOfRowsInSection:indexPath.section]-1) {
+        } else if (indexPath.row == [self numberOfRowsInSection:indexPath.section] - 1) {
             CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
             CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
             CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
@@ -43,11 +43,11 @@
         layer.path = pathRef;
         CFRelease(pathRef);
         layer.fillColor = [UIColor colorWithWhite:1.f alpha:0.8f].CGColor;
-        
+
         if (addLine == YES) {
             CALayer *lineLayer = [[CALayer alloc] init];
             CGFloat lineHeight = (1.f / [UIScreen mainScreen].scale);
-            lineLayer.frame = CGRectMake(CGRectGetMinX(bounds)+10, bounds.size.height-lineHeight, bounds.size.width-10, lineHeight);
+            lineLayer.frame = CGRectMake(CGRectGetMinX(bounds) + 10, bounds.size.height - lineHeight, bounds.size.width - 10, lineHeight);
             lineLayer.backgroundColor = self.separatorColor.CGColor;
             [layer addSublayer:lineLayer];
         }

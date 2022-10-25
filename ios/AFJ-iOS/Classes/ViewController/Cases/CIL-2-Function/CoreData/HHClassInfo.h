@@ -10,19 +10,19 @@
 #import <objc/runtime.h>
 
 typedef enum : NSUInteger {
-    HHPropertyTypeUnknown    = 0,
-    HHPropertyTypeVoid       = 1,
-    HHPropertyTypeBool       = 2,
-    HHPropertyTypeInt8       = 3,
-    HHPropertyTypeUInt8      = 4,
-    HHPropertyTypeInt16      = 5,
-    HHPropertyTypeUInt16     = 6,
-    HHPropertyTypeInt32      = 7,
-    HHPropertyTypeUInt32     = 8,
-    HHPropertyTypeInt64      = 9,
-    HHPropertyTypeUInt64     = 10,
-    HHPropertyTypeFloat      = 11,
-    HHPropertyTypeDouble     = 12,
+    HHPropertyTypeUnknown = 0,
+    HHPropertyTypeVoid = 1,
+    HHPropertyTypeBool = 2,
+    HHPropertyTypeInt8 = 3,
+    HHPropertyTypeUInt8 = 4,
+    HHPropertyTypeInt16 = 5,
+    HHPropertyTypeUInt16 = 6,
+    HHPropertyTypeInt32 = 7,
+    HHPropertyTypeUInt32 = 8,
+    HHPropertyTypeInt64 = 9,
+    HHPropertyTypeUInt64 = 10,
+    HHPropertyTypeFloat = 11,
+    HHPropertyTypeDouble = 12,
     HHPropertyTypeLongDouble = 13,
     HHPropertyTypeArray = 14,
     HHPropertyTypeCustomObject = 15,
@@ -30,8 +30,8 @@ typedef enum : NSUInteger {
 } HHPropertyType;
 
 @interface HHPropertyInfo : NSObject {
-    
-    @package
+
+@package
     SEL _setter;
     SEL _getter;
     Class _cls;
@@ -49,5 +49,6 @@ typedef enum : NSUInteger {
 + (instancetype)classInfoWithClass:(Class)cls ignoreProperties:(NSArray *)ignoreProperties replacePropertyKeypaths:(NSDictionary *)replacePropertyKeypaths;
 
 - (Class)cls;
+
 - (NSArray<HHPropertyInfo *> *)properties;
 @end

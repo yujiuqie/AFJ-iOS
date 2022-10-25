@@ -14,6 +14,7 @@
 @property(nonatomic, strong) QMUIOrderedDictionary *dataSource;
 
 - (NSString *)titleForSection:(NSInteger)section;
+
 - (NSString *)keyNameAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
@@ -23,6 +24,7 @@
 
 // 子类继承，可以不调 super
 - (void)initDataSource;
+
 - (void)didSelectCellWithTitle:(NSString *)title;
 
 @end

@@ -15,7 +15,7 @@
 @interface LSTPopViewRAMVC ()
 
 /** <#.....#> */
-@property (nonatomic,strong) UILabel *titleLab;
+@property(nonatomic, strong) UILabel *titleLab;
 
 @end
 
@@ -25,22 +25,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+
+
     [self layoutSubViewUI];
-    
-}
-- (void)dealloc {
-  
+
 }
 
+- (void)dealloc {
+
+}
 
 
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)layoutSubViewUI {
     self.view.backgroundColor = UIColor.whiteColor;
-    
+
     [self.view addSubview:self.titleLab];
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
@@ -54,10 +54,10 @@
     LSTPopViewCodeView *view = [[LSTPopViewCodeView alloc] init];
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
-    
-    
+
+
     view.frame = CGRectMake(0, 0, 300, 300);
-    
+
     LSTPopView *popView = [LSTPopView initWithCustomView:view parentView:self.view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
     popView.hemStyle = LSTHemStyleCenter;
     popView.adjustY = 10;
@@ -68,16 +68,16 @@
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    
+
     view.closeBlock = ^{
         [wk_popView dismissWithStyle:LSTDismissStyleSmoothToTop duration:1.0];
     };
-    
+
     [popView popWithStyle:LSTPopStyleCardDropFromLeft duration:0.5];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+
     [self open];
 }
 
@@ -90,7 +90,7 @@
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UILabel *)titleLab {
-    if(_titleLab) return _titleLab;
+    if (_titleLab) return _titleLab;
     _titleLab = [[UILabel alloc] init];
     _titleLab.textColor = UIColor.blackColor;
 //    _titleLab.textAlignment = NSTextAlignmentCenter;

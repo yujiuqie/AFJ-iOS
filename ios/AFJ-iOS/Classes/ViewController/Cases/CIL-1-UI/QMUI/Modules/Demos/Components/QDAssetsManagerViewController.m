@@ -23,9 +23,9 @@
 - (void)initDataSource {
     [super initDataSource];
     self.dataSourceWithDetailText = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                     @"保存图片到指定相册", @"生成随机图片并保存到指定的相册",
-                                     @"保存视频到指定相册", @"拍摄一个视频并保存到指定的相册",
-                                     nil];
+            @"保存图片到指定相册", @"生成随机图片并保存到指定的相册",
+            @"保存视频到指定相册", @"拍摄一个视频并保存到指定的相册",
+                    nil];
 }
 
 - (void)didSelectCellWithTitle:(NSString *)title {

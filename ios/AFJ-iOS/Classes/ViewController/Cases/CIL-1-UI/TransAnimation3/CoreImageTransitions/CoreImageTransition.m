@@ -9,9 +9,8 @@
 #import "CoreImageTransitionView.h"
 
 
-
 @interface CoreImageTransition ()
-@property (nonatomic, strong) CoreImageTransitionView *transitionView;
+@property(nonatomic, strong) CoreImageTransitionView *transitionView;
 @end
 
 
@@ -22,32 +21,24 @@
 - (void)setTransitionTypeWithName:(NSString *)name {
 
     _type = CoreImageTransitionTypeDissolve;
-    
+
     if ([name isEqualToString:kCoreImageTransitionTypeNameDissolve]) {
         _type = CoreImageTransitionTypeDissolve;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNameCopyMachine]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNameCopyMachine]) {
         _type = CoreImageTransitionTypeCopyMachine;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNameFlash]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNameFlash]) {
         _type = CoreImageTransitionTypeFlash;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNameMod]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNameMod]) {
         _type = CoreImageTransitionTypeMod;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNameSwipe]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNameSwipe]) {
         _type = CoreImageTransitionTypeSwipe;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNameDisintegrateWithMask]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNameDisintegrateWithMask]) {
         _type = CoreImageTransitionTypeDisintegrateWithMask;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNamePageCurl]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNamePageCurl]) {
         _type = CoreImageTransitionTypePageCurl;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNamePageCurlWithShadow]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNamePageCurlWithShadow]) {
         _type = CoreImageTransitionTypePageCurlWithShadow;
-    }
-    else if ([name isEqualToString:kCoreImageTransitionTypeNameRipple]) {
+    } else if ([name isEqualToString:kCoreImageTransitionTypeNameRipple]) {
         _type = CoreImageTransitionTypeRipple;
     }
 }
@@ -56,24 +47,22 @@
 // =============================================================================
 #pragma mark - UIViewControllerAnimatedTransitioning
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     return 1.0;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toVC   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
     UIView *containerView = [transitionContext containerView];
-    
+
     [containerView addSubview:toVC.view];
-    
+
     // Create snapshots
     UIImage *fromSnapshot = [fromVC.view snapshot];
-    UIImage *toSnapshot   = [toVC.view snapshot];
-    
+    UIImage *toSnapshot = [toVC.view snapshot];
+
     // Start animating using Core Image
     self.transitionView = [[CoreImageTransitionView alloc] initWithFrame:containerView.bounds
                                                                fromImage:fromSnapshot
@@ -85,7 +74,7 @@
 
     // Finish after the duration
     dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW,
-                                         [self transitionDuration:transitionContext] * NSEC_PER_SEC);
+            [self transitionDuration:transitionContext] * NSEC_PER_SEC);
     dispatch_after(when, dispatch_get_main_queue(), ^{
         [self.transitionView stop];
         [self.transitionView removeFromSuperview];
@@ -93,8 +82,7 @@
     });
 }
 
-- (void)animationEnded:(BOOL)transitionCompleted
-{
+- (void)animationEnded:(BOOL)transitionCompleted {
 }
 
 @end

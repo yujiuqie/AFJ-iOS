@@ -30,18 +30,24 @@ typedef NS_ENUM(NSUInteger, OutputMode) {
 
 @interface TTMCaptureManager : NSObject
 
-@property (nonatomic, assign) id<TTMCaptureManagerDelegate> delegate;
-@property (nonatomic, readonly) BOOL isRecording;
-@property (nonatomic, copy) void (^onBuffer)(CMSampleBufferRef sampleBuffer);
+@property(nonatomic, assign) id <TTMCaptureManagerDelegate> delegate;
+@property(nonatomic, readonly) BOOL isRecording;
+@property(nonatomic, copy) void (^onBuffer)(CMSampleBufferRef sampleBuffer);
 
 - (instancetype)initWithPreviewView:(UIView *)previewView
                 preferredCameraType:(CameraType)cameraType
                          outputMode:(OutputMode)outputMode;
+
 - (void)toggleContentsGravity;
+
 - (void)resetFormat;
+
 - (void)switchFormatWithDesiredFPS:(CGFloat)desiredFPS;
+
 - (void)startRecording;
+
 - (void)stopRecording;
+
 - (void)updateOrientationWithPreviewView:(UIView *)previewView;
 
 @end

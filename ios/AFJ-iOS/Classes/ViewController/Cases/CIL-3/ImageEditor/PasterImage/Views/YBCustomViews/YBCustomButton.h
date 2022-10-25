@@ -10,7 +10,7 @@
 
 @interface YBCustomButton : UIButton
 
-@property (nonatomic, assign) NSInteger buttonTag;
-@property (nonatomic, assign) BOOL isCurrentIndex;
+@property(nonatomic, assign) NSInteger buttonTag;
+@property(nonatomic, assign) BOOL isCurrentIndex;
 
 @end

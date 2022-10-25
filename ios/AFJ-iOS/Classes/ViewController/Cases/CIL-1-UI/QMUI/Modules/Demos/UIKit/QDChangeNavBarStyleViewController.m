@@ -26,19 +26,17 @@
 - (void)initDataSource {
     [super initDataSource];
     self.dataSource = @[@"默认",
-                        @"深色",
-                        @"浅色（磨砂）"];
+            @"深色",
+            @"浅色（磨砂）"];
 }
 
 - (void)didSelectCellWithTitle:(NSString *)title {
     UIViewController *viewController = nil;
     if ([title isEqualToString:@"默认"]) {
         viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:QDNavigationBarStyleOrigin];
-    }
-    else if ([title isEqualToString:@"深色"]) {
+    } else if ([title isEqualToString:@"深色"]) {
         viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:QDNavigationBarStyleDark];
-    }
-    else if ([title isEqualToString:@"浅色（磨砂）"]) {
+    } else if ([title isEqualToString:@"浅色（磨砂）"]) {
         viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:QDNavigationBarStyleLight];
     }
     viewController.title = title;

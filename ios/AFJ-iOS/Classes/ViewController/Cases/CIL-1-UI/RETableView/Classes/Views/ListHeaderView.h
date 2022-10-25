@@ -10,8 +10,8 @@
 
 @interface ListHeaderView : UIView
 
-@property (strong, readonly, nonatomic) UIImageView *userpicImageView;
-@property (strong, readonly, nonatomic) UILabel *usernameLabel;
+@property(strong, readonly, nonatomic) UIImageView *userpicImageView;
+@property(strong, readonly, nonatomic) UILabel *usernameLabel;
 
 + (ListHeaderView *)headerViewWithImageNamed:(NSString *)imageName username:(NSString *)username;
 

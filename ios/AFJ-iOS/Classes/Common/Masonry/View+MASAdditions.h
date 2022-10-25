@@ -19,51 +19,51 @@
 /**
  *	following properties return a new MASViewAttribute with current view and appropriate NSLayoutAttribute
  */
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_left;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_top;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_right;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_bottom;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_leading;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_trailing;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_width;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_height;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerX;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerY;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_baseline;
-@property (nonatomic, strong, readonly) MASViewAttribute *(^mas_attribute)(NSLayoutAttribute attr);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_left;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_top;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_right;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_bottom;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_leading;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_trailing;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_width;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_height;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_centerX;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_centerY;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_baseline;
+@property(nonatomic, strong, readonly) MASViewAttribute *(^mas_attribute)(NSLayoutAttribute attr);
 
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_firstBaseline;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_lastBaseline;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_firstBaseline;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_lastBaseline;
 
 #if TARGET_OS_IPHONE || TARGET_OS_TV
 
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_leftMargin;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_rightMargin;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_topMargin;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_bottomMargin;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_leadingMargin;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_trailingMargin;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerXWithinMargins;
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerYWithinMargins;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_leftMargin;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_rightMargin;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_topMargin;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_bottomMargin;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_leadingMargin;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_trailingMargin;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_centerXWithinMargins;
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_centerYWithinMargins;
 
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuide NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideLeading NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideTrailing NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideLeft NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideRight NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideTop NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideBottom NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideWidth NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideHeight NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideCenterX NS_AVAILABLE_IOS(11.0);
-@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideCenterY NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuide NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideLeading NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideTrailing NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideLeft NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideRight NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideTop NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideBottom NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideWidth NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideHeight NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideCenterX NS_AVAILABLE_IOS(11.0);
+@property(nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideCenterY NS_AVAILABLE_IOS(11.0);
 
 #endif
 
 /**
  *	a key to associate with this view
  */
-@property (nonatomic, strong) id mas_key;
+@property(nonatomic, strong) id mas_key;
 
 /**
  *	Finds the closest common superview between this view and another view
@@ -82,7 +82,7 @@
  *
  *  @return Array of created MASConstraints
  */
-- (NSArray *)mas_makeConstraints:(void(NS_NOESCAPE ^)(MASConstraintMaker *make))block;
+- (NSArray *)mas_makeConstraints:(void (NS_NOESCAPE ^)(MASConstraintMaker *make))block;
 
 /**
  *  Creates a MASConstraintMaker with the callee view.
@@ -93,7 +93,7 @@
  *
  *  @return Array of created/updated MASConstraints
  */
-- (NSArray *)mas_updateConstraints:(void(NS_NOESCAPE ^)(MASConstraintMaker *make))block;
+- (NSArray *)mas_updateConstraints:(void (NS_NOESCAPE ^)(MASConstraintMaker *make))block;
 
 /**
  *  Creates a MASConstraintMaker with the callee view.
@@ -104,6 +104,6 @@
  *
  *  @return Array of created/updated MASConstraints
  */
-- (NSArray *)mas_remakeConstraints:(void(NS_NOESCAPE ^)(MASConstraintMaker *make))block;
+- (NSArray *)mas_remakeConstraints:(void (NS_NOESCAPE ^)(MASConstraintMaker *make))block;
 
 @end

@@ -9,12 +9,13 @@
 #import "CDPerson.h"
 
 @class Team;
+
 @interface Player : CDPerson
 
-@property (copy, nonatomic) NSString *role;
-@property (assign, nonatomic) NSString *number;
+@property(copy, nonatomic) NSString *role;
+@property(assign, nonatomic) NSString *number;
 
-@property (strong, nonatomic) Team *team;
+@property(strong, nonatomic) Team *team;
 
 
 @end

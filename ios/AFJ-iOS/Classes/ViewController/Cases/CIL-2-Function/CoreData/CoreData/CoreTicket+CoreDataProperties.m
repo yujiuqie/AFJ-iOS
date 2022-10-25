@@ -11,7 +11,7 @@
 @implementation CoreTicket (CoreDataProperties)
 
 + (NSFetchRequest<CoreTicket *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"CoreTicket"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"CoreTicket"];
 }
 
 @dynamic ticketId;

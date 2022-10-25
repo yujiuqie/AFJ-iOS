@@ -11,13 +11,13 @@
 @interface UIView (JKFind)
 
 /// 返回当前视图所在的 ViewController
-@property (readonly) UIViewController *jk_viewController;
+@property(readonly) UIViewController *jk_viewController;
 
 /// 返回当前视图所在的 NavigationController
-@property (readonly) UINavigationController *jk_navigationController;
+@property(readonly) UINavigationController *jk_navigationController;
 
 /// 返回当前视图所在的 TabBarController
-@property (readonly) UITabBarController *jk_tabBarController;
+@property(readonly) UITabBarController *jk_tabBarController;
 
 /**
  *  @brief  找到指定类名的SubView对象

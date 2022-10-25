@@ -21,7 +21,7 @@
 /** The pan gestures that handles the view dragging
  jk_panGesture The tint color of the blurred view. Set to nil to reset.
  */
-@property (nonatomic) UIPanGestureRecognizer *jk_panGesture;
+@property(nonatomic) UIPanGestureRecognizer *jk_panGesture;
 
 /**
  A caging area such that the view can not be moved outside
@@ -34,34 +34,34 @@
  Optional. If not set, defaults to @c CGRectZero, which will result
  in no caging behavior.
  */
-@property (nonatomic) CGRect jk_cagingArea;
+@property(nonatomic) CGRect jk_cagingArea;
 
 /**
  Restricts the area of the view where the drag action starts.
  
  Optional. If not set, defaults to self.view.
  */
-@property (nonatomic) CGRect jk_handle;
+@property(nonatomic) CGRect jk_handle;
 
 /**
  Restricts the movement along the X axis
  */
-@property (nonatomic) BOOL jk_shouldMoveAlongX;
+@property(nonatomic) BOOL jk_shouldMoveAlongX;
 
 /**
  Restricts the movement along the Y axis
  */
-@property (nonatomic) BOOL jk_shouldMoveAlongY;
+@property(nonatomic) BOOL jk_shouldMoveAlongY;
 
 /**
  Notifies when dragging started
  */
-@property (nonatomic, copy) void (^jk_draggingStartedBlock)(void);
+@property(nonatomic, copy) void (^jk_draggingStartedBlock)(void);
 
 /**
  Notifies when dragging ended
  */
-@property (nonatomic, copy) void (^jk_draggingEndedBlock)(void);
+@property(nonatomic, copy) void (^jk_draggingEndedBlock)(void);
 
 
 /**-----------------------------------------------------------------------------

@@ -13,11 +13,11 @@ typedef void(^LSTAppFlashAdViewBlock)(id sender);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTAppFlashAdView : UIView
-@property (weak, nonatomic) IBOutlet UIButton *timeBtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topH;
+@property(weak, nonatomic) IBOutlet UIButton *timeBtn;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *topH;
 
 /** <#...#> */
-@property (nonatomic, copy) LSTAppFlashAdViewBlock skipBlock;
+@property(nonatomic, copy) LSTAppFlashAdViewBlock skipBlock;
 
 @end
 

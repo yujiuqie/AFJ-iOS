@@ -11,7 +11,7 @@
 @implementation CoreCoach (CoreDataProperties)
 
 + (NSFetchRequest<CoreCoach *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"CoreCoach"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"CoreCoach"];
 }
 
 @dynamic age;

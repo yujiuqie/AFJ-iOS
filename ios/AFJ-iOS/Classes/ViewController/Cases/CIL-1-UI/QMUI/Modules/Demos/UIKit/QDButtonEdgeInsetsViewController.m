@@ -26,16 +26,16 @@ const CGSize SizeForStaticSizeView = {140, 60};
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.scrollView];
-    
+
     ({
         [self generateLabelWithTitle:@"sizeToFit，无 insets"];
         [self generateSystemButton];
         [self generateQMUIButton];
     });
-    
+
     ({
         [self generateLabelWithTitle:@"sizeToFit\ncontentEdgeInsets(0, 8, 0, 8)\nimageEdgeInsets(0, 8, 0, 8)\ntitleEdgeInsets(0, 8, 0, 8)"];
         UIButton *systemButton = [self generateSystemButton];
@@ -45,7 +45,7 @@ const CGSize SizeForStaticSizeView = {140, 60};
         QMUIButton *qmuiButton = [self generateQMUIButton];
         [self copyButtonPropertyFromButton:systemButton toButton:qmuiButton];
     });
-    
+
     ({
         [self generateLabelWithTitle:@"固定宽高\ncontentEdgeInsets(0, 8, 0, 8)\nimageEdgeInsets(0, 8, 0, 8)\ntitleEdgeInsets(0, 8, 0, 8)"];
         UIButton *systemButton = [self generateSystemButton];
@@ -56,7 +56,7 @@ const CGSize SizeForStaticSizeView = {140, 60};
         QMUIButton *qmuiButton = [self generateQMUIButton];
         [self copyButtonPropertyFromButton:systemButton toButton:qmuiButton];
     });
-    
+
     self.configurePopupView = [[QDButtonConfigurePopupView alloc] init];
     self.configurePopupView.automaticallyHidesWhenUserTap = YES;
 }
@@ -104,7 +104,7 @@ const CGSize SizeForStaticSizeView = {140, 60};
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.scrollView.frame = self.view.bounds;
-    
+
     CGFloat paddingLeft = 24;
     CGFloat minY = 0;
     for (NSInteger i = 0; i < self.scrollView.subviews.count; i++) {
@@ -125,7 +125,7 @@ const CGSize SizeForStaticSizeView = {140, 60};
             minY = CGRectGetMaxY(subview.frame);
         }
     }
-    
+
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), minY);
 }
 
@@ -160,27 +160,27 @@ const CGSize SizeForStaticSizeView = {140, 60};
     UILabel *_shouldShowImageLabel;
     UISwitch *_shouldShowImageSwitch;
     CALayer *_shouldShowImageSeparatorLayer;
-    
+
     UILabel *_shouldShowTitleLabel;
     UISwitch *_shouldShowTitleSwitch;
     CALayer *_shouldShowTitleSeparatorLayer;
-    
+
     UILabel *_bigImageLabel;
     UISwitch *_bigImageSwitch;
     CALayer *_bigImageSeparatorLayer;
-    
+
     UILabel *_longTitleLabel;
     UISwitch *_longTitleSwitch;
     CALayer *_longTitleSeparatorLayer;
-    
+
     UILabel *_imagePositionLabel;
     UISegmentedControl *_imagePositionSegmented;
     CALayer *_imagePositionSeparatorLayer;
-    
+
     UILabel *_horizontalAlignmentLabel;
     UISegmentedControl *_horizontalAlignmentSegmented;
     CALayer *_horizontalAlignmentSeparatorLayer;
-    
+
     UILabel *_verticalAlignmentLabel;
     UISegmentedControl *_verticalAlignmentSegmented;
     CALayer *_verticalAlignmentSeparatorLayer;
@@ -188,45 +188,45 @@ const CGSize SizeForStaticSizeView = {140, 60};
 
 - (void)didInitialize {
     [super didInitialize];
-    
+
     self.contentEdgeInsets = UIEdgeInsetsSetTop(self.contentEdgeInsets, 0);
-    
+
     // 是否要显示图片
     _shouldShowImageLabel = [self generateLabelWithText:@"setImage"];
     _shouldShowImageSwitch = [self generateSwitch];
     _shouldShowImageSeparatorLayer = [CALayer qmui_separatorLayer];
     [self.contentView.layer addSublayer:_shouldShowImageSeparatorLayer];
-    
+
     // 是否要显示标题
     _shouldShowTitleLabel = [self generateLabelWithText:@"setTitle"];
     _shouldShowTitleSwitch = [self generateSwitch];
     _shouldShowTitleSeparatorLayer = [CALayer qmui_separatorLayer];
     [self.contentView.layer addSublayer:_shouldShowTitleSeparatorLayer];
-    
+
     // 是否要显示超大图片
     _bigImageLabel = [self generateLabelWithText:@"bigImage"];
     _bigImageSwitch = [self generateSwitch];
     _bigImageSeparatorLayer = [CALayer qmui_separatorLayer];
     [self.contentView.layer addSublayer:_bigImageSeparatorLayer];
-    
+
     // 是否要显示超长标题
     _longTitleLabel = [self generateLabelWithText:@"longTitle"];
     _longTitleSwitch = [self generateSwitch];
     _longTitleSeparatorLayer = [CALayer qmui_separatorLayer];
     [self.contentView.layer addSublayer:_longTitleSeparatorLayer];
-    
+
     // 改变图片的位置（仅对 QMUIButton 生效）
     _imagePositionLabel = [self generateLabelWithText:@"imagePosition"];
     _imagePositionSegmented = [self generateSegmentedWithItems:@[@"Top", @"Left", @"Bottom", @"Right"]];
     _imagePositionSeparatorLayer = [CALayer qmui_separatorLayer];
     [self.contentView.layer addSublayer:_imagePositionSeparatorLayer];
-    
+
     // 内容的水平对齐方式
     _horizontalAlignmentLabel = [self generateLabelWithText:@"horizontal"];
     _horizontalAlignmentSegmented = [self generateSegmentedWithItems:@[@"Center", @"Left", @"Right", @"Fill"]];
     _horizontalAlignmentSeparatorLayer = [CALayer qmui_separatorLayer];
     [self.contentView.layer addSublayer:_horizontalAlignmentSeparatorLayer];
-    
+
     // 内容的垂直对齐方式
     _verticalAlignmentLabel = [self generateLabelWithText:@"vertical"];
     _verticalAlignmentSegmented = [self generateSegmentedWithItems:@[@"Center", @"Top", @"Bottom", @"Fill"]];
@@ -240,40 +240,40 @@ const CGSize SizeForStaticSizeView = {140, 60};
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     CGFloat minY = 14;
     CGPoint switchCenter = CGPointMake(flat(CGRectGetWidth(self.contentView.bounds) - CGRectGetWidth(_shouldShowImageSwitch.frame) / 2), 0);
-    
+
     _shouldShowImageLabel.frame = CGRectSetY(_shouldShowImageLabel.frame, minY);
     _shouldShowImageSwitch.center = CGPointMake(switchCenter.x, _shouldShowImageLabel.center.y);
     _shouldShowImageSeparatorLayer.frame = CGRectMake(0, CGRectGetMaxY(_shouldShowImageLabel.frame) + 14, CGRectGetWidth(self.contentView.bounds), PixelOne);
     minY = ceil(CGRectGetMaxY(_shouldShowImageSeparatorLayer.frame));
-    
+
     _shouldShowTitleLabel.frame = CGRectSetY(_shouldShowTitleLabel.frame, minY + 14);
     _shouldShowTitleSwitch.center = CGPointMake(switchCenter.x, _shouldShowTitleLabel.center.y);
     _shouldShowTitleSeparatorLayer.frame = CGRectSetY(_shouldShowImageSeparatorLayer.frame, CGRectGetMaxY(_shouldShowTitleLabel.frame) + 14);
     minY = ceil(CGRectGetMaxY(_shouldShowTitleSeparatorLayer.frame));
-    
+
     _bigImageLabel.frame = CGRectSetY(_bigImageLabel.frame, minY + 14);
     _bigImageSwitch.center = CGPointMake(switchCenter.x, _bigImageLabel.center.y);
     _bigImageSeparatorLayer.frame = CGRectSetY(_shouldShowImageSeparatorLayer.frame, CGRectGetMaxY(_bigImageLabel.frame) + 14);
     minY = ceil(CGRectGetMaxY(_bigImageSeparatorLayer.frame));
-    
+
     _longTitleLabel.frame = CGRectSetY(_longTitleLabel.frame, minY + 14);
     _longTitleSwitch.center = CGPointMake(switchCenter.x, _longTitleLabel.center.y);
     _longTitleSeparatorLayer.frame = CGRectSetY(_shouldShowImageSeparatorLayer.frame, CGRectGetMaxY(_longTitleLabel.frame) + 14);
     minY = ceil(CGRectGetMaxY(_longTitleSeparatorLayer.frame));
-    
+
     _imagePositionLabel.frame = CGRectSetY(_imagePositionLabel.frame, minY + 14);
     _imagePositionSegmented.center = CGPointMake(flat(CGRectGetWidth(self.contentView.bounds) - CGRectGetWidth(_imagePositionSegmented.frame) / 2), _imagePositionLabel.center.y);
     _imagePositionSeparatorLayer.frame = CGRectSetY(_shouldShowImageSeparatorLayer.frame, CGRectGetMaxY(_imagePositionLabel.frame) + 14);
     minY = ceil(CGRectGetMaxY(_imagePositionSeparatorLayer.frame));
-    
+
     _horizontalAlignmentLabel.frame = CGRectSetY(_horizontalAlignmentLabel.frame, minY + 14);
     _horizontalAlignmentSegmented.center = CGPointMake(flat(CGRectGetWidth(self.contentView.bounds) - CGRectGetWidth(_horizontalAlignmentSegmented.frame) / 2), _horizontalAlignmentLabel.center.y);
     _horizontalAlignmentSeparatorLayer.frame = CGRectSetY(_shouldShowImageSeparatorLayer.frame, CGRectGetMaxY(_horizontalAlignmentLabel.frame) + 14);
     minY = ceil(CGRectGetMaxY(_horizontalAlignmentSeparatorLayer.frame));
-    
+
     _verticalAlignmentLabel.frame = CGRectSetY(_verticalAlignmentLabel.frame, minY + 14);
     _verticalAlignmentSegmented.center = CGPointMake(flat(CGRectGetWidth(self.contentView.bounds) - CGRectGetWidth(_verticalAlignmentSegmented.frame) / 2), _verticalAlignmentLabel.center.y);
     _verticalAlignmentSeparatorLayer.frame = CGRectSetY(_shouldShowImageSeparatorLayer.frame, CGRectGetMaxY(_verticalAlignmentLabel.frame) + 14);
@@ -314,7 +314,7 @@ const CGSize SizeForStaticSizeView = {140, 60};
     _bigImageSwitch.on = bindButton.currentImage.size.width >= 80;
     _longTitleSwitch.on = bindButton.currentTitle.length >= 20;
     _imagePositionSegmented.enabled = [bindButton isKindOfClass:[QMUIButton class]];
-    _imagePositionSegmented.selectedSegmentIndex = [bindButton isKindOfClass:[QMUIButton class]] ? ((QMUIButton *)bindButton).imagePosition : -1;
+    _imagePositionSegmented.selectedSegmentIndex = [bindButton isKindOfClass:[QMUIButton class]] ? ((QMUIButton *) bindButton).imagePosition : -1;
     _horizontalAlignmentSegmented.selectedSegmentIndex = bindButton.contentHorizontalAlignment;
     _verticalAlignmentSegmented.selectedSegmentIndex = bindButton.contentVerticalAlignment;
 }
@@ -326,19 +326,19 @@ const CGSize SizeForStaticSizeView = {140, 60};
     if (switchControl == _shouldShowTitleSwitch || switchControl == _longTitleSwitch) {
         [self updateTitleForButton:self.bindButton shouldShowTitle:_shouldShowTitleSwitch.on shouldShowLongTitle:_longTitleSwitch.on];
     }
-    
+
     [self updateLayoutForButton:self.bindButton];
 }
 
 - (void)handleSegmentedControlEvent:(UISegmentedControl *)segmentedControl {
     if (segmentedControl == _imagePositionSegmented) {
-        ((QMUIButton *)self.bindButton).imagePosition = segmentedControl.selectedSegmentIndex;
+        ((QMUIButton *) self.bindButton).imagePosition = segmentedControl.selectedSegmentIndex;
     } else if (segmentedControl == _horizontalAlignmentSegmented) {
         self.bindButton.contentHorizontalAlignment = segmentedControl.selectedSegmentIndex;
     } else if (segmentedControl == _verticalAlignmentSegmented) {
         self.bindButton.contentVerticalAlignment = segmentedControl.selectedSegmentIndex;
     }
-    
+
     [self updateLayoutForButton:self.bindButton];
 }
 

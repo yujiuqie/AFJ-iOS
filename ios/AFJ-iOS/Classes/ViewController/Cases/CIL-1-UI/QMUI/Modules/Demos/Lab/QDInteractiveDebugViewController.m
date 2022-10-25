@@ -23,7 +23,7 @@
     [self.presentButton setTitle:@"点击打开 Debug 面板" forState:UIControlStateNormal];
     [self.presentButton addTarget:self action:@selector(handlePresentButtonEvent) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.presentButton];
-    
+
     self.asViewController = [self generateDebugController];
     [self.view addSubview:self.asViewController.view];
 }
@@ -42,23 +42,23 @@
 }
 
 - (QMUIInteractiveDebugPanelViewController *)generateDebugController {
-    __weak __typeof(self)weakSelf = self;
+    __weak __typeof(self) weakSelf = self;
     QMUIInteractiveDebugPanelViewController *vc = [QDUIHelper generateDebugViewControllerWithTitle:@"修改按钮信息" items:@[
-        [QMUIInteractiveDebugPanelItem textItemWithTitle:@"文字" valueGetter:^(QMUITextField * _Nonnull actionView) {
-            actionView.text = weakSelf.presentButton.currentTitle;
-        } valueSetter:^(QMUITextField * _Nonnull actionView) {
-            [weakSelf.presentButton setTitle:actionView.text forState:UIControlStateNormal];
-        }],
-        [QMUIInteractiveDebugPanelItem colorItemWithTitle:@"背景色" valueGetter:^(QMUITextField * _Nonnull actionView) {
-            actionView.text = weakSelf.presentButton.backgroundColor.qmui_RGBAString;
-        } valueSetter:^(QMUITextField * _Nonnull actionView) {
-            weakSelf.presentButton.backgroundColor = [UIColor qmui_colorWithRGBAString:actionView.text];
-        }],
-        [QMUIInteractiveDebugPanelItem boolItemWithTitle:@"可用" valueGetter:^(UISwitch * _Nonnull actionView) {
-            actionView.on = weakSelf.presentButton.enabled;
-        } valueSetter:^(UISwitch * _Nonnull actionView) {
-            weakSelf.presentButton.enabled = actionView.on;
-        }],
+            [QMUIInteractiveDebugPanelItem textItemWithTitle:@"文字" valueGetter:^(QMUITextField *_Nonnull actionView) {
+                actionView.text = weakSelf.presentButton.currentTitle;
+            }                                    valueSetter:^(QMUITextField *_Nonnull actionView) {
+                [weakSelf.presentButton setTitle:actionView.text forState:UIControlStateNormal];
+            }],
+            [QMUIInteractiveDebugPanelItem colorItemWithTitle:@"背景色" valueGetter:^(QMUITextField *_Nonnull actionView) {
+                actionView.text = weakSelf.presentButton.backgroundColor.qmui_RGBAString;
+            }                                     valueSetter:^(QMUITextField *_Nonnull actionView) {
+                weakSelf.presentButton.backgroundColor = [UIColor qmui_colorWithRGBAString:actionView.text];
+            }],
+            [QMUIInteractiveDebugPanelItem boolItemWithTitle:@"可用" valueGetter:^(UISwitch *_Nonnull actionView) {
+                actionView.on = weakSelf.presentButton.enabled;
+            }                                    valueSetter:^(UISwitch *_Nonnull actionView) {
+                weakSelf.presentButton.enabled = actionView.on;
+            }],
     ]];
     return vc;
 }

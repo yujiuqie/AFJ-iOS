@@ -24,13 +24,13 @@
     [self.printLogButton setTitle:@"打印一条日志" forState:UIControlStateNormal];
     [self.printLogButton addTarget:self action:@selector(handlePrintLogButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.printLogButton];
-    
+
     self.printMultipleLogButton = [QDUIHelper generateLightBorderedButton];
     self.printMultipleLogButton.qmui_preventsRepeatedTouchUpInsideEvent = NO;
     [self.printMultipleLogButton setTitle:@"打印多种 Level/Name" forState:UIControlStateNormal];
     [self.printMultipleLogButton addTarget:self action:@selector(handlePrintMulitipleEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.printMultipleLogButton];
-    
+
     self.tipsLabel = [[UILabel alloc] init];
     self.tipsLabel.numberOfLines = 0;
     NSMutableAttributedString *tips = [[NSMutableAttributedString alloc] initWithString:@"[QMUIConsole log:xxx] 可以直接在屏幕上显示日志，通常用于一些重要信息但又不适合用 NSAssert 提示的场景。可通过长按小圆钮关闭控制台。\n支持搜索或按 Level、Name 过滤日志，可以通过配置表 ShouldPrintQMUIWarnLogToConsole 让 QMUILogWarn() 的内容也自动显示到 QMUIConsole 里（默认仅在 DEBUG 下打开）。" attributes:@{NSFontAttributeName: UIFontMake(12), NSForegroundColorAttributeName: UIColor.qd_descriptionTextColor, NSParagraphStyleAttributeName: [NSMutableParagraphStyle qmui_paragraphStyleWithLineHeight:20]}];
@@ -54,14 +54,14 @@
 - (void)handlePrintLogButtonEvent:(QMUIButton *)button {
     // 支持打印普通文本
     [QMUIConsole log:@"NSString log"];
-    
+
     // 支持 NSAttributedString 自定义 log 样式
 //    [QMUIConsole log:[[NSAttributedString alloc] initWithString:@"NSAttributedString log" attributes:({
 //        NSMutableDictionary<NSAttributedStringKey, id> *attributes = [QMUIConsole appearance].textAttributes.mutableCopy;
 //        attributes[NSForegroundColorAttributeName] = UIColor.qd_tintColor;
 //        attributes;
 //    })]];
-    
+
     // 支持直接打印一个对象
 //    [QMUIConsole log:button];
 }

@@ -18,14 +18,13 @@
     // Drawing code
 }
 */
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
-{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey, id> *)change context:(void *)context {
     NSLog(@"11111111");
 }
--(void)dealloc
-{
-    NSLog(@"dealloc   %@",NSStringFromClass([self class]));
-    
+
+- (void)dealloc {
+    NSLog(@"dealloc   %@", NSStringFromClass([self class]));
+
 //    [self.con removeObserver:self forKeyPath:@"kvoTest"];
 //    [self.con removeObserver:self forKeyPath:@"kvoTest111111"];
 //    [self.con removeObserver:self forKeyPath:@"kvoTest2"];

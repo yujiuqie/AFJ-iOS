@@ -10,6 +10,6 @@
 
 @interface DMSlideTransition : DMBaseTransition
 
-@property (nonatomic, strong) UIColor *backgroundColor;
+@property(nonatomic, strong) UIColor *backgroundColor;
 
 @end

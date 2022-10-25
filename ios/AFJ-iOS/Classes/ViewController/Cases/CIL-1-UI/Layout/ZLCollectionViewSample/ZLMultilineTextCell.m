@@ -15,16 +15,16 @@
 }
 
 + (instancetype)cellWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath {
-    ZLMultilineTextCell *cell = (ZLMultilineTextCell*)[collectionView dequeueReusableCellWithReuseIdentifier:[ZLMultilineTextCell cellIdentifier] forIndexPath:indexPath];
+    ZLMultilineTextCell *cell = (ZLMultilineTextCell *) [collectionView dequeueReusableCellWithReuseIdentifier:[ZLMultilineTextCell cellIdentifier] forIndexPath:indexPath];
     return cell;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.contentView.backgroundColor = UIColorFromRGB(0xc4e9ff);
         self.contentView.layer.borderColor = [UIColor blackColor].CGColor;
         self.contentView.layer.borderWidth = 0.4;
-        
+
         self.label = [UILabel new];
         self.label.numberOfLines = 0;
         self.label.font = [UIFont systemFontOfSize:15];

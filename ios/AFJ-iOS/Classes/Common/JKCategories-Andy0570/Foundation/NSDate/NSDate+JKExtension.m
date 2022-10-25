@@ -34,79 +34,79 @@
 
 + (NSUInteger)jk_day:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSDateComponents *dayComponents = [calendar components:(NSCalendarUnitDay) fromDate:date];
 #else
     NSDateComponents *dayComponents = [calendar components:(NSDayCalendarUnit) fromDate:date];
 #endif
-    
+
     return [dayComponents day];
 }
 
 + (NSUInteger)jk_month:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSDateComponents *dayComponents = [calendar components:(NSCalendarUnitMonth) fromDate:date];
 #else
     NSDateComponents *dayComponents = [calendar components:(NSMonthCalendarUnit) fromDate:date];
 #endif
-    
+
     return [dayComponents month];
 }
 
 + (NSUInteger)jk_year:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSDateComponents *dayComponents = [calendar components:(NSCalendarUnitYear) fromDate:date];
 #else
     NSDateComponents *dayComponents = [calendar components:(NSYearCalendarUnit) fromDate:date];
 #endif
-    
+
     return [dayComponents year];
 }
 
 + (NSUInteger)jk_hour:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSDateComponents *dayComponents = [calendar components:(NSCalendarUnitHour) fromDate:date];
 #else
     NSDateComponents *dayComponents = [calendar components:(NSHourCalendarUnit) fromDate:date];
 #endif
-    
+
     return [dayComponents hour];
 }
 
 + (NSUInteger)jk_minute:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSDateComponents *dayComponents = [calendar components:(NSCalendarUnitMinute) fromDate:date];
 #else
     NSDateComponents *dayComponents = [calendar components:(NSMinuteCalendarUnit) fromDate:date];
 #endif
-    
+
     return [dayComponents minute];
 }
 
 + (NSUInteger)jk_second:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSDateComponents *dayComponents = [calendar components:(NSCalendarUnitSecond) fromDate:date];
 #else
     NSDateComponents *dayComponents = [calendar components:(NSSecondCalendarUnit) fromDate:date];
 #endif
-    
+
     return [dayComponents second];
 }
 
@@ -124,7 +124,7 @@
 
 + (BOOL)jk_isLeapYear:(NSDate *)date {
     NSUInteger year = [date jk_year];
-    if ((year % 4  == 0 && year % 100 != 0) || year % 400 == 0) {
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
         return YES;
     }
     return NO;
@@ -135,7 +135,7 @@
 }
 
 + (NSString *)jk_formatYMD:(NSDate *)date {
-    return [NSString stringWithFormat:@"%zd-%zd-%zd",[date jk_year],[date jk_month], [date jk_day]];
+    return [NSString stringWithFormat:@"%zd-%zd-%zd", [date jk_year], [date jk_month], [date jk_day]];
 }
 
 - (NSUInteger)jk_weeksOfMonth {
@@ -153,11 +153,11 @@
 + (NSUInteger)jk_weekOfYear:(NSDate *)date {
     NSUInteger i;
     NSUInteger year = [date jk_year];
-    
+
 //    NSDate *lastdate = [date jk_lastdayOfMonth];
-    
-    for (i = 1;[[date jk_dateAfterDay:-7 * i] jk_year] == year; i++) {
-        
+
+    for (i = 1; [[date jk_dateAfterDay:-7 * i] jk_year] == year; i++) {
+
     }
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
 //    [dateFormatter setDateFormat:@"'公元前/后:'G  '年份:'u'='yyyy'='yy '季度:'q'='qqq'='qqqq '月份:'M'='MMM'='MMMM '今天是今年第几周:'w '今天是本月第几周:'W  '今天是今天第几天:'D '今天是本月第几天:'d '星期:'c'='ccc'='cccc '上午/下午:'a '小时:'h'='H '分钟:'m '秒:'s '毫秒:'SSS  '这一天已过多少毫秒:'A  '时区名称:'zzzz'='vvvv '时区编号:'Z "];
@@ -173,9 +173,9 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
     [componentsToAdd setDay:day];
-    
+
     NSDate *dateAfterDay = [calendar dateByAddingComponents:componentsToAdd toDate:date options:0];
-    
+
     return dateAfterDay;
 }
 
@@ -188,7 +188,7 @@
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
     [componentsToAdd setMonth:month];
     NSDate *dateAfterMonth = [calendar dateByAddingComponents:componentsToAdd toDate:date options:0];
-    
+
     return dateAfterMonth;
 }
 
@@ -215,7 +215,7 @@
 
 + (NSUInteger)jk_daysAgo:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     NSDateComponents *components = [calendar components:(NSCalendarUnitDay)
                                                fromDate:date
@@ -227,7 +227,7 @@
                                                  toDate:[NSDate date]
                                                 options:0];
 #endif
-    
+
     return [components day];
 }
 
@@ -237,10 +237,10 @@
 
 + (NSInteger)jk_weekday:(NSDate *)date {
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday) fromDate:date];
     NSInteger weekday = [comps weekday];
-    
+
     return weekday;
 }
 
@@ -249,7 +249,7 @@
 }
 
 + (NSString *)jk_dayFromWeekday:(NSDate *)date {
-    switch([date jk_weekday]) {
+    switch ([date jk_weekday]) {
         case 1:
             return @"星期天";
             break;
@@ -297,7 +297,7 @@
  *  @return Return the given month as a localized string
  */
 + (NSString *)jk_monthWithMonthNumber:(NSInteger)month {
-    switch(month) {
+    switch (month) {
         case 1:
             return @"January";
             break;
@@ -347,18 +347,18 @@
 - (NSString *)jk_stringWithFormat:(NSString *)format {
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:format];
-    
+
     NSString *retStr = [outputFormatter stringFromDate:self];
-    
+
     return retStr;
 }
 
 + (NSDate *)jk_dateWithString:(NSString *)string format:(NSString *)format {
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setDateFormat:format];
-    
+
     NSDate *date = [inputFormatter dateFromString:string];
-    
+
     return date;
 }
 
@@ -368,7 +368,13 @@
 
 + (NSUInteger)jk_daysInMonth:(NSDate *)date month:(NSUInteger)month {
     switch (month) {
-        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
             return 31;
         case 2:
             return [date jk_isLeapYear] ? 29 : 28;
@@ -394,14 +400,14 @@
 
 + (NSString *)jk_timeInfoWithDateString:(NSString *)dateString {
     NSDate *date = [self jk_dateWithString:dateString format:[self jk_ymdHmsFormat]];
-    
+
     NSDate *curDate = [NSDate date];
     NSTimeInterval time = -[date timeIntervalSinceDate:curDate];
-    
-    int month = (int)([curDate jk_month] - [date jk_month]);
-    int year = (int)([curDate jk_year] - [date jk_year]);
-    int day = (int)([curDate jk_day] - [date jk_day]);
-    
+
+    int month = (int) ([curDate jk_month] - [date jk_month]);
+    int year = (int) ([curDate jk_year] - [date jk_year]);
+    int day = (int) ([curDate jk_day] - [date jk_day]);
+
     NSTimeInterval retTime = 1.0;
     if (time < 3600) { // 小于一小时
         retTime = time / 60;
@@ -416,44 +422,44 @@
     } else if (time < 3600 * 24 * 2) {
         return @"昨天";
     }
-    // 第一个条件是同年，且相隔时间在一个月内
-    // 第二个条件是隔年，对于隔年，只能是去年12月与今年1月这种情况
+        // 第一个条件是同年，且相隔时间在一个月内
+        // 第二个条件是隔年，对于隔年，只能是去年12月与今年1月这种情况
     else if ((abs(year) == 0 && abs(month) <= 1)
-             || (abs(year) == 1 && [curDate jk_month] == 1 && [date jk_month] == 12)) {
+            || (abs(year) == 1 && [curDate jk_month] == 1 && [date jk_month] == 12)) {
         int retDay = 0;
         if (year == 0) { // 同年
             if (month == 0) { // 同月
                 retDay = day;
             }
         }
-        
+
         if (retDay <= 0) {
             // 获取发布日期中，该月有多少天
-            int totalDays = (int)[self jk_daysInMonth:date month:[date jk_month]];
-            
+            int totalDays = (int) [self jk_daysInMonth:date month:[date jk_month]];
+
             // 当前天数 + （发布日期月中的总天数-发布日期月中发布日，即等于距离今天的天数）
-            retDay = (int)[curDate jk_day] + (totalDays - (int)[date jk_day]);
+            retDay = (int) [curDate jk_day] + (totalDays - (int) [date jk_day]);
         }
-        
+
         return [NSString stringWithFormat:@"%d天前", (abs)(retDay)];
-    } else  {
+    } else {
         if (abs(year) <= 1) {
             if (year == 0) { // 同年
                 return [NSString stringWithFormat:@"%d个月前", abs(month)];
             }
-            
+
             // 隔年
-            int month = (int)[curDate jk_month];
-            int preMonth = (int)[date jk_month];
+            int month = (int) [curDate jk_month];
+            int preMonth = (int) [date jk_month];
             if (month == 12 && preMonth == 12) {// 隔年，但同月，就作为满一年来计算
                 return @"1年前";
             }
             return [NSString stringWithFormat:@"%d个月前", (abs)(12 - preMonth + month)];
         }
-        
+
         return [NSString stringWithFormat:@"%d年前", abs(year)];
     }
-    
+
     return @"1小时前";
 }
 
@@ -489,20 +495,20 @@
     if (fromDate == nil) {
         return nil;
     }
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 #else
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSGregorianCalendar];
 #endif
-    
-    
+
+
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setYear:numYears];
-    
+
     return [gregorian dateByAddingComponents:offsetComponents
                                       toDate:fromDate
                                      options:0];
@@ -516,20 +522,20 @@
     if (fromDate == nil) {
         return nil;
     }
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 #else
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSGregorianCalendar];
 #endif
-    
-    
+
+
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setMonth:numMonths];
-    
+
     return [gregorian dateByAddingComponents:offsetComponents
                                       toDate:fromDate
                                      options:0];
@@ -543,20 +549,20 @@
     if (fromDate == nil) {
         return nil;
     }
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 #else
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSGregorianCalendar];
 #endif
-    
-    
+
+
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setDay:numDays];
-    
+
     return [gregorian dateByAddingComponents:offsetComponents
                                       toDate:fromDate
                                      options:0];
@@ -570,20 +576,20 @@
     if (fromDate == nil) {
         return nil;
     }
-    
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     // NSDayCalendarUnit
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 #else
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSGregorianCalendar];
 #endif
-    
-    
+
+
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setHour:numHours];
-    
+
     return [gregorian dateByAddingComponents:offsetComponents
                                       toDate:fromDate
                                      options:0];

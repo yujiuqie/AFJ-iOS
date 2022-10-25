@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^JKUIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
+typedef void (^JKUIImageSizeRequestCompleted)(NSURL *imgURL, CGSize size);
 
 @interface UIImage (JKRemoteSize)
 
@@ -18,7 +18,7 @@ typedef void (^JKUIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
  *  @param imgURL     图片url
  *  @param completion 完成回调
  */
-+ (void)jk_requestSizeNoHeader:(NSURL*)imgURL completion:(JKUIImageSizeRequestCompleted)completion;
++ (void)jk_requestSizeNoHeader:(NSURL *)imgURL completion:(JKUIImageSizeRequestCompleted)completion;
 
 /**
  *  @brief  从header中获取远程图片的大小 (服务器必须支持)

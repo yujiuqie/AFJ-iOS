@@ -10,7 +10,7 @@
 
 @interface MASExampleViewController ()
 
-@property (nonatomic, strong) Class viewClass;
+@property(nonatomic, strong) Class viewClass;
 
 @end
 
@@ -19,10 +19,10 @@
 - (id)initWithTitle:(NSString *)title viewClass:(Class)viewClass {
     self = [super init];
     if (!self) return nil;
-    
+
     self.title = title;
     self.viewClass = viewClass;
-    
+
     return self;
 }
 
@@ -32,9 +32,11 @@
 }
 
 #ifdef __IPHONE_7_0
+
 - (UIRectEdge)edgesForExtendedLayout {
     return UIRectEdgeNone;
 }
+
 #endif
 
 @end

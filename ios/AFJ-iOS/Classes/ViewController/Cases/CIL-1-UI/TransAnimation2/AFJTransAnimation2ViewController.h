@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AFJTransAnimation2ViewController : AFJRootViewController<UITableViewDataSource,UITableViewDelegate>
+@interface AFJTransAnimation2ViewController : AFJRootViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
 

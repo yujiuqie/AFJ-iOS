@@ -17,17 +17,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     UIImageView *bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     bgView.image = [UIImage imageNamed:@"bg2"];
     [self.view addSubview:bgView];
-    
+
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
     btn.center = self.view.center;
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -42,8 +43,8 @@
 
 }
 
--(void)click{
-    
+- (void)click {
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

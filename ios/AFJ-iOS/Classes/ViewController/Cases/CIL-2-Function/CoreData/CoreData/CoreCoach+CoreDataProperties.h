@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<CoreCoach *> *)fetchRequest;
 
-@property (nonatomic) int64_t age;
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nonatomic) int64_t sex;
-@property (nonatomic) int64_t userId;
-@property (nullable, nonatomic, copy) NSNumber *salary;
-@property (nullable, nonatomic, retain) CoreTeam *team;
+@property(nonatomic) int64_t age;
+@property(nullable, nonatomic, copy) NSString *name;
+@property(nonatomic) int64_t sex;
+@property(nonatomic) int64_t userId;
+@property(nullable, nonatomic, copy) NSNumber *salary;
+@property(nullable, nonatomic, retain) CoreTeam *team;
 
 @end
 

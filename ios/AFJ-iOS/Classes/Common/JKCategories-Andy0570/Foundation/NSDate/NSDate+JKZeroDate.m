@@ -7,8 +7,7 @@
 //
 
 @implementation NSDate (JKZeroDate)
-+ (NSDate *)jk_zeroTodayDate
-{
++ (NSDate *)jk_zeroTodayDate {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:[NSDate date]];
     components.hour = 0;
@@ -18,8 +17,7 @@
     return [calendar dateFromComponents:components];
 }
 
-+ (NSDate *)jk_zero24TodayDate
-{
++ (NSDate *)jk_zero24TodayDate {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:[NSDate date]];
     components.hour = 23;
@@ -29,8 +27,7 @@
     return [calendar dateFromComponents:components];
 }
 
-- (NSDate *)jk_zeroDate
-{
+- (NSDate *)jk_zeroDate {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:self];
     components.hour = 0;
@@ -39,8 +36,8 @@
     components.nanosecond = 0;
     return [calendar dateFromComponents:components];
 }
-- (NSDate *)jk_zero24Date
-{
+
+- (NSDate *)jk_zero24Date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:self];
     components.hour = 23;

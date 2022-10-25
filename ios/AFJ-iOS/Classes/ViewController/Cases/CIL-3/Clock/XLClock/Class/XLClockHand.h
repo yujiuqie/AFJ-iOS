@@ -10,8 +10,8 @@
 
 @interface XLClockHand : UIView
 
-@property (nonatomic, strong) UIImage *handImage;
+@property(nonatomic, strong) UIImage *handImage;
 
-@property (nonatomic, strong) UIImage *shadowImage;
+@property(nonatomic, strong) UIImage *shadowImage;
 
 @end

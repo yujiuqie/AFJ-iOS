@@ -30,15 +30,14 @@ const CGFloat inset_space = 15;
  *
  *  @return 返回一个scrollView
  */
-- (instancetype)initScrollViewWithPasterImageArray:(NSArray *)pasterImageArray
-{
+- (instancetype)initScrollViewWithPasterImageArray:(NSArray *)pasterImageArray {
     if (self = [super init]) {
-        
+
         self.pasterImageArray = pasterImageArray;
         self.pasterImage_W_H = pasterScrollView_H - inset_space * 2;
-        
+
         [self setupUI];
-        
+
     }
     return self;
 }
@@ -46,13 +45,11 @@ const CGFloat inset_space = 15;
 /**
  *  设置UI
  */
-- (void)setupUI
-{
-    for (int i = 0; i < self.pasterImageArray.count; i ++)
-    {
+- (void)setupUI {
+    for (int i = 0; i < self.pasterImageArray.count; i++) {
         CGFloat pasterBtnW_H = self.pasterImage_W_H;
-        UIButton *pasterBtn = [[UIButton alloc]init];
-        pasterBtn.frame = CGRectMake((i+1)*inset_space + pasterBtnW_H*i, inset_space, pasterBtnW_H, pasterBtnW_H);
+        UIButton *pasterBtn = [[UIButton alloc] init];
+        pasterBtn.frame = CGRectMake((i + 1) * inset_space + pasterBtnW_H * i, inset_space, pasterBtnW_H, pasterBtnW_H);
         [pasterBtn setImage:self.pasterImageArray[i] forState:UIControlStateNormal];
         //pasterBtn.layer.borderColor = [UIColor whiteColor].CGColor;
         //pasterBtn.layer.borderWidth = 0.5;
@@ -65,8 +62,7 @@ const CGFloat inset_space = 15;
 /**
  *  点击选取贴纸
  */
-- (void)pasterClick:(UIButton *)sender
-{
+- (void)pasterClick:(UIButton *)sender {
     //按钮选中状态切换的逻辑
     self.defaultButton.selected = NO;
     if (!self.defaultButton.selected) {
@@ -83,17 +79,16 @@ const CGFloat inset_space = 15;
             self.defaultButton.layer.borderWidth = 2;
         }];
     }
-    
+
     if (_pasterDelegate && [_pasterDelegate respondsToSelector:@selector(pasterTag:pasterImage:)]) {
-        
+
         [_pasterDelegate pasterTag:sender.tag - 1000 pasterImage:[self.pasterImageArray objectAtIndex:sender.tag - 1000]];
     }
 }
 
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
-    
+
 }
 @end

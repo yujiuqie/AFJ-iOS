@@ -12,20 +12,26 @@
 
 @interface GLProgram : NSObject
 
-@property (nonatomic, strong) NSMutableArray *attributes;
-@property (nonatomic, strong) NSMutableArray *uniforms;
-@property (nonatomic, assign) GLuint vertShader;
-@property (nonatomic, assign) GLuint fragShader;
-@property (nonatomic, assign) GLuint program;
+@property(nonatomic, strong) NSMutableArray *attributes;
+@property(nonatomic, strong) NSMutableArray *uniforms;
+@property(nonatomic, assign) GLuint vertShader;
+@property(nonatomic, assign) GLuint fragShader;
+@property(nonatomic, assign) GLuint program;
 
 - (id)initWithVertexShaderString:(NSString *)vShaderString
             fragmentShaderString:(NSString *)fShaderString;
+
 - (id)initWithVertexShaderFilename:(NSString *)vShaderFilename
             fragmentShaderFilename:(NSString *)fShaderFilename;
+
 - (void)addAttribute:(NSString *)attributeName;
+
 - (GLuint)attributeIndex:(NSString *)attributeName;
+
 - (GLuint)uniformIndex:(NSString *)uniformName;
+
 - (BOOL)link;
+
 - (void)use;
 
 @end

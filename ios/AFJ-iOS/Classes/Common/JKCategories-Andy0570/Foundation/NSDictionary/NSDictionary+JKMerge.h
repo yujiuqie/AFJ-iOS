@@ -32,6 +32,7 @@
 #pragma mark - Manipulation
 
 - (NSDictionary *)jk_dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary;
+
 - (NSDictionary *)jk_dictionaryByRemovingEntriesWithKeys:(NSSet *)keys;
 
 @end

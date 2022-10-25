@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, ApplicationType) {
-    
+
     ApplicationTypeUndefined = 0,
-    
+
     ApplicationType500px = 1,
     ApplicationTypeAirbnb,
     ApplicationTypeAppstore,
@@ -39,20 +39,21 @@ typedef NS_ENUM(NSUInteger, ApplicationType) {
     ApplicationTypeVine,
     ApplicationTypeWhatsapp,
     ApplicationTypeWWDC,
-    
+
     ApplicationCount // Used for count (27)
 };
 
 @interface Application : NSObject
-@property (nonatomic, strong) NSString *displayName;
-@property (nonatomic, strong) NSString *developerName;
-@property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, strong) NSString *iconName;
-@property (nonatomic) ApplicationType type;
+@property(nonatomic, strong) NSString *displayName;
+@property(nonatomic, strong) NSString *developerName;
+@property(nonatomic, strong) NSString *identifier;
+@property(nonatomic, strong) NSString *iconName;
+@property(nonatomic) ApplicationType type;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 + (NSArray *)applicationsFromJSONAtPath:(NSString *)path;
+
 + (NSArray *)applicationsFromJSON:(id)JSON;
 
 @end

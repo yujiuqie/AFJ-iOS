@@ -8,24 +8,24 @@
 
 @implementation NSString (JKPinyin)
 
-- (NSString *)jk_pinyinWithPhoneticSymbol{
+- (NSString *)jk_pinyinWithPhoneticSymbol {
     NSMutableString *pinyin = [NSMutableString stringWithString:self];
-    CFStringTransform((__bridge CFMutableStringRef)(pinyin), NULL, kCFStringTransformMandarinLatin, NO);
+    CFStringTransform((__bridge CFMutableStringRef) (pinyin), NULL, kCFStringTransformMandarinLatin, NO);
     return pinyin;
 }
 
-- (NSString *)jk_pinyin{
+- (NSString *)jk_pinyin {
     NSMutableString *pinyin = [NSMutableString stringWithString:[self jk_pinyinWithPhoneticSymbol]];
-    CFStringTransform((__bridge CFMutableStringRef)(pinyin), NULL, kCFStringTransformStripCombiningMarks, NO);
+    CFStringTransform((__bridge CFMutableStringRef) (pinyin), NULL, kCFStringTransformStripCombiningMarks, NO);
     return pinyin;
 }
 
-- (NSArray *)jk_pinyinArray{
+- (NSArray *)jk_pinyinArray {
     NSArray *array = [[self jk_pinyin] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     return array;
 }
 
-- (NSString *)jk_pinyinWithoutBlank{
+- (NSString *)jk_pinyinWithoutBlank {
     NSMutableString *string = [NSMutableString stringWithString:@""];
     for (NSString *str in [self jk_pinyinArray]) {
         [string appendString:str];
@@ -33,7 +33,7 @@
     return string;
 }
 
-- (NSArray *)jk_pinyinInitialsArray{
+- (NSArray *)jk_pinyinInitialsArray {
     NSMutableArray *array = [NSMutableArray array];
     for (NSString *str in [self jk_pinyinArray]) {
         if ([str length] > 0) {
@@ -43,7 +43,7 @@
     return array;
 }
 
-- (NSString *)jk_pinyinInitialsString{
+- (NSString *)jk_pinyinInitialsString {
     NSMutableString *pinyin = [NSMutableString stringWithString:@""];
     for (NSString *str in [self jk_pinyinArray]) {
         if ([str length] > 0) {

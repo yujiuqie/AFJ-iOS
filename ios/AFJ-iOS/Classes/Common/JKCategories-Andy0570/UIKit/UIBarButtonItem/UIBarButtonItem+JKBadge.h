@@ -13,23 +13,23 @@
 
 @interface UIBarButtonItem (JKBadge)
 
-@property (strong, atomic) UILabel *jk_badge;
+@property(strong, atomic) UILabel *jk_badge;
 
 // Badge value to be display
-@property (nonatomic) NSString *jk_badgeValue;
+@property(nonatomic) NSString *jk_badgeValue;
 // Badge background color
-@property (nonatomic) UIColor *jk_badgeBGColor;
+@property(nonatomic) UIColor *jk_badgeBGColor;
 // Badge text color
-@property (nonatomic) UIColor *jk_badgeTextColor;
+@property(nonatomic) UIColor *jk_badgeTextColor;
 // Badge font
-@property (nonatomic) UIFont *jk_badgeFont;
+@property(nonatomic) UIFont *jk_badgeFont;
 // Padding value for the badge
-@property (nonatomic) CGFloat jk_badgePadding;
+@property(nonatomic) CGFloat jk_badgePadding;
 // Minimum size badge to small
-@property (nonatomic) CGFloat jk_badgeMinSize;
+@property(nonatomic) CGFloat jk_badgeMinSize;
 // Values for offseting the badge over the BarButtonItem you picked
-@property (nonatomic) CGFloat jk_badgeOriginX;
-@property (nonatomic) CGFloat jk_badgeOriginY;
+@property(nonatomic) CGFloat jk_badgeOriginX;
+@property(nonatomic) CGFloat jk_badgeOriginY;
 // In case of numbers, remove the badge when reaching zero
 @property BOOL jk_shouldHideBadgeAtZero;
 // Badge has a bounce animation when value changes

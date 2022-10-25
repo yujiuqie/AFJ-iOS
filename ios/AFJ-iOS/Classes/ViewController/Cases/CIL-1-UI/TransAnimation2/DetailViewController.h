@@ -10,7 +10,8 @@
 
 #import "WXSBaseViewController.h"
 #import "UIViewController+WXSTransition.h"
+
 @interface DetailViewController : WXSBaseViewController
-@property (nonatomic,strong) UIImageView *imageView;
+@property(nonatomic, strong) UIImageView *imageView;
 
 @end

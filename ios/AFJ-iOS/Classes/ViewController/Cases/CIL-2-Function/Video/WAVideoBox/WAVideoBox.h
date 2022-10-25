@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "WAAVSEGearboxCommandModel.h"
-typedef NS_ENUM(NSUInteger,WAVideoExportRatio) {
+
+typedef NS_ENUM(NSUInteger, WAVideoExportRatio) {
     WAVideoExportRatioLowQuality,// 自动分辩率
     WAVideoExportRatioMediumQuality,// 自动分辩率
     WAVideoExportRatioHighQuality, // 自动分辩率
@@ -41,15 +42,16 @@ typedef NS_ENUM(NSUInteger,WAVideoExportRatio) {
 /**
  输出的视频分辨率,默认为960 * 540,需要在appendVideo前调用，若已经有视频在里面，设置无效
  */
-@property (nonatomic , assign) WAVideoExportRatio ratio;
+@property(nonatomic, assign) WAVideoExportRatio ratio;
 
 /**
  输出的视频质量(0~10)，默认为0(不开启）,6差不多抖音视频质量平级，此参数有可能会加长处理时长。自动分辩率下此参数会自动失效
  */
-@property (nonatomic , assign) NSInteger videoQuality;
+@property(nonatomic, assign) NSInteger videoQuality;
 
 
 #pragma mark 资源
+
 /**
  拼接一个视频到缓存区
  @param videoPath 视频地址
@@ -74,6 +76,7 @@ typedef NS_ENUM(NSUInteger,WAVideoExportRatio) {
  */
 #pragma mark 操作指令
 #pragma mark 裁取
+
 /**
  视频截取
  @param range 时间范围，超出则为无效操作
@@ -120,6 +123,7 @@ typedef NS_ENUM(NSUInteger,WAVideoExportRatio) {
 - (BOOL)appendImages:(NSURL *)imagesUrl relativeRect:(CGRect)relativeRect;
 
 #pragma mark 变速
+
 /**
  视频按scale变速
  @param scale 速度倍率
@@ -135,9 +139,11 @@ typedef NS_ENUM(NSUInteger,WAVideoExportRatio) {
 - (BOOL)gearBoxTimeByScaleArray:(NSArray <WAAVSEGearboxCommandModel *> *)scaleArray;
 
 #pragma mark 换音
+
 - (BOOL)replaceSoundBySoundPath:(NSString *)soundPath;
 
 #pragma mark 混音
+
 - (BOOL)dubbedSoundBySoundPath:(NSString *)soundPath;
 
 /**
@@ -156,9 +162,10 @@ typedef NS_ENUM(NSUInteger,WAVideoExportRatio) {
  音频提取，操作后视频将变为音频
  @return 操作状态
  */
-- (BOOL)extractVideoSound; 
+- (BOOL)extractVideoSound;
 
 #pragma mark 处理
+
 /**
  异步视频处理
  @param filePath 存储位置

@@ -19,7 +19,7 @@
 }
 
 - (void)dealloc {
-    
+
 }
 
 #pragma mark - ***** setter 设置器/数据处理 *****
@@ -28,14 +28,14 @@
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)initSubViews {
-    
-    
+
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    
+
+
 }
 
 #pragma mark - ***** other 其他 *****

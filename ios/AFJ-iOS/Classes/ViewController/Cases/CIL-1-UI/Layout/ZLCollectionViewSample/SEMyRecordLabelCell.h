@@ -10,8 +10,8 @@
 
 @interface SEMyRecordLabelCell : UICollectionViewCell
 
-@property(nonatomic,strong)UIImageView* backImageView;
-@property(nonatomic,strong)UILabel* labelRecord;
+@property(nonatomic, strong) UIImageView *backImageView;
+@property(nonatomic, strong) UILabel *labelRecord;
 
 + (NSString *)cellIdentifier;
 

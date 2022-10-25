@@ -13,15 +13,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIColor (JKModify)
 
 - (UIColor *)jk_invertedColor;
+
 - (UIColor *)jk_colorForTranslucency;
+
 /// 降低亮度
-- (UIColor * _Nullable)jk_lightenByPercentage:(CGFloat)percentage;
+- (UIColor *_Nullable)jk_lightenByPercentage:(CGFloat)percentage;
+
 /// 提高亮度
-- (UIColor * _Nullable)jk_darkenByPercentage:(CGFloat)percentage;
+- (UIColor *_Nullable)jk_darkenByPercentage:(CGFloat)percentage;
+
 /// 降低饱和度
-- (UIColor * _Nullable)jk_desaturateByPercentage:(CGFloat)percentage;
+- (UIColor *_Nullable)jk_desaturateByPercentage:(CGFloat)percentage;
+
 /// 提高饱和度
-- (UIColor * _Nullable)jk_saturateByPercentage:(CGFloat)percentage;
+- (UIColor *_Nullable)jk_saturateByPercentage:(CGFloat)percentage;
 
 @end
 

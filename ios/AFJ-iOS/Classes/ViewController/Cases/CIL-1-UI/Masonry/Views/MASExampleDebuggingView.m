@@ -61,7 +61,7 @@
         make.height.equalTo(greenView.mas_height);
         make.height.equalTo(redView.mas_height).key(@340954); //anything can be a key
     }];
-    
+
     [greenView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.greaterThanOrEqualTo(superview.top).offset(padding);
         make.left.equalTo(superview.left).offset(padding);
@@ -83,7 +83,7 @@
 
         make.height.equalTo(@[greenView, blueView]);
     }];
-    
+
     return self;
 }
 

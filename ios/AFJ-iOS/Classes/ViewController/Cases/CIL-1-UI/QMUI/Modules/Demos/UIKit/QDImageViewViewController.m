@@ -60,7 +60,7 @@
             [switchControl addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventTouchUpInside];
             cell.accessoryView = switchControl;
         }
-        ((UISwitch *)cell.accessoryView).on = self.usingSmoothAnimation;
+        ((UISwitch *) cell.accessoryView).on = self.usingSmoothAnimation;
     } else if ([identifier isEqualToString:@"image"]) {
         if (!cell) {
             cell = [[QDImageViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -73,7 +73,7 @@
             [cell.imageView startAnimating];
         }
     }
-    
+
     return cell;
 }
 

@@ -17,7 +17,7 @@
 /**
  *  identity of this textfield
  */
-@property (retain, nonatomic) NSString *jk_identify;
+@property(retain, nonatomic) NSString *jk_identify;
 
 /**
  *  load textfiled input history
@@ -25,7 +25,7 @@
  *
  *  @return the history of it's input
  */
-- (NSArray*)jk_loadHistroy;
+- (NSArray *)jk_loadHistroy;
 
 /**
  *  save current input text
@@ -33,6 +33,7 @@
 - (void)jk_synchronize;
 
 - (void)jk_showHistory;
+
 - (void)jk_hideHistroy;
 
 - (void)jk_clearHistory;

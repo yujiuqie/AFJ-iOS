@@ -18,25 +18,25 @@
 @implementation PFGoldenSectionSpiral
 
 + (NSArray *)sphere:(NSInteger)n {
-	NSMutableArray* result = [NSMutableArray arrayWithCapacity:n];
-	
-	CGFloat N = n;
-	CGFloat inc = M_PI * (3 - sqrt(5));
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:n];
+
+    CGFloat N = n;
+    CGFloat inc = M_PI * (3 - sqrt(5));
     CGFloat off = 2 / N;
-	for (NSInteger k=0; k<N; k++) {
+    for (NSInteger k = 0; k < N; k++) {
         CGFloat y = k * off - 1 + (off / 2);
-        CGFloat r = sqrt(1 - y*y);
+        CGFloat r = sqrt(1 - y * y);
         CGFloat phi = k * inc;
-		
-		
-		PFPoint point = PFPointMake(cos(phi)*r, y, sin(phi)*r);
-		
-		NSValue *v = [NSValue value:&point withObjCType:@encode(PFPoint)];
-		
+
+
+        PFPoint point = PFPointMake(cos(phi) * r, y, sin(phi) * r);
+
+        NSValue *v = [NSValue value:&point withObjCType:@encode(PFPoint)];
+
         [result addObject:v];
-	}
-	
-	return result;
+    }
+
+    return result;
 }
 
 @end

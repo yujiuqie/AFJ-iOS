@@ -39,7 +39,7 @@
     topSubview.layer.borderColor = UIColor.blackColor.CGColor;
     topSubview.layer.borderWidth = 2;
     [topView addSubview:topSubview];
-    
+
     UIView *bottomView = UIView.new;
     bottomView.backgroundColor = UIColor.redColor;
     bottomView.layer.borderColor = UIColor.blackColor.CGColor;
@@ -59,7 +59,7 @@
         make.width.equalTo(@20);
         make.height.equalTo(@20);
     }];
-    
+
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.mas_bottomLayoutGuide);
         make.left.equalTo(self.view);

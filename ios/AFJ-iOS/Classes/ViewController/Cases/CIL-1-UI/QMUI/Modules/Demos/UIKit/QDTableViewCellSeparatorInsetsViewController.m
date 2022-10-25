@@ -28,7 +28,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = UIFontMake(16);
         cell.textLabel.textColor = TableViewCellTitleLabelColor;
-        cell.qmui_separatorInsetsBlock = ^UIEdgeInsets(__kindof UITableView * _Nonnull aTableView, __kindof UITableViewCell * _Nonnull aCell) {
+        cell.qmui_separatorInsetsBlock = ^UIEdgeInsets(__kindof UITableView *_Nonnull aTableView, __kindof UITableViewCell *_Nonnull aCell) {
             QMUITableViewCellPosition position = aCell.qmui_cellPosition;
             CGFloat defaultRight = 20;
             switch (aTableView.qmui_style) {
@@ -57,16 +57,16 @@
                 }
             }
         };
-        cell.qmui_topSeparatorInsetsBlock = ^UIEdgeInsets(__kindof UITableView * _Nonnull aTableView, __kindof UITableViewCell * _Nonnull aCell) {
+        cell.qmui_topSeparatorInsetsBlock = ^UIEdgeInsets(__kindof UITableView *_Nonnull aTableView, __kindof UITableViewCell *_Nonnull aCell) {
             if (aTableView.qmui_style == UITableViewStyleGrouped && aCell.qmui_cellPosition & QMUITableViewCellPositionFirstInSection) {
                 return UIEdgeInsetsZero;
             }
             return QMUITableViewCellSeparatorInsetsNone;
         };
     }
-    
+
     NSString *text = nil;
-    
+
     if (indexPath.section > 0 && indexPath.row == 0) {
         cell.accessoryType = UITableViewCellAccessoryDetailButton;
         text = @"分隔线在 accessoryView 前截止";
@@ -79,7 +79,7 @@
     } else {
         cell.imageView.image = nil;
     }
-    
+
     if (!text) {
         QMUITableViewCellPosition position = [tableView qmui_positionForRowAtIndexPath:indexPath];
         if ((position & QMUITableViewCellPositionSingleInSection) == QMUITableViewCellPositionSingleInSection) {

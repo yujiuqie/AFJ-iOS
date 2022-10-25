@@ -18,75 +18,74 @@
 
 @implementation NSDate (JKLunarCalendar)
 
-+ (NSCalendar *)jk_chineseCalendar
-{
++ (NSCalendar *)jk_chineseCalendar {
     static NSCalendar *jk_chineseCalendar_sharedCalendar = nil;
     if (!jk_chineseCalendar_sharedCalendar)
-        jk_chineseCalendar_sharedCalendar =[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+        jk_chineseCalendar_sharedCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
     return jk_chineseCalendar_sharedCalendar;
 }
 
-+ (NSString*)jk_currentMDDateString{
-    
++ (NSString *)jk_currentMDDateString {
+
     NSDate *date = [NSDate date];
     NSCalendar *chineseCalendar = [self jk_chineseCalendar];
-    
-    NSDateComponents *components = [chineseCalendar components:NSCalendarUnitYear |NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
-    
-    NSString *month = jk_ChineseMonths[components.month -1];
-    NSString *day  = jk_ChineseDays[components.day -1];
-    
+
+    NSDateComponents *components = [chineseCalendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
+
+    NSString *month = jk_ChineseMonths[components.month - 1];
+    NSString *day = jk_ChineseDays[components.day - 1];
+
     return [month stringByAppendingString:day];
 }
 
-+ (NSString*)jk_currentYMDDateString{
++ (NSString *)jk_currentYMDDateString {
     NSCalendar *chineseCalendar = [[self class] jk_chineseCalendar];
     NSDate *date = [NSDate date];
 
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
     NSDateComponents *localeComp = [chineseCalendar components:unitFlags fromDate:date];
-    
-    NSLog(@"%zd_%zd_%zd",localeComp.year,localeComp.month,localeComp.day);
-    
-    NSString *y_str = [jk_ChineseYears objectAtIndex:localeComp.year-1];
-    NSString *m_str = [jk_ChineseMonths objectAtIndex:localeComp.month-1];
-    NSString *d_str = [jk_ChineseDays objectAtIndex:localeComp.day-1];
-    
-    NSString *chineseCal_str =[NSString stringWithFormat:@"%@%@%@",y_str,m_str,d_str];
-    
+
+    NSLog(@"%zd_%zd_%zd", localeComp.year, localeComp.month, localeComp.day);
+
+    NSString *y_str = [jk_ChineseYears objectAtIndex:localeComp.year - 1];
+    NSString *m_str = [jk_ChineseMonths objectAtIndex:localeComp.month - 1];
+    NSString *d_str = [jk_ChineseDays objectAtIndex:localeComp.day - 1];
+
+    NSString *chineseCal_str = [NSString stringWithFormat:@"%@%@%@", y_str, m_str, d_str];
+
     return chineseCal_str;
 }
 
-+ (NSString *)jk_currentWeekWithDateString:(NSString*)datestring{
++ (NSString *)jk_currentWeekWithDateString:(NSString *)datestring {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *date = [formatter dateFromString:datestring];
     return [self jk_currentWeek:date];
 }
 
-+ (NSString *)jk_currentWeek:(NSDate*)date{
-    NSArray *weeks =@[@"星期",@"星期日",@"星期一", @"星期二", @"星期三",@"星期四", @"星期五", @"星期六"];
-    
++ (NSString *)jk_currentWeek:(NSDate *)date {
+    NSArray *weeks = @[@"星期", @"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六"];
+
     NSCalendar *gregorian = [self jk_chineseCalendar];
     NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:date];
-    
-    int week = (int)comps.weekday;
-    
+
+    int week = (int) comps.weekday;
+
     return weeks[week];
 }
 
-+ (NSString*)jk_currentCapitalDateString{
++ (NSString *)jk_currentCapitalDateString {
     NSCalendar *gregorian = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [gregorian components:(NSCalendarUnitMonth| NSCalendarUnitDay) fromDate:[NSDate date]];
-    
-    NSArray *months = @[@"月",@"一月",@"二月",@"三月",@"四月",@"五月",@"六月",@"七月",@"八月",@"九月",@"十月",@"十一月",@"十二月"];
-    
-    NSArray *days = @[@"零",@"一", @"二", @"三", @"四", @"五", @"六", @"七", @"八", @"九", @"十",
-                      @"十一", @"十二", @"十三", @"十四", @"十五", @"十六", @"十七", @"十八", @"十九", @"二十",
-                      @"廿一", @"廿二", @"廿三", @"廿四", @"廿五", @"廿六", @"廿七", @"廿八", @"廿九", @"三十", @"三十一"];
-    
-    int day = (int)comps.day;
-    int month = (int)comps.month;
+    NSDateComponents *comps = [gregorian components:(NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:[NSDate date]];
+
+    NSArray *months = @[@"月", @"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"];
+
+    NSArray *days = @[@"零", @"一", @"二", @"三", @"四", @"五", @"六", @"七", @"八", @"九", @"十",
+            @"十一", @"十二", @"十三", @"十四", @"十五", @"十六", @"十七", @"十八", @"十九", @"二十",
+            @"廿一", @"廿二", @"廿三", @"廿四", @"廿五", @"廿六", @"廿七", @"廿八", @"廿九", @"三十", @"三十一"];
+
+    int day = (int) comps.day;
+    int month = (int) comps.month;
     return [[months objectAtIndex:month] stringByAppendingString:[days objectAtIndex:day]];
 }
 

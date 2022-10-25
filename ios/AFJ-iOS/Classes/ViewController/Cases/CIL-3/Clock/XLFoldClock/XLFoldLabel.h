@@ -12,9 +12,9 @@
 
 - (void)updateTime:(NSInteger)time nextTime:(NSInteger)nextTime;
 
-@property (nonatomic, strong) UIFont *font;
+@property(nonatomic, strong) UIFont *font;
 
-@property (nonatomic, strong) UIColor *textColor;
+@property(nonatomic, strong) UIColor *textColor;
 
 
 @end

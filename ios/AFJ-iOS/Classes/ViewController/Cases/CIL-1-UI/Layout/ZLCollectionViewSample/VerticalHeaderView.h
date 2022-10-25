@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VerticalHeaderView : UICollectionReusableView
 
-@property(nonatomic,strong)UILabel* headerLabel;
+@property(nonatomic, strong) UILabel *headerLabel;
 
 + (NSString *)headerViewIdentifier;
 

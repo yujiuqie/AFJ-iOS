@@ -14,22 +14,20 @@
 #pragma mark - UIViewControllerAnimatedTransitioning
 
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     return 0.30f;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
-{
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *containerView = [transitionContext containerView];
-    
+
     if (self.isPresenting) {
-        
+
         [containerView addSubview:toVC.view];
         [toVC.view setAlpha:0];
-        
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                          animations:^{
                              [toVC.view setAlpha:1];
@@ -37,12 +35,11 @@
                          completion:^(BOOL finished) {
                              [transitionContext completeTransition:YES];
                          }];
-    }
-    else {
-        
+    } else {
+
         [containerView addSubview:toVC.view];
         [containerView addSubview:fromVC.view];
-        
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                          animations:^{
                              [fromVC.view setAlpha:0];

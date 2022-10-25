@@ -10,10 +10,10 @@
 
 @interface Ticket : NSObject
 
-@property (assign, nonatomic) float price;
-@property (assign, nonatomic) NSInteger ticketId;
+@property(assign, nonatomic) float price;
+@property(assign, nonatomic) NSInteger ticketId;
 
-@property (strong, nonatomic) NSDate *date;
+@property(strong, nonatomic) NSDate *date;
 
 + (instancetype)instanceWithId:(NSUInteger)ID;
 @end

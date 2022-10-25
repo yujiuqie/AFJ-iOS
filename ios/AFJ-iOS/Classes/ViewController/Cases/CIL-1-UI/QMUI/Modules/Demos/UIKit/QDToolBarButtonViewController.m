@@ -16,7 +16,7 @@
 
 - (void)initDataSource {
     self.dataSource = @[@"普通工具栏按钮",
-                        @"图标工具栏按钮"];
+            @"图标工具栏按钮"];
 }
 
 - (void)didSelectCellWithTitle:(NSString *)title {

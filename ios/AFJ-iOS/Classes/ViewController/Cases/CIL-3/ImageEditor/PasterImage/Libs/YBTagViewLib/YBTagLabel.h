@@ -19,17 +19,17 @@
 
 @interface YBTagLabel : UILabel
 
-@property (nonatomic, assign) CGPoint leftPoint;
-@property (nonatomic, assign) CGPoint rightPoint;
-@property (nonatomic, strong) UIView *lineView;
+@property(nonatomic, assign) CGPoint leftPoint;
+@property(nonatomic, assign) CGPoint rightPoint;
+@property(nonatomic, strong) UIView *lineView;
 
-@property (nonatomic,assign)id<tagLabelDelegate> delegate;
+@property(nonatomic, assign) id <tagLabelDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame withString:(NSString *)string;
 
 - (void)delay;
 
-@property (nonatomic, assign) CGFloat selfW;
-@property (nonatomic, copy) NSString *selfStr;
+@property(nonatomic, assign) CGFloat selfW;
+@property(nonatomic, copy) NSString *selfStr;
 
 @end

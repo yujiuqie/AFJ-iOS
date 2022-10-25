@@ -14,15 +14,15 @@
 
 typedef NS_ENUM(NSInteger, CAAnimationEasingFunction) {
     CAAnimationEasingFunctionLinear,
-    
+
     CAAnimationEasingFunctionEaseInQuad,
     CAAnimationEasingFunctionEaseOutQuad,
     CAAnimationEasingFunctionEaseInOutQuad,
-    
+
     CAAnimationEasingFunctionEaseInCubic,
     CAAnimationEasingFunctionEaseOutCubic,
     CAAnimationEasingFunctionEaseInOutCubic,
-    
+
     CAAnimationEasingFunctionEaseInQuartic,
     CAAnimationEasingFunctionEaseOutQuartic,
     CAAnimationEasingFunctionEaseInOutQuartic,
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, CAAnimationEasingFunction) {
     CAAnimationEasingFunctionEaseInElastic,
     CAAnimationEasingFunctionEaseOutElastic,
     CAAnimationEasingFunctionEaseInOutElastic,
-    
+
     CAAnimationEasingFunctionEaseInBack,
     CAAnimationEasingFunctionEaseOutBack,
     CAAnimationEasingFunctionEaseInOutBack,
@@ -58,33 +58,33 @@ typedef NS_ENUM(NSInteger, CAAnimationEasingFunction) {
 
 @interface CAAnimation (JKEasingEquations)
 
-+ (CAKeyframeAnimation*)jk_transformAnimationWithDuration:(CGFloat)duration
-                                                  from:(CATransform3D)startValue
-                                                    to:(CATransform3D)endValue
-                                        easingFunction:(CAAnimationEasingFunction)easingFunction;
++ (CAKeyframeAnimation *)jk_transformAnimationWithDuration:(CGFloat)duration
+                                                      from:(CATransform3D)startValue
+                                                        to:(CATransform3D)endValue
+                                            easingFunction:(CAAnimationEasingFunction)easingFunction;
 
 + (void)jk_addAnimationToLayer:(CALayer *)layer
-                   duration:(CGFloat)duration
-                  transform:(CATransform3D)transform
-             easingFunction:(CAAnimationEasingFunction)easingFunction;
+                      duration:(CGFloat)duration
+                     transform:(CATransform3D)transform
+                easingFunction:(CAAnimationEasingFunction)easingFunction;
 
-+ (CAKeyframeAnimation*)jk_animationWithKeyPath:(NSString *)keyPath
-                                    duration:(CGFloat)duration
-                                        from:(CGFloat)startValue
-                                          to:(CGFloat)endValue
-                              easingFunction:(CAAnimationEasingFunction)easingFunction;
-
-+ (void)jk_addAnimationToLayer:(CALayer *)layer
-                withKeyPath:(NSString *)keyPath
-                   duration:(CGFloat)duration
-                         to:(CGFloat)endValue
-             easingFunction:(CAAnimationEasingFunction)easingFunction;
++ (CAKeyframeAnimation *)jk_animationWithKeyPath:(NSString *)keyPath
+                                        duration:(CGFloat)duration
+                                            from:(CGFloat)startValue
+                                              to:(CGFloat)endValue
+                                  easingFunction:(CAAnimationEasingFunction)easingFunction;
 
 + (void)jk_addAnimationToLayer:(CALayer *)layer
-                withKeyPath:(NSString *)keyPath
-                   duration:(CGFloat)duration
-                       from:(CGFloat)startValue
-                         to:(CGFloat)endValue
-             easingFunction:(CAAnimationEasingFunction)easingFunction;
+                   withKeyPath:(NSString *)keyPath
+                      duration:(CGFloat)duration
+                            to:(CGFloat)endValue
+                easingFunction:(CAAnimationEasingFunction)easingFunction;
+
++ (void)jk_addAnimationToLayer:(CALayer *)layer
+                   withKeyPath:(NSString *)keyPath
+                      duration:(CGFloat)duration
+                          from:(CGFloat)startValue
+                            to:(CGFloat)endValue
+                easingFunction:(CAAnimationEasingFunction)easingFunction;
 
 @end

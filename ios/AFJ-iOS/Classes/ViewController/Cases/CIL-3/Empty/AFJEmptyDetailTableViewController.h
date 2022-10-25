@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AFJEmptyDetailTableViewController : UITableViewController
 
-@property (nonatomic, weak) NSArray *applications;
-@property (nonatomic) BOOL allowShuffling;
+@property(nonatomic, weak) NSArray *applications;
+@property(nonatomic) BOOL allowShuffling;
 
 - (instancetype)initWithApplication:(Application *)app;
 

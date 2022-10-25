@@ -11,12 +11,12 @@
 
 @interface WAAVSEExportCommand : WAAVSECommand
 
-@property (nonatomic , strong)AVAssetExportSession *exportSession;
+@property(nonatomic, strong) AVAssetExportSession *exportSession;
 
 /**
  只有在开启画布的时候并且不是自动分辩率下才有效
  */
-@property (nonatomic , assign) NSInteger videoQuality;
+@property(nonatomic, assign) NSInteger videoQuality;
 
 - (void)performSaveByPath:(NSString *)path;
 

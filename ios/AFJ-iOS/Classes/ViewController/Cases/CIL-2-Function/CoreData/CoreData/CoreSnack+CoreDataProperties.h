@@ -15,11 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<CoreSnack *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *taste;
-@property (nullable, nonatomic, copy) NSNumber *price;
-@property (nullable, nonatomic, copy) NSNumber *snackId;
-@property (nullable, nonatomic, copy) NSNumber *size;
-@property (nullable, nonatomic, copy) NSString *name;
+@property(nullable, nonatomic, copy) NSString *taste;
+@property(nullable, nonatomic, copy) NSNumber *price;
+@property(nullable, nonatomic, copy) NSNumber *snackId;
+@property(nullable, nonatomic, copy) NSNumber *size;
+@property(nullable, nonatomic, copy) NSString *name;
 
 @end
 

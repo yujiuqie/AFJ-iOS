@@ -18,11 +18,12 @@
 
 @interface TTMQRCodeReader : NSObject
 
-@property (nonatomic, weak) id<TTMQRCodeReaderDelegate> delegate;
+@property(nonatomic, weak) id <TTMQRCodeReaderDelegate> delegate;
 
 + (instancetype)sharedReader;
 
 - (void)startReaderOnView:(UIView *)view;
+
 - (void)stopReader;
 
 @end

@@ -11,9 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTPopViewListCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property(weak, nonatomic) IBOutlet UILabel *titleLab;
+@property(weak, nonatomic) IBOutlet UIImageView *imgView;
+@property(weak, nonatomic) IBOutlet UIView *bottomView;
 
 @end
 

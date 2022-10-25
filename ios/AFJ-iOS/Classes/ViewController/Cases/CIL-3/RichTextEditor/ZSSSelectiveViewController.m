@@ -15,26 +15,24 @@
 @implementation ZSSSelectiveViewController
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.title = @"Selective";
-    
+
     // HTML Content to set in the editor
     NSString *html = @"<p>Example showing just a few toolbar buttons.</p>";
-    
+
     // Choose which toolbar items to show
     self.enabledToolbarItems = @[ZSSRichTextEditorToolbarBold, ZSSRichTextEditorToolbarH1, ZSSRichTextEditorToolbarParagraph];
-    
+
     // Set the HTML contents of the editor
     [self setHTML:html];
-    
-    
+
+
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

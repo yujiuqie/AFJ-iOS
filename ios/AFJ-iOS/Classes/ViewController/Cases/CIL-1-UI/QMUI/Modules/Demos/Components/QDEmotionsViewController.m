@@ -8,7 +8,7 @@
 
 #import "QDEmotionsViewController.h"
 
-@interface QDEmotionsViewController ()<QMUITextFieldDelegate>
+@interface QDEmotionsViewController () <QMUITextFieldDelegate>
 
 @property(nonatomic, strong) UILabel *descriptionLabel;
 @property(nonatomic, strong) UIView *toolbar;
@@ -22,7 +22,7 @@
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     self.descriptionLabel = [[UILabel alloc] init];
     self.descriptionLabel.numberOfLines = 0;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"本界面以 QMUIEmotionInputManager 为例，展示 QMUIEmotionView 的功能，若需查看 QMUIEmotionView 的使用方式，请参考 QMUIEmotionInputManager。" attributes:@{NSFontAttributeName: UIFontMake(16), NSForegroundColorAttributeName: UIColor.qd_mainTextColor, NSParagraphStyleAttributeName: [NSMutableParagraphStyle qmui_paragraphStyleWithLineHeight:22]}];
@@ -32,18 +32,18 @@
     }];
     self.descriptionLabel.attributedText = attributedString;
     [self.view addSubview:self.descriptionLabel];
-    
+
     self.toolbar = [[UIView alloc] init];
     self.toolbar.qmui_borderPosition = QMUIViewBorderPositionTop;
     self.toolbar.backgroundColor = UIColorForBackground;
     [self.view addSubview:self.toolbar];
-    
+
     self.textField = [[QMUITextField alloc] init];
     self.textField.backgroundColor = nil;
     self.textField.placeholder = @"请输入文字";
     self.textField.delegate = self;
-    
-    __weak __typeof(self)weakSelf = self;
+
+    __weak __typeof(self) weakSelf = self;
     self.textField.qmui_keyboardWillShowNotificationBlock = ^(QMUIKeyboardUserInfo *keyboardUserInfo) {
         CGFloat keyboardHeight = [keyboardUserInfo heightInView:weakSelf.view];
         if (keyboardHeight <= 0) {
@@ -56,7 +56,7 @@
         [UIView animateWithDuration:duration delay:0 options:options animations:^{
             [weakSelf.view setNeedsLayout];
             [weakSelf.view layoutIfNeeded];
-        } completion:nil];
+        }                completion:nil];
     };
     self.textField.qmui_keyboardWillHideNotificationBlock = ^(QMUIKeyboardUserInfo *keyboardUserInfo) {
         weakSelf.keyboardHeight = 0;
@@ -66,16 +66,16 @@
         [UIView animateWithDuration:duration delay:0 options:options animations:^{
             [weakSelf.view setNeedsLayout];
             [weakSelf.view layoutIfNeeded];
-        } completion:nil];
+        }                completion:nil];
     };
     [self.toolbar addSubview:self.textField];
-    
+
     self.emotionInputManager = [[QMUIEmotionInputManager alloc] init];
     self.emotionInputManager.emotionView.emotions = [QDUIHelper qmuiEmotions];
     self.emotionInputManager.emotionView.qmui_borderPosition = QMUIViewBorderPositionTop;
     self.emotionInputManager.boundTextField = self.textField;
     [self.view addSubview:self.emotionInputManager.emotionView];
-    
+
     self.toolbar.alpha = 0;
     self.emotionInputManager.emotionView.alpha = 0;
 }
@@ -101,18 +101,18 @@
         self.emotionInputManager.emotionView.alpha = 1;
         self.toolbar.transform = CGAffineTransformIdentity;
         self.emotionInputManager.emotionView.transform = CGAffineTransformIdentity;
-    } completion:NULL];
-    
+    }                completion:NULL];
+
     self.textField.qmui_keyboardManager.delegateEnabled = YES;
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
+
     UIEdgeInsets padding = UIEdgeInsetsMake(20, 20 + self.view.safeAreaInsets.left, 20, 20 + self.view.safeAreaInsets.right);
     CGFloat contentWidth = CGRectGetWidth(self.view.bounds) - UIEdgeInsetsGetHorizontalValue(padding);
     self.descriptionLabel.frame = CGRectFlatMake(padding.left, self.qmui_navigationBarMaxYInViewCoordinator + padding.top, contentWidth, QMUIViewSelfSizingHeight);
-    
+
     CGFloat toolbarHeight = 56;
     CGFloat emotionViewHeight = 232 + self.view.safeAreaInsets.bottom;
     if (self.keyboardVisible) {
@@ -122,7 +122,7 @@
         self.emotionInputManager.emotionView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - emotionViewHeight, CGRectGetWidth(self.view.bounds), emotionViewHeight);
         self.toolbar.frame = CGRectMake(0, CGRectGetMinY(self.emotionInputManager.emotionView.frame) - toolbarHeight, CGRectGetWidth(self.view.bounds), toolbarHeight);
     }
-    
+
     UIEdgeInsets toolbarPadding = UIEdgeInsetsConcat(UIEdgeInsetsMake(2, 8, 2, 8), self.toolbar.safeAreaInsets);
     self.textField.frame = CGRectMake(toolbarPadding.left, toolbarPadding.top, CGRectGetWidth(self.toolbar.bounds) - UIEdgeInsetsGetHorizontalValue(toolbarPadding), CGRectGetHeight(self.toolbar.bounds) - UIEdgeInsetsGetVerticalValue(toolbarPadding));
 }

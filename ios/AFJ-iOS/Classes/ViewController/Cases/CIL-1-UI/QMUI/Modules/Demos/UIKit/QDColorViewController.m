@@ -21,7 +21,7 @@
 - (void)initTableView {
     [super initTableView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+
     CGFloat topInset = 32;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), topInset)];
 }
@@ -68,7 +68,7 @@
         default:
             break;
     }
-    
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.contentViewInsets = UIEdgeInsetsMake(0, 20, 0, 20);
     return cell;
@@ -91,7 +91,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     self.titleLabel.frame = CGRectMake(self.contentViewInsets.left, 0, CGRectGetWidth(self.contentView.bounds) - self.contentViewInsets.left - self.contentViewInsets.right, CGRectGetHeight(self.titleLabel.bounds));
 }
 
@@ -103,7 +103,7 @@
 // 生成一个圆形的view
 - (__kindof UIView *)generateCircleWithColor:(UIColor *)color prefersButton:(BOOL)prefersButton {
     CGFloat diameter = 44;
-    
+
     UIView *circle = nil;
     if (prefersButton) {
         circle = [[QMUIButton alloc] init];
@@ -113,7 +113,7 @@
     circle.backgroundColor = color;
     circle.frame = CGRectMake(0, 0, diameter, diameter);
     circle.layer.cornerRadius = diameter / 2;
-    
+
     return circle;
 }
 
@@ -145,10 +145,10 @@
     self.titleLabel.text = @"通过HEX创建";
 
     UIColor *resultColor = [UIColor qmui_colorWithHexString:@"#cddc39"]; // 关键方法
-    
+
     _circle = [self generateCircleWithColor:resultColor];
     [self.contentView addSubview:_circle];
-    
+
     _label = [[QMUILabel alloc] init];
     _label.text = @"[UIColor qmui_colorWithHexString:@\"#cddc39\"]";
     _label.font = UIFontMake(12);
@@ -169,17 +169,17 @@
 @implementation QDColorCellThatGetColorInfo {
     QMUIGridView *_gridView;
     UIView *_circle;
-    
+
     NSMutableArray *_labels;
 }
 
 - (void)didInitializeWithStyle:(UITableViewCellStyle)style {
     [super didInitializeWithStyle:style];
-    
+
     self.titleLabel.text = @"获取颜色信息";
-    
+
     _labels = [NSMutableArray array];
-    
+
     UIColor *rawColor = [[UIColor qmui_colorWithHexString:@"#e69832"] colorWithAlphaComponent:0.75];
     // 关键方法
     CGFloat alpha = [rawColor qmui_alpha];
@@ -191,25 +191,25 @@
     CGFloat brightness = [rawColor qmui_brightness];
     NSString *hex = [rawColor qmui_hexString];
     BOOL isDark = [rawColor qmui_colorIsDark];
-    
+
     _circle = [self generateCircleWithColor:rawColor];
     [self.contentView addSubview:_circle];
-    
+
     _gridView = [[QMUIGridView alloc] initWithColumn:4 rowHeight:60];
     NSArray *infos = @[
-                       @{@"title" : @"ALPHA", @"content" : [NSString stringWithFormat:@"%.3f", alpha]},
-                       @{@"title" : @"RED", @"content" : [NSString stringWithFormat:@"%.3f", red]},
-                       @{@"title" : @"GREEN", @"content" : [NSString stringWithFormat:@"%.3f", green]},
-                       @{@"title" : @"BLUE", @"content" : [NSString stringWithFormat:@"%.3f", blue]},
-                       @{@"title" : @"色相", @"content" : [NSString stringWithFormat:@"%.3f", hue]},
-                       @{@"title" : @"饱和度", @"content" : [NSString stringWithFormat:@"%.3f", saturation]},
-                       @{@"title" : @"亮度", @"content" : [NSString stringWithFormat:@"%.3f", brightness]},
-                       @{@"title" : @"HEX", @"content" : hex},
-                       @{@"title" : @"是否是深色系", @"content" : isDark ? @"YES" : @"NO"},
-                    ];
+            @{@"title": @"ALPHA", @"content": [NSString stringWithFormat:@"%.3f", alpha]},
+            @{@"title": @"RED", @"content": [NSString stringWithFormat:@"%.3f", red]},
+            @{@"title": @"GREEN", @"content": [NSString stringWithFormat:@"%.3f", green]},
+            @{@"title": @"BLUE", @"content": [NSString stringWithFormat:@"%.3f", blue]},
+            @{@"title": @"色相", @"content": [NSString stringWithFormat:@"%.3f", hue]},
+            @{@"title": @"饱和度", @"content": [NSString stringWithFormat:@"%.3f", saturation]},
+            @{@"title": @"亮度", @"content": [NSString stringWithFormat:@"%.3f", brightness]},
+            @{@"title": @"HEX", @"content": hex},
+            @{@"title": @"是否是深色系", @"content": isDark ? @"YES" : @"NO"},
+    ];
     for (NSDictionary *dict in infos) {
         UIView *wrapperView = [[UIView alloc] init];
-        
+
         QMUILabel *titleLabel = [[QMUILabel alloc] init];
         titleLabel.text = dict[@"title"];
         titleLabel.font = UIFontMake(12);
@@ -218,7 +218,7 @@
         [titleLabel sizeToFit];
         [_labels addObject:titleLabel];
         [wrapperView addSubview:titleLabel];
-        
+
         QMUILabel *contentLabel = [[QMUILabel alloc] init];
         contentLabel.text = dict[@"content"];
         contentLabel.font = UIFontMake(12);
@@ -228,7 +228,7 @@
         contentLabel.frame = CGRectSetY(contentLabel.frame, CGRectGetMaxY(titleLabel.frame) + 3);
         [_labels addObject:contentLabel];
         [wrapperView addSubview:contentLabel];
-        
+
         [_gridView addSubview:wrapperView];
     }
     [self.contentView addSubview:_gridView];
@@ -236,7 +236,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     _circle.frame = CGRectSetXY(_circle.frame, self.contentViewInsets.left, CGRectGetMaxY(self.titleLabel.frame) + self.titleLabelMarginBottom);
 
     CGSize gridViewSize = [_gridView sizeThatFits:CGSizeMake(CGRectGetWidth(self.contentView.bounds) - self.contentViewInsets.left - self.contentViewInsets.right, CGFLOAT_MAX)];
@@ -259,28 +259,28 @@
 
 - (void)didInitializeWithStyle:(UITableViewCellStyle)style {
     [super didInitializeWithStyle:style];
-    
+
     self.titleLabel.text = @"去除alpha通道";
-    
+
     UIColor *rawColor = [UIColorMakeWithHex(@"#e91e63") colorWithAlphaComponent:0.6];
     UIColor *resultColor = rawColor.qmui_colorWithoutAlpha;  // 关键方法
-    
+
     _circle1 = [self generateCircleWithColor:rawColor];
     [self.contentView addSubview:_circle1];
-    
+
     _arrow = [self generateArrowIcon];
     [self.contentView addSubview:_arrow];
-    
+
     _circle2 = [self generateCircleWithColor:resultColor];
     [self.contentView addSubview:_circle2];
-    
+
     _label1 = [[QMUILabel alloc] init];
     _label1.text = @"0.5 ALPHA";
     _label1.font = UIFontMake(12);
     _label1.textColor = UIColor.qd_descriptionTextColor;
     [_label1 sizeToFit];
     [self.contentView addSubview:_label1];
-    
+
     _label2 = [[QMUILabel alloc] init];
     _label2.text = @"1.0 ALPHA";
     [_label2 qmui_setTheSameAppearanceAsLabel:_label1];
@@ -290,7 +290,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     _circle1.frame = CGRectSetXY(_circle1.frame, self.contentViewInsets.left, CGRectGetMaxY(self.titleLabel.frame) + self.titleLabelMarginBottom);
     _arrow.frame = CGRectSetXY(_arrow.frame, CGRectGetMaxX(_circle1.frame) + spaceBetweenIconAndCircle, CGRectGetMaxY(_circle1.frame) - CGRectGetMidY(_circle1.bounds) - CGRectGetMidY(_arrow.bounds));
     _circle2.frame = CGRectSetXY(_circle2.frame, CGRectGetMaxX(_arrow.frame) + spaceBetweenIconAndCircle, CGRectGetMinY(_circle1.frame));
@@ -309,25 +309,25 @@
 
 - (void)didInitializeWithStyle:(UITableViewCellStyle)style {
     [super didInitializeWithStyle:style];
-    
+
     self.titleLabel.text = @"计算反色";
-    
+
     UIColor *rawColor = UIColorMakeWithHex(@"#ff9800");
     UIColor *resultColor = [rawColor qmui_inverseColor]; // 关键方法
-    
+
     _circle1 = [self generateCircleWithColor:rawColor];
     [self.contentView addSubview:_circle1];
-    
+
     _arrow = [self generateArrowIcon];
     [self.contentView addSubview:_arrow];
-    
+
     _circle2 = [self generateCircleWithColor:resultColor];
     [self.contentView addSubview:_circle2];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     _circle1.frame = CGRectSetXY(_circle1.frame, self.contentViewInsets.left, CGRectGetMaxY(self.titleLabel.frame) + self.titleLabelMarginBottom);
     _arrow.frame = CGRectSetXY(_arrow.frame, CGRectGetMaxX(_circle1.frame) + spaceBetweenIconAndCircle, CGRectGetMinYVerticallyCenter(_circle1.frame, _arrow.frame));
     _circle2.frame = CGRectSetXY(_circle2.frame, CGRectGetMaxX(_arrow.frame) + spaceBetweenIconAndCircle, CGRectGetMinY(_circle1.frame));
@@ -346,38 +346,38 @@
 
 - (void)didInitializeWithStyle:(UITableViewCellStyle)style {
     [super didInitializeWithStyle:style];
-    
+
     self.titleLabel.text = @"计算过渡色";
-    
+
     UIColor *rawColor1 = UIColorMakeWithHex(@"#b1dcff");
     UIColor *rawColor2 = UIColorMakeWithHex(@"#0e4068");
     UIColor *resultColor = [UIColor qmui_colorFromColor:rawColor1 toColor:rawColor2 progress:0.5]; // 关键方法
-    
+
     _circle1 = [self generateCircleWithColor:rawColor1];
     [self.contentView addSubview:_circle1];
-    
+
     _plus = [self generatePlusIcon];
     [self.contentView addSubview:_plus];
-    
+
     _circle2 = [self generateCircleWithColor:rawColor2];
     [self.contentView addSubview:_circle2];
-    
+
     _arrow = [self generateArrowIcon];
     [self.contentView addSubview:_arrow];
-    
+
     _circle3 = [self generateCircleWithColor:resultColor];
     [self.contentView addSubview:_circle3];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     _circle1.frame = CGRectSetXY(_circle1.frame, self.contentViewInsets.left, CGRectGetMaxY(self.titleLabel.frame) + self.titleLabelMarginBottom);
     _plus.frame = CGRectSetXY(_plus.frame, CGRectGetMaxX(_circle1.frame) + spaceBetweenIconAndCircle, CGRectGetMinYVerticallyCenter(_circle1.frame, _plus.frame));
     _circle2.frame = CGRectSetXY(_circle2.frame, CGRectGetMaxX(_plus.frame) + spaceBetweenIconAndCircle, CGRectGetMinY(_circle1.frame));
     _arrow.frame = CGRectSetXY(_arrow.frame, CGRectGetMaxX(_circle2.frame) + spaceBetweenIconAndCircle, CGRectGetMinYVerticallyCenter(_circle2.frame, _arrow.frame));
     _circle3.frame = CGRectSetXY(_circle3.frame, CGRectGetMaxX(_arrow.frame) + spaceBetweenIconAndCircle, CGRectGetMinY(_circle2.frame));
-    
+
 }
 @end
 
@@ -391,29 +391,29 @@
 
 - (void)didInitializeWithStyle:(UITableViewCellStyle)style {
     [super didInitializeWithStyle:style];
-    
+
     self.titleLabel.text = @"计算叠加色";
-    
+
     UIColor *rawColor1 = UIColorMakeWithHex(@"#68a0ce");
     UIColor *rawColor2 = [UIColorMakeWithHex(@"#e91e63") colorWithAlphaComponent:0.5];
     UIColor *resultColor = [UIColor qmui_colorWithBackendColor:rawColor1 frontColor:rawColor2];  // 关键方法
-    
+
     _circle1 = [self generateCircleWithColor:rawColor1];
     [self.contentView addSubview:_circle1];
-    
+
     _circle2 = [self generateCircleWithColor:rawColor2];
     [self.contentView addSubview:_circle2];
-    
+
     _arrow = [self generateArrowIcon];
     [self.contentView addSubview:_arrow];
-    
+
     _circle3 = [self generateCircleWithColor:resultColor];
     [self.contentView addSubview:_circle3];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     _circle1.frame = CGRectSetXY(_circle1.frame, self.contentViewInsets.left, CGRectGetMaxY(self.titleLabel.frame) + self.titleLabelMarginBottom);
     _circle2.frame = CGRectSetXY(_circle2.frame, CGRectGetMidX(_circle1.frame), CGRectGetMinY(_circle1.frame));
     _arrow.frame = CGRectSetXY(_arrow.frame, CGRectGetMaxX(_circle2.frame) + spaceBetweenIconAndCircle, CGRectGetMinYVerticallyCenter(_circle2.frame, _arrow.frame));
@@ -421,7 +421,7 @@
 }
 @end
 
-@interface QDColorCellThatGetDistance ()<UIColorPickerViewControllerDelegate>
+@interface QDColorCellThatGetDistance () <UIColorPickerViewControllerDelegate>
 @end
 
 @implementation QDColorCellThatGetDistance {
@@ -433,24 +433,24 @@
 
 - (void)didInitializeWithStyle:(UITableViewCellStyle)style {
     [super didInitializeWithStyle:style];
-    
+
     self.titleLabel.text = @"计算两色的相似程度";
-    
+
     UIColor *rawColor1 = UIColorMakeWithHex(@"#ff9800");
     UIColor *rawColor2 = [rawColor1 qmui_inverseColor];
     CGFloat distance = [rawColor1 qmui_distanceBetweenColor:rawColor2];// 关键方法
-    
+
     _circle1 = [self generateCircleWithColor:rawColor1 prefersButton:YES];
     [_circle1 addTarget:self action:@selector(handleColorPicker:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:_circle1];
-    
+
     _circle2 = [self generateCircleWithColor:rawColor2 prefersButton:YES];
     [_circle2 addTarget:self action:@selector(handleColorPicker:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:_circle2];
-    
+
     _arrow = [self generateArrowIcon];
     [self.contentView addSubview:_arrow];
-    
+
     _label = [[QMUILabel alloc] init];
     _label.text = [NSString stringWithFormat:@"%.2f(0表示相等，值越大差距越大)", distance];
     _label.textColor = UIColor.qd_descriptionTextColor;
@@ -484,6 +484,7 @@
 #pragma mark - <UIColorPickerViewControllerDelegate>
 
 BeginIgnoreAvailabilityWarning
+
 - (void)colorPickerViewControllerDidSelectColor:(UIColorPickerViewController *)viewController {
     UIView *view = nil;
     if (_circle1.selected) {
@@ -496,6 +497,7 @@ BeginIgnoreAvailabilityWarning
     _label.text = [NSString stringWithFormat:@"%.2f(0表示相等，值越大差距越大)", distance];
     [self setNeedsLayout];
 }
+
 EndIgnoreAvailabilityWarning
 
 @end
@@ -514,17 +516,17 @@ EndIgnoreAvailabilityWarning
     [super didInitializeWithStyle:style];
 
     self.titleLabel.text = @"先更改alpha，再与另一个颜色叠加";
-    
+
     UIColor *rawColor1 = UIColorMakeWithHex(@"#795548");
     UIColor *rawColor2 = UIColorMakeWithHex(@"#cddc39");
     UIColor *resultColor = [rawColor1 qmui_colorWithAlpha:0.5 backgroundColor:rawColor2];    // 关键方法
-    
+
     _circle1 = [self generateCircleWithColor:rawColor1];
     [self.contentView addSubview:_circle1];
-    
+
     _plus1 = [self generatePlusIcon];
     [self.contentView addSubview:_plus1];
-    
+
     _label = [[QMUILabel alloc] init];
     _label.text = @"0.5 ALPHA";
     _label.textColor = UIColor.qd_descriptionTextColor;
@@ -532,26 +534,26 @@ EndIgnoreAvailabilityWarning
     [_label sizeToFit];
 
     [self.contentView addSubview:_label];
-    
+
     _plus2 = [self generatePlusIcon];
     [self.contentView addSubview:_plus2];
-    
+
     _circle2 = [self generateCircleWithColor:rawColor2];
     [self.contentView addSubview:_circle2];
-    
+
     _arrow = [self generateArrowIcon];
     [self.contentView addSubview:_arrow];
-    
+
     _circle3 = [self generateCircleWithColor:resultColor];
     [self.contentView addSubview:_circle3];
-    
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     CGFloat spacingBetweenIconAndCircle = 8;
-    
+
     _circle1.frame = CGRectSetXY(_circle1.frame, self.contentViewInsets.left, CGRectGetMaxY(self.titleLabel.frame) + self.titleLabelMarginBottom);
     _plus1.frame = CGRectSetXY(_plus1.frame, CGRectGetMaxX(_circle1.frame) + spacingBetweenIconAndCircle, CGRectGetMinYVerticallyCenter(_circle1.frame, _plus1.frame));
     _label.frame = CGRectSetXY(_label.frame, CGRectGetMaxX(_plus1.frame) + spacingBetweenIconAndCircle, CGRectGetMinYVerticallyCenter(_plus1.frame, _label.frame));

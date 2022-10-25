@@ -10,8 +10,8 @@
 
 // 时间格式枚举类型
 typedef enum {
-    DateFormatHintNone, 
-    DateFormatHintRFC822, 
+    DateFormatHintNone,
+    DateFormatHintRFC822,
     DateFormatHintRFC3339
 } DateFormatHint;
 
@@ -22,10 +22,11 @@ typedef enum {
 // - A format/specification hint can be used to speed up, 
 //   otherwise both will be attempted in order to get a date
 + (NSDate *)jk_dateFromInternetDateTimeString:(NSString *)dateString
-                                formatHint:(DateFormatHint)hint;
+                                   formatHint:(DateFormatHint)hint;
 
 // Get date from a string using a specific date specification
 + (NSDate *)jk_dateFromRFC3339String:(NSString *)dateString;
+
 + (NSDate *)jk_dateFromRFC822String:(NSString *)dateString;
 
 @end

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTPopViewloadingView : UIView
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property(weak, nonatomic) IBOutlet UILabel *titleLab;
 
 @end
 

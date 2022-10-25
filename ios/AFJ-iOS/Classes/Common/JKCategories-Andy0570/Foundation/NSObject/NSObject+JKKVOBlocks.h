@@ -28,6 +28,7 @@
 
 
 #import <Foundation/Foundation.h>
+
 typedef void (^JKKVOBlock)(NSDictionary *change, void *context);
 
 @interface NSObject (JKKVOBlocks)
@@ -41,18 +42,19 @@ typedef void (^JKKVOBlock)(NSDictionary *change, void *context);
  @param block  监听回调
  */
 - (void)jk_addObserver:(NSObject *)observer
-         forKeyPath:(NSString *)keyPath
-            options:(NSKeyValueObservingOptions)options
-            context:(void *)context
-          withBlock:(JKKVOBlock)block;
+            forKeyPath:(NSString *)keyPath
+               options:(NSKeyValueObservingOptions)options
+               context:(void *)context
+             withBlock:(JKKVOBlock)block;
+
 /**
  移除观察者对属性的监听
 
  @param observer 观察者,一般为其他对象(谁想监听)
  @param keyPath 监听的属性
  */
--(void)jk_removeBlockObserver:(NSObject *)observer
-                forKeyPath:(NSString *)keyPath;
+- (void)jk_removeBlockObserver:(NSObject *)observer
+                    forKeyPath:(NSString *)keyPath;
 
 /**
  对象本身作为观察者
@@ -62,16 +64,16 @@ typedef void (^JKKVOBlock)(NSDictionary *change, void *context);
  @param context context
  @param block 监听回调
  */
--(void)jk_addObserverForKeyPath:(NSString *)keyPath
-                     options:(NSKeyValueObservingOptions)options
-                     context:(void *)context
-                   withBlock:(JKKVOBlock)block;
+- (void)jk_addObserverForKeyPath:(NSString *)keyPath
+                         options:(NSKeyValueObservingOptions)options
+                         context:(void *)context
+                       withBlock:(JKKVOBlock)block;
 
 /**
  移除观察者对属性的监听
 
  @param keyPath 监听的属性
  */
--(void)jk_removeBlockObserverForKeyPath:(NSString *)keyPath;
+- (void)jk_removeBlockObserverForKeyPath:(NSString *)keyPath;
 
 @end

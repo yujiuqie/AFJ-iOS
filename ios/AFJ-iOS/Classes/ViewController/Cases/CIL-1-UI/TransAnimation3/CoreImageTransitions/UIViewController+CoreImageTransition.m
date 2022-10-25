@@ -15,8 +15,7 @@
                     toViewController:(UIViewController *)toVC
                           presenting:(BOOL)presenting
                             duration:(NSTimeInterval)duration
-                          completion:(void (^)(void))completion
-{
+                          completion:(void (^)(void))completion {
     [self addChildViewController:toVC];
     [self.view addSubview:toVC.view];
 
@@ -37,7 +36,7 @@
     CoreImageBlurTransitionView *transitionView = [[CoreImageBlurTransitionView alloc] initWithFrame:self.view.bounds
                                                                                            fromImage:fromSnapshot
                                                                                              toImage:toSnapshot];
-    
+
     [transitionView changeTransition:CoreImageTransitionTypeGaussianBlur];
     [transitionView setDuration:duration];
     [self.view addSubview:transitionView];
@@ -46,10 +45,10 @@
     [fromVC willMoveToParentViewController:nil];
     [fromVC.view removeFromSuperview];
     [fromVC removeFromParentViewController];
-    
+
     // Finish after the duration
     dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW,
-                                         duration * NSEC_PER_SEC);
+            duration * NSEC_PER_SEC);
     dispatch_after(when, dispatch_get_main_queue(), ^{
         [transitionView stop];
         [transitionView removeFromSuperview];

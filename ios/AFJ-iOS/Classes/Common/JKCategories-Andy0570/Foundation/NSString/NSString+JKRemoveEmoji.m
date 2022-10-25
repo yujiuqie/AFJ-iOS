@@ -10,20 +10,20 @@
 
 - (BOOL)jk_containsEmoji {
     //    return  [self rangeOfCharacterFromSet:[NSCharacterSet emojiCharacterSet]].location != NSNotFound;
-    
+
     if ([self jk_isFuckEmoji]) {
         return YES;
     }
     const unichar high = [self characterAtIndex:0];
-    
-    
+
+
     // Surrogate pair (U+1D000-1F77F)
     if (0xd800 <= high && high <= 0xdbff) {
-        const unichar low = [self characterAtIndex: 1];
+        const unichar low = [self characterAtIndex:1];
         const int codepoint = ((high - 0xd800) * 0x400) + (low - 0xdc00) + 0x10000;
-        
+
         return (0x1d000 <= codepoint && codepoint <= 0x1f77f);
-        
+
         // Not surrogate pair (U+2100-27BF)
     } else {
         return (0x2100 <= high && high <= 0x27bf);
@@ -36,45 +36,45 @@
 
 ///未在范围之内的emoji
 - (BOOL)jk_isFuckEmoji {
-    NSArray *digs = @[@"0️⃣",@"1️⃣",@"2️⃣",@"3️⃣",@"4️⃣",@"5️⃣",@"6️⃣",@"7️⃣",@"8️⃣",@"9️⃣",@"#️⃣",@"*️⃣",@"#⃣️",@"*️⃣",@"0⃣️",@"1⃣️",@"2⃣️",@"3⃣️",@"4⃣️",@"5⃣️",@"6⃣️",@"7⃣️",@"8⃣️",@"9⃣️"] ;
-    
-    if([digs containsObject:self]){
+    NSArray *digs = @[@"0️⃣", @"1️⃣", @"2️⃣", @"3️⃣", @"4️⃣", @"5️⃣", @"6️⃣", @"7️⃣", @"8️⃣", @"9️⃣", @"#️⃣", @"*️⃣", @"#⃣️", @"*️⃣", @"0⃣️", @"1⃣️", @"2⃣️", @"3⃣️", @"4⃣️", @"5⃣️", @"6⃣️", @"7⃣️", @"8⃣️", @"9⃣️"];
+
+    if ([digs containsObject:self]) {
         return YES;
     }
-    
+
     NSString *emoji = @"🤣🤑🤗🤓🤡🤠🤤🤔🤥🤐🤢🤧🤒🤕🤖🤝🤛🤜🤞🤘🤚🤙🤳🤶🤴🤵🤰🤦‍♀️🤦‍♂️🤷‍♀️🤷‍♂️🤛🏻🤜🏻🤞🏻🤘🏻🤚🏻🤙🏻🤳🏻🤶🏻🤴🏻🤵🏻🤰🏻🤦🏻‍♀️🤦🏻‍♂️🤷🏻‍♀️🤷🏻‍♂️🤸🏻‍♀️🤸🏻‍♂️🤾🏻‍♀️🤾🏻‍♂️🤽🏻‍♀️🤽🏻‍♂️🤹🏻‍♀️🤹🏻‍♂️🤛🏼🤜🏼🤞🏼🤘🏼🤚🏼🤙🏼🤳🏼🤶🏼🤴🏼🤵🏼🤰🏼🤦🏼‍♀️🤦🏼‍♂️🤷🏼‍♀️🤷🏼‍♂️🤸🏼‍♀️🤸🏼‍♂️🤾🏼‍♀️🤾🏼‍♂️🤽🏼‍♀️🤽🏼‍♂️🤹🏼‍♀️🤹🏼‍♂️🤛🏽🤜🏽🤞🏽🤘🏽🤚🏽🤙🏽🤳🏽🤶🏽🤴🏽🤵🏽🤰🏽🤦🏽‍♀️🤦🏽‍♂️🤷🏽‍♀️🤷🏽‍♂️🤸🏽‍♀️🤸🏽‍♂️🤾🏽‍♀️🤾🏽‍♂️🤽🏽‍♀️🤽🏽‍♂️🤹🏽‍♀️🤹🏽‍♂️🤛🏾🤜🏾🤞🏾🤘🏾🤚🏾🤙🏾🤳🏾🤶🏾🤴🏾🤵🏾🤰🏾🤦🏾‍♀️🤦🏾‍♂️🤷🏾‍♀️🤷🏾‍♂️🤸🏾‍♀️🤸🏾‍♂️🤾🏾‍♀️🤾🏾‍♂️🤽🏾‍♀️🤽🏾‍♂️🤹🏾‍♀️🤹🏾‍♂️🤛🏿🤜🏿🤞🏿🤘🏿🤚🏿🤙🏿🤳🏿🤶🏿🤴🏿🤵🏿🤰🏿🤦🏿‍♀️🤦🏿‍♂️🤷🏿‍♀️🤷🏿‍♂️🤸🏿‍♀️🤸🏿‍♂️🤾🏿‍♀️🤾🏿‍♂️🤽🏿‍♀️🤽🏿‍♂️🤹🏿‍♀️🤹🏿‍♂️🦊🦁🦆🦅🦉🦇🦄🦋🦎🦂🦀🦑🦐🦈🦌🦏🦍🦃🥀⭐️🥝🥑🥒🥕🥔🥜🥐🥖🧀🥚🥓🥞🥙🥗🥘🥛🥂🥃🥄🥅🥊🥋🤺🤼‍♀️🤼‍♂️🤸‍♀️🤸‍♂️🤾‍♀️🤾‍♂️🤽‍♀️🤽‍♂️🥇🥈🥉🤹‍♀️🤹‍♂️🥁㊙️㊗️⭕️‼️⁉️〽️⬅️⬆️⬇️⤴️⤵️©️®️〰️⬛️⬜️🤣🤠🤡🤥🤤🤢🤧🤴🤶🤵🤷🤦🤰🤳🤞🤙🤛🤜🤚🤝🦍🦊🦌🦏🦇🦅🦆🦉🦎🦈🦐🦑🦋🥀🥝🥑🥔🥕🥒🥜🥐🥖🥞🥓🥙🥚🥘🥗🥛🥂🥃🥄🥇🥈🥉🥊🥋🤸🤼🤽🤾🤺🥅🤹🥁‼️©️®️⁉️⤴️⤵️⬆️⬇️⬅️⭐⬛⬜⭕⟹ツღ";
-    for (int i=0; i<[emoji length]; i++) {
-        const unichar  ch=  [emoji characterAtIndex:i];
+    for (int i = 0; i < [emoji length]; i++) {
+        const unichar ch = [emoji characterAtIndex:i];
         if ([self characterAtIndex:0] == ch) {
-            return  YES;
+            return YES;
             break;
         }
     }
-    
+
     return NO;
 }
 
 - (NSString *)jk_stringByRemovingEmoji {
-    return  [self jk_stringByReplaceingEmojiWithString:@""];
+    return [self jk_stringByReplaceingEmojiWithString:@""];
 }
 
-- (NSString *)jk_stringByReplaceingEmojiWithString:(NSString*)string {
-    NSMutableString* __block buffer = [NSMutableString stringWithCapacity:[self length]];
-    
+- (NSString *)jk_stringByReplaceingEmojiWithString:(NSString *)string {
+    NSMutableString *__block buffer = [NSMutableString stringWithCapacity:[self length]];
+
     [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
                              options:NSStringEnumerationByComposedCharacterSequences
-                          usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
-                              [buffer appendString:([substring jk_containsEmoji])?(string?:@""): substring];
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                              [buffer appendString:([substring jk_containsEmoji]) ? (string ?: @"") : substring];
                           }];
-    
+
     return buffer;
 }
 
 - (NSString *)jk_allEmojiString {
-    NSMutableString* __block buffer = [NSMutableString stringWithCapacity:[self length]];
+    NSMutableString *__block buffer = [NSMutableString stringWithCapacity:[self length]];
     [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
                              options:NSStringEnumerationByComposedCharacterSequences
-                          usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
                               if ([substring jk_containsEmoji]) {
                                   [buffer appendString:substring];
                               }
@@ -82,11 +82,11 @@
     return buffer;
 }
 
-- (NSArray<NSString *> *)jk_allEmoji{
+- (NSArray<NSString *> *)jk_allEmoji {
     __block NSMutableArray *allEmoji = [NSMutableArray array];
     [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
                              options:NSStringEnumerationByComposedCharacterSequences
-                          usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
                               if ([substring jk_containsEmoji]) {
                                   [allEmoji addObject:substring];
                               }
@@ -94,11 +94,11 @@
     return allEmoji;
 }
 
-- (NSArray<NSString *> *)jk_allEmojiRanges{
+- (NSArray<NSString *> *)jk_allEmojiRanges {
     __block NSMutableArray *rangs = [NSMutableArray array];
     [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
                              options:NSStringEnumerationByComposedCharacterSequences
-                          usingBlock: ^(NSString * substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
                               if ([substring jk_containsEmoji]) {
                                   [rangs addObject:NSStringFromRange(substringRange)];
                               }
@@ -109,8 +109,7 @@
 @end
 
 @implementation NSCharacterSet (EmojiCharacterSet)
-+ (NSCharacterSet *)jk_emojiCharacterSet
-{
++ (NSCharacterSet *)jk_emojiCharacterSet {
     return [NSCharacterSet characterSetWithCharactersInString:[NSString jk_allSystemEmoji]];
 }
 @end

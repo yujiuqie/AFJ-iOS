@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSTPriorityView : UIView
 
 /** 标题 */
-@property (nonatomic,strong) UILabel *titleLab;
+@property(nonatomic, strong) UILabel *titleLab;
 
 @end
 

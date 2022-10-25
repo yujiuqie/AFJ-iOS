@@ -11,9 +11,9 @@
 
 @interface XLFoldClock () {
     XLFoldClockItem *_hourItem;
-    
+
     XLFoldClockItem *_minuteItem;
-    
+
     XLFoldClockItem *_secondItem;
 }
 @end
@@ -32,11 +32,11 @@
     _hourItem = [[XLFoldClockItem alloc] init];
     _hourItem.type = XLClockItemTypeHour;
     [self addSubview:_hourItem];
-    
+
     _minuteItem = [[XLFoldClockItem alloc] init];
     _minuteItem.type = XLClockItemTypeMinute;
     [self addSubview:_minuteItem];
-    
+
     _secondItem = [[XLFoldClockItem alloc] init];
     _secondItem.type = XLClockItemTypeSecond;
     [self addSubview:_secondItem];
@@ -44,9 +44,9 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGFloat margin = 0.07*self.bounds.size.width;
-    CGFloat itemW = (self.bounds.size.width - 4*margin)/3.0f;
-    CGFloat itemY = (self.bounds.size.height - itemW)/2.0f;
+    CGFloat margin = 0.07 * self.bounds.size.width;
+    CGFloat itemW = (self.bounds.size.width - 4 * margin) / 3.0f;
+    CGFloat itemY = (self.bounds.size.height - itemW) / 2.0f;
     _hourItem.frame = CGRectMake(margin, itemY, itemW, itemW);
     _minuteItem.frame = CGRectMake(CGRectGetMaxX(_hourItem.frame) + margin, itemY, itemW, itemW);
     _secondItem.frame = CGRectMake(CGRectGetMaxX(_minuteItem.frame) + margin, itemY, itemW, itemW);

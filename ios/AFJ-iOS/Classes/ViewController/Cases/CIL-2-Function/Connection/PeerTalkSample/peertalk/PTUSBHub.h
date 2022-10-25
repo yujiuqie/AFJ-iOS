@@ -30,18 +30,18 @@ FOUNDATION_EXPORT NSNotificationName const PTUSBDeviceDidAttachNotification NS_S
 //
 FOUNDATION_EXPORT NSNotificationName const PTUSBDeviceDidDetachNotification NS_SWIFT_NAME(deviceDidDetach);
 
-typedef NSString * PTUSBHubNotificationKey NS_TYPED_ENUM;
+typedef NSString *PTUSBHubNotificationKey NS_TYPED_ENUM;
 FOUNDATION_EXPORT PTUSBHubNotificationKey const PTUSBHubNotificationKeyDeviceID NS_SWIFT_NAME(deviceID);
 FOUNDATION_EXPORT PTUSBHubNotificationKey const PTUSBHubNotificationKeyMessageType NS_SWIFT_NAME(messageType);
 FOUNDATION_EXPORT PTUSBHubNotificationKey const PTUSBHubNotificationKeyProperties NS_SWIFT_NAME(properties);
 
 // NSError domain
-FOUNDATION_EXPORT NSString * const PTUSBHubErrorDomain;
+FOUNDATION_EXPORT NSString *const PTUSBHubErrorDomain;
 
 // Error codes returned with NSError.code for NSError domain PTUSBHubErrorDomain
 typedef enum {
-  PTUSBHubErrorBadDevice = 2,
-  PTUSBHubErrorConnectionRefused = 3,
+    PTUSBHubErrorBadDevice = 2,
+    PTUSBHubErrorConnectionRefused = 3,
 } PTUSBHubError;
 
 @interface PTUSBHub : NSObject
@@ -66,10 +66,10 @@ typedef enum {
 // argument is non-nil, the channel closed because of an error. Pass NULL for no
 // callback.
 //
-- (void)connectToDevice:(NSNumber*)deviceID
+- (void)connectToDevice:(NSNumber *)deviceID
                    port:(int)port
-                onStart:(void(^)(NSError *error, dispatch_io_t channel))onStart
-                  onEnd:(void(^)(NSError *error))onEnd;
+                onStart:(void (^)(NSError *error, dispatch_io_t channel))onStart
+                  onEnd:(void (^)(NSError *error))onEnd;
 
 // Start listening for devices. You only need to invoke this method on custom
 // instances to start receiving notifications. The shared instance returned from
@@ -83,7 +83,7 @@ typedef enum {
 // listening stopped because of an error. Pass NULL for no callback.
 //
 - (void)listenOnQueue:(dispatch_queue_t)queue
-              onStart:(void(^)(NSError*))onStart
-                onEnd:(void(^)(NSError*))onEnd;
+              onStart:(void (^)(NSError *))onStart
+                onEnd:(void (^)(NSError *))onEnd;
 
 @end

@@ -24,19 +24,19 @@ static CGFloat const kTextLabelMarginBottom = 4;
 }
 
 - (void)initSubviews {
-    
+
     _imageView = [[UIImageView alloc] init];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.clipsToBounds = YES;
     self.imageView.layer.cornerRadius = 4;
     [self addSubview:self.imageView];
-    
+
     _textLabel = [[UILabel alloc] init];
     self.textLabel.textColor = UIColorWhite;
     self.textLabel.font = UIFontBoldMake(17);
     self.textLabel.opaque = NO;
     [self addSubview:self.textLabel];
-    
+
     _detailTextLabel = [[UILabel alloc] init];
     self.detailTextLabel.numberOfLines = 0;
     self.detailTextLabel.textAlignment = NSTextAlignmentJustified;
@@ -66,17 +66,17 @@ static CGFloat const kTextLabelMarginBottom = 4;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     [self.imageView qmui_sizeToFitKeepingImageAspectRatioInSize:CGSizeMake(CGFLOAT_MAX, kImageViewHeight)];
-    
+
     CGFloat contentWidth = CGRectGetWidth(self.bounds);
     CGFloat maxContentWidth = contentWidth - UIEdgeInsetsGetHorizontalValue(kInsets);
     CGFloat labelWidth = maxContentWidth - CGRectGetWidth(self.imageView.frame) - kImageViewMarginRight;
-    
+
     self.imageView.frame = CGRectSetXY(self.imageView.frame, kInsets.left, kInsets.top);
-    
+
     self.textLabel.frame = CGRectFlatMake(CGRectGetMaxX(self.imageView.frame) + kImageViewMarginRight, CGRectGetMinY(self.imageView.frame) + 5, labelWidth, CGRectGetHeight(self.textLabel.bounds));
-    
+
     CGFloat detailLimitHeight = CGRectGetHeight(self.bounds) - CGRectGetMaxY(self.textLabel.frame) - kTextLabelMarginBottom - kInsets.bottom;
     CGSize detailSize = [self.detailTextLabel sizeThatFits:CGSizeMake(labelWidth, detailLimitHeight)];
     self.detailTextLabel.frame = CGRectFlatMake(CGRectGetMinX(self.textLabel.frame), CGRectGetMaxY(self.textLabel.frame) + kTextLabelMarginBottom, labelWidth, fmin(detailLimitHeight, detailSize.height));

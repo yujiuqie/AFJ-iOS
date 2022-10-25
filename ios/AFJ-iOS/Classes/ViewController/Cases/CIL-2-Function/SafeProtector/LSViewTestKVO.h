@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @interface LSViewTestKVO : UIView
-@property (nonatomic,weak) UIViewController *con;
+@property(nonatomic, weak) UIViewController *con;
 @end

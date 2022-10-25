@@ -12,36 +12,36 @@
 
 #pragma mark - Properties
 
--(UIPercentDrivenInteractiveTransition *)interactiveTransition {
-    if (self.isInteracting && !_interactiveTransition ) {
+- (UIPercentDrivenInteractiveTransition *)interactiveTransition {
+    if (self.isInteracting && !_interactiveTransition) {
         _interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
 
-    } 
+    }
     return _interactiveTransition;
 }
 
--(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     return self.duration;
 }
 
--(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *fromView = fromViewController.view;
     UIView *toView = toViewController.view;
-    
+
     [self animateTransitionWithContext:transitionContext fromViewController:fromViewController toViewController:toViewController fromView:fromView toView:toView];
 }
 
--(void)animateTransitionWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
-                 fromViewController:(UIViewController *)fromViewController
-                   toViewController:(UIViewController *)toViewController
-                           fromView:(UIView *)fromView
-                             toView:(UIView *)toView  {
-    
+- (void)animateTransitionWithContext:(id <UIViewControllerContextTransitioning>)transitionContext
+                  fromViewController:(UIViewController *)fromViewController
+                    toViewController:(UIViewController *)toViewController
+                            fromView:(UIView *)fromView
+                              toView:(UIView *)toView {
+
 }
 
--(NSString *)description {
+- (NSString *)description {
     NSString *direction;
     switch (self.direction) {
         case ATCTransitionAnimationDirectionNone: {
@@ -67,24 +67,24 @@
         default:
             break;
     }
-    
+
     NSString *dismissal = (self.isDismissal) ? @"Dismissing" : @"Presenting";
     return [dismissal stringByAppendingFormat:@" with direction: %@", direction];
 }
 
--(void)handlePanGesture:(UIPanGestureRecognizer *)recognizer inViewController:(UIViewController *)controller {
-    
+- (void)handlePanGesture:(UIPanGestureRecognizer *)recognizer inViewController:(UIViewController *)controller {
+
 }
 
--(ATCTransitionAnimationDirection)adjustDirectionForOrientation:(UIInterfaceOrientation)orientation {
+- (ATCTransitionAnimationDirection)adjustDirectionForOrientation:(UIInterfaceOrientation)orientation {
     ATCTransitionAnimationDirection direction = self.direction;
-    if ( !self.isPush ) {
-        if ( orientation == UIInterfaceOrientationLandscapeRight ) {
-            if ( direction != ATCTransitionAnimationDirectionNone ) {
+    if (!self.isPush) {
+        if (orientation == UIInterfaceOrientationLandscapeRight) {
+            if (direction != ATCTransitionAnimationDirectionNone) {
                 direction = (self.direction - 1 == 0) ? 4 : self.direction - 1;
             }
-        } else if ( orientation == UIInterfaceOrientationLandscapeLeft ) {
-            if ( direction != ATCTransitionAnimationDirectionNone ) {
+        } else if (orientation == UIInterfaceOrientationLandscapeLeft) {
+            if (direction != ATCTransitionAnimationDirectionNone) {
                 direction = (self.direction + 1 > 4) ? 1 : self.direction + 1;
             }
         }

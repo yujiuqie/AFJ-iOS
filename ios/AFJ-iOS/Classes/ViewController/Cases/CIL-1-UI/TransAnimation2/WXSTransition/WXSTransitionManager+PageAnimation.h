@@ -8,10 +8,11 @@
 
 #import "WXSTransitionManager.h"
 
-@interface WXSTransitionManager (PageAnimation) 
+@interface WXSTransitionManager (PageAnimation)
 
 
--(void)pageTransitionNextAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext;
--(void)pageTransitionBackAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext;
+- (void)pageTransitionNextAnimationWithContext:(id <UIViewControllerContextTransitioning>)transitionContext;
+
+- (void)pageTransitionBackAnimationWithContext:(id <UIViewControllerContextTransitioning>)transitionContext;
 
 @end

@@ -14,12 +14,12 @@
 #import "CharacteristicViewController.h"
 
 
-@interface PeripheralViewController : UITableViewController{
-    @public
+@interface PeripheralViewController : UITableViewController {
+@public
     BabyBluetooth *baby;
 }
 
 @property __block NSMutableArray *services;
-@property(strong,nonatomic)CBPeripheral *currPeripheral;
+@property(strong, nonatomic) CBPeripheral *currPeripheral;
 
 @end

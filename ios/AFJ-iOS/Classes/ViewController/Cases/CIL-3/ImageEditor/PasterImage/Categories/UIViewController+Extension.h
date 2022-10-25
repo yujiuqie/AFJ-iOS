@@ -10,25 +10,27 @@
 
 /**定义左边按钮block*/
 typedef void(^backButtonBlock)(UIButton *BackButton);
+
 /**定义右边按钮block*/
 typedef void(^rightButtonBlock)(UIButton *rightButton);
 
 /**定义左边按钮点击事件block*/
 typedef void(^leftBtnTargetBlock)(NSString *string);
+
 /**定义右边按钮点击事件block*/
 typedef void(^rightBtnTargetBlock)(NSString *string);
 
 
 @interface UIViewController (Extension)
 
-@property (nonatomic, copy)   NSString *name;  //视图名字
-@property (nonatomic, assign) BOOL  hasChildViewController;//是否有子视图
-@property (nonatomic, strong) UIImage *backgroundImage;   //背景图片
+@property(nonatomic, copy) NSString *name;  //视图名字
+@property(nonatomic, assign) BOOL hasChildViewController;//是否有子视图
+@property(nonatomic, strong) UIImage *backgroundImage;   //背景图片
 
 /**右边按钮点击事件block*/
-@property (nonatomic, copy) rightBtnTargetBlock rightBtnBlock;
+@property(nonatomic, copy) rightBtnTargetBlock rightBtnBlock;
 /**左边按钮点击事件block*/
-@property (nonatomic, copy) leftBtnTargetBlock leftBtnBlock;
+@property(nonatomic, copy) leftBtnTargetBlock leftBtnBlock;
 
 
 /**
@@ -51,7 +53,6 @@ typedef void(^rightBtnTargetBlock)(NSString *string);
                        touchBlock:(backButtonBlock)block;
 
 
-
 /**
  *  添加右边返回按钮
  *
@@ -68,13 +69,10 @@ typedef void(^rightBtnTargetBlock)(NSString *string);
                         touchBlock:(rightButtonBlock)block;
 
 
-
 /**
  *  触摸屏幕隐藏键盘
  */
 - (void)setUpForDismissKeyboard:(UIView *)selfView;
-
-
 
 
 @end

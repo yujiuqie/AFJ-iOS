@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DMBaseTransition : NSObject
-<UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+        <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 
-@property (nonatomic, readwrite, assign, getter = isPresenting) BOOL presenting;
+@property(nonatomic, readwrite, assign, getter = isPresenting) BOOL presenting;
 
 @end

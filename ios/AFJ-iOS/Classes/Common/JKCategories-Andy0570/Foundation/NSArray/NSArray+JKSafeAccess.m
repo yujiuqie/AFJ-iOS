@@ -12,7 +12,7 @@
     if (index >= [self count]) {
         return nil;
     }
-    
+
     id value = [self objectAtIndex:index];
     if (value == [NSNull null]) {
         return nil;
@@ -28,11 +28,10 @@
     return nil;
 }
 
-- (char)jk_charAtIndex:(NSUInteger)index{
+- (char)jk_charAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
-    if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]])
-    {
+
+    if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value charValue];
     }
     return 0;
@@ -40,11 +39,11 @@
 
 - (short)jk_shortAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]]) {
         return [value shortValue];
     }
-    
+
     if ([value isKindOfClass:[NSString class]]) {
         return [value intValue];
     }
@@ -53,7 +52,7 @@
 
 - (int)jk_intAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value intValue];
     }
@@ -62,7 +61,7 @@
 
 - (long)jk_longAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value longValue];
     }
@@ -71,7 +70,7 @@
 
 - (float)jk_floatAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value floatValue];
     }
@@ -80,7 +79,7 @@
 
 - (double)jk_doubleAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value doubleValue];
     }
@@ -89,9 +88,8 @@
 
 - (bool)jk_boolAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
-    if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]])
-    {
+
+    if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value boolValue];
     }
     return NO;
@@ -99,7 +97,7 @@
 
 - (NSInteger)jk_integerAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value integerValue];
     }
@@ -108,7 +106,7 @@
 
 - (NSUInteger)jk_unsignedIntegerAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value unsignedIntegerValue];
     }
@@ -117,7 +115,7 @@
 
 - (NSString *)jk_stringAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSString class]]) {
         return value;
     }
@@ -129,29 +127,29 @@
 
 - (NSNumber *)jk_numberAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSNumber class]]) {
         return value;
     }
     if ([value isKindOfClass:[NSString class]]) {
         NSNumberFormatter *formatter = [NSNumberFormatter new];
         formatter.numberStyle = NSNumberFormatterDecimalStyle;
-        return [formatter numberFromString:(NSString *)value];
+        return [formatter numberFromString:(NSString *) value];
     }
-    
+
     return nil;
 }
 
-- (NSDecimalNumber *)jk_decimalNumberAtIndex:(NSUInteger)index{
+- (NSDecimalNumber *)jk_decimalNumberAtIndex:(NSUInteger)index {
     id value = [self jk_objectAtIndex:index];
-    
+
     if ([value isKindOfClass:[NSDecimalNumber class]]) {
         return value;
     } else if ([value isKindOfClass:[NSNumber class]]) {
-        NSNumber *number = (NSNumber *)value;
+        NSNumber *number = (NSNumber *) value;
         return [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
     } else if ([value isKindOfClass:[NSString class]]) {
-        NSString *string = (NSString*)value;
+        NSString *string = (NSString *) value;
         return [string isEqualToString:@""] ? nil : [NSDecimalNumber decimalNumberWithString:string];
     }
     return nil;
@@ -165,11 +163,11 @@
     return [self jk_objectAtIndex:index class:[NSDictionary class]];
 }
 
-- (NSMutableArray*)jk_mutableArrayAtIndex:(NSUInteger)index {
+- (NSMutableArray *)jk_mutableArrayAtIndex:(NSUInteger)index {
     return [self jk_objectAtIndex:index class:[NSMutableArray class]];
 }
 
-- (NSMutableDictionary*)jk_mutableDictionaryAtIndex:(NSUInteger)index {
+- (NSMutableDictionary *)jk_mutableDictionaryAtIndex:(NSUInteger)index {
     return [self jk_objectAtIndex:index class:[NSMutableDictionary class]];
 }
 
@@ -264,7 +262,7 @@
 }
 
 - (void)jk_addCGFloat:(CGFloat)aCGFloat {
-   [self addObject:@(aCGFloat)];
+    [self addObject:@(aCGFloat)];
 }
 
 - (void)jk_addPoint:(CGPoint)aCGPoint {
@@ -272,7 +270,7 @@
 }
 
 - (void)jk_addSize:(CGSize)aCGSize {
-   [self addObject:NSStringFromCGSize(aCGSize)];
+    [self addObject:NSStringFromCGSize(aCGSize)];
 }
 
 - (void)jk_addRect:(CGRect)aCGRect {

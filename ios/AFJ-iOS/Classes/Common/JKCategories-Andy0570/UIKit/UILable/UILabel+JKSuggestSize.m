@@ -11,8 +11,8 @@
 - (CGSize)jk_suggestedSizeForWidth:(CGFloat)width {
     if (self.attributedText)
         return [self jk_suggestSizeForAttributedString:self.attributedText width:width];
-    
-	return [self jk_suggestSizeForString:self.text width:width];
+
+    return [self jk_suggestSizeForString:self.text width:width];
 }
 
 - (CGSize)jk_suggestSizeForAttributedString:(NSAttributedString *)string width:(CGFloat)width {

@@ -12,7 +12,7 @@
  */
 #import <UIKit/UIKit.h>
 
-@interface UIImage(JKVector)
+@interface UIImage (JKVector)
 
 /**
  Create a UIImage from an icon font.
@@ -24,7 +24,7 @@
  @return The resulting image.
  */
 + (UIImage *)jk_iconWithFont:(UIFont *)font named:(NSString *)iconNamed
-            withTintColor:(UIColor *)tintColor clipToBounds:(BOOL)clipToBounds forSize:(CGFloat)fontSize;
+               withTintColor:(UIColor *)tintColor clipToBounds:(BOOL)clipToBounds forSize:(CGFloat)fontSize;
 
 /**
  Create a UIImage from a PDF icon.

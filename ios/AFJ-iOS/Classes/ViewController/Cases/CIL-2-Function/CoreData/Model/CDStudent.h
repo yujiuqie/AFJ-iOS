@@ -10,6 +10,6 @@
 
 @interface CDStudent : CDPerson
 
-@property (strong, nonatomic) NSArray *teachers;
+@property(strong, nonatomic) NSArray *teachers;
 
 @end

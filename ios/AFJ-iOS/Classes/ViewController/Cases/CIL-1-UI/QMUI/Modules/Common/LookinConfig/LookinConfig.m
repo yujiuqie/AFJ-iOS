@@ -19,17 +19,17 @@
  */
 + (NSDictionary *)colors {
     return @{
-        @"qd_backgroundColor": UIColor.qd_backgroundColor,
-        @"qd_backgroundColorLighten": UIColor.qd_backgroundColorLighten,
-        @"qd_backgroundColorHighlighted": UIColor.qd_backgroundColorHighlighted,
-        @"qd_tintColor": UIColor.qd_tintColor,
-        @"qd_titleTextColor": UIColor.qd_titleTextColor,
-        @"qd_mainTextColor": UIColor.qd_mainTextColor,
-        @"qd_descriptionTextColor": UIColor.qd_descriptionTextColor,
-        @"qd_placeholderColor": UIColor.qd_placeholderColor,
-        @"qd_codeColor": UIColor.qd_codeColor,
-        @"qd_separatorColor": UIColor.qd_separatorColor,
-        @"qd_gridItemTintColor": UIColor.qd_gridItemTintColor,
+            @"qd_backgroundColor": UIColor.qd_backgroundColor,
+            @"qd_backgroundColorLighten": UIColor.qd_backgroundColorLighten,
+            @"qd_backgroundColorHighlighted": UIColor.qd_backgroundColorHighlighted,
+            @"qd_tintColor": UIColor.qd_tintColor,
+            @"qd_titleTextColor": UIColor.qd_titleTextColor,
+            @"qd_mainTextColor": UIColor.qd_mainTextColor,
+            @"qd_descriptionTextColor": UIColor.qd_descriptionTextColor,
+            @"qd_placeholderColor": UIColor.qd_placeholderColor,
+            @"qd_codeColor": UIColor.qd_codeColor,
+            @"qd_separatorColor": UIColor.qd_separatorColor,
+            @"qd_gridItemTintColor": UIColor.qd_gridItemTintColor,
     };
 }
 

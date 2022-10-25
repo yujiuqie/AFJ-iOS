@@ -10,10 +10,10 @@
 
 @interface DemoDanmakuModel : HJDanmakuModel
 
-@property (nonatomic, assign) BOOL selfFlag;
+@property(nonatomic, assign) BOOL selfFlag;
 
-@property (nonatomic, strong) NSString *text;
-@property (nonatomic, strong) UIColor  *textColor;
-@property (nonatomic, strong) UIFont   *textFont;
+@property(nonatomic, strong) NSString *text;
+@property(nonatomic, strong) UIColor *textColor;
+@property(nonatomic, strong) UIFont *textFont;
 
 @end

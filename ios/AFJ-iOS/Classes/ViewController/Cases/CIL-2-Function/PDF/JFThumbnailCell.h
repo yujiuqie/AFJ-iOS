@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JFThumbnailCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIImageView *imgViewThumb;
-@property (nonatomic, strong) UILabel *lblPage;
+@property(nonatomic, strong) UIImageView *imgViewThumb;
+@property(nonatomic, strong) UILabel *lblPage;
 
 @end
 

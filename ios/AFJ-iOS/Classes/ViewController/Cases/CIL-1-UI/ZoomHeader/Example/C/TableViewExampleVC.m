@@ -9,7 +9,7 @@
 #import "TableViewExampleVC.h"
 #import "TestZoomHeader1.h"
 
-@interface TableViewExampleVC ()<UITableViewDataSource,UITableViewDelegate> {
+@interface TableViewExampleVC () <UITableViewDataSource, UITableViewDelegate> {
     UITableView *_tableView;
 }
 
@@ -28,7 +28,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    
+
     TestZoomHeader1 *header = [[TestZoomHeader1 alloc] initWithFrame:CGRectMake(0, 0, _tableView.bounds.size.width, 150)];
     _tableView.xl_zoomHeader = header;
 }
@@ -45,8 +45,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* cellIdentifier = @"cell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSString *cellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }

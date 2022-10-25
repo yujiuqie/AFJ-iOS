@@ -39,29 +39,28 @@ static const CGFloat defaultPasterViewW_H = 120;
 /**底部按钮的高度*/
 static CGFloat bottomButtonH = 44;
 
-@interface YBPasterImageVC ()<YBPasterScrollViewDelegate, YBFilterScrollViewDelegate, YBPasterViewDelegate>
-{
+@interface YBPasterImageVC () <YBPasterScrollViewDelegate, YBFilterScrollViewDelegate, YBPasterViewDelegate> {
     NSInteger defaultIndex;
-    NSString* _name;
+    NSString *_name;
 }
 /**上部的图片imageView*/
-@property (nonatomic, strong) UIImageView *pasterImageView;
+@property(nonatomic, strong) UIImageView *pasterImageView;
 /**多个贴纸样式的scrollView*/
-@property (nonatomic, strong) YBPasterScrollView *pasterScrollView;
+@property(nonatomic, strong) YBPasterScrollView *pasterScrollView;
 /**装多个滤镜样式的scrollView*/
-@property (nonatomic, strong) YBFilterScrollView *filterScrollView;
+@property(nonatomic, strong) YBFilterScrollView *filterScrollView;
 /**图片数组*/
-@property (nonatomic, copy) NSArray *imageArray;
+@property(nonatomic, copy) NSArray *imageArray;
 /**可变的装多个贴纸标签的数组*/
-@property (nonatomic, strong) NSMutableArray *pasterViewMutArr;
+@property(nonatomic, strong) NSMutableArray *pasterViewMutArr;
 /**贴纸*/
-@property (nonatomic, strong) YBPasterView *pasterView;
+@property(nonatomic, strong) YBPasterView *pasterView;
 /**底部的公共的按钮*/
-@property (nonatomic, strong) YBCustomButton *bottomButton;
+@property(nonatomic, strong) YBCustomButton *bottomButton;
 /**底部滑动的红色的线*/
-@property (nonatomic, strong) UIView *lineView;
+@property(nonatomic, strong) UIView *lineView;
 
-@property (nonatomic, assign) YBImageDecoration currentOperation;
+@property(nonatomic, assign) YBImageDecoration currentOperation;
 
 @end
 
@@ -81,7 +80,7 @@ static CGFloat bottomButtonH = 44;
  */
 - (instancetype)initWithName:(NSString *)name {
     self = [super init];
-    if(!self) return self;
+    if (!self) return self;
     _name = name;
     return self;
 }
@@ -89,23 +88,22 @@ static CGFloat bottomButtonH = 44;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     //设置一些通用属性
     [self setGeneralPropetory];
-    
+
     //添加右键
     [self setRightButton];
-    
+
     //设置UI
     [self setupUI];
-    
+
 }
 
 /**
  *  设置一些通用属性
  */
-- (void)setGeneralPropetory
-{
+- (void)setGeneralPropetory {
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController setNavigationBarHidden:NO];
@@ -115,40 +113,37 @@ static CGFloat bottomButtonH = 44;
 /**
  *  懒加载-装多张贴纸的可变数组
  */
-- (NSMutableArray *)pasterViewMutArr
-{
+- (NSMutableArray *)pasterViewMutArr {
     if (!_pasterViewMutArr) {
         _pasterViewMutArr = [NSMutableArray array];
     }
-    
+
     return _pasterViewMutArr;
 }
 
 /**
  *  懒加载-图片数组
  */
-- (NSArray *)imageArray
-{
+- (NSArray *)imageArray {
     if (!_imageArray) {
         NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
-        NSArray *arr = @[@"1",@"2",@"3",@"4",@"5"];
+        NSArray * arr = @[@"1", @"2", @"3", @"4", @"5"];
         for (NSString *imageName in arr) {
             UIImage *image = [UIImage imageNamed:imageName];
             [mutArr addObject:image];
         }
         _imageArray = mutArr;
     }
-    
+
     return _imageArray;
 }
 
 /**
  *  懒加载-get方法设置自定义贴纸的scrollView
  */
-- (YBPasterScrollView *)pasterScrollView
-{
+- (YBPasterScrollView *)pasterScrollView {
     if (!_pasterScrollView) {
-        _pasterScrollView = [[YBPasterScrollView alloc]initScrollViewWithPasterImageArray:self.imageArray];
+        _pasterScrollView = [[YBPasterScrollView alloc] initScrollViewWithPasterImageArray:self.imageArray];
         _pasterScrollView.frame = CGRectMake(0, FULL_SCREEN_H - pasterScrollView_H - bottomButtonH, FULL_SCREEN_W, pasterScrollView_H);
         _pasterScrollView.backgroundColor = [UIColor lightGrayColor];
         _pasterScrollView.showsHorizontalScrollIndicator = YES;
@@ -156,28 +151,27 @@ static CGFloat bottomButtonH = 44;
         _pasterScrollView.contentSize = CGSizeMake(_pasterScrollView.pasterImage_W_H * _pasterScrollView.pasterImageArray.count + inset_space * 6, pasterScrollView_H);
         _pasterScrollView.pasterDelegate = self;
     }
-    
+
     return _pasterScrollView;
 }
 
 /**
  *  懒加载-get方法设置自定义滤镜的scrollView
  */
-- (YBFilterScrollView *)filterScrollView
-{
+- (YBFilterScrollView *)filterScrollView {
     if (!_filterScrollView) {
-        _filterScrollView = [[YBFilterScrollView alloc]initWithFrame:CGRectMake(0, FULL_SCREEN_H - pasterScrollView_H - bottomButtonH, FULL_SCREEN_W, pasterScrollView_H)];
+        _filterScrollView = [[YBFilterScrollView alloc] initWithFrame:CGRectMake(0, FULL_SCREEN_H - pasterScrollView_H - bottomButtonH, FULL_SCREEN_W, pasterScrollView_H)];
         _filterScrollView.backgroundColor = [UIColor lightGrayColor];
         _filterScrollView.showsHorizontalScrollIndicator = YES;
         _filterScrollView.bounces = YES;
-        NSArray *titleArray = @[@"原图",@"LOMO",@"黑白",@"复古",@"哥特",@"瑞华",@"淡雅",@"酒红",@"青柠",@"浪漫",@"光晕",@"蓝调",@"梦幻",@"夜色"];
+        NSArray * titleArray = @[@"原图", @"LOMO", @"黑白", @"复古", @"哥特", @"瑞华", @"淡雅", @"酒红", @"青柠", @"浪漫", @"光晕", @"蓝调", @"梦幻", @"夜色"];
         _filterScrollView.titleArray = titleArray;
         _filterScrollView.filterScrollViewW = pasterScrollView_H;
-        _filterScrollView.insert_space = inset_space*2/3;
+        _filterScrollView.insert_space = inset_space * 2 / 3;
         _filterScrollView.labelH = 30;
         _filterScrollView.originImage = self.originalImage;
-        _filterScrollView.perButtonW_H = _filterScrollView.filterScrollViewW - 2*_filterScrollView.insert_space - 30;
-        
+        _filterScrollView.perButtonW_H = _filterScrollView.filterScrollViewW - 2 * _filterScrollView.insert_space - 30;
+
         _filterScrollView.contentSize = CGSizeMake(_filterScrollView.perButtonW_H * titleArray.count + _filterScrollView.insert_space * (titleArray.count + 1), pasterScrollView_H);
         _filterScrollView.filterDelegate = self;
         [_filterScrollView loadScrollView];
@@ -188,29 +182,27 @@ static CGFloat bottomButtonH = 44;
 /**
  *  设置UI
  */
-- (void)setupUI
-{
+- (void)setupUI {
     //默认选中“滤镜”位置
     defaultIndex = 0;
-    
-    UIImageView *pasterImageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 100, FULL_SCREEN_W - 40, FULL_SCREEN_W - 40)];
+
+    UIImageView *pasterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 100, FULL_SCREEN_W - 40, FULL_SCREEN_W - 40)];
     pasterImageView.image = self.originalImage;
     pasterImageView.userInteractionEnabled = YES;
     [self.view addSubview:pasterImageView];
     self.pasterImageView = pasterImageView;
-    
+
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGestureRecognizer:)];
     [self.pasterImageView addGestureRecognizer:tapGestureRecognizer];
-    
-    UIView *bottomBackView = [[UIView alloc]initWithFrame:CGRectMake(0, FULL_SCREEN_H - bottomButtonH, FULL_SCREEN_W, bottomButtonH)];
+
+    UIView *bottomBackView = [[UIView alloc] initWithFrame:CGRectMake(0, FULL_SCREEN_H - bottomButtonH, FULL_SCREEN_W, bottomButtonH)];
     bottomBackView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bottomBackView];
-    
-    NSArray *array = @[@"滤镜",@"标签",@"贴纸"];
-    for (int i = 0; i < array.count; i ++)
-    {
-        CGFloat perButtonW = FULL_SCREEN_W/3;
-        YBCustomButton *button = [[YBCustomButton alloc]initWithFrame:CGRectMake(perButtonW * i , 0, perButtonW, bottomButtonH)];
+
+    NSArray * array = @[@"滤镜", @"标签", @"贴纸"];
+    for (int i = 0; i < array.count; i++) {
+        CGFloat perButtonW = FULL_SCREEN_W / 3;
+        YBCustomButton *button = [[YBCustomButton alloc] initWithFrame:CGRectMake(perButtonW * i, 0, perButtonW, bottomButtonH)];
         [button setTitle:[array objectAtIndex:i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
@@ -223,19 +215,19 @@ static CGFloat bottomButtonH = 44;
         [button addTarget:self action:@selector(bottomButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [bottomBackView addSubview:button];
     }
-    
-    CGFloat lineViewW = bottomBackView.frame.size.width/6;
-    CGFloat lineViewX = bottomBackView.frame.size.width/6 - lineViewW/2;
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(lineViewX, bottomButtonH - 3, lineViewW, 3)];
+
+    CGFloat lineViewW = bottomBackView.frame.size.width / 6;
+    CGFloat lineViewX = bottomBackView.frame.size.width / 6 - lineViewW / 2;
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(lineViewX, bottomButtonH - 3, lineViewW, 3)];
     lineView.backgroundColor = [UIColor redColor];
     [bottomBackView addSubview:lineView];
     self.lineView = lineView;
-    
+
     //底部“贴纸”的scrollView
     [self.view addSubview:self.pasterScrollView];
     self.pasterScrollView.hidden = YES;
     self.pasterScrollView.alpha = 0.0;
-    
+
     //底部“滤镜”的scrollView
     [self.view addSubview:self.filterScrollView];
 }
@@ -243,15 +235,14 @@ static CGFloat bottomButtonH = 44;
 /**
  *  底部“滤镜”、“标签”、“贴纸”的按钮点击方法
  */
-- (void)bottomButtonClick:(YBCustomButton *)sender
-{
-    self.bottomButton.selected  = NO;
+- (void)bottomButtonClick:(YBCustomButton *)sender {
+    self.bottomButton.selected = NO;
     sender.selected = !sender.selected;
     self.bottomButton = sender;
-    
+
     // 底部的lineView转移位置
     [self lineViewTransform:sender];
-    
+
     // 根据当前的index切换底部的scrollView
     [self changeDecorateImageWithButtonTag:sender];
 }
@@ -259,43 +250,34 @@ static CGFloat bottomButtonH = 44;
 /**
  *  根据当前的index切换底部的scrollView
  */
-- (void)changeDecorateImageWithButtonTag:(YBCustomButton *)sender
-{
+- (void)changeDecorateImageWithButtonTag:(YBCustomButton *)sender {
     self.currentOperation = sender.tag - 5000;
     // 当前位置是贴纸
-    if (sender.tag - 5000 == YBImagePaster)
-    {
+    if (sender.tag - 5000 == YBImagePaster) {
         [UIView animateWithDuration:.5 animations:^{
             self.pasterScrollView.alpha = 1.0;
             self.pasterScrollView.hidden = NO;
-            
-            if (self.pasterView)
-            {
+
+            if (self.pasterView) {
                 [self.pasterView showBtn];
             }
         }];
-    }
-    else
-    {
+    } else {
         self.pasterScrollView.hidden = YES;
         self.pasterScrollView.alpha = .0;
-        
-        if (self.pasterView)
-        {
+
+        if (self.pasterView) {
             [self.pasterView hiddenBtn];
         }
     }
-    
+
     // 当前位置是滤镜
-    if (sender.tag - 5000 == YBImageFilter)
-    {
+    if (sender.tag - 5000 == YBImageFilter) {
         [UIView animateWithDuration:.5 animations:^{
             self.filterScrollView.alpha = 1.0;
             self.filterScrollView.hidden = NO;
         }];
-    }
-    else
-    {
+    } else {
         self.filterScrollView.hidden = YES;
         self.filterScrollView.alpha = .0;
     }
@@ -304,14 +286,13 @@ static CGFloat bottomButtonH = 44;
 /**
  *  底部的lineView转移位置
  */
-- (void)lineViewTransform:(YBCustomButton *)sender
-{
+- (void)lineViewTransform:(YBCustomButton *)sender {
     CGFloat sendW = sender.frame.size.width;
     NSInteger currentIndex = sender.tag - 5000;
     CGFloat lineViewH = self.lineView.frame.size.height;
-    CGFloat lineViewX = sendW * currentIndex + sendW / 2 - self.lineView.frame.size.width/2;
+    CGFloat lineViewX = sendW * currentIndex + sendW / 2 - self.lineView.frame.size.width / 2;
     CGFloat lineViewY = bottomButtonH - lineViewH;
-    CGFloat lineViewW = sendW/2;
+    CGFloat lineViewW = sendW / 2;
     [UIView animateWithDuration:.5 animations:^{
         self.lineView.frame = CGRectMake(lineViewX, lineViewY, lineViewW, lineViewH);
     }];
@@ -320,28 +301,25 @@ static CGFloat bottomButtonH = 44;
 /**
  *  导航栏的“完成”右键
  */
-- (void)setRightButton
-{
+- (void)setRightButton {
     [self initRightButtonWithButtonW:50 buttonH:50 title:@"完成" titleColor:[UIColor redColor] touchBlock:^(UIButton *rightButton) {
     }];
-    
+
     WS(weakSelf);
     YBWeak(YBPasterImageVC, weakMy);
     //按钮的点击事件封装的block
-    weakSelf.rightBtnBlock = ^(NSString *string){
-        
+    weakSelf.rightBtnBlock = ^(NSString *string) {
+
         [weakSelf.pasterView hiddenBtn];
         if (weakSelf.block) {
-            
+
             if (weakSelf.pasterView != nil) {
                 UIImage *editedImage = [weakSelf doneEdit];
                 weakSelf.block(editedImage);
-            }
-            else
-            {
+            } else {
                 weakSelf.block(weakSelf.pasterImageView.image);
             }
-            
+
             [weakSelf.pasterImageView removeFromSuperview];
             [weakSelf.filterScrollView removeFromSuperview];
             [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -354,91 +332,88 @@ static CGFloat bottomButtonH = 44;
  *
  *  @return 返回合成好的图片
  */
-- (UIImage *)doneEdit
-{
-    CGFloat org_width = self.originalImage.size.width ;
-    CGFloat org_heigh = self.originalImage.size.height ;
-    CGFloat rateOfScreen = org_width / org_heigh ;
-    CGFloat inScreenH = self.pasterImageView.frame.size.width / rateOfScreen ;
-    
-    CGRect rect = CGRectZero ;
-    rect.size = CGSizeMake(self.pasterImageView.frame.size.width, inScreenH) ;
-    rect.origin = CGPointMake(0, (self.pasterImageView.frame.size.height - inScreenH) / 2) ;
-    
-    UIImage *imgTemp = [UIImage getImageFromView:self.pasterImageView] ;
-    UIImage *imgCut = [UIImage squareImageFromImage:imgTemp scaledToSize:rect.size.width] ;
-    
-    return imgCut ;
+- (UIImage *)doneEdit {
+    CGFloat org_width = self.originalImage.size.width;
+    CGFloat org_heigh = self.originalImage.size.height;
+    CGFloat rateOfScreen = org_width / org_heigh;
+    CGFloat inScreenH = self.pasterImageView.frame.size.width / rateOfScreen;
+
+    CGRect rect = CGRectZero;
+    rect.size = CGSizeMake(self.pasterImageView.frame.size.width, inScreenH);
+    rect.origin = CGPointMake(0, (self.pasterImageView.frame.size.height - inScreenH) / 2);
+
+    UIImage *imgTemp = [UIImage getImageFromView:self.pasterImageView];
+    UIImage *imgCut = [UIImage squareImageFromImage:imgTemp scaledToSize:rect.size.width];
+
+    return imgCut;
 }
 
 #pragma mark - YBPasterScrollViewDelegate
-- (void)pasterTag:(NSInteger)pasterTag pasterImage:(UIImage *)pasterImage
-{
+
+- (void)pasterTag:(NSInteger)pasterTag pasterImage:(UIImage *)pasterImage {
     if (self.pasterView) {
         [self.pasterView removeFromSuperview];
         self.pasterView = nil;
     }
-    YBPasterView *pasterView = [[YBPasterView alloc]initWithFrame:CGRectMake(0, 0, defaultPasterViewW_H, defaultPasterViewW_H)];
-    pasterView.center = CGPointMake(self.pasterImageView.frame.size.width/2, self.pasterImageView.frame.size.height/2);
+    YBPasterView *pasterView = [[YBPasterView alloc] initWithFrame:CGRectMake(0, 0, defaultPasterViewW_H, defaultPasterViewW_H)];
+    pasterView.center = CGPointMake(self.pasterImageView.frame.size.width / 2, self.pasterImageView.frame.size.height / 2);
     pasterView.pasterImage = pasterImage;
     pasterView.delegate = self;
     [self.pasterImageView addSubview:pasterView];
     self.pasterView = pasterView;
-    
+
     //[self.pasterViewMutArr addObject:pasterView];
     //NSLog(@"%lu",(unsigned long)self.pasterViewMutArr.count);
-    
+
 }
 
 #pragma mark - YBFilterScrollViewDelegate
-- (void)filterImage:(UIImage *)editedImage
-{
+
+- (void)filterImage:(UIImage *)editedImage {
     self.pasterImageView.image = editedImage;
 }
 
 /**
  *  测试有返回值的代理
  */
-- (NSString *)deliverStr:(NSString *)originalStr
-{
+- (NSString *)deliverStr:(NSString *)originalStr {
     NSString *string;
     string = originalStr;
     return string;
 }
 
 #pragma mark - YBPasterViewDelegate
-- (void)deleteThePaster
-{
+
+- (void)deleteThePaster {
     self.pasterScrollView.defaultButton.selected = NO;
     self.pasterScrollView.defaultButton.layer.borderColor = [UIColor clearColor].CGColor;
     self.pasterScrollView.defaultButton.layer.borderWidth = 0.1;
-    
+
     self.pasterView = nil;
-    
+
 }
 
 #pragma clang diagnostic pop
 
-- (void)handleTapGestureRecognizer:(UITapGestureRecognizer *)tapGestureRecognizer
-{
+- (void)handleTapGestureRecognizer:(UITapGestureRecognizer *)tapGestureRecognizer {
 //    YBTag *tagView = [[YBTag alloc]initSelfWithPoint:point];
 //    tagView.isEnableClick = YES;
 //    [self.imageView addSubview:tagView];
 //    tagView.contentArray = @[@"耐克",@"耐克air",@"700.00",@"美国"];
-    if(self.currentOperation != YBImageTag){
+    if (self.currentOperation != YBImageTag) {
         return;;
     }
-    
+
     CGPoint point = [tapGestureRecognizer locationInView:tapGestureRecognizer.view];
     YBTagView *tagView = [[YBTagView alloc] initWithPoint:point];
     tagView.isClick = YES;
     WS(weakSelf)
-    tagView.block = ^(NSString *TagwhichTag,CGPoint centerPoint,NSArray *dataArray){
+    tagView.block = ^(NSString *TagwhichTag, CGPoint centerPoint, NSArray *dataArray) {
         SHOW_ALTER(TagwhichTag);
     };
     [self.pasterImageView addSubview:tagView];
-    tagView.tagArray = @[@"耐克",@"耐克air_plane",@"700.00",@"美国"];//
-    
+    tagView.tagArray = @[@"耐克", @"耐克air_plane", @"700.00", @"美国"];//
+
 }
 
 @end

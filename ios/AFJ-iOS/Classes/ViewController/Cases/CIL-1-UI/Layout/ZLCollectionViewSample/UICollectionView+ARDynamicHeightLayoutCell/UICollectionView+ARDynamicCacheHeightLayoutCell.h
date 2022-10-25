@@ -37,7 +37,7 @@
 - (CGSize)ar_sizeForCellWithIdentifier:(NSString *)identifier
                              indexPath:(NSIndexPath *)indexPath
                          configuration:
-                             (void (^)(__kindof UICollectionViewCell *))
+                                 (void (^)(__kindof UICollectionViewCell *))
                                  configuration;
 
 /**
@@ -55,7 +55,7 @@
                              indexPath:(NSIndexPath *)indexPath
                             fixedWidth:(CGFloat)fixedWidth
                          configuration:
-                             (void (^)(__kindof UICollectionViewCell *cell))
+                                 (void (^)(__kindof UICollectionViewCell *cell))
                                  configuration;
 
 /**
@@ -72,7 +72,7 @@
                              indexPath:(NSIndexPath *)indexPath
                            fixedHeight:(CGFloat)fixedHeight
                          configuration:
-                             (void (^)(__kindof UICollectionViewCell *cell))
+                                 (void (^)(__kindof UICollectionViewCell *cell))
                                  configuration;
 
 @end

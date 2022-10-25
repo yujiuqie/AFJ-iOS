@@ -10,10 +10,10 @@
 
 @interface XLFoldClock : UIView
 
-@property (nonatomic, strong) NSDate *date;
+@property(nonatomic, strong) NSDate *date;
 
-@property (nonatomic, strong) UIFont *font;
+@property(nonatomic, strong) UIFont *font;
 
-@property (nonatomic, strong) UIColor *textColor;
+@property(nonatomic, strong) UIColor *textColor;
 
 @end

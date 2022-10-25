@@ -10,8 +10,8 @@
 
 @interface MASExampleUpdateView ()
 
-@property (nonatomic, strong) UIButton *growingButton;
-@property (nonatomic, assign) CGSize buttonSize;
+@property(nonatomic, strong) UIButton *growingButton;
+@property(nonatomic, assign) CGSize buttonSize;
 
 @end
 
@@ -34,8 +34,7 @@
     return self;
 }
 
-+ (BOOL)requiresConstraintBasedLayout
-{
++ (BOOL)requiresConstraintBasedLayout {
     return YES;
 }
 
@@ -49,7 +48,7 @@
         make.width.lessThanOrEqualTo(self);
         make.height.lessThanOrEqualTo(self);
     }];
-    
+
     //according to apple super should be called at end of method
     [super updateConstraints];
 }

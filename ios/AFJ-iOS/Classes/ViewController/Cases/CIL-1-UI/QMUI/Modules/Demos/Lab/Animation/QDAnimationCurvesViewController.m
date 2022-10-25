@@ -15,7 +15,7 @@
 @property(nonatomic, assign) BOOL pathChanged;
 @end
 
-@interface QDAnimationCurvesViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface QDAnimationCurvesViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, strong) NSArray<NSDictionary<NSString *, UIBezierPath *> *> *paths;
 @property(nonatomic, strong) UICollectionView *collectionView;
@@ -29,28 +29,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.paths = @[
-        @{
-            @"System Pop": [self.class bezierPathWithX:[self.class systemXs] y:[self.class systemYs]],
-        },
-        @{
-            @"fastLinearToSlowEaseIn": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.18 :1.0 :0.04 :1.0]],
-        },
-        @{
-            @"fastLinearToSlowEaseIn2": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.2 :1.0 :0.04 :0.92]],
-        },
-        @{
-            @"EaseIn": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]],
-        },
-        @{
-            @"EaseOut": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]],
-        },
-        @{
-            @"EaseInOut": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]],
-        },
+            @{
+                    @"System Pop": [self.class bezierPathWithX:[self.class systemXs] y:[self.class systemYs]],
+            },
+            @{
+                    @"fastLinearToSlowEaseIn": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.18 :1.0 :0.04 :1.0]],
+            },
+            @{
+                    @"fastLinearToSlowEaseIn2": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.2 :1.0 :0.04 :0.92]],
+            },
+            @{
+                    @"EaseIn": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]],
+            },
+            @{
+                    @"EaseOut": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]],
+            },
+            @{
+                    @"EaseInOut": [self.class bezierPathWithMediaTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]],
+            },
     ];
-    
+
     self.collectionLayout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionLayout.itemSize = CGSizeMake(200, 223);
     self.collectionLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -60,7 +60,7 @@
     self.collectionView.delegate = self;
     [self.collectionView registerClass:QDAnimationCurvesCell.class forCellWithReuseIdentifier:@"cell"];
     [self.view addSubview:self.collectionView];
-    
+
     self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     self.longPressGesture.minimumPressDuration = 0.3;
     [self.collectionView addGestureRecognizer:self.longPressGesture];
@@ -106,18 +106,18 @@
         CGPoint point = [gesture locationInView:self.collectionView];
         NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:point];
         if (!indexPath) return;
-        
-        QDAnimationCurvesCell *cell = (QDAnimationCurvesCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+
+        QDAnimationCurvesCell *cell = (QDAnimationCurvesCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
         self.longPressedCell = cell;
         [UIView animateWithDuration:.25 delay:0 options:QMUIViewAnimationOptionsCurveIn animations:^{
             cell.transform = CGAffineTransformMakeScale(.95, .95);
-        } completion:nil];
+        }                completion:nil];
         return;
     }
-    
+
     if (gesture.state == UIGestureRecognizerStateEnded) {
         if (!self.longPressedCell) return;
-        
+
         if (!self.pinnedShapeLayer) {
             self.pinnedShapeLayer = [self.class generateShapeLayer];
             self.pinnedShapeLayer.opacity = .5;
@@ -127,7 +127,7 @@
         self.pinnedShapeLayer.path = self.longPressedCell.shapeLayer.path;
         self.pinnedShapeLayer.affineTransform = self.longPressedCell.transform;
         self.pinnedShapeLayer.position = [self.longPressedCell.contentView convertPoint:self.longPressedCell.shapeLayer.position toView:self.view];
-        
+
         CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
         positionAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetWidth(self.view.bounds) / 2, self.qmui_navigationBarMaxYInViewCoordinator + CGRectGetHeight(self.pinnedShapeLayer.bounds) / 2)];
         CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
@@ -136,7 +136,7 @@
         animation.animations = @[positionAnimation, transformAnimation];
         animation.duration = .3;
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        __weak __typeof(self)weakSelf = self;
+        __weak __typeof(self) weakSelf = self;
         animation.qmui_animationDidStopBlock = ^(__kindof CAAnimation *aAnimation, BOOL finished) {
             weakSelf.pinnedShapeLayer.affineTransform = CGAffineTransformIdentity;
             [weakSelf.view setNeedsLayout];
@@ -144,11 +144,11 @@
         };
         [self.pinnedShapeLayer addAnimation:animation forKey:@"pinned"];
     }
-    
+
     if (self.longPressedCell) {
         [UIView animateWithDuration:.25 delay:0 options:QMUIViewAnimationOptionsCurveOut animations:^{
             self.longPressedCell.transform = CGAffineTransformIdentity;
-        } completion:nil];
+        }                completion:nil];
         self.longPressedCell = nil;
     }
 }
@@ -168,38 +168,38 @@
     static NSArray<NSNumber *> *x = nil;
     if (!x) {
         x = @[
-            @0,
-            @0.024503979636086443,
-            @0.057266700762091075,
-            @0.09046306901600994,
-            @0.1219015134868146,
-            @0.15445032795779426,
-            @0.18752807524847204,
-            @0.220843064465632,
-            @0.2526315380082957,
-            @0.2857053960870639,
-            @0.3176338812584712,
-            @0.35093720283990254,
-            @0.383530743247842,
-            @0.41477083791125985,
-            @0.4470046262175664,
-            @0.47952621620517927,
-            @0.511586934581511,
-            @0.5441474166882194,
-            @0.5774118461505553,
-            @0.6089086288000031,
-            @0.6433184311696999,
-            @0.6750407881099013,
-            @0.7068564861359319,
-            @0.7397183821656299,
-            @0.7716857594561326,
-            @0.803793148375379,
-            @0.8381971169272114,
-            @0.8705981413456284,
-            @0.9013190262191221,
-            @0.935582983142211,
-            @0.9660316231820365,
-            @1,
+                @0,
+                @0.024503979636086443,
+                @0.057266700762091075,
+                @0.09046306901600994,
+                @0.1219015134868146,
+                @0.15445032795779426,
+                @0.18752807524847204,
+                @0.220843064465632,
+                @0.2526315380082957,
+                @0.2857053960870639,
+                @0.3176338812584712,
+                @0.35093720283990254,
+                @0.383530743247842,
+                @0.41477083791125985,
+                @0.4470046262175664,
+                @0.47952621620517927,
+                @0.511586934581511,
+                @0.5441474166882194,
+                @0.5774118461505553,
+                @0.6089086288000031,
+                @0.6433184311696999,
+                @0.6750407881099013,
+                @0.7068564861359319,
+                @0.7397183821656299,
+                @0.7716857594561326,
+                @0.803793148375379,
+                @0.8381971169272114,
+                @0.8705981413456284,
+                @0.9013190262191221,
+                @0.935582983142211,
+                @0.9660316231820365,
+                @1,
         ];
     }
     return x;
@@ -209,38 +209,38 @@
     static NSArray<NSNumber *> *y = nil;
     if (!y) {
         y = @[
-            @0.0002399999999999333,
-            @0.026746666666666592,
-            @0.10834666666666666,
-            @0.21632,
-            @0.32434666666666667,
-            @0.43176,
-            @0.5307733333333333,
-            @0.6180533333333333,
-            @0.6891200000000001,
-            @0.7511733333333334,
-            @0.8005599999999999,
-            @0.8426666666666667,
-            @0.87584,
-            @0.9014933333333334,
-            @0.9226933333333333,
-            @0.9396533333333333,
-            @0.95288,
-            @0.9634666666666667,
-            @0.9718933333333333,
-            @0.9781066666666667,
-            @0.9833866666666666,
-            @0.9871466666666667,
-            @0.9900533333333332,
-            @0.9924,
-            @0.99416,
-            @0.99552,
-            @0.99664,
-            @0.9974400000000001,
-            @0.998,
-            @0.9985066666666667,
-            @0.9988533333333333,
-            @1,
+                @0.0002399999999999333,
+                @0.026746666666666592,
+                @0.10834666666666666,
+                @0.21632,
+                @0.32434666666666667,
+                @0.43176,
+                @0.5307733333333333,
+                @0.6180533333333333,
+                @0.6891200000000001,
+                @0.7511733333333334,
+                @0.8005599999999999,
+                @0.8426666666666667,
+                @0.87584,
+                @0.9014933333333334,
+                @0.9226933333333333,
+                @0.9396533333333333,
+                @0.95288,
+                @0.9634666666666667,
+                @0.9718933333333333,
+                @0.9781066666666667,
+                @0.9833866666666666,
+                @0.9871466666666667,
+                @0.9900533333333332,
+                @0.9924,
+                @0.99416,
+                @0.99552,
+                @0.99664,
+                @0.9974400000000001,
+                @0.998,
+                @0.9985066666666667,
+                @0.9988533333333333,
+                @1,
         ];
     }
     return y;
@@ -249,7 +249,7 @@
 + (UIBezierPath *)bezierPathWithX:(NSArray<NSNumber *> *)xs y:(NSArray<NSNumber *> *)ys {
     NSAssert(xs.count == ys.count, @"");
     UIBezierPath *path = [[UIBezierPath alloc] init];
-    [xs enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [xs enumerateObjectsUsingBlock:^(NSNumber *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         CGFloat x = obj.qmui_CGFloatValue;
         CGFloat y = ys[idx].qmui_CGFloatValue;
         CGPoint point = CGPointMake(x, y);
@@ -264,8 +264,8 @@
 
 + (UIBezierPath *)bezierPathWithMediaTimingFunction:(CAMediaTimingFunction *)function {
     float point1[2], point2[2];
-    [function getControlPointAtIndex:1 values:(float *)&point1];
-    [function getControlPointAtIndex:2 values:(float *)&point2];
+    [function getControlPointAtIndex:1 values:(float *) &point1];
+    [function getControlPointAtIndex:2 values:(float *) &point2];
     UIBezierPath *path = [[UIBezierPath alloc] init];
     [path moveToPoint:CGPointZero];
     [path addCurveToPoint:CGPointMake(1, 1) controlPoint1:CGPointMake(point1[0], point1[1]) controlPoint2:CGPointMake(point2[0], point2[1])];
@@ -282,10 +282,10 @@
         self.nameLabel.adjustsFontSizeToFitWidth = YES;
         self.nameLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.nameLabel];
-        
+
         _shapeLayer = [QDAnimationCurvesViewController generateShapeLayer];
         [self.contentView.layer addSublayer:self.shapeLayer];
-        
+
         self.backgroundColor = TableViewInsetGroupedCellBackgroundColor;
         self.layer.cornerRadius = TableViewInsetGroupedCornerRadius;
         self.layer.masksToBounds = YES;

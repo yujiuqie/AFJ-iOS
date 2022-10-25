@@ -10,13 +10,13 @@
 
 @interface AFJDashLayerSampleViewController ()
 
-@property (weak, nonatomic) IBOutlet UISlider *cornerRadiusSlider;
-@property (weak, nonatomic) IBOutlet UISlider *dashGapSlider;
-@property (weak, nonatomic) IBOutlet UISlider *dashWidthSlider;
-@property (weak, nonatomic) IBOutlet UISlider *totalCountSlider;
-@property (weak, nonatomic) IBOutlet UISlider *grayCountSlider;
+@property(weak, nonatomic) IBOutlet UISlider *cornerRadiusSlider;
+@property(weak, nonatomic) IBOutlet UISlider *dashGapSlider;
+@property(weak, nonatomic) IBOutlet UISlider *dashWidthSlider;
+@property(weak, nonatomic) IBOutlet UISlider *totalCountSlider;
+@property(weak, nonatomic) IBOutlet UISlider *grayCountSlider;
 
-@property (nonatomic) YXYProgressDashLayer *progressDash;
+@property(nonatomic) YXYProgressDashLayer *progressDash;
 
 @end
 
@@ -24,9 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.progressDash = [YXYProgressDashLayer layer];
-    self.progressDash.underLayer.colors = @[(id)[UIColor blueColor].CGColor, (id)[UIColor greenColor].CGColor];
+    self.progressDash.underLayer.colors = @[(id) [UIColor blueColor].CGColor, (id) [UIColor greenColor].CGColor];
     self.progressDash.progressColor = [UIColor grayColor];
 
     CGFloat radius = self.cornerRadiusSlider.value;
@@ -54,19 +54,23 @@
     self.progressDash.dashCornerRadius = self.cornerRadiusSlider.value;
     [self.progressDash refresh];
 }
+
 - (IBAction)dashGapChanged:(UISlider *)sender {
     self.progressDash.dashGap = self.dashGapSlider.value;
     [self.progressDash refreshProgress];
 }
+
 - (IBAction)dashWidthChanged:(UISlider *)sender {
     self.progressDash.dashWidth = self.dashWidthSlider.value;
     [self.progressDash refresh];
 }
+
 - (IBAction)totalCountChanged:(UISlider *)sender {
     NSInteger count = self.totalCountSlider.value;
     self.progressDash.totalCount = count;
     [self.progressDash refreshProgress];
 }
+
 - (IBAction)grayCountChanged:(UISlider *)sender {
     self.progressDash.progress = self.grayCountSlider.value;
     [self.progressDash refreshProgress];

@@ -11,17 +11,16 @@
 @interface LSTPopViewCenterInputView ()
 
 
-
 @end
 
 @implementation LSTPopViewCenterInputView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
-    
+
 }
 
 @end

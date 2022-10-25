@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JFSeachCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *lblDestination;
-@property (weak, nonatomic) IBOutlet UILabel *lblResult;
+@property(weak, nonatomic) IBOutlet UILabel *lblDestination;
+@property(weak, nonatomic) IBOutlet UILabel *lblResult;
 
 @end
 

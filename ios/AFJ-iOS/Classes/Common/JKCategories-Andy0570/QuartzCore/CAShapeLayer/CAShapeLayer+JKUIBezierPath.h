@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)jk_updateWithBezierPath:(UIBezierPath *)path;
 
 /// 获取 UIBezierPath 对象，该对象由 CAShapeLayer 构建。
-- (UIBezierPath*)jk_bezierPath;
+- (UIBezierPath *)jk_bezierPath;
 
 @end
 

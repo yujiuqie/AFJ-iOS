@@ -21,7 +21,9 @@ typedef NS_OPTIONS(NSUInteger, NSStringJKScoreOption) {
 @interface NSString (JKScore)
 
 - (CGFloat)jk_scoreAgainst:(NSString *)otherString;
+
 - (CGFloat)jk_scoreAgainst:(NSString *)otherString fuzziness:(NSNumber *)fuzziness;
+
 - (CGFloat)jk_scoreAgainst:(NSString *)otherString fuzziness:(NSNumber *)fuzziness options:(NSStringJKScoreOption)options;
 
 @end

@@ -11,12 +11,15 @@
 @interface NSFileManager (JKPaths)
 
 + (NSURL *)jk_documentsURL;
+
 + (NSString *)jk_documentsPath;
 
 + (NSURL *)jk_libraryURL;
+
 + (NSString *)jk_libraryPath;
 
 + (NSURL *)jk_cachesURL;
+
 + (NSString *)jk_cachesPath;
 
 /// Adds a special filesystem flag to a file to avoid iCloud backup it.

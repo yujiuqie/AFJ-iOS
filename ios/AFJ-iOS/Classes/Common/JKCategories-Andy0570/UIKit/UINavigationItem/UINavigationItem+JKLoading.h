@@ -10,7 +10,7 @@
 /**
  *  Position to show UIActivityIndicatorView in a navigation bar
  */
-typedef NS_ENUM(NSUInteger, JKNavBarLoaderPosition){
+typedef NS_ENUM(NSUInteger, JKNavBarLoaderPosition) {
     /**
      *  Will show UIActivityIndicatorView in place of title view
      */

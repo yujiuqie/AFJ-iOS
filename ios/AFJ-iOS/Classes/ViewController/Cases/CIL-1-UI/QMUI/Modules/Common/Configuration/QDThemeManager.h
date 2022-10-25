@@ -12,7 +12,7 @@
 /// 简单对 QMUIThemeManager 做一层业务的封装，省去类型转换的工作量
 @interface QDThemeManager : NSObject
 
-@property(class, nonatomic, readonly, nullable) NSObject<QDThemeProtocol> *currentTheme;
+@property(class, nonatomic, readonly, nullable) NSObject <QDThemeProtocol> *currentTheme;
 @end
 
 @interface UIColor (QDTheme)

@@ -7,37 +7,40 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @protocol FeLoadingIconDelegate;
 
 @interface FeLoadingIcon : UIView
 // Delegate
-@property (weak, nonatomic) id<FeLoadingIconDelegate> delegate;
+@property(weak, nonatomic) id <FeLoadingIconDelegate> delegate;
 
 // Determine FeloadingIcon is animating;
-@property (assign, nonatomic, readonly) BOOL isAnimating;
+@property(assign, nonatomic, readonly) BOOL isAnimating;
 
 // Determine background is Blur;
-@property (assign, nonatomic, readonly) BOOL isBlur;
+@property(assign, nonatomic, readonly) BOOL isBlur;
 
--(id) initWithView:(UIView *) view blur:(BOOL) blur backgroundColors:(NSArray *) arrColor;
+- (id)initWithView:(UIView *)view blur:(BOOL)blur backgroundColors:(NSArray *)arrColor;
 
--(void) show;
+- (void)show;
 
--(void) showWhileExecutingBlock:(dispatch_block_t) block;
+- (void)showWhileExecutingBlock:(dispatch_block_t)block;
 
--(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t) completion;
+- (void)showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion;
 
--(void) showWhileExecutingSelector:(SEL) selector onTarget:(id) target withObject:(id) object;
+- (void)showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object;
 
--(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
+- (void)showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion;
 
--(void) dismiss;
+- (void)dismiss;
 @end
 
 @protocol FeLoadingIconDelegate <NSObject>
 @optional
--(void) FeLoadingIconWillShow:(FeLoadingIcon *) sender;
--(void) FeLoadingIconDidShow:(FeLoadingIcon *) sender;
--(void) FeLoadingIconDidDismiss:(FeLoadingIcon *)sender;
+- (void)FeLoadingIconWillShow:(FeLoadingIcon *)sender;
+
+- (void)FeLoadingIconDidShow:(FeLoadingIcon *)sender;
+
+- (void)FeLoadingIconDidDismiss:(FeLoadingIcon *)sender;
 
 @end

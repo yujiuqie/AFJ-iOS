@@ -12,8 +12,8 @@
 
 @interface COSTouchImageFactory : NSObject
 
-+(nonnull UIImage *)imageWithTouchConfig:(nonnull COSTouchConfig*)touchConfig;
++ (nonnull UIImage *)imageWithTouchConfig:(nonnull COSTouchConfig *)touchConfig;
 
--(nonnull instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 @end

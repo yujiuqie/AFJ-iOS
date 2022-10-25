@@ -23,13 +23,13 @@ const CGFloat QDButtonSpacingHeight = 72;
         // 统一设置所有 QMUISearchController 搜索状态下的 statusBarStyle
         OverrideImplementation([QMUISearchController class], @selector(initWithContentsViewController:), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
             return ^QMUISearchController *(QMUISearchController *selfObject, UIViewController *firstArgv) {
-                
+
                 // call super
                 QMUISearchController *(*originSelectorIMP)(id, SEL, UIViewController *);
-                originSelectorIMP = (QMUISearchController * (*)(id, SEL, UIViewController *))originalIMPProvider();
+                originSelectorIMP = (QMUISearchController *(*)(id, SEL, UIViewController *)) originalIMPProvider();
                 QMUISearchController *result = originSelectorIMP(selfObject, originCMD, firstArgv);
-                
-                result.qmui_preferredStatusBarStyleBlock = ^UIStatusBarStyle{
+
+                result.qmui_preferredStatusBarStyleBlock = ^UIStatusBarStyle {
                     if ([QMUIThemeManagerCenter.defaultThemeManager.currentThemeIdentifier isEqual:QDThemeIdentifierDark]) {
                         return UIStatusBarStyleLightContent;
                     }
@@ -48,14 +48,14 @@ const CGFloat QDButtonSpacingHeight = 72;
     [QDUIHelper customImagePickerAppearance];
     [QDUIHelper customEmotionViewAppearance];
     [QDUIHelper customPopupAppearance];
-    
+
     UISearchBar *searchBar = [UISearchBar appearance];
     searchBar.searchTextPositionAdjustment = UIOffsetMake(4, 0);
     searchBar.qmui_centerPlaceholder = YES;
-    
+
     QMUILabel *label = [QMUILabel appearance];
     label.highlightedBackgroundColor = TableViewCellSelectedBackgroundColor;
-    
+
     QMUINavigationTitleView *titleView = QMUINavigationTitleView.appearance;
     titleView.verticalTitleFont = NavBarTitleFont;
 }
@@ -65,18 +65,19 @@ const CGFloat QDButtonSpacingHeight = 72;
 @implementation QDCommonUI (ThemeColor)
 
 static NSArray<UIColor *> *themeColors = nil;
+
 + (UIColor *)randomThemeColor {
     if (!themeColors) {
         themeColors = @[UIColorTheme1,
-                        UIColorTheme2,
-                        UIColorTheme3,
-                        UIColorTheme4,
-                        UIColorTheme5,
-                        UIColorTheme6,
-                        UIColorTheme7,
-                        UIColorTheme8,
-                        UIColorTheme9,
-                        UIColorTheme10];
+                UIColorTheme2,
+                UIColorTheme3,
+                UIColorTheme4,
+                UIColorTheme5,
+                UIColorTheme6,
+                UIColorTheme7,
+                UIColorTheme8,
+                UIColorTheme9,
+                UIColorTheme10];
     }
     return themeColors[arc4random() % themeColors.count];
 }

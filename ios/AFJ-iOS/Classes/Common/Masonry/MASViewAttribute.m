@@ -16,23 +16,23 @@
 - (id)initWithView:(MAS_VIEW *)view item:(id)item layoutAttribute:(NSLayoutAttribute)layoutAttribute {
     self = [super init];
     if (!self) return nil;
-    
+
     _view = view;
     _item = item;
     _layoutAttribute = layoutAttribute;
-    
+
     return self;
 }
 
 - (BOOL)isSizeAttribute {
     return self.layoutAttribute == NSLayoutAttributeWidth
-        || self.layoutAttribute == NSLayoutAttributeHeight;
+            || self.layoutAttribute == NSLayoutAttributeHeight;
 }
 
 - (BOOL)isEqual:(MASViewAttribute *)viewAttribute {
     if ([viewAttribute isKindOfClass:self.class]) {
         return self.view == viewAttribute.view
-            && self.layoutAttribute == viewAttribute.layoutAttribute;
+                && self.layoutAttribute == viewAttribute.layoutAttribute;
     }
     return [super isEqual:viewAttribute];
 }

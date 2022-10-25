@@ -10,6 +10,6 @@
 
 @interface FlipTransition : NSObject <UIViewControllerAnimatedTransitioning>
 
-@property (assign, nonatomic, getter = isReverse) BOOL reverse;
+@property(assign, nonatomic, getter = isReverse) BOOL reverse;
 
 @end

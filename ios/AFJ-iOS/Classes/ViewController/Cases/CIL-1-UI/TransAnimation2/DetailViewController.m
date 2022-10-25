@@ -17,21 +17,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.imageView];
-    
-    
+
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     [self.view addGestureRecognizer:tap];
 }
 
--(void)tapAction {
+- (void)tapAction {
 
     [self.navigationController popViewControllerAnimated:YES];
 
 }
--(UIImageView *)imageView{
+
+- (UIImageView *)imageView {
     if (!_imageView) {
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
         _imageView.center = self.view.center;
@@ -39,6 +40,7 @@
     }
     return _imageView;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

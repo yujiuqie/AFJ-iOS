@@ -14,13 +14,13 @@
 
 @interface VideoDemoViewController () <HJDanmakuViewDateSource, HJDanmakuViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (nonatomic, weak) IBOutlet UILabel *timeLabel;
-@property (nonatomic, weak) IBOutlet UISlider *progressSlider;
-@property (nonatomic, weak) IBOutlet UIButton *bufferBtn;
+@property(nonatomic, weak) IBOutlet UIImageView *imageView;
+@property(nonatomic, weak) IBOutlet UILabel *timeLabel;
+@property(nonatomic, weak) IBOutlet UISlider *progressSlider;
+@property(nonatomic, weak) IBOutlet UIButton *bufferBtn;
 
-@property (nonatomic, strong) HJDanmakuView *danmakuView;
-@property (nonatomic, strong) NSTimer *timer;
+@property(nonatomic, strong) HJDanmakuView *danmakuView;
+@property(nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -46,7 +46,7 @@
     [self.danmakuView registerClass:[DemoDanmakuCell class] forCellReuseIdentifier:@"cell"];
     self.danmakuView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view insertSubview:self.danmakuView aboveSubview:self.imageView];
-    
+
     [self loadDanmakusFromFile];
 }
 
@@ -60,7 +60,7 @@
         DemoDanmakuModel *danmakuModel = [[DemoDanmakuModel alloc] initWithType:type];
         danmakuModel.time = [pArray[0] floatValue] / 1000.0f;
         danmakuModel.text = danmaku[@"m"];
-        danmakuModel.textFont = [pArray[2] integerValue] == 1 ? [UIFont systemFontOfSize:20]: [UIFont systemFontOfSize:18];
+        danmakuModel.textFont = [pArray[2] integerValue] == 1 ? [UIFont systemFontOfSize:20] : [UIFont systemFontOfSize:18];
         danmakuModel.textColor = [DanmakuFactory colorWithHexStr:pArray[3]];
         [danmakuModels addObject:danmakuModel];
     }
@@ -127,12 +127,12 @@
 }
 
 - (CGFloat)danmakuView:(HJDanmakuView *)danmakuView widthForDanmaku:(HJDanmakuModel *)danmaku {
-    DemoDanmakuModel *model = (DemoDanmakuModel *)danmaku;
+    DemoDanmakuModel *model = (DemoDanmakuModel *) danmaku;
     return [model.text sizeWithAttributes:@{NSFontAttributeName: model.textFont}].width + 1.0f;
 }
 
 - (HJDanmakuCell *)danmakuView:(HJDanmakuView *)danmakuView cellForDanmaku:(HJDanmakuModel *)danmaku {
-    DemoDanmakuModel *model = (DemoDanmakuModel *)danmaku;
+    DemoDanmakuModel *model = (DemoDanmakuModel *) danmaku;
     DemoDanmakuCell *cell = [danmakuView dequeueReusableCellWithIdentifier:@"cell"];
     if (model.selfFlag) {
         cell.zIndex = 30;

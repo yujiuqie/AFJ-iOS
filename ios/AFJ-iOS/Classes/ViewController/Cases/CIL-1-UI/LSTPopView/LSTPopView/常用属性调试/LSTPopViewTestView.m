@@ -12,14 +12,14 @@
 @interface LSTPopViewTestView ()
 
 /** <#...#> */
-@property (nonatomic, assign) double wValue;
+@property(nonatomic, assign) double wValue;
 
 /** <#...#> */
-@property (nonatomic, assign) double sValue;
+@property(nonatomic, assign) double sValue;
 /** <#...#> */
-@property (nonatomic, assign) double xValue;
+@property(nonatomic, assign) double xValue;
 /** <#...#> */
-@property (nonatomic, assign) double yValue;
+@property(nonatomic, assign) double yValue;
 
 @end
 
@@ -31,56 +31,58 @@
     self.xValue = 0;
     self.yValue = 0;
     self.wValue = 0;
-    
+
     self.timeLab.layer.cornerRadius = 15;
     self.timeLab.layer.masksToBounds = YES;
-    
+
     self.xStepper.minimumValue = -100;
     self.xStepper.maximumValue = 100;
     self.xStepper.stepValue = 5.0;
-    
-    
+
+
     self.yStepper.minimumValue = -100;
     self.yStepper.maximumValue = 100;
     self.yStepper.stepValue = 5.0;
-    
+
     self.heightStepper.minimumValue = -100;
     self.heightStepper.maximumValue = 100;
     self.heightStepper.stepValue = 5.0;
-    
+
     [self.xStepper addTarget:self action:@selector(xValueChanged:) forControlEvents:(UIControlEventValueChanged)];
     [self.yStepper addTarget:self action:@selector(yValueChanged:) forControlEvents:(UIControlEventValueChanged)];
 }
 
-- (void)xValueChanged:(UIStepper *)sender{
-    
-    self.xLab.text = [NSString stringWithFormat:@"%1.0lf",sender.value];
+- (void)xValueChanged:(UIStepper *)sender {
+
+    self.xLab.text = [NSString stringWithFormat:@"%1.0lf", sender.value];
     if (self.xStepperBlock) {
         self.xStepperBlock(sender.value);
     }
 }
 
-- (void)yValueChanged:(UIStepper *)sender{
-    
-    self.yLab.text = [NSString stringWithFormat:@"%1.0lf",sender.value];
+- (void)yValueChanged:(UIStepper *)sender {
+
+    self.yLab.text = [NSString stringWithFormat:@"%1.0lf", sender.value];
     if (self.yStepperBlock) {
         self.yStepperBlock(sender.value);
     }
 }
+
 - (IBAction)height:(UIStepper *)sender {
-    
-    if (sender.value>self.sValue) {
-        self.pv_Height = self.pv_Height+10;
-    }else{
-        self.pv_Height = self.pv_Height-10;
+
+    if (sender.value > self.sValue) {
+        self.pv_Height = self.pv_Height + 10;
+    } else {
+        self.pv_Height = self.pv_Height - 10;
     }
     self.sValue = sender.value;
 }
+
 - (IBAction)width:(UIStepper *)sender {
-    if (sender.value>self.wValue) {
-        self.pv_Width = self.pv_Width+10;
-    }else{
-        self.pv_Width = self.pv_Width-10;
+    if (sender.value > self.wValue) {
+        self.pv_Width = self.pv_Width + 10;
+    } else {
+        self.pv_Width = self.pv_Width - 10;
     }
     self.wValue = sender.value;
 }
@@ -89,7 +91,7 @@
     if (self.closeBlock) {
         self.closeBlock(nil);
     }
-    
+
 }
 
 - (IBAction)pushVCAction:(UIButton *)sender {

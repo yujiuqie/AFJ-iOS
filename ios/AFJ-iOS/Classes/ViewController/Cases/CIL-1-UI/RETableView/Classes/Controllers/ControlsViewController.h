@@ -12,11 +12,11 @@
 
 @interface ControlsViewController : UITableViewController <RETableViewManagerDelegate>
 
-@property (strong, readonly, nonatomic) RETableViewManager *manager;
-@property (strong, readonly, nonatomic) RETableViewSection *basicControlsSection;
-@property (strong, readonly, nonatomic) RETableViewSection *creditCardSection;
-@property (strong, readonly, nonatomic) RETableViewSection *accessoriesSection;
-@property (strong, readonly, nonatomic) RETableViewSection *cutCopyPasteSection;
-@property (strong, readonly, nonatomic) RETableViewSection *buttonSection;
+@property(strong, readonly, nonatomic) RETableViewManager *manager;
+@property(strong, readonly, nonatomic) RETableViewSection *basicControlsSection;
+@property(strong, readonly, nonatomic) RETableViewSection *creditCardSection;
+@property(strong, readonly, nonatomic) RETableViewSection *accessoriesSection;
+@property(strong, readonly, nonatomic) RETableViewSection *cutCopyPasteSection;
+@property(strong, readonly, nonatomic) RETableViewSection *buttonSection;
 
 @end

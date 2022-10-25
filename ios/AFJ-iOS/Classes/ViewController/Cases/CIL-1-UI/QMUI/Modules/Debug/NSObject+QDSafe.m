@@ -10,41 +10,39 @@
 
 @implementation NSObject (QDSafe)
 
-void swizzleInstanceMethod(Class cls, SEL origSelector, SEL newSelector)
-{
+void swizzleInstanceMethod(Class cls, SEL origSelector, SEL newSelector) {
     if (!cls) {
         return;
     }
     /* if current class not exist selector, then get super*/
     Method originalMethod = class_getInstanceMethod(cls, origSelector);
     Method swizzledMethod = class_getInstanceMethod(cls, newSelector);
-    
+
     /* add selector if not exist, implement append with method */
     if (class_addMethod(cls,
-                        origSelector,
-                        method_getImplementation(swizzledMethod),
-                        method_getTypeEncoding(swizzledMethod)) ) {
+            origSelector,
+            method_getImplementation(swizzledMethod),
+            method_getTypeEncoding(swizzledMethod))) {
         /* replace class instance method, added if selector not exist */
         /* for class cluster , it always add new selector here */
         class_replaceMethod(cls,
-                            newSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
-        
+                newSelector,
+                method_getImplementation(originalMethod),
+                method_getTypeEncoding(originalMethod));
+
     } else {
         /* swizzleMethod maybe belong to super */
         class_replaceMethod(cls,
-                            newSelector,
-                            class_replaceMethod(cls,
-                                                origSelector,
-                                                method_getImplementation(swizzledMethod),
-                                                method_getTypeEncoding(swizzledMethod)),
-                            method_getTypeEncoding(originalMethod));
+                newSelector,
+                class_replaceMethod(cls,
+                        origSelector,
+                        method_getImplementation(swizzledMethod),
+                        method_getTypeEncoding(swizzledMethod)),
+                method_getTypeEncoding(originalMethod));
     }
 }
 
-+ (void)load2
-{
++ (void)load2 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
@@ -53,7 +51,7 @@ void swizzleInstanceMethod(Class cls, SEL origSelector, SEL newSelector)
     });
 }
 
-- (NSMethodSignature*)hookMethodSignatureForSelector:(SEL)aSelector {
+- (NSMethodSignature *)hookMethodSignatureForSelector:(SEL)aSelector {
     /* 如果 当前类有methodSignatureForSelector实现，NSObject的实现直接返回nil
      * 子类实现如下：
      *          NSMethodSignature* sig = [super methodSignatureForSelector:aSelector];
@@ -63,10 +61,10 @@ void swizzleInstanceMethod(Class cls, SEL origSelector, SEL newSelector)
      *          }
      *          return sig;
      */
-    NSMethodSignature* sig = [self hookMethodSignatureForSelector:aSelector];
-    if (!sig){
+    NSMethodSignature *sig = [self hookMethodSignatureForSelector:aSelector];
+    if (!sig) {
         if (class_getMethodImplementation([NSObject class], @selector(methodSignatureForSelector:))
-            != class_getMethodImplementation(self.class, @selector(methodSignatureForSelector:)) ){
+                != class_getMethodImplementation(self.class, @selector(methodSignatureForSelector:))) {
             return nil;
         }
         return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
@@ -74,10 +72,9 @@ void swizzleInstanceMethod(Class cls, SEL origSelector, SEL newSelector)
     return sig;
 }
 
-- (void)hookForwardInvocation:(NSInvocation*)invocation
-{
-    NSString* info = [NSString stringWithFormat:@"unrecognized selector [%@] sent to %@", NSStringFromSelector(invocation.selector), NSStringFromClass(self.class)];
-    NSLog(@"%@",info);
+- (void)hookForwardInvocation:(NSInvocation *)invocation {
+    NSString *info = [NSString stringWithFormat:@"unrecognized selector [%@] sent to %@", NSStringFromSelector(invocation.selector), NSStringFromClass(self.class)];
+    NSLog(@"%@", info);
 }
 
 @end

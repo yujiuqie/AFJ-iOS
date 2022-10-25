@@ -14,11 +14,11 @@ typedef void (^JFOutlineButtonBlock)(UIButton *button);
 
 @interface JFOutlineCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftOffset;
-@property (weak, nonatomic) IBOutlet UIButton *btnArrow;
-@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblPage;
-@property (nonatomic, copy) JFOutlineButtonBlock outlineBlock;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *leftOffset;
+@property(weak, nonatomic) IBOutlet UIButton *btnArrow;
+@property(weak, nonatomic) IBOutlet UILabel *lblTitle;
+@property(weak, nonatomic) IBOutlet UILabel *lblPage;
+@property(nonatomic, copy) JFOutlineButtonBlock outlineBlock;
 
 @end
 

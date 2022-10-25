@@ -34,11 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nullable, nonatomic, copy) void (^styleConfiguration)(QMUIInteractiveDebugPanelViewController *viewController);
 
 - (void)addDebugItem:(QMUIInteractiveDebugPanelItem *)item;
+
 - (void)removeDebugItem:(QMUIInteractiveDebugPanelItem *)item;
+
 - (void)insertDebugItem:(QMUIInteractiveDebugPanelItem *)item atIndex:(NSUInteger)index;
+
 - (void)removeDebugItemAtIndex:(NSUInteger)index;
 
 - (void)presentInViewController:(UIViewController *)viewController;
+
 - (CGSize)contentSizeThatFits:(CGSize)size;
 @end
 

@@ -10,20 +10,20 @@
 
 @implementation CollectionViewCell
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView addSubview:self.imgView];
     }
     return self;
-    
+
 }
 
--(UIImageView *)imgView {
+- (UIImageView *)imgView {
     if (!_imgView) {
         _imgView = [[UIImageView alloc] initWithFrame:self.bounds];
         _imgView.image = [UIImage imageNamed:@"img"];
-        
+
     }
     return _imgView;
 }

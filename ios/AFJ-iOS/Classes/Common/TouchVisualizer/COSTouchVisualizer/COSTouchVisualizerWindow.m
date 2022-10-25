@@ -16,17 +16,17 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
 
 @interface COSTouchVisualizerWindow ()
 
-@property (nonatomic) UIWindow *overlayWindow;
-@property (nonatomic) UIViewController *overlayWindowViewController;
-@property (nonatomic) BOOL fingerTipRemovalScheduled;
-@property (nonatomic) NSTimer *timer;
-@property (nonatomic) NSSet *allTouches;
+@property(nonatomic) UIWindow *overlayWindow;
+@property(nonatomic) UIViewController *overlayWindowViewController;
+@property(nonatomic) BOOL fingerTipRemovalScheduled;
+@property(nonatomic) NSTimer *timer;
+@property(nonatomic) NSSet *allTouches;
 
-@property (nonatomic) UIImage *touchImage;
-@property (nonatomic) UIImage *rippleImage;
+@property(nonatomic) UIImage *touchImage;
+@property(nonatomic) UIImage *rippleImage;
 
-@property (nonatomic) COSTouchConfig *touchContactConfig;
-@property (nonatomic) COSTouchConfig *touchRippleConfig;
+@property(nonatomic) COSTouchConfig *touchContactConfig;
+@property(nonatomic) COSTouchConfig *touchRippleConfig;
 
 @end
 
@@ -81,12 +81,12 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
 
 - (void)sendEvent:(UIEvent *)event {
     [super sendEvent:event];
-    
+
     switch (self.touchVisibility) {
         case COSTouchVisualizerWindowTouchVisibilityNever:
             return;
             break;
-            
+
         case COSTouchVisualizerWindowTouchVisibilityRemoteOnly:
         case COSTouchVisualizerWindowTouchVisibilityRemoteAndLocal: {
             self.allTouches = [event allTouches];
@@ -97,10 +97,10 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
                         // Generate ripples
                         COSTouchImageView *rippleView = [[COSTouchImageView alloc] initWithImage:self.rippleImage];
                         [self.overlayWindow addSubview:rippleView];
-                        
+
                         rippleView.alpha = self.touchRippleConfig.alpha;
                         rippleView.center = [touch locationInView:self.overlayWindow];
-                        
+
                         [UIView animateWithDuration:self.touchRippleConfig.fadeDuration
                                               delay:0.0
                                             options:UIViewAnimationOptionCurveEaseIn
@@ -108,27 +108,27 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
                                              [rippleView setAlpha:0.0];
                                              [rippleView setFrame:CGRectInset(rippleView.frame, 25, 25)];
                                          } completion:^(BOOL finished) {
-                                             [rippleView removeFromSuperview];
-                                         }];
+                                    [rippleView removeFromSuperview];
+                                }];
                     }
                     case UITouchPhaseStationary: {
-                        COSTouchImageView *touchView = (COSTouchImageView *)[self.overlayWindow viewWithTag:touch.hash];
-                        
+                        COSTouchImageView *touchView = (COSTouchImageView *) [self.overlayWindow viewWithTag:touch.hash];
+
                         if (touch.phase != UITouchPhaseStationary && touchView != nil && [touchView isFadingOut]) {
                             [self.timer invalidate];
                             [touchView removeFromSuperview];
                             touchView = nil;
                         }
-                        
+
                         if (touchView == nil && touch.phase != UITouchPhaseStationary) {
                             touchView = [[COSTouchImageView alloc] initWithImage:self.touchImage];
                             [self.overlayWindow addSubview:touchView];
-                            
+
                             if (self.morphEnabled) {
                                 if (self.timer) {
                                     [self.timer invalidate];
                                 }
-                                
+
                                 self.timer = [NSTimer scheduledTimerWithTimeInterval:0.6
                                                                               target:self
                                                                             selector:@selector(performMorphWithTouchView:)
@@ -152,12 +152,12 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
                     }
                 }
             }
-            
+
 
             break;
         }
     }
-    
+
     [self scheduleFingerTipRemoval];    // We may not see all UITouchPhaseEnded/UITouchPhaseCancelled events.
 }
 
@@ -172,6 +172,7 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
     }
     return _overlayWindow;
 }
+
 #pragma mark - Private
 
 - (void)scheduleFingerTipRemoval {
@@ -195,7 +196,7 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
     self.fingerTipRemovalScheduled = NO;
 
     NSTimeInterval now = [[NSProcessInfo processInfo] systemUptime];
-    
+
     for (COSTouchImageView *touchView in [self.overlayWindow subviews]) {
         if (![touchView isKindOfClass:[COSTouchImageView class]]) {
             continue;
@@ -212,7 +213,7 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
 }
 
 - (void)removeFingerTipWithHash:(NSUInteger)hash animated:(BOOL)animated {
-    COSTouchImageView *touchView = (COSTouchImageView *)[self.overlayWindow viewWithTag:hash];
+    COSTouchImageView *touchView = (COSTouchImageView *) [self.overlayWindow viewWithTag:hash];
     if (touchView == nil || [touchView isFadingOut]) {
         return;
     }
@@ -226,8 +227,8 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
     }
 
     touchView.frame = CGRectMake(touchView.center.x - touchView.frame.size.width,
-                                 touchView.center.y - touchView.frame.size.height,
-                                 touchView.frame.size.width * 2, touchView.frame.size.height * 2);
+            touchView.center.y - touchView.frame.size.height,
+            touchView.frame.size.width * 2, touchView.frame.size.height * 2);
 
     touchView.alpha = 0.0;
 
@@ -242,8 +243,7 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
                     afterDelay:self.touchContactConfig.fadeDuration];
 }
 
-- (BOOL)shouldAutomaticallyRemoveFingerTipForTouch:(UITouch *)touch;
-{
+- (BOOL)shouldAutomaticallyRemoveFingerTipForTouch:(UITouch *)touch; {
     // We don't reliably get UITouchPhaseEnded or UITouchPhaseCancelled
     // events via -sendEvent: for certain touch events. Known cases
     // include swipe-to-delete on a table view row, and tap-to-cancel
@@ -268,7 +268,7 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
         }
 
         if ([touchView isKindOfClass:[UITableView class]] &&
-            [[touch gestureRecognizers] count] == 0) {
+                [[touch gestureRecognizers] count] == 0) {
             return YES;
         }
         touchView = touchView.superview;
@@ -278,52 +278,52 @@ static const NSTimeInterval COSTouchVisualizerWindowRemoveDelay = 0.2;
 }
 
 - (void)performMorphWithTouchView:(NSTimer *)timer {
-    COSTouchImageView *touchView = (COSTouchImageView *)[timer userInfo];
+    COSTouchImageView *touchView = (COSTouchImageView *) [timer userInfo];
     NSTimeInterval duration = .4;
     NSTimeInterval delay = 0;
     // Start
     touchView.alpha = self.touchContactConfig.alpha;
     touchView.transform = CGAffineTransformMakeScale(1, 1);
     [UIView animateWithDuration:duration / 4
-        delay:delay
-        options:0
-        animations:^{
-          // End
-          touchView.transform = CGAffineTransformMakeScale(1, 1.2);
-        }
-        completion:^(BOOL finished) {
-          [UIView animateWithDuration:duration / 4
-              delay:0
-              options:0
-              animations:^{
-                // End
-                touchView.transform = CGAffineTransformMakeScale(1.2, 0.9);
-              }
-              completion:^(BOOL finished) {
-                [UIView animateWithDuration:duration / 4
-                    delay:0
-                    options:0
-                    animations:^{
-                      // End
-                      touchView.transform = CGAffineTransformMakeScale(0.9, 0.9);
-                    }
-                    completion:^(BOOL finished) {
-                      [UIView animateWithDuration:duration / 4
-                          delay:0
-                          options:0
-                          animations:^{
-                            // End
-                            touchView.transform = CGAffineTransformMakeScale(1, 1);
-                          }
-                          completion:^(BOOL finished){
-                              // If there are no touches, remove this morping touch
-                              if (self.allTouches.count == 0) {
-                                  [touchView removeFromSuperview];
-                              }
-                          }];
-                    }];
-              }];
-        }];
+                          delay:delay
+                        options:0
+                     animations:^{
+                         // End
+                         touchView.transform = CGAffineTransformMakeScale(1, 1.2);
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:duration / 4
+                                               delay:0
+                                             options:0
+                                          animations:^{
+                                              // End
+                                              touchView.transform = CGAffineTransformMakeScale(1.2, 0.9);
+                                          }
+                                          completion:^(BOOL finished) {
+                                              [UIView animateWithDuration:duration / 4
+                                                                    delay:0
+                                                                  options:0
+                                                               animations:^{
+                                                                   // End
+                                                                   touchView.transform = CGAffineTransformMakeScale(0.9, 0.9);
+                                                               }
+                                                               completion:^(BOOL finished) {
+                                                                   [UIView animateWithDuration:duration / 4
+                                                                                         delay:0
+                                                                                       options:0
+                                                                                    animations:^{
+                                                                                        // End
+                                                                                        touchView.transform = CGAffineTransformMakeScale(1, 1);
+                                                                                    }
+                                                                                    completion:^(BOOL finished) {
+                                                                                        // If there are no touches, remove this morping touch
+                                                                                        if (self.allTouches.count == 0) {
+                                                                                            [touchView removeFromSuperview];
+                                                                                        }
+                                                                                    }];
+                                                               }];
+                                          }];
+                     }];
 }
 
 @end

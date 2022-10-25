@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AFJSampleCell1ViewController : AFJRootViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
+@interface AFJSampleCell1ViewController : AFJRootViewController <UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
 
-@property (nonatomic, assign) BOOL testingStoryboardCell;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic, assign) BOOL testingStoryboardCell;
+@property(strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

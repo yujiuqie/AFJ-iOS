@@ -10,12 +10,11 @@ static const void *JKBackButtonHandlerKey = &JKBackButtonHandlerKey;
 
 @implementation UIViewController (JKBackButtonTouched)
 
--(void)jk_backButtonTouched:(JKBackButtonHandler)backButtonHandler{
+- (void)jk_backButtonTouched:(JKBackButtonHandler)backButtonHandler {
     objc_setAssociatedObject(self, JKBackButtonHandlerKey, backButtonHandler, OBJC_ASSOCIATION_COPY);
 }
 
-- (JKBackButtonHandler)jk_backButtonTouched
-{
+- (JKBackButtonHandler)jk_backButtonTouched {
     return objc_getAssociatedObject(self, JKBackButtonHandlerKey);
 }
 
@@ -25,17 +24,17 @@ static const void *JKBackButtonHandlerKey = &JKBackButtonHandlerKey;
 
 - (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
 
-	if([self.viewControllers count] < [navigationBar.items count]) {
-		return YES;
-	}
+    if ([self.viewControllers count] < [navigationBar.items count]) {
+        return YES;
+    }
 
-   	UIViewController* vc = [self topViewController];
+    UIViewController *vc = [self topViewController];
     JKBackButtonHandler handler = [vc jk_backButtonTouched];
     if (handler) {
         // Workaround for iOS7.1. Thanks to @boliva - http://stackoverflow.com/posts/comments/34452906
 
-        for(UIView *subview in [navigationBar subviews]) {
-            if(subview.alpha < 1.) {
+        for (UIView *subview in [navigationBar subviews]) {
+            if (subview.alpha < 1.) {
                 [UIView animateWithDuration:.25 animations:^{
                     subview.alpha = 1.;
                 }];
@@ -50,7 +49,7 @@ static const void *JKBackButtonHandlerKey = &JKBackButtonHandlerKey;
         });
     }
 
-	return NO;
+    return NO;
 }
 
 @end

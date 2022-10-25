@@ -13,9 +13,9 @@
 @interface LSTPopViewCodeView ()
 
 /** <#.....#> */
-@property (nonatomic,strong) UIButton *closeBtn;
+@property(nonatomic, strong) UIButton *closeBtn;
 /** <#.....#> */
-@property (nonatomic,strong) UIImageView *imgView;
+@property(nonatomic, strong) UIImageView *imgView;
 
 @end
 
@@ -31,36 +31,37 @@
 }
 
 #pragma mark - ***** setter 设置器/数据处理 *****
+
 - (void)dealloc {
-    
+
 }
 
 
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)initSubViews {
-    
+
     [self addSubview:self.imgView];
     [self.imgView addSubview:self.closeBtn];
-    
-    
+
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.equalTo(self);
     }];
-    
+
     [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(30, 30));
         make.top.equalTo(self.imgView).offset(8);
         make.right.equalTo(self.imgView).offset(-8);
 
     }];
-    
-    
+
+
 }
 
 #pragma mark - ***** other 其他 *****
@@ -69,13 +70,13 @@
     if (self.closeBlock) {
         self.closeBlock();
     }
-    
+
 }
 
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UIImageView *)imgView {
-    if(_imgView) return _imgView;
+    if (_imgView) return _imgView;
     _imgView = [[UIImageView alloc] init];
     _imgView.image = [UIImage imageNamed:@"1234"];
     _imgView.backgroundColor = UIColor.clearColor;
@@ -84,7 +85,7 @@
 }
 
 - (UIButton *)closeBtn {
-    if(_closeBtn) return _closeBtn;
+    if (_closeBtn) return _closeBtn;
     _closeBtn = [[UIButton alloc] init];
     [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     [_closeBtn addTarget:self action:@selector(closeBtnAction) forControlEvents:UIControlEventTouchUpInside];

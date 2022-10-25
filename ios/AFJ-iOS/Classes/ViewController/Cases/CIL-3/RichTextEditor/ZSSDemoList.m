@@ -14,13 +14,12 @@
 #import "ZSSCustomButtonsViewController.h"
 
 @interface ZSSDemoList ()
-@property (nonatomic) BOOL isIPad;
+@property(nonatomic) BOOL isIPad;
 @end
 
 @implementation ZSSDemoList
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -28,50 +27,44 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.title = @"ZSSRichTextEditor Demo";
-    
-    self.isIPad = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad );
-    
+
+    self.isIPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     //if (self.isIPad) return 6;
     return 5;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     static NSString *cellID = @"Cell Identifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell)
-    {
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
+
     if (indexPath.row == 0) {
         cell.textLabel.text = @"Standard";
         cell.detailTextLabel.text = @"Default implementation";
@@ -92,13 +85,13 @@
         cell.detailTextLabel.text = @"Shows a form style modal on the iPad";
     }
     cell.detailTextLabel.textColor = [UIColor grayColor];
-    
+
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     if (indexPath.row == 0) {
         ZSSDemoViewController *demo1 = [[ZSSDemoViewController alloc] init];
         [self.navigationController pushViewController:demo1 animated:YES];
@@ -120,7 +113,7 @@
         nav.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentViewController:nav animated:YES completion:nil];
     }
-    
+
 }
 
 @end

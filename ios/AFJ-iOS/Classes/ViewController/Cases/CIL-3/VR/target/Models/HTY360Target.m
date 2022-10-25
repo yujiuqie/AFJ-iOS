@@ -10,8 +10,8 @@
 
 @implementation HTY360Target
 
--(NSString *)description{
-    return [NSString stringWithFormat:@"%@ at X:%f, Y:%f, width:%f, height:%f startTime: %f, endTime: %f", self.name, self.yaw, self.roll, self.targetingAreaWidth ,self.targetingAreaHeight, self.startTargetingTime, self.endTargetingTime];
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ at X:%f, Y:%f, width:%f, height:%f startTime: %f, endTime: %f", self.name, self.yaw, self.roll, self.targetingAreaWidth, self.targetingAreaHeight, self.startTargetingTime, self.endTargetingTime];
 }
 
 @end

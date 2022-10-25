@@ -19,9 +19,11 @@ FOUNDATION_EXPORT const unsigned char JKCategoriesVersionString[];
 #import <JKCategories/JKMapKit.h>
 #import <JKCategories/JKCoreLocation.h>
 #else
+
 #import "JKUIKit.h"
 #import "JKQuartzCore.h"
 #import "JKFoundation.h"
 #import "JKMapKit.h"
 #import "JKCoreLocation.h"
+
 #endif

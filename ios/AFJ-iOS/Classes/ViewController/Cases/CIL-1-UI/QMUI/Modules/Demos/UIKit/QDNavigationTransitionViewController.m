@@ -40,7 +40,7 @@
 #pragma mark - <QMUINavigationControllerDelegate>
 
 - (void)navigationController:(QMUINavigationController *)navigationController poppingByInteractiveGestureRecognizer:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer isCancelled:(BOOL)isCancelled viewControllerWillDisappear:(UIViewController *)viewControllerWillDisappear viewControllerWillAppear:(UIViewController *)viewControllerWillAppear {
-    
+
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
         if (isCancelled) {
             [QMUITips showInfo:@"松手了，没有触发界面切换"];
@@ -50,7 +50,7 @@
         [self resetStateLabel];
         return;
     }
-    
+
     NSString *stateString = nil;
     UIColor *stateColor = nil;
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
@@ -62,7 +62,7 @@
     } else {
         return;
     }
-    
+
     self.stateLabel.text = stateString;
     self.stateLabel.backgroundColor = stateColor;
 }

@@ -9,37 +9,41 @@
 #import "UINavigationController+WXSTransition.h"
 #import <objc/runtime.h>
 #import "UIViewController+WXSTransitionProperty.h"
+
 @implementation UINavigationController (WXSTransition)
 
 
 #pragma mark Hook
-+(void)load {
-    
+
++ (void)load {
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+
         Method method0 = class_getInstanceMethod(self.class, @selector(popViewControllerAnimated:));
         Method method1 = class_getInstanceMethod(self.class, @selector(wxs_popViewControllerAnimated:));
         method_exchangeImplementations(method0, method1);
-        
+
     });
 }
+
 #pragma mark Action Method
+
 - (void)wxs_pushViewController:(UIViewController *)viewController {
-    
+
     [self wxs_pushViewController:viewController makeTransition:nil];
- 
+
 }
 
-- (void)wxs_pushViewController:(UIViewController *)viewController animationType:(WXSTransitionAnimationType) animationType{
-    
+- (void)wxs_pushViewController:(UIViewController *)viewController animationType:(WXSTransitionAnimationType)animationType {
+
     [self wxs_pushViewController:viewController makeTransition:^(WXSTransitionProperty *transition) {
         transition.animationType = animationType;
     }];
 }
 
-- (void)wxs_pushViewController:(UIViewController *)viewController makeTransition:(WXSTransitionBlock) transitionBlock {
-    
+- (void)wxs_pushViewController:(UIViewController *)viewController makeTransition:(WXSTransitionBlock)transitionBlock {
+
     if (self.delegate) {
         viewController.wxs_tempNavDelegate = self.delegate;
     }
@@ -64,7 +68,7 @@
         }
     }
     return [self wxs_popViewControllerAnimated:animated];
-    
+
 }
 
 @end

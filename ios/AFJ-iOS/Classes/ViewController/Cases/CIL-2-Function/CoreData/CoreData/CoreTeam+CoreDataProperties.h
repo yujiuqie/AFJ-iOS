@@ -15,20 +15,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<CoreTeam *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSNumber *teamId;
-@property (nullable, nonatomic, copy) NSString *summary;
-@property (nullable, nonatomic, copy) NSString *flag;
-@property (nullable, nonatomic, copy) NSNumber *date;
-@property (nullable, nonatomic, retain) CoreCoach *coach;
-@property (nullable, nonatomic, retain) NSSet<CorePlayer *> *players;
+@property(nullable, nonatomic, copy) NSNumber *teamId;
+@property(nullable, nonatomic, copy) NSString *summary;
+@property(nullable, nonatomic, copy) NSString *flag;
+@property(nullable, nonatomic, copy) NSNumber *date;
+@property(nullable, nonatomic, retain) CoreCoach *coach;
+@property(nullable, nonatomic, retain) NSSet<CorePlayer *> *players;
 
 @end
 
 @interface CoreTeam (CoreDataGeneratedAccessors)
 
 - (void)addPlayersObject:(CorePlayer *)value;
+
 - (void)removePlayersObject:(CorePlayer *)value;
+
 - (void)addPlayers:(NSSet<CorePlayer *> *)values;
+
 - (void)removePlayers:(NSSet<CorePlayer *> *)values;
 
 @end

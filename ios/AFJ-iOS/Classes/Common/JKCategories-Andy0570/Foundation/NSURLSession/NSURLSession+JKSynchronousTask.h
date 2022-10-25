@@ -16,11 +16,11 @@
 
 - (nullable NSData *)jk_sendSynchronousDataTaskWithURL:(nonnull NSURL *)url
                                      returningResponse:(NSURLResponse *_Nullable __autoreleasing *_Nullable)response
-                                                 error:(NSError *_Nullable __autoreleasing*_Nullable)error;
+                                                 error:(NSError *_Nullable __autoreleasing *_Nullable)error;
 
 - (nullable NSData *)jk_sendSynchronousDataTaskWithRequest:(nonnull NSURLRequest *)request
                                          returningResponse:(NSURLResponse *_Nullable __autoreleasing *_Nullable)response
-                                                     error:(NSError *_Nullable __autoreleasing*_Nullable)error;
+                                                     error:(NSError *_Nullable __autoreleasing *_Nullable)error;
 
 #pragma mark - NSURLSessionDownloadTask
 

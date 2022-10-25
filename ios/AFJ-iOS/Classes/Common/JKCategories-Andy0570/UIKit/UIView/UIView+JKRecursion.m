@@ -16,64 +16,51 @@
  *  @return  Return YES from the block to recurse into the subview.
  Set stop to YES to return the subview.
  */
-- (UIView*)jk_findViewRecursively:(BOOL(^)(UIView* subview, BOOL* stop))recurse
-{
-    for( UIView* subview in self.subviews ) {
+- (UIView *)jk_findViewRecursively:(BOOL(^)(UIView *subview, BOOL *stop))recurse {
+    for (UIView *subview in self.subviews) {
         BOOL stop = NO;
-        if( recurse( subview, &stop ) ) {
+        if (recurse(subview, &stop)) {
             return [subview jk_findViewRecursively:recurse];
-        } else if( stop ) {
+        } else if (stop) {
             return subview;
         }
     }
-    
+
     return nil;
 }
 
--(void)jk_runBlockOnAllSubviews:(JKSubviewBlock)block
-{
+- (void)jk_runBlockOnAllSubviews:(JKSubviewBlock)block {
     block(self);
-    for (UIView* view in [self subviews])
-    {
+    for (UIView *view in [self subviews]) {
         [view jk_runBlockOnAllSubviews:block];
     }
 }
 
--(void)jk_runBlockOnAllSuperviews:(JKSuperviewBlock)block
-{
+- (void)jk_runBlockOnAllSuperviews:(JKSuperviewBlock)block {
     block(self);
-    if (self.superview)
-    {
+    if (self.superview) {
         [self.superview jk_runBlockOnAllSuperviews:block];
     }
 }
 
--(void)jk_enableAllControlsInViewHierarchy
-{
+- (void)jk_enableAllControlsInViewHierarchy {
     [self jk_runBlockOnAllSubviews:^(UIView *view) {
-        
-        if ([view isKindOfClass:[UIControl class]])
-        {
-            [(UIControl *)view setEnabled:YES];
-        }
-        else if ([view isKindOfClass:[UITextView class]])
-        {
-            [(UITextView *)view setEditable:YES];
+
+        if ([view isKindOfClass:[UIControl class]]) {
+            [(UIControl *) view setEnabled:YES];
+        } else if ([view isKindOfClass:[UITextView class]]) {
+            [(UITextView *) view setEditable:YES];
         }
     }];
 }
 
--(void)jk_disableAllControlsInViewHierarchy
-{
+- (void)jk_disableAllControlsInViewHierarchy {
     [self jk_runBlockOnAllSubviews:^(UIView *view) {
-        
-        if ([view isKindOfClass:[UIControl class]])
-        {
-            [(UIControl *)view setEnabled:NO];
-        }
-        else if ([view isKindOfClass:[UITextView class]])
-        {
-            [(UITextView *)view setEditable:NO];
+
+        if ([view isKindOfClass:[UIControl class]]) {
+            [(UIControl *) view setEnabled:NO];
+        } else if ([view isKindOfClass:[UITextView class]]) {
+            [(UITextView *) view setEditable:NO];
         }
     }];
 }

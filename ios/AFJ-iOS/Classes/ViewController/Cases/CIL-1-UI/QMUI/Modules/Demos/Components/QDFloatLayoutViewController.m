@@ -24,7 +24,7 @@
     self.floatLayoutView.layer.borderWidth = PixelOne;
     self.floatLayoutView.layer.borderColor = UIColorSeparator.CGColor;
     [self.view addSubview:self.floatLayoutView];
-    
+
     NSArray<NSString *> *suggestions = @[@"东野圭吾", @"三体", @"爱", @"红楼梦", @"理智与情感", @"读书热榜", @"免费榜"];
     for (NSInteger i = 0; i < suggestions.count; i++) {
         QMUIButton *button = [QDUIHelper generateGhostButtonWithColor:UIColor.qd_tintColor];

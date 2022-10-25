@@ -14,8 +14,8 @@
 
 @implementation WXSBaseViewController
 
--(void)dealloc {
-    NSLog(@"%@ dealloc",  NSStringFromClass([self class]));
+- (void)dealloc {
+    NSLog(@"%@ dealloc", NSStringFromClass([self class]));
 }
 
 - (void)viewDidLoad {
@@ -29,7 +29,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 
 @end

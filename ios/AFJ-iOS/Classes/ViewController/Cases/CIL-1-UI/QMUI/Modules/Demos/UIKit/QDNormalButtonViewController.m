@@ -23,20 +23,20 @@
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     // 普通按钮
     self.normalButton = [QDUIHelper generateDarkFilledButton];
     [self.normalButton setTitle:NSLocalizedString(@"QMUIButton_Normal_Button_Title", @"按钮，支持高亮背景色") forState:UIControlStateNormal];
     [self.view addSubview:self.normalButton];
-    
+
     self.separatorLayer = [CALayer qmui_separatorLayer];
     [self.view.layer addSublayer:self.separatorLayer];
-    
+
     // 边框按钮
     self.borderedButton = [QDUIHelper generateLightBorderedButton];
     [self.borderedButton setTitle:NSLocalizedString(@"QMUIButton_Bordered_Button_Title", @"边框支持高亮的按钮") forState:UIControlStateNormal];
     [self.view addSubview:self.borderedButton];
-    
+
     // 图片+文字按钮
     self.imagePositionButton1 = [[QMUIButton alloc] init];
     self.imagePositionButton1.tintColorAdjustsTitleAndImage = UIColor.qd_tintColor;
@@ -47,7 +47,7 @@
     self.imagePositionButton1.titleLabel.font = UIFontMake(11);
     self.imagePositionButton1.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionBottom;
     [self.view addSubview:self.imagePositionButton1];
-    
+
     self.imagePositionButton2 = [[QMUIButton alloc] init];
     self.imagePositionButton2.tintColorAdjustsTitleAndImage = UIColor.qd_tintColor;
     self.imagePositionButton2.imagePosition = QMUIButtonImagePositionBottom;// 将图片位置改为在文字下方
@@ -57,7 +57,7 @@
     self.imagePositionButton2.titleLabel.font = UIFontMake(11);
     self.imagePositionButton2.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionBottom;
     [self.view addSubview:self.imagePositionButton2];
-    
+
     self.imageButtonSeparatorLayer = [CAShapeLayer qmui_separatorDashLayerWithLineLength:3 lineSpacing:2 lineWidth:PixelOne lineColor:UIColorSeparator.CGColor isHorizontal:NO];
     [self.view.layer addSublayer:self.imageButtonSeparatorLayer];
 }
@@ -66,18 +66,18 @@
     [super viewDidLayoutSubviews];
     CGFloat contentMinY = self.qmui_navigationBarMaxYInViewCoordinator;
     CGFloat buttonSpacingHeight = QDButtonSpacingHeight;
-    
+
     // 普通按钮
     self.normalButton.frame = CGRectSetXY(self.normalButton.frame, CGFloatGetCenter(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.normalButton.frame)), contentMinY + CGFloatGetCenter(buttonSpacingHeight, CGRectGetHeight(self.normalButton.frame)));
     self.separatorLayer.frame = CGRectFlatMake(0, contentMinY + buttonSpacingHeight - PixelOne, CGRectGetWidth(self.view.bounds), PixelOne);
-    
+
     // 边框按钮
     self.borderedButton.frame = CGRectSetY(self.normalButton.frame, CGRectGetMaxY(self.separatorLayer.frame) + CGFloatGetCenter(buttonSpacingHeight, CGRectGetHeight(self.normalButton.frame)));
-    
+
     // 图片+文字按钮
     self.imagePositionButton1.frame = CGRectFlatMake(0, contentMinY + buttonSpacingHeight * 2, CGRectGetWidth(self.view.bounds) / 2.0, buttonSpacingHeight);
     self.imagePositionButton2.frame = CGRectSetX(self.imagePositionButton1.frame, CGRectGetMaxX(self.imagePositionButton1.frame));
-    
+
     self.imageButtonSeparatorLayer.frame = CGRectFlatMake(CGRectGetMaxX(self.imagePositionButton1.frame), CGRectGetMinY(self.imagePositionButton1.frame), PixelOne, buttonSpacingHeight);
 }
 

@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTPopViewTimerView : UIView
-@property (weak, nonatomic) IBOutlet UILabel *timeLab;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property(weak, nonatomic) IBOutlet UILabel *timeLab;
+@property(weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end
 

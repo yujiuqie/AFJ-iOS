@@ -84,7 +84,7 @@
     // Register 't' for testing: quickly present an object explorer for debugging
     [flex registerSimulatorShortcutWithKey:@"t" modifiers:0 action:^{
         [flex showExplorer];
-    } description:@"Present an object explorer for debugging"];
+    }                          description:@"Present an object explorer for debugging"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

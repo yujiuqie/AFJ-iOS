@@ -13,9 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AFJBTCentralModeViewController : AFJRootViewController
-<UITableViewDataSource,UITableViewDelegate>
+        <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property(nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
 

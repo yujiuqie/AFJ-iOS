@@ -20,20 +20,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = UIColor.qd_backgroundColor;
-        
+
         self.titleLabel = [[QMUILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColor.qd_mainTextColor];
         self.titleLabel.text = @"最近搜索";
         self.titleLabel.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 8, 0);
         [self.titleLabel sizeToFit];
         self.titleLabel.qmui_borderPosition = QMUIViewBorderPositionBottom;
         [self addSubview:self.titleLabel];
-        
+
         self.floatLayoutView = [[QMUIFloatLayoutView alloc] init];
         self.floatLayoutView.padding = UIEdgeInsetsZero;
         self.floatLayoutView.itemMargins = UIEdgeInsetsMake(0, 0, 10, 10);
         self.floatLayoutView.minimumItemSize = CGSizeMake(69, 29);
         [self addSubview:self.floatLayoutView];
-        
+
         NSArray<NSString *> *suggestions = @[@"Helps", @"Maintain", @"Liver", @"Health", @"Function", @"Supports", @"Healthy", @"Fat"];
         for (NSInteger i = 0; i < suggestions.count; i++) {
             QMUIButton *button = [QDUIHelper generateGhostButtonWithColor:UIColor.qd_tintColor];
@@ -51,14 +51,14 @@
     UIEdgeInsets padding = UIEdgeInsetsConcat(UIEdgeInsetsMake(26, 26, 26, 26), self.safeAreaInsets);
     CGFloat titleLabelMarginTop = 20;
     self.titleLabel.frame = CGRectMake(padding.left, padding.top, CGRectGetWidth(self.bounds) - UIEdgeInsetsGetHorizontalValue(padding), CGRectGetHeight(self.titleLabel.frame));
-    
+
     CGFloat minY = CGRectGetMaxY(self.titleLabel.frame) + titleLabelMarginTop;
     self.floatLayoutView.frame = CGRectMake(padding.left, minY, CGRectGetWidth(self.bounds) - UIEdgeInsetsGetHorizontalValue(padding), CGRectGetHeight(self.bounds) - minY);
 }
 
 @end
 
-@interface QDSearchViewController ()<QMUISearchControllerDelegate>
+@interface QDSearchViewController () <QMUISearchControllerDelegate>
 
 @property(nonatomic, strong) NSArray<NSString *> *keywords;
 @property(nonatomic, strong) NSMutableArray<NSString *> *searchResultsKeywords;
@@ -69,10 +69,10 @@
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
-        
+
         // 这个属性默认就是 NO，这里依然写出来只是为了提醒 QMUICommonTableViewController 默认就集成了 QMUISearchController，如果你的界面本身就是 QMUICommonTableViewController 的子类，则也可以直接通过将这个属性改为 YES 来创建 QMUISearchController
         self.shouldShowSearchBar = NO;
-        
+
         self.keywords = @[@"Helps", @"Maintain", @"Liver", @"Health", @"Function", @"Supports", @"Healthy", @"Fat", @"Metabolism", @"Nuturally"];
         self.searchResultsKeywords = [[NSMutableArray alloc] init];
     }
@@ -89,7 +89,7 @@
     self.tableView.tableHeaderView = self.mySearchController.searchBar;
 }
 
-#pragma mark - <QMUITableViewDataSource,QMUITableViewDelegate>
+#pragma mark - <QMUITableViewDataSource, QMUITableViewDelegate>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.tableView) {
@@ -104,7 +104,7 @@
     if (!cell) {
         cell = [[QMUITableViewCell alloc] initForTableView:tableView withReuseIdentifier:identifier];
     }
-    
+
     if (tableView == self.tableView) {
         cell.textLabel.text = self.keywords[indexPath.row];
     } else {
@@ -116,7 +116,7 @@
         }
         cell.textLabel.attributedText = attributedString;
     }
-    
+
     [cell updateCellAppearanceWithIndexPath:indexPath];
     return cell;
 }
@@ -129,15 +129,15 @@
 
 - (void)searchController:(QMUISearchController *)searchController updateResultsForSearchString:(NSString *)searchString {
     [self.searchResultsKeywords removeAllObjects];
-    
+
     for (NSString *keyword in self.keywords) {
         if ([keyword containsString:searchString]) {
             [self.searchResultsKeywords addObject:keyword];
         }
     }
-    
+
     [searchController.tableView reloadData];
-    
+
     if (self.searchResultsKeywords.count == 0) {
         [searchController showEmptyViewWithText:@"没有匹配结果" detailText:nil buttonTitle:nil buttonAction:NULL];
     } else {

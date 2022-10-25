@@ -10,7 +10,7 @@
 
 @interface HorzontalHeaderView : UICollectionReusableView
 
-@property(nonatomic,strong)UILabel* headerLabel;
+@property(nonatomic, strong) UILabel *headerLabel;
 
 + (NSString *)headerViewIdentifier;
 

@@ -9,11 +9,12 @@
 static const void *jk_UIButtonBlockKey = &jk_UIButtonBlockKey;
 
 @implementation UIButton (jk_Block)
--(void)jk_addActionHandler:(JKTouchedButtonBlock)touchHandler{
+- (void)jk_addActionHandler:(JKTouchedButtonBlock)touchHandler {
     objc_setAssociatedObject(self, jk_UIButtonBlockKey, touchHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self addTarget:self action:@selector(jk_blockActionTouched:) forControlEvents:UIControlEventTouchUpInside];
 }
--(void)jk_blockActionTouched:(UIButton *)btn{
+
+- (void)jk_blockActionTouched:(UIButton *)btn {
     JKTouchedButtonBlock block = objc_getAssociatedObject(self, jk_UIButtonBlockKey);
     if (block) {
         block(btn.tag);

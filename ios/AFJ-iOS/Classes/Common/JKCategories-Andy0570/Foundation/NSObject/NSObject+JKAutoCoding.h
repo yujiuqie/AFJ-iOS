@@ -15,12 +15,17 @@
 
 //coding
 + (NSDictionary *)jk_codableProperties;
+
 - (void)jk_setWithCoder:(NSCoder *)aDecoder;
+
 //property access
 - (NSDictionary *)jk_codableProperties;
+
 - (NSDictionary *)jk_dictionaryRepresentation;
+
 //loading / saving
 + (instancetype)jk_objectWithContentsOfFile:(NSString *)path;
+
 - (BOOL)jk_writeToFile:(NSString *)filePath atomically:(BOOL)useAuxiliaryFile;
 
 @end

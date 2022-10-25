@@ -8,45 +8,45 @@
 
 @implementation NSString (JKEncrypt)
 
--(NSString*)jk_encryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv {
+- (NSString *)jk_encryptedWithAESUsingKey:(NSString *)key andIV:(NSData *)iv {
     NSData *encrypted = [[self dataUsingEncoding:NSUTF8StringEncoding] jk_encryptedWithAESUsingKey:key andIV:iv];
     NSString *encryptedString = [encrypted jk_base64EncodedString];
-    
+
     return encryptedString;
 }
 
-- (NSString*)jk_decryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv {
+- (NSString *)jk_decryptedWithAESUsingKey:(NSString *)key andIV:(NSData *)iv {
     NSData *decrypted = [[NSData jk_dataWithBase64EncodedString:self] jk_decryptedWithAESUsingKey:key andIV:iv];
     NSString *decryptedString = [[NSString alloc] initWithData:decrypted encoding:NSUTF8StringEncoding];
-    
+
     return decryptedString;
 }
 
-- (NSString*)jk_encryptedWithDESUsingKey:(NSString*)key andIV:(NSData*)iv {
+- (NSString *)jk_encryptedWithDESUsingKey:(NSString *)key andIV:(NSData *)iv {
     NSData *encrypted = [[self dataUsingEncoding:NSUTF8StringEncoding] jk_encryptedWithDESUsingKey:key andIV:iv];
     NSString *encryptedString = [encrypted jk_base64EncodedString];
-    
+
     return encryptedString;
 }
 
-- (NSString*)jk_decryptedWithDESUsingKey:(NSString*)key andIV:(NSData*)iv {
+- (NSString *)jk_decryptedWithDESUsingKey:(NSString *)key andIV:(NSData *)iv {
     NSData *decrypted = [[NSData jk_dataWithBase64EncodedString:self] jk_decryptedWithDESUsingKey:key andIV:iv];
     NSString *decryptedString = [[NSString alloc] initWithData:decrypted encoding:NSUTF8StringEncoding];
-    
+
     return decryptedString;
 }
 
-- (NSString*)jk_encryptedWith3DESUsingKey:(NSString*)key andIV:(NSData*)iv {
+- (NSString *)jk_encryptedWith3DESUsingKey:(NSString *)key andIV:(NSData *)iv {
     NSData *encrypted = [[self dataUsingEncoding:NSUTF8StringEncoding] jk_encryptedWith3DESUsingKey:key andIV:iv];
     NSString *encryptedString = [encrypted jk_base64EncodedString];
-    
+
     return encryptedString;
 }
 
-- (NSString*)jk_decryptedWith3DESUsingKey:(NSString*)key andIV:(NSData*)iv {
+- (NSString *)jk_decryptedWith3DESUsingKey:(NSString *)key andIV:(NSData *)iv {
     NSData *decrypted = [[NSData jk_dataWithBase64EncodedString:self] jk_decryptedWith3DESUsingKey:key andIV:iv];
     NSString *decryptedString = [[NSString alloc] initWithData:decrypted encoding:NSUTF8StringEncoding];
-    
+
     return decryptedString;
 }
 

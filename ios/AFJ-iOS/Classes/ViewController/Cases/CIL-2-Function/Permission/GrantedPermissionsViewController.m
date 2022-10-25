@@ -14,7 +14,7 @@
 @import Accounts;
 @import HealthKit;
 
-NSString * const GrantedPermissionsViewControllerCell = @"cell";
+NSString *const GrantedPermissionsViewControllerCell = @"cell";
 NSInteger const RequestabalePermissionsSection = 1;
 
 @interface GrantedPermissionsViewController ()
@@ -36,7 +36,7 @@ NSInteger const RequestabalePermissionsSection = 1;
     self.tableView.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length, 0);
 }
 
-- (void)reloadPermissionsUsingDataSource:(id<ISHPermissionsViewControllerDataSource>)datasource {
+- (void)reloadPermissionsUsingDataSource:(id <ISHPermissionsViewControllerDataSource>)datasource {
     NSArray *allPermissions = [[self class] requiredPermissions];
     ISHPermissionsViewController *viewControllerForStateQueries = [ISHPermissionsViewController permissionsViewControllerWithCategories:allPermissions
                                                                                                                              dataSource:datasource];
@@ -69,6 +69,7 @@ NSInteger const RequestabalePermissionsSection = 1;
 }
 
 #pragma mark UITableViewDatasource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -88,7 +89,7 @@ NSInteger const RequestabalePermissionsSection = 1;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:GrantedPermissionsViewControllerCell forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+
     NSNumber *permission = [self permissionAtIndexPath:indexPath];
 
     if (permission) {
@@ -104,7 +105,7 @@ NSInteger const RequestabalePermissionsSection = 1;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self presentPermissionsIfNeeded];
 }
 
@@ -115,43 +116,43 @@ NSInteger const RequestabalePermissionsSection = 1;
     // require special capabilities have been commented out since
     // they require additional configuration in Xcode.
     return @[
-             @(ISHPermissionCategoryActivity),
+            @(ISHPermissionCategoryActivity),
 
-             // requires Health capability & entitlements
-             // @(ISHPermissionCategoryHealth),
+            // requires Health capability & entitlements
+            // @(ISHPermissionCategoryHealth),
 
-             // If you want to request both, the order is important,
-             // as Always implies WhenInUse, too
-             @(ISHPermissionCategoryLocationWhenInUse),
-             @(ISHPermissionCategoryLocationAlways),
+            // If you want to request both, the order is important,
+            // as Always implies WhenInUse, too
+            @(ISHPermissionCategoryLocationWhenInUse),
+            @(ISHPermissionCategoryLocationAlways),
 
-             @(ISHPermissionCategoryMicrophone),
-             @(ISHPermissionCategoryModernPhotoLibrary),
-             @(ISHPermissionCategoryPhotoCamera),
-             @(ISHPermissionCategoryNotificationLocal),
+            @(ISHPermissionCategoryMicrophone),
+            @(ISHPermissionCategoryModernPhotoLibrary),
+            @(ISHPermissionCategoryPhotoCamera),
+            @(ISHPermissionCategoryNotificationLocal),
 
-             // requires Push capability & entitlements to actually work
-             @(ISHPermissionCategoryNotificationRemote),
+            // requires Push capability & entitlements to actually work
+            @(ISHPermissionCategoryNotificationRemote),
 
-             @(ISHPermissionCategorySocialFacebook),
-             @(ISHPermissionCategorySocialTwitter),
-             @(ISHPermissionCategorySocialSinaWeibo),
-             // TODO: alert cannot be presented
-             @(ISHPermissionCategorySocialTencentWeibo),
+            @(ISHPermissionCategorySocialFacebook),
+            @(ISHPermissionCategorySocialTwitter),
+            @(ISHPermissionCategorySocialSinaWeibo),
+            // TODO: alert cannot be presented
+            @(ISHPermissionCategorySocialTencentWeibo),
 
-             @(ISHPermissionCategoryContacts),
-             @(ISHPermissionCategoryEvents),
-             @(ISHPermissionCategoryReminders),
-             @(ISHPermissionCategoryMusicLibrary),
+            @(ISHPermissionCategoryContacts),
+            @(ISHPermissionCategoryEvents),
+            @(ISHPermissionCategoryReminders),
+            @(ISHPermissionCategoryMusicLibrary),
 
 #ifdef NSFoundationVersionNumber_iOS_9_0
-             // reqquires Siri capability & entitlements
-             // @(ISHPermissionCategorySiri),
+            // reqquires Siri capability & entitlements
+            // @(ISHPermissionCategorySiri),
 
-             @(ISHPermissionCategorySpeechRecognition),
-             @(ISHPermissionCategoryUserNotification),
+            @(ISHPermissionCategorySpeechRecognition),
+            @(ISHPermissionCategoryUserNotification),
 #endif
-             ];
+    ];
 }
 
 #pragma mark ISHPermissionsViewControllerDataSource
@@ -163,7 +164,7 @@ NSInteger const RequestabalePermissionsSection = 1;
 - (void)permissionsViewController:(ISHPermissionsViewController *)vc didConfigureRequest:(ISHPermissionRequest *)request {
     switch (request.permissionCategory) {
         case ISHPermissionCategoryHealth: {
-            ISHPermissionRequestHealth *healthRequest = (ISHPermissionRequestHealth *)([request isKindOfClass:[ISHPermissionRequestHealth class]] ? request : nil);
+            ISHPermissionRequestHealth *healthRequest = (ISHPermissionRequestHealth *) ([request isKindOfClass:[ISHPermissionRequestHealth class]] ? request : nil);
             HKQuantityType *heartRate = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
             healthRequest.objectTypesRead = [NSSet setWithObjects:heartRate, nil];
             healthRequest.objectTypesWrite = [NSSet setWithObjects:heartRate, nil];
@@ -173,26 +174,26 @@ NSInteger const RequestabalePermissionsSection = 1;
         case ISHPermissionCategoryNotificationLocal: {
             // the demo app only requests permissions for badges
             UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
-            ISHPermissionRequestNotificationsLocal *localNotesRequest = (ISHPermissionRequestNotificationsLocal *)([request isKindOfClass:[ISHPermissionRequestNotificationsLocal class]] ? request : nil);
+            ISHPermissionRequestNotificationsLocal *localNotesRequest = (ISHPermissionRequestNotificationsLocal *) ([request isKindOfClass:[ISHPermissionRequestNotificationsLocal class]] ? request : nil);
             [localNotesRequest setNotificationSettings:setting];
             break;
         }
 
         case ISHPermissionCategorySocialFacebook:
         case ISHPermissionCategorySocialTencentWeibo: {
-            ISHPermissionRequestAccount *accountRequest = (ISHPermissionRequestAccount *)([request isKindOfClass:[ISHPermissionRequestAccount class]] ? request : nil);
+            ISHPermissionRequestAccount *accountRequest = (ISHPermissionRequestAccount *) ([request isKindOfClass:[ISHPermissionRequestAccount class]] ? request : nil);
 
             NSDictionary *options;
             if ([accountRequest.accountTypeIdentifier isEqualToString:ACAccountTypeIdentifierFacebook]) {
                 options = @{
-                            ACFacebookAppIdKey: @"YOUR-API-KEY",
-                            ACFacebookPermissionsKey: @[@"email", @"user_about_me"],
-                            ACFacebookAudienceKey: ACFacebookAudienceFriends,
-                            };
+                        ACFacebookAppIdKey: @"YOUR-API-KEY",
+                        ACFacebookPermissionsKey: @[@"email", @"user_about_me"],
+                        ACFacebookAudienceKey: ACFacebookAudienceFriends,
+                };
             } else if ([accountRequest.accountTypeIdentifier isEqualToString:ACAccountTypeIdentifierTencentWeibo]) {
                 options = @{
-                            ACTencentWeiboAppIdKey: @"YOUR-API-KEY",
-                            };
+                        ACTencentWeiboAppIdKey: @"YOUR-API-KEY",
+                };
             }
 
             [accountRequest setOptions:options];
@@ -207,12 +208,12 @@ NSInteger const RequestabalePermissionsSection = 1;
 - (void)presentPermissionsIfNeeded {
     NSArray *permissions = [[self class] requiredPermissions];
     ISHPermissionsViewController *permissionsVC = [ISHPermissionsViewController permissionsViewControllerWithCategories:permissions dataSource:self];
- 
+
     __weak GrantedPermissionsViewController *rootVC = self;
     [permissionsVC setCompletionBlock:^{
         [rootVC reloadPermissionsUsingDataSource:self];
     }];
-    
+
     __weak ISHPermissionsViewController *weakPermissionsVC = permissionsVC;
     [permissionsVC setErrorBlock:^(ISHPermissionCategory category, NSError *error) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:ISHStringFromPermissionCategory(category)

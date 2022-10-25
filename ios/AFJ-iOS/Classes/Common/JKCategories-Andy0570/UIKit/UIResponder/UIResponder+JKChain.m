@@ -8,8 +8,7 @@
 
 @implementation UIResponder (JKChain)
 
-- (NSString *)jk_responderChainDescription
-{
+- (NSString *)jk_responderChainDescription {
     NSMutableArray *responderChainStrings = [NSMutableArray array];
     [responderChainStrings addObject:[self class]];
     UIResponder *nextResponder = self;
@@ -26,8 +25,7 @@
                                                         returnString = [returnString stringByAppendingString:@"----"];
                                                     }
                                                     returnString = [returnString stringByAppendingString:@" "];
-                                                }
-                                                else {
+                                                } else {
                                                     returnString = [returnString stringByAppendingString:@"| "];
                                                 }
                                                 returnString = [returnString stringByAppendingFormat:@"%@ (%@)\n", obj, @(idx)];

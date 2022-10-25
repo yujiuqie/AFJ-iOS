@@ -39,7 +39,7 @@ static const CGFloat kCircleSize = 12;
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter]  removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)handleWillEnterForeground:(NSNotification *)notification {
@@ -48,26 +48,26 @@ static const CGFloat kCircleSize = 12;
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     _containerLayer1 = [CAReplicatorLayer layer];
     _containerLayer1.masksToBounds = YES;
     _containerLayer1.instanceCount = kSubLayerCount;
     _containerLayer1.instanceDelay = kAnimationDuration / _containerLayer1.instanceCount;
     _containerLayer1.instanceTransform = CATransform3DMakeTranslation(kSubLayerWidth + kSubLayerSpace, 0, 0);
     [self.view.layer addSublayer:_containerLayer1];
-    
+
     _containerLayer2 = [CAReplicatorLayer layer];
     _containerLayer2.masksToBounds = YES;
     _containerLayer2.instanceCount = kCircleCount;
     _containerLayer2.instanceDelay = kAnimationDuration / _containerLayer2.instanceCount;
     _containerLayer2.instanceTransform = CATransform3DMakeRotation(AngleWithDegrees(360 / _containerLayer2.instanceCount), 0, 0, 1);
     [self.view.layer addSublayer:_containerLayer2];
-    
+
     self.line1 = [CALayer layer];
     self.line1.backgroundColor = UIColorSeparator.CGColor;
     [self.line1 qmui_removeDefaultAnimations];
     [self.view.layer addSublayer:self.line1];
-    
+
     self.line2 = [CALayer layer];
     self.line2.backgroundColor = UIColorSeparator.CGColor;
     [self.line2 qmui_removeDefaultAnimations];
@@ -81,28 +81,28 @@ static const CGFloat kCircleSize = 12;
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
+
     CGFloat lineSpace = 60;
     CGFloat minY = self.qmui_navigationBarMaxYInViewCoordinator + lineSpace;
     CGFloat width1 = kSubLayerWidth * kSubLayerCount + (kSubLayerCount - 1) * kSubLayerSpace;
-    
+
     _containerLayer1.frame = CGRectMake(CGFloatGetCenter(CGRectGetWidth(self.view.bounds), width1), minY, width1, kSubLayerHeiht);
-    
+
     minY = CGRectGetMaxY(_containerLayer1.frame) + lineSpace;
-    
+
     self.line1.frame = CGRectMake(0, minY, CGRectGetWidth(self.view.bounds), PixelOne);
-    
+
     minY = CGRectGetMaxY(self.line1.frame) + lineSpace;
-    
+
     _containerLayer2.frame = CGRectMake(CGFloatGetCenter(CGRectGetWidth(self.view.bounds), kCircleContainerSize), minY, kCircleContainerSize, kCircleContainerSize);
-    
+
     minY = CGRectGetMaxY(_containerLayer2.frame) + lineSpace;
-    
+
     self.line2.frame = CGRectMake(0, minY, CGRectGetWidth(self.view.bounds), PixelOne);
 }
 
 - (void)beginAnimation {
-    
+
     CALayer *subLayer1 = [CALayer layer];
     subLayer1.backgroundColor = UIColorGreen.CGColor;
     subLayer1.frame = CGRectMake(0, kSubLayerHeiht - 6, kSubLayerWidth, kSubLayerHeiht);
@@ -115,7 +115,7 @@ static const CGFloat kCircleSize = 12;
     animation1.duration = kAnimationDuration;
     animation1.autoreverses = YES;
     [subLayer1 addAnimation:animation1 forKey:nil];
-    
+
     CALayer *subLayer2 = [CALayer layer];
     subLayer2.backgroundColor = UIColorBlue.CGColor;
     subLayer2.frame = CGRectMake((kCircleContainerSize - kCircleSize) / 2, 0, kCircleSize, kCircleSize);

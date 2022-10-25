@@ -13,7 +13,7 @@
 
 @interface AFJStatusBarNotificationViewController ()
 
-@property (nonatomic, strong) GPJDataDrivenTableView  *tableView;
+@property(nonatomic, strong) GPJDataDrivenTableView *tableView;
 
 @end
 
@@ -26,9 +26,9 @@
     self.tableView = [[GPJDataDrivenTableView alloc] initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-    
+
     NSMutableArray *dataArray = [NSMutableArray array];
-    
+
     __weak typeof(self) weakSelf = self;
     {
         AFJCaseItemData *item = [AFJCaseItemData new];

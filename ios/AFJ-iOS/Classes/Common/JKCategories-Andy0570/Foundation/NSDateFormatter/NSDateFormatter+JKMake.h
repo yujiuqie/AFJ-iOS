@@ -13,12 +13,18 @@
 
 @interface NSDateFormatter (JKMake)
 
-+(NSDateFormatter *)jk_dateFormatterWithFormat:(NSString *)format;
-+(NSDateFormatter *)jk_dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone;
-+(NSDateFormatter *)jk_dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
-+(NSDateFormatter *)jk_dateFormatterWithDateStyle:(NSDateFormatterStyle)style;
-+(NSDateFormatter *)jk_dateFormatterWithDateStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
-+(NSDateFormatter *)jk_dateFormatterWithTimeStyle:(NSDateFormatterStyle)style;
-+(NSDateFormatter *)jk_dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
++ (NSDateFormatter *)jk_dateFormatterWithFormat:(NSString *)format;
+
++ (NSDateFormatter *)jk_dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone;
+
++ (NSDateFormatter *)jk_dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
+
++ (NSDateFormatter *)jk_dateFormatterWithDateStyle:(NSDateFormatterStyle)style;
+
++ (NSDateFormatter *)jk_dateFormatterWithDateStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
+
++ (NSDateFormatter *)jk_dateFormatterWithTimeStyle:(NSDateFormatterStyle)style;
+
++ (NSDateFormatter *)jk_dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
 
 @end

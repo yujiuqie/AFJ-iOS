@@ -29,19 +29,19 @@
 - (void)initDataSource {
     [super initDataSource];
     self.dataSource = @[@"All System Fonts",
-                        @"Default Line Height",
-                        @"Animation",
-                        @"Log Manager",
-                        @"Interactive Debugger",
-                        @"UINavigationBar Smooth Effect",
-                        @"UINavigationBar Bottom Accessory",
-                        @"Custom BackBarButtonItem",
-                        @"Dropdown Notification",
-                        ];
+            @"Default Line Height",
+            @"Animation",
+            @"Log Manager",
+            @"Interactive Debugger",
+            @"UINavigationBar Smooth Effect",
+            @"UINavigationBar Bottom Accessory",
+            @"Custom BackBarButtonItem",
+            @"Dropdown Notification",
+    ];
 }
 
 - (void)didSelectCellWithTitle:(NSString *)title {
-    __weak __typeof(self)weakSelf = self;
+    __weak __typeof(self) weakSelf = self;
     UIViewController *viewController = nil;
     if ([title isEqualToString:@"All System Fonts"]) {
         viewController = [[QDAllSystemFontsViewController alloc] init];
@@ -51,27 +51,23 @@
         viewController = ({
             QDCommonListViewController *vc = QDCommonListViewController.new;
             vc.dataSource = @[
-                @"Animation Curves",
-                @"Loading",
-                @"Loading With CAShapeLayer",
-                @"Animation For CAReplicatorLayer",
-                @"水波纹"
+                    @"Animation Curves",
+                    @"Loading",
+                    @"Loading With CAShapeLayer",
+                    @"Animation For CAReplicatorLayer",
+                    @"水波纹"
             ];
             vc.didSelectTitleBlock = ^(NSString *title) {
                 UIViewController *viewController = nil;
                 if ([title isEqualToString:@"Loading"]) {
                     viewController = [[QDAllAnimationViewController alloc] init];
-                }
-                else if ([title isEqualToString:@"Loading With CAShapeLayer"]) {
+                } else if ([title isEqualToString:@"Loading With CAShapeLayer"]) {
                     viewController = [[QDCAShapeLoadingViewController alloc] init];
-                }
-                else if ([title isEqualToString:@"Animation For CAReplicatorLayer"]) {
+                } else if ([title isEqualToString:@"Animation For CAReplicatorLayer"]) {
                     viewController = [[QDReplicatorLayerViewController alloc] init];
-                }
-                else if ([title isEqualToString:@"水波纹"]) {
+                } else if ([title isEqualToString:@"水波纹"]) {
                     viewController = [[QDRippleAnimationViewController alloc] init];
-                }
-                else if ([title isEqualToString:@"Animation Curves"]) {
+                } else if ([title isEqualToString:@"Animation Curves"]) {
                     viewController = [[QDAnimationCurvesViewController alloc] init];
                 }
                 viewController.title = title;
@@ -81,7 +77,7 @@
         });
     } else if ([title isEqualToString:@"Log Manager"]) {
         viewController = [[QMUILogManagerViewController alloc] init];
-        ((QMUILogManagerViewController *)viewController).formatLogNameForSortingBlock = ^NSString *(NSString *logName) {
+        ((QMUILogManagerViewController *) viewController).formatLogNameForSortingBlock = ^NSString *(NSString *logName) {
             NSString *projectPrefix = @"QMUI";
             if ([logName hasPrefix:projectPrefix]) {
                 return [logName substringFromIndex:projectPrefix.length];

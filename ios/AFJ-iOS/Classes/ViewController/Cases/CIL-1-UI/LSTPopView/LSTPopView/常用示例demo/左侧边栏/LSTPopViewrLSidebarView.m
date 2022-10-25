@@ -10,7 +10,7 @@
 
 @interface LSTPopViewrLSidebarView ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property(weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end
 
@@ -18,10 +18,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+
     self.imgView.layer.cornerRadius = 40;
     self.imgView.layer.masksToBounds = YES;
-    
+
 }
 
 @end

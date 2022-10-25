@@ -16,8 +16,9 @@
 /*
  * 
  */
-- (void)wxs_pushViewController:(UIViewController *)viewController animationType:(WXSTransitionAnimationType) animationType;
-- (void)wxs_pushViewController:(UIViewController *)viewController makeTransition:(WXSTransitionBlock) transitionBlock;
+- (void)wxs_pushViewController:(UIViewController *)viewController animationType:(WXSTransitionAnimationType)animationType;
+
+- (void)wxs_pushViewController:(UIViewController *)viewController makeTransition:(WXSTransitionBlock)transitionBlock;
 
 
 @end

@@ -18,8 +18,7 @@
 
 @implementation SpriteKitViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -27,26 +26,24 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
-    SKView *skView = (SKView *)self.view;
+    SKView *skView = (SKView *) self.view;
 
     if (!skView.scene) {
-    
+
         skView.showsFPS = YES;
         skView.showsNodeCount = YES;
-        
+
         SKScene *scene = [SampleScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
-        
+
         [skView presentScene:scene];
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 

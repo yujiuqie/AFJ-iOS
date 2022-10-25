@@ -16,7 +16,7 @@
 /**
  *  The curve‘s bend level. The good value is about 0.6 ~ 0.8. The default and recommended value is 0.7.
  */
-@property (nonatomic) CGFloat jk_contractionFactor;
+@property(nonatomic) CGFloat jk_contractionFactor;
 
 /**
  *  You must wrap CGPoint struct to NSValue object.

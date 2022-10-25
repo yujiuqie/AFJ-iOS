@@ -10,13 +10,12 @@
 #import "FeVietNamLoader.h"
 
 @interface FeVietNamLoaderViewController ()
-@property (strong, nonatomic) FeVietNamLoader *vietNamLoader;
+@property(strong, nonatomic) FeVietNamLoader *vietNamLoader;
 @end
 
 @implementation FeVietNamLoaderViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -24,30 +23,27 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
+    // Do any additional setup after loading the view.
+
     _vietNamLoader = [[FeVietNamLoader alloc] initWithView:self.view blur:NO color:nil];
     [self.view addSubview:_vietNamLoader];
-    
+
     // Start
     [_vietNamLoader showWhileExecutingBlock:^{
         [self myTask];
-    } completion:^{
+    }                            completion:^{
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
- - (void)myTask
-{
+- (void)myTask {
     // Do something usefull in here instead of sleeping ...
     sleep(6);
 }

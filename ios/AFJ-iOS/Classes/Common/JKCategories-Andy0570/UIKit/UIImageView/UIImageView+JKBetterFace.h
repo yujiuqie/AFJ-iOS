@@ -14,10 +14,11 @@
 
 @interface UIImageView (JKBetterFace)
 
-@property (nonatomic) BOOL jk_needsBetterFace;
-@property (nonatomic) BOOL jk_fast;
+@property(nonatomic) BOOL jk_needsBetterFace;
+@property(nonatomic) BOOL jk_fast;
 
 void jk_hack_uiimageview_bf(void);
+
 - (void)jk_setBetterFaceImage:(UIImage *)image;
 
 @end

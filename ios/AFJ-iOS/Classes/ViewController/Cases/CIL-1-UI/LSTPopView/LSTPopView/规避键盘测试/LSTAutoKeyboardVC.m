@@ -20,26 +20,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    [self layoutSubViewUI];
-    
-    [self show];
-    
-    
-    
-}
 
+
+    [self layoutSubViewUI];
+
+    [self show];
+
+
+}
 
 
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)layoutSubViewUI {
-        
+
     self.view.backgroundColor = UIColor.whiteColor;
-    
+
 
 }
+
 #pragma mark - ***** Data Request 数据请求 *****
 
 
@@ -50,8 +49,8 @@
     LSTKeyboardXibView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
-    
-    
+
+
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:1 dismissStyle:LSTDismissStyleSmoothToBottom];
 //    popView.parentView = self.view;
     LSTPopViewWK(popView);
@@ -66,7 +65,6 @@
     };
     [popView pop];
 }
-
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

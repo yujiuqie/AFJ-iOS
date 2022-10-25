@@ -14,14 +14,13 @@
 @implementation NSNotificationTestObject
 
 
--(void)handle:(NSNotification*)note
-{
+- (void)handle:(NSNotification *)note {
     NSLog(@"11111111");
 }
--(void)dealloc
-{
-    NSLog(@"%@  dealloc",NSStringFromClass([self class]));
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
+
+- (void)dealloc {
+    NSLog(@"%@  dealloc", NSStringFromClass([self class]));
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self removeObserver:self forKeyPath:@"name"];
 //    [self.kvo removeObserver:self forKeyPath:@"name"];
 }

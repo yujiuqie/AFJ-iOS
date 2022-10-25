@@ -10,14 +10,14 @@
 
 @implementation WAAVSEComposition
 
-- (NSMutableArray<AVMutableAudioMixInputParameters *> *)audioMixParams{
+- (NSMutableArray<AVMutableAudioMixInputParameters *> *)audioMixParams {
     if (!_audioMixParams) {
         _audioMixParams = [NSMutableArray array];
     }
     return _audioMixParams;
 }
 
-- (NSMutableArray<AVMutableVideoCompositionInstruction *> *)instructions{
+- (NSMutableArray<AVMutableVideoCompositionInstruction *> *)instructions {
     if (!_instructions) {
         _instructions = [NSMutableArray array];
     }

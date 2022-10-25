@@ -17,7 +17,7 @@
 
 @interface QDSingleImagePickerPreviewViewController : QMUIImagePickerPreviewViewController
 
-@property(nonatomic, weak) id<QDSingleImagePickerPreviewViewControllerDelegate> delegate;
+@property(nonatomic, weak) id <QDSingleImagePickerPreviewViewControllerDelegate> delegate;
 @property(nonatomic, strong) QMUIAssetsGroup *assetsGroup;
 
 @end

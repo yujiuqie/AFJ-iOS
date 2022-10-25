@@ -10,13 +10,13 @@
 #import "LSTPopViewTVView.h"
 
 @interface LSTPopViewDragVC ()
-<
-UITableViewDelegate,
-UITableViewDataSource
->
+        <
+        UITableViewDelegate,
+        UITableViewDataSource
+        >
 
 /** <#.....#> */
-@property (nonatomic,strong) UITableView *tableView;
+@property(nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -26,21 +26,20 @@ UITableViewDataSource
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    [self layoutSubViewUI];
-    
-    
-}
 
+
+    [self layoutSubViewUI];
+
+
+}
 
 
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)layoutSubViewUI {
-    
+
     self.title = @"拖拽轻扫手势示例";
-    
+
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -49,7 +48,7 @@ UITableViewDataSource
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.equalTo(self.view);
     }];
-    
+
 }
 
 #pragma mark - ***** Data Request 数据请求 *****
@@ -66,52 +65,44 @@ UITableViewDataSource
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
+
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
     switch (indexPath.row) {
-        case 0:
-        {
+        case 0: {
             cell.textLabel.text = @"底部拖拽轻扫移除";
         }
             break;
-        case 1:
-        {
+        case 1: {
             cell.textLabel.text = @"顶部拖拽轻扫移除";
         }
             break;
-        case 2:
-        {
+        case 2: {
             cell.textLabel.text = @"左侧边拖拽移除";
         }
             break;
-        case 3:
-        {
+        case 3: {
             cell.textLabel.text = @"右侧边拖拽移除";
         }
             break;
-        case 4:
-        {
+        case 4: {
             cell.textLabel.text = @"纯代码自定义view";
         }
             break;
-        case 5:
-        {
+        case 5: {
             cell.textLabel.text = @"XIB自定义view";
         }
             break;
-        case 6:
-        {
+        case 6: {
             cell.textLabel.text = @"多个popView窗口测试";
         }
             break;
-        case 7:
-        {
+        case 7: {
             cell.textLabel.text = @"规避键盘遮挡调试";
         }
             break;
@@ -119,32 +110,31 @@ UITableViewDataSource
             break;
     }
     return cell;
-    
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, pv_ScreenWidth(), pv_ScreenHeight()*(0.8))];
+        LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, pv_ScreenWidth(), pv_ScreenHeight() * (0.8))];
         LSTPopView *popView = [LSTPopView initWithCustomView:customView
                                                   parentView:self.view
                                                     popStyle:LSTPopStyleSmoothFromBottom
                                                 dismissStyle:LSTDismissStyleSmoothToBottom];
-    //    self.popView = popView;
+        //    self.popView = popView;
         popView.priority = 1000;
         popView.hemStyle = LSTHemStyleBottom;
         popView.dragStyle = LSTDragStyleY_Positive;
-        popView.dragDistance =  customView.pv_Height*0.5;
+        popView.dragDistance = customView.pv_Height * 0.5;
         popView.sweepStyle = LSTSweepStyleY_Positive;
         popView.swipeVelocity = 1600;
         popView.sweepDismissStyle = LSTSweepDismissStyleSmooth;
         popView.isImpactFeedback = YES;
-        
+
         [popView pop];
     }
 }
 
 #pragma mark - ***** Lazy Loading 懒加载 *****
-
 
 
 @end

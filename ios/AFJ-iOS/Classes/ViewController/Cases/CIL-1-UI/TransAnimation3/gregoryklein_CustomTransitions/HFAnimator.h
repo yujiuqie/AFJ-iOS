@@ -10,6 +10,6 @@
 
 @interface HFAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
-@property (nonatomic, assign, getter = isPresented) BOOL presenting;
+@property(nonatomic, assign, getter = isPresented) BOOL presenting;
 
 @end

@@ -14,41 +14,41 @@
  *
  *  @return viewcontroler对象
  */
-- (id)jk_findViewController:(NSString*)className
-{
+- (id)jk_findViewController:(NSString *)className {
     for (UIViewController *viewController in self.viewControllers) {
         if ([viewController isKindOfClass:NSClassFromString(className)]) {
             return viewController;
         }
     }
-    
+
     return nil;
 }
+
 /**
  *  @brief  判断是否只有一个RootViewController
  *
  *  @return 是否只有一个RootViewController
  */
-- (BOOL)jk_isOnlyContainRootViewController
-{
+- (BOOL)jk_isOnlyContainRootViewController {
     if (self.viewControllers &&
-        self.viewControllers.count == 1) {
+            self.viewControllers.count == 1) {
         return YES;
     }
     return NO;
 }
+
 /**
  *  @brief  RootViewController
  *
  *  @return RootViewController
  */
-- (UIViewController *)jk_rootViewController
-{
-    if (self.viewControllers && [self.viewControllers count] >0) {
+- (UIViewController *)jk_rootViewController {
+    if (self.viewControllers && [self.viewControllers count] > 0) {
         return [self.viewControllers firstObject];
     }
     return nil;
 }
+
 /**
  *  @brief  返回指定的viewcontroler
  *
@@ -57,10 +57,10 @@
  *
  *  @return pop之后的viewcontrolers
  */
-- (NSArray *)jk_popToViewControllerWithClassName:(NSString*)className animated:(BOOL)animated;
-{
+- (NSArray *)jk_popToViewControllerWithClassName:(NSString *)className animated:(BOOL)animated; {
     return [self popToViewController:[self jk_findViewController:className] animated:YES];
 }
+
 /**
  *  @brief  pop n层
  *
@@ -69,8 +69,7 @@
  *
  *  @return pop之后的viewcontrolers
  */
-- (NSArray *)jk_popToViewControllerWithLevel:(NSInteger)level animated:(BOOL)animated
-{
+- (NSArray *)jk_popToViewControllerWithLevel:(NSInteger)level animated:(BOOL)animated {
     NSInteger viewControllersCount = self.viewControllers.count;
     if (viewControllersCount > level) {
         NSInteger idx = viewControllersCount - level - 1;

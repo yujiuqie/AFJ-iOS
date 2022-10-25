@@ -14,10 +14,15 @@
 @interface NSString (JKPinyin)
 
 - (NSString *)jk_pinyinWithPhoneticSymbol;
+
 - (NSString *)jk_pinyin;
+
 - (NSArray *)jk_pinyinArray;
+
 - (NSString *)jk_pinyinWithoutBlank;
+
 - (NSArray *)jk_pinyinInitialsArray;
+
 - (NSString *)jk_pinyinInitialsString;
 
 @end

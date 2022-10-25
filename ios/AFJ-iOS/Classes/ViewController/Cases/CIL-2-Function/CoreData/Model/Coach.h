@@ -9,7 +9,8 @@
 #import "CDPerson.h"
 
 @class Team;
+
 @interface Coach : CDPerson
 
-@property (strong, nonatomic) Team *team;
+@property(strong, nonatomic) Team *team;
 @end

@@ -9,9 +9,9 @@
 #import "QDSaveVideoToSpecifiedAlbumViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface QDSaveVideoToSpecifiedAlbumViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface QDSaveVideoToSpecifiedAlbumViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property(nonatomic,copy) NSString *videoPath;
+@property(nonatomic, copy) NSString *videoPath;
 @property(nonatomic, strong) QMUIButton *takeVideoButton;
 @property(nonatomic, strong) UIImagePickerController *pickerController;
 @property(nonatomic, strong) QMUIAlertController *actionSheet;
@@ -48,7 +48,7 @@
 - (void)saveVideoToAlbumWithMediaInfo:(NSDictionary *)info {
     if (!self.actionSheet) {
         self.actionSheet = [QMUIAlertController alertControllerWithTitle:@"保存到指定相册" message:nil preferredStyle:QMUIAlertControllerStyleActionSheet];
-        
+
         // 显示空相册，不显示智能相册
         [[QMUIAssetsManager sharedInstance] enumerateAllAlbumsWithAlbumContentType:QMUIAlbumContentTypeAll showEmptyAlbum:YES showSmartAlbumIfSupported:NO usingBlock:^(QMUIAssetsGroup *resultAssetsGroup) {
             if (resultAssetsGroup) {
@@ -81,10 +81,10 @@
         if (!self.pickerController) {
             self.pickerController = [[UIImagePickerController alloc] init];
             self.pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-            self.pickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];;
+            self.pickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *) kUTTypeMovie, nil];;
             self.pickerController.delegate = self;
         }
-        
+
         [self presentViewController:self.pickerController animated:YES completion:nil];
     } else {
         [QMUITips showError:@"检测不到该设备中有可使用的摄像头" inView:self.view hideAfterDelay:2];

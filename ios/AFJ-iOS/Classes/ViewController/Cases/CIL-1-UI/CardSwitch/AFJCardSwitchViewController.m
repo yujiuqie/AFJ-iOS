@@ -9,13 +9,13 @@
 #import "XLCardSwitch.h"
 
 @interface AFJCardSwitchViewController ()
-<XLCardSwitchDelegate>
+        <XLCardSwitchDelegate>
 
-@property (nonatomic, strong) XLCardSwitch *cardSwitch;
+@property(nonatomic, strong) XLCardSwitch *cardSwitch;
 
-@property (nonatomic, strong) UIImageView *imageView;
+@property(nonatomic, strong) UIImageView *imageView;
 
-@property (nonatomic, strong) NSMutableArray *models;
+@property(nonatomic, strong) NSMutableArray *models;
 
 @end
 
@@ -23,16 +23,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.title = @"XLCardSwitch";
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     [self configNavigationBar];
-    
+
     [self addImageView];
-    
+
     [self addCardSwitch];
-    
+
     [self buildData];
 }
 
@@ -43,12 +43,12 @@
 }
 
 - (void)configNavigationBar {
-    
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(switchPrevious)];
-    
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(switchNext)];
-    
-    UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:@[@"正常滚动",@"自动居中"]];
+
+    UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:@[@"正常滚动", @"自动居中"]];
     seg.selectedSegmentIndex = 0;
     [seg addTarget:self action:@selector(segMethod:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = seg;
@@ -57,10 +57,10 @@
 - (void)addImageView {
     self.imageView = [[UIImageView alloc] init];
     [self.view addSubview:self.imageView];
-    
+
     //毛玻璃效果
-    UIBlurEffect* effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView* effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     effectView.frame = self.view.bounds;
     [self.imageView addSubview:effectView];
 }
@@ -85,10 +85,10 @@
         [model setValuesForKeysWithDictionary:dic];
         [self.models addObject:model];
     }
-    
+
     //设置卡片数据源
     self.cardSwitch.models = self.models;
-    
+
     //更新背景图
     [self configImageViewOfIndex:self.cardSwitch.selectedIndex];
 }
@@ -109,18 +109,20 @@
 
 #pragma mark -
 #pragma mark CardSwitchDelegate
+
 - (void)cardSwitchDidClickAtIndex:(NSInteger)index {
-    NSLog(@"点击了：%zd",index);
+    NSLog(@"点击了：%zd", index);
     [self configImageViewOfIndex:index];
 }
 
 - (void)cardSwitchDidScrollToIndex:(NSInteger)index {
-    NSLog(@"滚动到了击了：%zd",index);
+    NSLog(@"滚动到了击了：%zd", index);
     [self configImageViewOfIndex:index];
 }
 
 #pragma mark -
 #pragma mark 更新imageView
+
 - (void)configImageViewOfIndex:(NSInteger)index {
     //更新背景图
     XLCardModel *model = self.models[index];
@@ -129,6 +131,7 @@
 
 #pragma mark -
 #pragma mark 手动切换方法
+
 - (void)switchPrevious {
     NSInteger index = self.cardSwitch.selectedIndex - 1;
     index = index < 0 ? 0 : index;

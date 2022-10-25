@@ -10,12 +10,12 @@
 
 @interface Snack : NSObject
 
-@property (copy, nonatomic) NSString *name;
-@property (copy, nonatomic) NSString *taste;
+@property(copy, nonatomic) NSString *name;
+@property(copy, nonatomic) NSString *taste;
 
-@property (assign, nonatomic) float size;
-@property (assign, nonatomic) float price;
-@property (assign, nonatomic) NSInteger snackId;
+@property(assign, nonatomic) float size;
+@property(assign, nonatomic) float price;
+@property(assign, nonatomic) NSInteger snackId;
 
 + (instancetype)instanceWithId:(NSUInteger)ID;
 @end

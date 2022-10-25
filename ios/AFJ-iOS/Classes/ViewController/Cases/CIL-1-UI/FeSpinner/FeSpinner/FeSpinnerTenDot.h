@@ -7,37 +7,40 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @protocol FeSpinnerTenDotDelegate;
 
 @interface FeSpinnerTenDot : UIView
 
 // Init Fe Spinner View Ten Dot
--(id) initWithView:(UIView *) view withBlur:(BOOL) blur;
+- (id)initWithView:(UIView *)view withBlur:(BOOL)blur;
 
 // Delegate
-@property (weak, nonatomic) id<FeSpinnerTenDotDelegate> delegate;
+@property(weak, nonatomic) id <FeSpinnerTenDotDelegate> delegate;
 
 // Title
-@property (strong, nonatomic) NSString *titleLabelText;
-@property (strong, nonatomic) UIFont *fontTitleLabel;
+@property(strong, nonatomic) NSString *titleLabelText;
+@property(strong, nonatomic) UIFont *fontTitleLabel;
 
 
--(void) show;
+- (void)show;
 
--(void) showWhileExecutingBlock:(dispatch_block_t) block;
+- (void)showWhileExecutingBlock:(dispatch_block_t)block;
 
--(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t) completion;
+- (void)showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion;
 
--(void) showWhileExecutingSelector:(SEL) selector onTarget:(id) target withObject:(id) object;
+- (void)showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object;
 
--(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
+- (void)showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion;
 
--(void) dismiss;
+- (void)dismiss;
 @end
 
 @protocol FeSpinnerTenDotDelegate <NSObject>
 @optional
--(void) FeSpinnerTenDotWillShow:(FeSpinnerTenDot *) sender;
--(void) FeSpinnerTenDotDidShow:(FeSpinnerTenDot *) sender;
--(void) FeSpinnerTenDotDidDismiss:(FeSpinnerTenDot *)sender;
+- (void)FeSpinnerTenDotWillShow:(FeSpinnerTenDot *)sender;
+
+- (void)FeSpinnerTenDotDidShow:(FeSpinnerTenDot *)sender;
+
+- (void)FeSpinnerTenDotDidDismiss:(FeSpinnerTenDot *)sender;
 @end

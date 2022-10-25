@@ -20,13 +20,13 @@
     self.navigationAnimator = [[QMUINavigationBarScrollingSnapAnimator alloc] init];
     self.navigationAnimator.scrollView = self.tableView;
     self.navigationAnimator.offsetYToStartAnimation = 44;// 设置滚动的起点，默认是 0，也即 scrollView 在默认位置稍微往下滚则开始做动画，44 则表示在默认位置再往下滚动44之后才触发动画
-    __weak __typeof(self)weakSelf = self;
-    self.navigationAnimator.animationBlock = ^(QMUINavigationBarScrollingSnapAnimator * _Nonnull animator, BOOL offsetYReached) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
+    __weak __typeof(self) weakSelf = self;
+    self.navigationAnimator.animationBlock = ^(QMUINavigationBarScrollingSnapAnimator *_Nonnull animator, BOOL offsetYReached) {
+        __strong __typeof(weakSelf) strongSelf = weakSelf;
         NSLog(@"导航栏%@, inset.top = %.2f, offset.y = %.2f", offsetYReached ? @"被隐藏了" : @"显示出来了", strongSelf.tableView.contentInset.top, strongSelf.tableView.contentOffset.y);
         [strongSelf.navigationController setNavigationBarHidden:offsetYReached animated:YES];
     };
-    
+
     // 为了避免更改 navigationBar 显隐影响 scrollView 的滚动，这里屏蔽掉自动适应 contentInset
     self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 }

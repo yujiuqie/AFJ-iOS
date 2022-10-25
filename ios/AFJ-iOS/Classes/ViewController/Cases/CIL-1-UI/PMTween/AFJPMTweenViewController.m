@@ -17,23 +17,23 @@
 #import "MassTweensVC.h"
 
 typedef NS_ENUM(NSInteger, PMTweenExampleType) {
-    PMTweenExampleBasic                     = 0,
-    PMTweenExampleAdditive                  = 1,
-    PMTweenExampleBasicPhysics              = 2,
-    PMTweenExampleGroup                     = 3,
-    PMTweenExampleSequence                  = 4,
-    PMTweenExampleNoncontiguousSequence     = 5,
-    PMTweenExampleTransform3D               = 6,
-    PMTweenExampleDynamic                   = 7,
-    PMTweenExampleMassTweens                = 8
+    PMTweenExampleBasic = 0,
+    PMTweenExampleAdditive = 1,
+    PMTweenExampleBasicPhysics = 2,
+    PMTweenExampleGroup = 3,
+    PMTweenExampleSequence = 4,
+    PMTweenExampleNoncontiguousSequence = 5,
+    PMTweenExampleTransform3D = 6,
+    PMTweenExampleDynamic = 7,
+    PMTweenExampleMassTweens = 8
 };
 
 @interface AFJPMTweenViewController ()
-<UITableViewDataSource, UITableViewDelegate>
+        <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *examples;
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, assign) BOOL uiCreated;
+@property(nonatomic, strong) NSArray *examples;
+@property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, assign) BOOL uiCreated;
 
 @end
 
@@ -43,36 +43,36 @@ typedef NS_ENUM(NSInteger, PMTweenExampleType) {
     self = [super init];
     if (self) {
         // Custom initialization
-        
+
         _examples = @[@"Basic Tween",
-                      @"Additive Tween",
-                      @"Basic Physics Tween",
-                      @"Group (+Reversing)",
-                      @"Sequence (Rev. Contiguous)",
-                      @"Sequence (Rev. Noncontiguous)",
-                      @"CATransform3D Tween",
-                      @"Dynamic Additive Tween",
-                      @"250 Random Tweens"
-                     ];
-        
+                @"Additive Tween",
+                @"Basic Physics Tween",
+                @"Group (+Reversing)",
+                @"Sequence (Rev. Contiguous)",
+                @"Sequence (Rev. Noncontiguous)",
+                @"CATransform3D Tween",
+                @"Dynamic Additive Tween",
+                @"250 Random Tweens"
+        ];
+
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.title = @"Examples";
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
+
     if (!self.uiCreated) {
         [self setupUI];
     }
-    
+
 }
 
 - (void)setupUI {
@@ -82,9 +82,9 @@ typedef NS_ENUM(NSInteger, PMTweenExampleType) {
     self.tableView.clipsToBounds = YES;
     self.tableView.estimatedRowHeight = 44.0;
     [self.view addSubview:self.tableView];
-    
+
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    
+
     [NSLayoutConstraint constraintWithItem:self.tableView
                                  attribute:NSLayoutAttributeWidth
                                  relatedBy:NSLayoutRelationEqual
@@ -92,7 +92,7 @@ typedef NS_ENUM(NSInteger, PMTweenExampleType) {
                                  attribute:NSLayoutAttributeWidth
                                 multiplier:1.0
                                   constant:0.0].active = YES;
-    
+
     [NSLayoutConstraint constraintWithItem:self.tableView
                                  attribute:NSLayoutAttributeHeight
                                  relatedBy:NSLayoutRelationEqual
@@ -100,7 +100,7 @@ typedef NS_ENUM(NSInteger, PMTweenExampleType) {
                                  attribute:NSLayoutAttributeHeight
                                 multiplier:1.0
                                   constant:0.0].active = YES;
-    
+
     self.uiCreated = YES;
 }
 
@@ -112,13 +112,13 @@ typedef NS_ENUM(NSInteger, PMTweenExampleType) {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return (NSInteger)[self.examples count];
+    return (NSInteger) [self.examples count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSUInteger index = (NSUInteger)[indexPath row];
+
+    NSUInteger index = (NSUInteger) [indexPath row];
     static NSString *identifier = @"ExampleCell";
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
@@ -127,19 +127,19 @@ typedef NS_ENUM(NSInteger, PMTweenExampleType) {
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     NSString *label_text = self.examples[index];
-    
-    
+
+
     [cell.textLabel setText:label_text];
-    
-    
+
+
     return cell;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSUInteger index = (NSUInteger)[indexPath row];
+
+    NSUInteger index = (NSUInteger) [indexPath row];
 
     UIViewController *vc = nil;
     switch (index) {
@@ -174,7 +174,7 @@ typedef NS_ENUM(NSInteger, PMTweenExampleType) {
             vc = [[BasicTweenVC alloc] init];
             break;
     }
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     vc.title = self.examples[index];

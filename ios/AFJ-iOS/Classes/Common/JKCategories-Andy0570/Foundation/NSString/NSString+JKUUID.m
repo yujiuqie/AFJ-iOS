@@ -9,18 +9,18 @@
 @implementation NSString (JKUUID)
 
 + (NSString *)jk_UUID {
-    if([[[UIDevice currentDevice] systemVersion] floatValue] > 6.0) {
-       return  [[NSUUID UUID] UUIDString];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 6.0) {
+        return [[NSUUID UUID] UUIDString];
     } else {
         CFUUIDRef uuidRef = CFUUIDCreate(NULL);
         CFStringRef uuid = CFUUIDCreateString(NULL, uuidRef);
         CFRelease(uuidRef);
-        return (__bridge_transfer NSString *)uuid;
+        return (__bridge_transfer NSString *) uuid;
     }
 }
 
 + (NSString *)jk_UUIDTimestamp {
-    return  [[NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]*1000] stringValue];
+    return [[NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970] * 1000] stringValue];
 }
 
 @end

@@ -23,8 +23,8 @@
         [self addSubview:view];
         [arr addObject:view];
     }
-    
-    unsigned int type  = arc4random()%4;
+
+    unsigned int type = arc4random() % 4;
     switch (type) {
         case 0:
             [arr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:20 leadSpacing:5 tailSpacing:5];
@@ -54,18 +54,18 @@
                 make.width.equalTo(@60);
             }];
             break;
-            
+
         default:
             break;
     }
-    
+
     return self;
 }
 
 - (UIColor *)randomColor {
-    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    CGFloat hue = (arc4random() % 256 / 256.0);  //  0.0 to 1.0
+    CGFloat saturation = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from white
+    CGFloat brightness = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from black
     return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 }
 

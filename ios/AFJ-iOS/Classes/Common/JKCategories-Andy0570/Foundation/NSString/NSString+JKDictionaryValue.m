@@ -9,7 +9,7 @@
 @implementation NSString (JKDictionaryValue)
 
 // 原理：NSString -> NSData -> NSDictionary
-- (NSDictionary *)jk_dictionaryValue{
+- (NSDictionary *)jk_dictionaryValue {
     NSError *error;
     NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];

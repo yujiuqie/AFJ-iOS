@@ -41,13 +41,13 @@
         cell.textLabel.text = NSStringFromClass([QMUITableViewCell class]);
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
+
     // reset
     cell.imageEdgeInsets = UIEdgeInsetsZero;
     cell.textLabelEdgeInsets = UIEdgeInsetsZero;
     cell.detailTextLabelEdgeInsets = UIEdgeInsetsZero;
     cell.accessoryEdgeInsets = UIEdgeInsetsZero;
-    
+
     if (indexPath.section == 0) {
         cell.detailTextLabel.text = nil;
     } else if (indexPath.section == 1) {

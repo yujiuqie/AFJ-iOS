@@ -15,9 +15,9 @@
     static NSDictionary *descriptionMap;
     dispatch_once(&once, ^{
         descriptionMap = @{
-            @(NSLayoutRelationEqual)                : @"==",
-            @(NSLayoutRelationGreaterThanOrEqual)   : @">=",
-            @(NSLayoutRelationLessThanOrEqual)      : @"<=",
+                @(NSLayoutRelationEqual): @"==",
+                @(NSLayoutRelationGreaterThanOrEqual): @">=",
+                @(NSLayoutRelationLessThanOrEqual): @"<=",
         };
     });
     return descriptionMap;
@@ -28,33 +28,33 @@
     static NSDictionary *descriptionMap;
     dispatch_once(&once, ^{
         descriptionMap = @{
-            @(NSLayoutAttributeTop)      : @"top",
-            @(NSLayoutAttributeLeft)     : @"left",
-            @(NSLayoutAttributeBottom)   : @"bottom",
-            @(NSLayoutAttributeRight)    : @"right",
-            @(NSLayoutAttributeLeading)  : @"leading",
-            @(NSLayoutAttributeTrailing) : @"trailing",
-            @(NSLayoutAttributeWidth)    : @"width",
-            @(NSLayoutAttributeHeight)   : @"height",
-            @(NSLayoutAttributeCenterX)  : @"centerX",
-            @(NSLayoutAttributeCenterY)  : @"centerY",
-            @(NSLayoutAttributeBaseline) : @"baseline",
-            @(NSLayoutAttributeFirstBaseline) : @"firstBaseline",
-            @(NSLayoutAttributeLastBaseline) : @"lastBaseline",
+                @(NSLayoutAttributeTop): @"top",
+                @(NSLayoutAttributeLeft): @"left",
+                @(NSLayoutAttributeBottom): @"bottom",
+                @(NSLayoutAttributeRight): @"right",
+                @(NSLayoutAttributeLeading): @"leading",
+                @(NSLayoutAttributeTrailing): @"trailing",
+                @(NSLayoutAttributeWidth): @"width",
+                @(NSLayoutAttributeHeight): @"height",
+                @(NSLayoutAttributeCenterX): @"centerX",
+                @(NSLayoutAttributeCenterY): @"centerY",
+                @(NSLayoutAttributeBaseline): @"baseline",
+                @(NSLayoutAttributeFirstBaseline): @"firstBaseline",
+                @(NSLayoutAttributeLastBaseline): @"lastBaseline",
 
 #if TARGET_OS_IPHONE || TARGET_OS_TV
-            @(NSLayoutAttributeLeftMargin)           : @"leftMargin",
-            @(NSLayoutAttributeRightMargin)          : @"rightMargin",
-            @(NSLayoutAttributeTopMargin)            : @"topMargin",
-            @(NSLayoutAttributeBottomMargin)         : @"bottomMargin",
-            @(NSLayoutAttributeLeadingMargin)        : @"leadingMargin",
-            @(NSLayoutAttributeTrailingMargin)       : @"trailingMargin",
-            @(NSLayoutAttributeCenterXWithinMargins) : @"centerXWithinMargins",
-            @(NSLayoutAttributeCenterYWithinMargins) : @"centerYWithinMargins",
+                @(NSLayoutAttributeLeftMargin): @"leftMargin",
+                @(NSLayoutAttributeRightMargin): @"rightMargin",
+                @(NSLayoutAttributeTopMargin): @"topMargin",
+                @(NSLayoutAttributeBottomMargin): @"bottomMargin",
+                @(NSLayoutAttributeLeadingMargin): @"leadingMargin",
+                @(NSLayoutAttributeTrailingMargin): @"trailingMargin",
+                @(NSLayoutAttributeCenterXWithinMargins): @"centerXWithinMargins",
+                @(NSLayoutAttributeCenterYWithinMargins): @"centerYWithinMargins",
 #endif
-            
+
         };
-    
+
     });
     return descriptionMap;
 }
@@ -66,11 +66,11 @@
     dispatch_once(&once, ^{
 #if TARGET_OS_IPHONE || TARGET_OS_TV
         descriptionMap = @{
-            @(MASLayoutPriorityDefaultHigh)      : @"high",
-            @(MASLayoutPriorityDefaultLow)       : @"low",
-            @(MASLayoutPriorityDefaultMedium)    : @"medium",
-            @(MASLayoutPriorityRequired)         : @"required",
-            @(MASLayoutPriorityFittingSizeLevel) : @"fitting size",
+                @(MASLayoutPriorityDefaultHigh): @"high",
+                @(MASLayoutPriorityDefaultLow): @"low",
+                @(MASLayoutPriorityDefaultMedium): @"medium",
+                @(MASLayoutPriorityRequired): @"required",
+                @(MASLayoutPriorityFittingSizeLevel): @"fitting size",
         };
 #elif TARGET_OS_MAC
         descriptionMap = @{
@@ -115,11 +115,11 @@
     if (self.secondAttribute != NSLayoutAttributeNotAnAttribute) {
         [description appendFormat:@".%@", self.class.layoutAttributeDescriptionsByValue[@(self.secondAttribute)]];
     }
-    
+
     if (self.multiplier != 1) {
         [description appendFormat:@" * %g", self.multiplier];
     }
-    
+
     if (self.secondAttribute == NSLayoutAttributeNotAnAttribute) {
         [description appendFormat:@" %g", self.constant];
     } else {

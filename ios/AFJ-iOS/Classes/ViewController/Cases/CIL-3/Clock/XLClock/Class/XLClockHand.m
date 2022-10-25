@@ -27,7 +27,7 @@
     _shadowImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     _shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:_shadowImageView];
-    
+
     _handImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     _handImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:_handImageView];

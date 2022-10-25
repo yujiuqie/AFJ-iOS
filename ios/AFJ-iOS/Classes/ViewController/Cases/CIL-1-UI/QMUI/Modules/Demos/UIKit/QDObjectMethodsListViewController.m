@@ -21,11 +21,11 @@
 
 - (instancetype)initWithClass:(Class)aClass {
     if (self = [self initWithStyle:UITableViewStylePlain]) {
-        
+
         // 显示搜索框
         self.shouldShowSearchBar = YES;
         self.searchResults = [[NSMutableArray alloc] init];
-        
+
         // 属性
         self.properties = [[NSMutableArray alloc] init];
         [NSObject qmui_enumratePropertiesOfClass:aClass includingInherited:NO usingBlock:^(objc_property_t property, NSString *propertyName) {
@@ -33,14 +33,14 @@
             [self.properties addObject:descriptor.description];
         }];
         self.properties = [[[NSOrderedSet alloc] initWithArray:self.properties].array sortedArrayUsingSelector:@selector(compare:)].mutableCopy;
-        
+
         // 成员变量
         self.ivarNames = [[NSMutableArray alloc] init];
         [NSObject qmui_enumrateIvarsOfClass:aClass includingInherited:NO usingBlock:^(Ivar ivar, NSString *ivarName) {
             [self.ivarNames addObject:ivarName];
         }];
         self.ivarNames = [self.ivarNames sortedArrayUsingSelector:@selector(compare:)].mutableCopy;
-        
+
         // 方法
         self.selectorNames = [[NSMutableArray alloc] init];
         NSMutableArray<NSString *> *selectorNames = [[NSMutableArray alloc] init];
@@ -48,7 +48,7 @@
             [selectorNames addObject:[NSString stringWithFormat:@"- %@", NSStringFromSelector(selector)]];
         }];
         selectorNames = [selectorNames sortedArrayUsingSelector:@selector(compare:)].mutableCopy;
-        
+
         self.indexesString = [[NSMutableArray alloc] init];
         NSMutableArray<NSString *> *selectorNamesInCurrentSection = nil;
         for (NSInteger i = 0; i < selectorNames.count; i++) {
@@ -56,22 +56,22 @@
             NSString *index = [selectorName substringWithRange:NSMakeRange(2, 1)];
             if (![self.indexesString containsObject:index]) {
                 [self.indexesString addObject:index];
-                
+
                 selectorNamesInCurrentSection = [[NSMutableArray alloc] init];
                 [self.selectorNames addObject:selectorNamesInCurrentSection];
             }
             [selectorNamesInCurrentSection addObject:selectorName];
         }
-        
+
         // 处理完 selectorName 再将 ivars 插入 dataSource，是为了避免 selectorName 里也存在字母“V”，会导致一些逻辑判断错误
         if (self.ivarNames.count > 0) {
             [self.indexesString insertObject:@"V" atIndex:0];
         }
-        
+
         if (self.properties.count > 0) {
             [self.indexesString insertObject:@"P" atIndex:0];
         }
-        
+
         self.titleView.subtitle = [NSString stringWithFormat:@"%@个属性，%@个成员变量，%@个方法", @(self.properties.count), @(self.ivarNames.count), @(selectorNames.count)];
         self.titleView.style = QMUINavigationTitleViewStyleSubTitleVertical;
     }
@@ -93,7 +93,7 @@
 }
 
 - (BOOL)isIvarSection:(NSInteger)section {
-    return self.ivarNames.count > 0 && ((self.properties.count > 0 && section == 1) || (self.properties.count <=0 && section == 0));
+    return self.ivarNames.count > 0 && ((self.properties.count > 0 && section == 1) || (self.properties.count <= 0 && section == 0));
 }
 
 #pragma mark - <QMUITableViewDataSource, QMUITableViewDelegate>
@@ -125,7 +125,7 @@
         cell = [[QMUITableViewCell alloc] initForTableView:tableView withReuseIdentifier:identifier];
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
-    
+
     if (tableView == self.tableView) {
         cell.textLabel.font = CodeFontMake(14);
         cell.textLabel.textColor = TableViewCellTitleLabelColor;
@@ -176,10 +176,10 @@
 
 - (void)searchController:(QMUISearchController *)searchController updateResultsForSearchString:(NSString *)searchString {
     [self.searchResults removeAllObjects];
-    
+
     NSArray<NSString *> *searchStringArray = searchString.qmui_toTrimmedArray;
     if (!searchStringArray.count) return;
-    
+
     void (^searchBlock)(NSString *obj, BOOL *stop) = ^(NSString *obj, BOOL *stop) {
         NSUInteger lastLocation = NSNotFound;
         NSMutableArray<NSNumber *> *highlightedLocation = [[NSMutableArray alloc] init];
@@ -205,15 +205,15 @@
             [self.searchResults addObject:result];
         }
     };
-    
-    [self.properties enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+
+    [self.properties enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         searchBlock(obj, stop);
     }];
-    [self.ivarNames enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.ivarNames enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         searchBlock(obj, stop);
     }];
     [self.selectorNames qmui_enumerateNestedArrayWithBlock:searchBlock];
-    
+
     [searchController.tableView reloadData];
 }
 

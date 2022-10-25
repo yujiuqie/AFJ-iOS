@@ -10,8 +10,8 @@
 #import <ISHPermissionKit/ISHPermissionKit.h>
 
 @interface SamplePermissionViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property(weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property(weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 

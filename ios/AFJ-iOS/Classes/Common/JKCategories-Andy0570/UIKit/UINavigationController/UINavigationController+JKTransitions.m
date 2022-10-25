@@ -44,7 +44,7 @@
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationTransition:transition forView:self.view cache:YES];
     [UIView commitAnimations];
-	return controller;
+    return controller;
 }
 
 @end

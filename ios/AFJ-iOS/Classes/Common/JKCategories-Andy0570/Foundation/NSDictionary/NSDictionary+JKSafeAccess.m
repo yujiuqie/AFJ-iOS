@@ -9,7 +9,7 @@
 @implementation NSDictionary (JKSafeAccess)
 
 - (id)jk_objectForKey:(id)key {
-    if (key == nil) { return nil; }
+    if (key == nil) {return nil;}
     id value = [self objectForKey:key];
     if (value == [NSNull null]) {
         return nil;
@@ -92,7 +92,7 @@
     return 0;
 }
 
-- (NSUInteger)jk_unsignedIntegerForKey:(id)key{
+- (NSUInteger)jk_unsignedIntegerForKey:(id)key {
     id value = [self jk_objectForKey:key];
     if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
         return [value unsignedIntegerValue];
@@ -100,7 +100,7 @@
     return 0;
 }
 
-- (NSString*)jk_stringForKey:(id)key {
+- (NSString *)jk_stringForKey:(id)key {
     id value = [self jk_objectForKey:key];
     if ([value isKindOfClass:[NSString class]]) {
         return value;
@@ -111,29 +111,29 @@
     return nil;
 }
 
-- (NSNumber*)jk_numberForKey:(id)key {
+- (NSNumber *)jk_numberForKey:(id)key {
     id value = [self jk_objectForKey:key];
     if ([value isKindOfClass:[NSNumber class]]) {
-        return (NSNumber *)value;
+        return (NSNumber *) value;
     }
     if ([value respondsToSelector:@selector(stringValue)]) {
         NSNumberFormatter *formatter = [NSNumberFormatter new];
         formatter.numberStyle = NSNumberFormatterDecimalStyle;
-        return [formatter numberFromString:(NSString *)value];
+        return [formatter numberFromString:(NSString *) value];
     }
     return nil;
 }
 
 - (NSDecimalNumber *)jk_decimalNumberForKey:(id)key {
     id value = [self jk_objectForKey:key];
-    
+
     if ([value isKindOfClass:[NSDecimalNumber class]]) {
         return value;
     } else if ([value isKindOfClass:[NSNumber class]]) {
-        NSNumber *number = (NSNumber *)value;
+        NSNumber *number = (NSNumber *) value;
         return [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
     } else if ([value isKindOfClass:[NSString class]]) {
-        NSString *string = (NSString *)value;
+        NSString *string = (NSString *) value;
         return [string isEqualToString:@""] ? nil : [NSDecimalNumber decimalNumberWithString:string];
     }
     return nil;
@@ -159,14 +159,14 @@
     return [self jk_objectForKey:key class:[NSData class]];
 }
 
-- (NSDate *)jk_dateForKey:(id)key dateFormat:(NSString *)dateFormat{
+- (NSDate *)jk_dateForKey:(id)key dateFormat:(NSString *)dateFormat {
     if ([dateFormat isEqualToString:@""]) {
         return nil;
     }
-    
+
     id value = [self objectForKey:key];
     if ([value isKindOfClass:[NSString class]] && ![value isEqualToString:@""]) {
-        NSDateFormatter *formater = [[NSDateFormatter alloc]init];
+        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
         formater.dateFormat = dateFormat;
         return [formater dateFromString:value];
     }
@@ -253,11 +253,11 @@
     [self jk_setObject:@(aUInteger) forKey:key];
 }
 
-- (void)jk_setString:(NSString*)aString forKey:(NSString*)key {
+- (void)jk_setString:(NSString *)aString forKey:(NSString *)key {
     [self jk_setObject:aString forKey:key];
 }
 
-- (void)jk_setCGFloat:(CGFloat)aFloat forKey:(NSString* )key {
+- (void)jk_setCGFloat:(CGFloat)aFloat forKey:(NSString *)key {
     [self jk_setObject:@(aFloat) forKey:key];
 }
 

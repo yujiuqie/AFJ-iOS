@@ -18,6 +18,6 @@
  *
  *  @return 合并后图片
  */
-+ (UIImage*)jk_mergeImage:(UIImage*)firstImage withImage:(UIImage*)secondImage;
++ (UIImage *)jk_mergeImage:(UIImage *)firstImage withImage:(UIImage *)secondImage;
 
 @end

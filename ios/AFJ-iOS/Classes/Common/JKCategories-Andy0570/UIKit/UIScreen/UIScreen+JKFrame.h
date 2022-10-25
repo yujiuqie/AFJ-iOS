@@ -11,12 +11,17 @@
 @interface UIScreen (JKFrame)
 
 + (CGSize)jk_size;
+
 + (CGFloat)jk_width;
+
 + (CGFloat)jk_height;
 
 + (CGSize)jk_orientationSize;
+
 + (CGFloat)jk_orientationWidth;
+
 + (CGFloat)jk_orientationHeight;
+
 + (CGSize)jk_DPISize;
 
 @end

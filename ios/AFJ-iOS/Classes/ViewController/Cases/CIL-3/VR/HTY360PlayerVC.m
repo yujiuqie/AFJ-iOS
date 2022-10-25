@@ -14,11 +14,11 @@
 #define HIDE_CONTROL_DELAY 3.0
 #define DEFAULT_VIEW_ALPHA 0.6
 
-NSString * const kTracksKey = @"tracks";
-NSString * const kPlayableKey = @"playable";
-NSString * const kRateKey = @"rate";
-NSString * const kCurrentItemKey = @"currentItem";
-NSString * const kStatusKey = @"status";
+NSString *const kTracksKey = @"tracks";
+NSString *const kPlayableKey = @"playable";
+NSString *const kRateKey = @"rate";
+NSString *const kCurrentItemKey = @"currentItem";
+NSString *const kStatusKey = @"status";
 
 static void *AVPlayerDemoPlaybackViewControllerRateObservationContext = &AVPlayerDemoPlaybackViewControllerRateObservationContext;
 static void *AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext = &AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext;
@@ -28,31 +28,31 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 @interface HTY360PlayerVC ()
 
 
-@property (strong, nonatomic) IBOutlet UIView *playerControlBackgroundView;
-@property (strong, nonatomic) IBOutlet UIButton *playButton;
-@property (strong, nonatomic) IBOutlet UISlider *progressSlider;
-@property (strong, nonatomic) IBOutlet UIButton *backButton;
-@property (strong, nonatomic) IBOutlet UIButton *gyroButton;
-@property (strong, nonatomic) HTYGLKVC *glkViewController;
-@property (strong, nonatomic) AVPlayerItemVideoOutput* videoOutput;
-@property (strong, nonatomic) AVPlayer* player;
-@property (strong, nonatomic) AVPlayerItem* playerItem;
-@property (strong, nonatomic) id timeObserver;
-@property (assign, nonatomic) CGFloat mRestoreAfterScrubbingRate;
-@property (assign, nonatomic) BOOL seekToZeroBeforePlay;
+@property(strong, nonatomic) IBOutlet UIView *playerControlBackgroundView;
+@property(strong, nonatomic) IBOutlet UIButton *playButton;
+@property(strong, nonatomic) IBOutlet UISlider *progressSlider;
+@property(strong, nonatomic) IBOutlet UIButton *backButton;
+@property(strong, nonatomic) IBOutlet UIButton *gyroButton;
+@property(strong, nonatomic) HTYGLKVC *glkViewController;
+@property(strong, nonatomic) AVPlayerItemVideoOutput *videoOutput;
+@property(strong, nonatomic) AVPlayer *player;
+@property(strong, nonatomic) AVPlayerItem *playerItem;
+@property(strong, nonatomic) id timeObserver;
+@property(assign, nonatomic) CGFloat mRestoreAfterScrubbingRate;
+@property(assign, nonatomic) BOOL seekToZeroBeforePlay;
 
-@property (weak, nonatomic) IBOutlet UIImageView *targetImageView;
-@property (assign, nonatomic) BOOL canTargeting;
-@property (weak, nonatomic) IBOutlet UIView *currentYawAndRollView;
-@property (weak, nonatomic) IBOutlet UILabel *currentYawLbl;
-@property (weak, nonatomic) IBOutlet UILabel *currentRollLbl;
-@property (weak, nonatomic) IBOutlet UILabel *targetAcquireLbl;
+@property(weak, nonatomic) IBOutlet UIImageView *targetImageView;
+@property(assign, nonatomic) BOOL canTargeting;
+@property(weak, nonatomic) IBOutlet UIView *currentYawAndRollView;
+@property(weak, nonatomic) IBOutlet UILabel *currentYawLbl;
+@property(weak, nonatomic) IBOutlet UILabel *currentRollLbl;
+@property(weak, nonatomic) IBOutlet UILabel *targetAcquireLbl;
 
 @end
 
 @implementation HTY360PlayerVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSURL*)url {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSURL *)url {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self setVideoURL:url];
@@ -70,7 +70,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
                                              selector:@selector(applicationDidBecomeActive:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    
+
     [self setupVideoPlaybackForURL:_videoURL];
     [self configureGLKView];
     [self configurePlayButton];
@@ -79,7 +79,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     [self configureBackButton];
     [self configureGyroButton];
     [self createTarget];
-    
+
 #if SHOW_DEBUG_LABEL
     self.debugView.hidden = NO;
 #endif
@@ -96,7 +96,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+
     self.playerControlBackgroundView = nil;
     self.playButton = nil;
     self.progressSlider = nil;
@@ -109,17 +109,17 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
+
     @try {
         [self removePlayerTimeObserver];
         [self.playerItem removeObserver:self forKeyPath:kStatusKey];
         [self.playerItem removeOutput:self.videoOutput];
         [self.player removeObserver:self forKeyPath:kCurrentItemKey];
         [self.player removeObserver:self forKeyPath:kRateKey];
-    } @catch(id anException) {
+    } @catch (id anException) {
         //do nothing
     }
-    
+
     self.videoOutput = nil;
     self.playerItem = nil;
     self.player = nil;
@@ -138,12 +138,12 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 #pragma mark - video setting
 
-- (void)setupVideoPlaybackForURL:(NSURL*)url {
-    NSDictionary *pixelBuffAttributes = @{(id)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
+- (void)setupVideoPlaybackForURL:(NSURL *)url {
+    NSDictionary *pixelBuffAttributes = @{(id) kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
     self.videoOutput = [[AVPlayerItemVideoOutput alloc] initWithPixelBufferAttributes:pixelBuffAttributes];
-    
+
     self.player = [[AVPlayer alloc] init];
-    
+
     // Do not take mute button into account
     NSError *error = nil;
     BOOL success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
@@ -151,69 +151,69 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     if (!success) {
         NSLog(@"Could not use AVAudioSessionCategoryPlayback", nil);
     }
-    
+
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
-    
-    
-    if(![[NSFileManager defaultManager] fileExistsAtPath:[[asset URL] path]]) {
+
+
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[[asset URL] path]]) {
         //NSLog(@"file does not exist");
     }
-    
+
     NSArray *requestedKeys = [NSArray arrayWithObjects:kTracksKey, kPlayableKey, nil];
-    
+
     [asset loadValuesAsynchronouslyForKeys:requestedKeys completionHandler:^{
-        
-        dispatch_async( dispatch_get_main_queue(),
-                       ^{
-                           /* Make sure that the value of each key has loaded successfully. */
-                           for (NSString *thisKey in requestedKeys) {
-                               NSError *error = nil;
-                               AVKeyValueStatus keyStatus = [asset statusOfValueForKey:thisKey error:&error];
-                               if (keyStatus == AVKeyValueStatusFailed) {
-                                   [self assetFailedToPrepareForPlayback:error];
-                                   return;
-                               }
-                           }
-                           
-                           NSError* error = nil;
-                           AVKeyValueStatus status = [asset statusOfValueForKey:kTracksKey error:&error];
-                           if (status == AVKeyValueStatusLoaded) {
-                               self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
-                               [self.playerItem addOutput:self.videoOutput];
-                               [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
-                               [self.videoOutput requestNotificationOfMediaDataChangeWithAdvanceInterval:ONE_FRAME_DURATION];
-                               
-                               /* When the player item has played to its end time we'll toggle
-                                the movie controller Pause button to be the Play button */
-                               [[NSNotificationCenter defaultCenter] addObserver:self
-                                                                        selector:@selector(playerItemDidReachEnd:)
-                                                                            name:AVPlayerItemDidPlayToEndTimeNotification
-                                                                          object:self.playerItem];
-                               
-                               self.seekToZeroBeforePlay = NO;
-                               
-                               [self.playerItem addObserver:self
-                                                 forKeyPath:kStatusKey
-                                                    options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
-                                                    context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];
-                               
-                               [self.player addObserver:self
-                                             forKeyPath:kCurrentItemKey
-                                                options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
-                                                context:AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext];
-                               
-                               [self.player addObserver:self
-                                             forKeyPath:kRateKey
-                                                options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
-                                                context:AVPlayerDemoPlaybackViewControllerRateObservationContext];
-                               
-                               
-                               [self initScrubberTimer];
-                               [self syncScrubber];
-                           } else {
-                               NSLog(@"%@ Failed to load the tracks.", self);
-                           }
-                       });
+
+        dispatch_async(dispatch_get_main_queue(),
+                ^{
+                    /* Make sure that the value of each key has loaded successfully. */
+                    for (NSString *thisKey in requestedKeys) {
+                        NSError *error = nil;
+                        AVKeyValueStatus keyStatus = [asset statusOfValueForKey:thisKey error:&error];
+                        if (keyStatus == AVKeyValueStatusFailed) {
+                            [self assetFailedToPrepareForPlayback:error];
+                            return;
+                        }
+                    }
+
+                    NSError *error = nil;
+                    AVKeyValueStatus status = [asset statusOfValueForKey:kTracksKey error:&error];
+                    if (status == AVKeyValueStatusLoaded) {
+                        self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
+                        [self.playerItem addOutput:self.videoOutput];
+                        [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
+                        [self.videoOutput requestNotificationOfMediaDataChangeWithAdvanceInterval:ONE_FRAME_DURATION];
+
+                        /* When the player item has played to its end time we'll toggle
+                         the movie controller Pause button to be the Play button */
+                        [[NSNotificationCenter defaultCenter]        addObserver:self
+                                                                 selector:@selector(playerItemDidReachEnd:)
+                                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                                   object:self.playerItem];
+
+                        self.seekToZeroBeforePlay = NO;
+
+                        [self.playerItem     addObserver:self
+                                          forKeyPath:kStatusKey
+                                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                                             context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];
+
+                        [self.player     addObserver:self
+                                      forKeyPath:kCurrentItemKey
+                                         options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                                         context:AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext];
+
+                        [self.player     addObserver:self
+                                      forKeyPath:kRateKey
+                                         options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                                         context:AVPlayerDemoPlaybackViewControllerRateObservationContext];
+
+
+                        [self initScrubberTimer];
+                        [self syncScrubber];
+                    } else {
+                        NSLog(@"%@ Failed to load the tracks.", self);
+                    }
+                });
     }];
 }
 
@@ -230,10 +230,10 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 #pragma mark - play button management
 
-- (void)configurePlayButton{
+- (void)configurePlayButton {
     self.playButton.backgroundColor = [UIColor clearColor];
     self.playButton.showsTouchWhenHighlighted = YES;
-    
+
     [self disablePlayerButtons];
     [self updatePlayButton];
 }
@@ -261,20 +261,20 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
         self.seekToZeroBeforePlay = NO;
         [self.player seekToTime:kCMTimeZero];
     }
-    
+
     [self updatePlayButton];
     [self.player play];
-    
+
     [self scheduleHideControls];
 }
 
 - (void)pause {
     if (![self isPlaying])
         return;
-    
+
     [self updatePlayButton];
     [self.player pause];
-    
+
     [self scheduleHideControls];
 }
 
@@ -283,7 +283,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 - (void)configureProgressSlider {
     self.progressSlider.continuous = NO;
     self.progressSlider.value = 0;
-    
+
     [self.progressSlider setThumbImage:[UIImage imageNamed:@"thumb.png"] forState:UIControlStateNormal];
     [self.progressSlider setThumbImage:[UIImage imageNamed:@"thumb.png"] forState:UIControlStateHighlighted];
 }
@@ -315,17 +315,17 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 }
 
 - (void)toggleControls {
-    if(self.playerControlBackgroundView.hidden){
+    if (self.playerControlBackgroundView.hidden) {
         [self showControlsFast];
-    }else{
+    } else {
         [self hideControlsFast];
     }
-    
+
     [self scheduleHideControls];
 }
 
 - (void)scheduleHideControls {
-    if(!self.playerControlBackgroundView.hidden) {
+    if (!self.playerControlBackgroundView.hidden) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
         [self performSelector:@selector(hideControlsSlowly) withObject:nil afterDelay:HIDE_CONTROL_DELAY];
     }
@@ -350,11 +350,11 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
                      animations:^(void) {
                          self.playerControlBackgroundView.alpha = 0.0f;
                      }
-                     completion:^(BOOL finished){
-                         if(finished)
+                     completion:^(BOOL finished) {
+                         if (finished)
                              self.playerControlBackgroundView.hidden = YES;
                      }];
-    
+
 }
 
 - (void)hideControlsFast {
@@ -388,7 +388,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 - (void)initScrubberTimer {
     double interval = .1f;
-    
+
     CMTime playerDuration = [self playerItemDuration];
     if (CMTIME_IS_INVALID(playerDuration)) {
         return;
@@ -398,15 +398,15 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
         CGFloat width = CGRectGetWidth([self.progressSlider bounds]);
         interval = 0.5f * duration / width;
     }
-    
-    __weak HTY360PlayerVC* weakSelf = self;
+
+    __weak HTY360PlayerVC *weakSelf = self;
     self.timeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(interval, NSEC_PER_SEC)
-                         /* If you pass NULL, the main queue is used. */
+            /* If you pass NULL, the main queue is used. */
                                                                   queue:NULL
                                                              usingBlock:^(CMTime time) {
                                                                  [weakSelf syncScrubber];
                                                              }];
-    
+
 }
 
 - (CMTime)playerItemDuration {
@@ -424,10 +424,10 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
          
          See the AV Foundation Release Notes for iOS 4.3 for more information.
          */
-        
+
         return ([self.playerItem duration]);
     }
-    
+
     return (kCMTimeInvalid);
 }
 
@@ -437,13 +437,13 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
         self.progressSlider.minimumValue = 0.0;
         return;
     }
-    
+
     double duration = CMTimeGetSeconds(playerDuration);
     if (isfinite(duration)) {
         float minValue = [self.progressSlider minimumValue];
         float maxValue = [self.progressSlider maximumValue];
         double time = CMTimeGetSeconds([self.player currentTime]);
-        
+
         [self.progressSlider setValue:(maxValue - minValue) * time / duration + minValue];
     }
 }
@@ -452,7 +452,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 - (IBAction)beginScrubbing:(id)sender {
     self.mRestoreAfterScrubbingRate = [self.player rate];
     [self.player setRate:0.f];
-    
+
     /* Remove previous timer. */
     [self removeTimeObserverForPlayer];
 }
@@ -460,21 +460,21 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 /* Set the player current time to match the scrubber position. */
 - (IBAction)scrub:(id)sender {
     if ([sender isKindOfClass:[UISlider class]]) {
-        UISlider* slider = sender;
-        
+        UISlider *slider = sender;
+
         CMTime playerDuration = [self playerItemDuration];
         if (CMTIME_IS_INVALID(playerDuration)) {
             return;
         }
-        
+
         double duration = CMTimeGetSeconds(playerDuration);
         if (isfinite(duration)) {
             float minValue = [slider minimumValue];
             float maxValue = [slider maximumValue];
             float value = [slider value];
-            
+
             double time = duration * (value - minValue) / (maxValue - minValue);
-            
+
             [self.player seekToTime:CMTimeMakeWithSeconds(time, NSEC_PER_SEC)];
         }
     }
@@ -487,13 +487,13 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
         if (CMTIME_IS_INVALID(playerDuration)) {
             return;
         }
-        
+
         double duration = CMTimeGetSeconds(playerDuration);
         if (isfinite(duration)) {
             CGFloat width = CGRectGetWidth([self.progressSlider bounds]);
             double tolerance = 0.5f * duration / width;
-            
-            __weak HTY360PlayerVC* weakSelf = self;
+
+            __weak HTY360PlayerVC *weakSelf = self;
             self.timeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(tolerance, NSEC_PER_SEC)
                                                                           queue:NULL
                                                                      usingBlock:^(CMTime time) {
@@ -501,7 +501,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
                                                                      }];
         }
     }
-    
+
     if (self.mRestoreAfterScrubbingRate) {
         [self.player setRate:self.mRestoreAfterScrubbingRate];
         self.mRestoreAfterScrubbingRate = 0.f;
@@ -520,18 +520,18 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     self.progressSlider.enabled = NO;
 }
 
-- (void)observeValueForKeyPath:(NSString*)path
+- (void)observeValueForKeyPath:(NSString *)path
                       ofObject:(id)object
-                        change:(NSDictionary*)change
-                       context:(void*)context {
+                        change:(NSDictionary *)change
+                       context:(void *)context {
     /* AVPlayerItem "status" property value observer. */
     if (context == AVPlayerDemoPlaybackViewControllerStatusObservationContext) {
         [self updatePlayButton];
-        
+
         AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
         switch (status) {
-                /* Indicates that the status of the player is not yet known because
-                 it has not tried to load new media resources for playback */
+            /* Indicates that the status of the player is not yet known because
+             it has not tried to load new media resources for playback */
             case AVPlayerStatusUnknown: {
                 [self removePlayerTimeObserver];
                 [self syncScrubber];
@@ -549,7 +549,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
                 break;
             }
             case AVPlayerStatusFailed: {
-                AVPlayerItem *playerItem = (AVPlayerItem *)object;
+                AVPlayerItem *playerItem = (AVPlayerItem *) object;
                 [self assetFailedToPrepareForPlayback:playerItem.error];
                 NSLog(@"Error fail : %@", playerItem.error);
                 break;
@@ -562,7 +562,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
         /* AVPlayer "currentItem" property observer.
          Called when the AVPlayer replaceCurrentItemWithPlayerItem:
          replacement will/did occur. */
-        
+
         //NSLog(@"AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext");
     } else {
         [super observeValueForKeyPath:path ofObject:object change:change context:context];
@@ -574,19 +574,18 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     [self syncScrubber];
     [self disableScrubber];
     [self disablePlayerButtons];
-    
+
     /* Display the error. */
     UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:[error localizedDescription]
-                                          message:[error localizedFailureReason]
-                                          preferredStyle:UIAlertControllerStyleAlert];
+            alertControllerWithTitle:[error localizedDescription]
+                             message:[error localizedFailureReason]
+                      preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
-                                   NSLog(@"OK action");
-                               }];
+            actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                      style:UIAlertActionStyleDefault
+                    handler:^(UIAlertAction *action) {
+                        NSLog(@"OK action");
+                    }];
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -605,12 +604,12 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 #pragma mark - gyro button
 
 - (IBAction)gyroButtonTouched:(id)sender {
-    if(self.glkViewController.isUsingMotion) {
+    if (self.glkViewController.isUsingMotion) {
         [self.glkViewController stopDeviceMotion];
     } else {
         [self.glkViewController startDeviceMotion];
     }
-    
+
     self.gyroButton.selected = self.glkViewController.isUsingMotion;
 }
 
@@ -618,12 +617,12 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 - (IBAction)backButtonTouched:(id)sender {
     [self removePlayerTimeObserver];
-    
+
     [self.player pause];
-    
+
     [self.glkViewController removeFromParentViewController];
     self.glkViewController = nil;
-    
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -639,40 +638,39 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 - (void)currentTargetingAtYaw:(float)yaw andRoll:(float)roll {
     [self.currentYawLbl setText:[NSString stringWithFormat:@"%f", yaw]];
     [self.currentRollLbl setText:[NSString stringWithFormat:@"%f", roll]];
-    
-    if(self.currentTarget == nil || !self.canTargeting){
+
+    if (self.currentTarget == nil || !self.canTargeting) {
         return;
     }
 
     float currentTime = CMTimeGetSeconds(self.player.currentItem.currentTime);
-    if(self.currentTarget.startTargetingTime <= currentTime && self.currentTarget.endTargetingTime >= currentTime){
-        float halfSideWidth = self.currentTarget.targetingAreaWidth/2;
-        float halfSideHeight = self.currentTarget.targetingAreaHeight/2;
-        
+    if (self.currentTarget.startTargetingTime <= currentTime && self.currentTarget.endTargetingTime >= currentTime) {
+        float halfSideWidth = self.currentTarget.targetingAreaWidth / 2;
+        float halfSideHeight = self.currentTarget.targetingAreaHeight / 2;
+
         float targetX = _currentTarget.yaw;
         float targetY = _currentTarget.roll;
-        
+
         float areaX0 = targetX - halfSideWidth;
         float areaY0 = targetY - halfSideHeight;
-        
-        CGRect area = CGRectMake(areaX0 , areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
+
+        CGRect area = CGRectMake(areaX0, areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
         CGPoint point = CGPointMake(yaw, roll);
-        
-        if(CGRectContainsPoint(area, point)){
+
+        if (CGRectContainsPoint(area, point)) {
             [self onTargetAcquired:self.currentTarget];
             return;
         }
-        
-        if(targetX>0 && (targetX+halfSideWidth)>ES_PI){
-            area = CGRectMake((areaX0-2*ES_PI), areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
-            if(CGRectContainsPoint(area, point)){
+
+        if (targetX > 0 && (targetX + halfSideWidth) > ES_PI) {
+            area = CGRectMake((areaX0 - 2 * ES_PI), areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
+            if (CGRectContainsPoint(area, point)) {
                 [self onTargetAcquired:self.currentTarget];
                 return;
             }
-        }
-        else if(targetX<0 && (targetX-halfSideWidth)<-ES_PI){
-            area = CGRectMake(areaX0+(2*ES_PI), areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
-            if(CGRectContainsPoint(area, point)){
+        } else if (targetX < 0 && (targetX - halfSideWidth) < -ES_PI) {
+            area = CGRectMake(areaX0 + (2 * ES_PI), areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
+            if (CGRectContainsPoint(area, point)) {
                 [self onTargetAcquired:self.currentTarget];
                 return;
             }
@@ -682,7 +680,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 }
 
 // called when a target is acquired
-- (void)onTargetAcquired:(HTY360Target*)target {
+- (void)onTargetAcquired:(HTY360Target *)target {
     if (self.canTargeting) {
         NSLog(@"ACQUIRED TARGET %d (%@)", target.targetId, target.name);
         [self.targetAcquireLbl setHidden:NO];
@@ -693,7 +691,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 // method for demo, create a target in front of the video (looking straight where the camera is walking)
 - (void)createTarget {
     [self setTargetingEnabled:YES];
-    HTY360Target* target = [HTY360Target new];
+    HTY360Target *target = [HTY360Target new];
     target.targetId = 1;
     target.name = @"Test";
     target.yaw = 1.383375;

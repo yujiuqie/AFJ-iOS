@@ -10,8 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AFJImageSampleViewController : AFJRootViewController
-<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITabBarDelegate, UIActionSheetDelegate, UIScrollViewDelegate>
-{
+        <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITabBarDelegate, UIActionSheetDelegate, UIScrollViewDelegate> {
     IBOutlet __weak UIScrollView *_scrollView;
     IBOutlet __weak UIImageView *_imageView;
 }

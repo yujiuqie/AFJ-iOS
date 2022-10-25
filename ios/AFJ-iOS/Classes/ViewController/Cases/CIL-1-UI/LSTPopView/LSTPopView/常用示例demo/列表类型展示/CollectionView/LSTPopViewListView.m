@@ -16,15 +16,15 @@
 #import "LSTPopViewListBuyView.h"
 
 @interface LSTPopViewListView ()
-<
-UICollectionViewDelegate,
-UICollectionViewDataSource
->
+        <
+        UICollectionViewDelegate,
+        UICollectionViewDataSource
+        >
 
 /** 表 */
-@property (nonatomic,strong) UICollectionView *collectionView;
+@property(nonatomic, strong) UICollectionView *collectionView;
 /** <#.....#> */
-@property (nonatomic,weak) LSTPopView *popView;
+@property(nonatomic, weak) LSTPopView *popView;
 
 @end
 
@@ -45,20 +45,20 @@ UICollectionViewDataSource
 #pragma mark - ***** setupUI 界面布局 *****
 
 - (void)initSubViews {
-    
+
     self.backgroundColor = UIColor.whiteColor;
     [self addSubview:self.collectionView];
-    
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.equalTo(self);
     }];
-    
-    
+
+
 }
 
 #pragma mark - ***** other 其他 *****
@@ -70,29 +70,29 @@ UICollectionViewDataSource
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LSTPopViewListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    cell.titleLab.text = [NSString stringWithFormat:@"第%zd",indexPath.item];
+
+    cell.titleLab.text = [NSString stringWithFormat:@"第%zd", indexPath.item];
     LSTPopViewWK(self);
-    [cell.bottomView addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [cell.bottomView addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_self openMoreView:cell];
     }];
-    [cell.imgView addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [cell.imgView addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_self openCollectionView:cell];
     }];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"点击了第%zd个item",indexPath.item);
+    NSLog(@"点击了第%zd个item", indexPath.item);
 }
 
 
 - (void)openCollectionView:(LSTPopViewListCell *)cell {
     LSTPopViewListBuyView *view = [LSTPopViewListBuyView getNibView:@"LSTPopViewListBuyView"];
     view.backgroundColor = UIColor.whiteColor;
-    view.size = CGSizeMake(cell.contentView.width, cell.contentView.height-50);
+    view.size = CGSizeMake(cell.contentView.width, cell.contentView.height - 50);
     view.backgroundColor = UIColor.clearColor;
-    
+
     LSTPopView *popView = [LSTPopView initWithCustomView:view parentView:cell.imgView popStyle:LSTPopStyleSmoothFromLeft dismissStyle:LSTDismissStyleSmoothToRight];
     popView.hemStyle = LSTHemStyleRight;
     popView.bgColor = UIColor.blackColor;
@@ -102,20 +102,19 @@ UICollectionViewDataSource
         [wk_popView dismiss];
     };
     [popView pop];
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
 }
 
 
-
 - (void)openMoreView:(LSTPopViewListCell *)cell {
-    
+
     LSTPopViewTVCellView *view = [LSTPopViewTVCellView getNibView:@"LSTPopViewTVCellView"];
     view.backgroundColor = UIColor.whiteColor;
     view.size = CGSizeMake(100, 50);
 
-    
+
     LSTPopView *popView = [LSTPopView initWithCustomView:view parentView:cell.bottomView popStyle:LSTPopStyleSmoothFromRight dismissStyle:LSTDismissStyleSmoothToRight];
     self.popView = popView;
     popView.hemStyle = LSTHemStyleRight;
@@ -125,8 +124,8 @@ UICollectionViewDataSource
         [wk_popView dismiss];
     };
     [popView pop];
-    
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
 }
@@ -141,14 +140,14 @@ UICollectionViewDataSource
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UICollectionView *)collectionView {
-    if(_collectionView) return _collectionView;
+    if (_collectionView) return _collectionView;
     UICollectionViewFlowLayout *fl = [[UICollectionViewFlowLayout alloc] init];
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:fl];
-    fl.itemSize = CGSizeMake((LSTScreenWidth()-40-30)*0.5, ((LSTScreenWidth()-40-30)*0.5)+50);
+    fl.itemSize = CGSizeMake((LSTScreenWidth() - 40 - 30) * 0.5, ((LSTScreenWidth() - 40 - 30) * 0.5) + 50);
     fl.minimumLineSpacing = 10;
     fl.minimumInteritemSpacing = 10;
     _collectionView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    
+
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [_collectionView registerNib:[UINib nibWithNibName:@"LSTPopViewListCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
@@ -160,7 +159,7 @@ UICollectionViewDataSource
 }
 
 - (void)popViewBgViewTap {
-    
+
 }
 
 

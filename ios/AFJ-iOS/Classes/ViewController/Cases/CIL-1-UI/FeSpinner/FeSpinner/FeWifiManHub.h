@@ -7,28 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef NS_ENUM(NSInteger, FeWifiManHubMode){
+
+typedef NS_ENUM(NSInteger, FeWifiManHubMode) {
     FeWifiManHubModeOnlyLoader,
     FeWifiManHubModeOnlyPercent
 };
+
 @interface FeWifiManHub : UIView
 
-@property (assign, readonly, nonatomic) BOOL isAnimate;
-@property (assign, nonatomic) CGFloat percent;
-@property (assign, readonly, nonatomic) FeWifiManHubMode currentMode;
+@property(assign, readonly, nonatomic) BOOL isAnimate;
+@property(assign, nonatomic) CGFloat percent;
+@property(assign, readonly, nonatomic) FeWifiManHubMode currentMode;
 
--(id) initWithView:(UIView *) view withMode:(FeWifiManHubMode) mode;
+- (id)initWithView:(UIView *)view withMode:(FeWifiManHubMode)mode;
 
--(void) show;
+- (void)show;
 
--(void) showWhileExecutingBlock:(dispatch_block_t) block;
+- (void)showWhileExecutingBlock:(dispatch_block_t)block;
 
--(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t) completion;
+- (void)showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion;
 
--(void) showWhileExecutingSelector:(SEL) selector onTarget:(id) target withObject:(id) object;
+- (void)showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object;
 
--(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
+- (void)showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion;
 
--(void) dismiss;
+- (void)dismiss;
 
 @end

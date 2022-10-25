@@ -8,6 +8,7 @@
 
 #import "CorePlayer+CoreDataClass.h"
 #import "CoreTeam+CoreDataClass.h"
+
 @implementation CorePlayer
 
 @end

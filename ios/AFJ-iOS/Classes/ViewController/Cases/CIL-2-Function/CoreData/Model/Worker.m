@@ -15,7 +15,7 @@
 }
 
 + (NSDictionary *)containerPropertyKeypathsForCoreData {
-    return @{@"snacks" : @"Snack"};
+    return @{@"snacks": @"Snack"};
 }
 
 @end

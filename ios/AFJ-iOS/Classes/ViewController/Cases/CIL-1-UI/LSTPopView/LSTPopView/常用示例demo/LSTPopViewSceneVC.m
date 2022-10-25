@@ -29,13 +29,13 @@
 #import "LSTPopViewHeightChangeView.h"
 
 @interface LSTPopViewSceneVC ()
-<
-UITableViewDelegate,
-UITableViewDataSource
->
+        <
+        UITableViewDelegate,
+        UITableViewDataSource
+        >
 
 /** 表 */
-@property (nonatomic,strong) UITableView *tableView;
+@property(nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -45,12 +45,11 @@ UITableViewDataSource
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    [self layoutSubViewUI];
-    
-}
 
+
+    [self layoutSubViewUI];
+
+}
 
 
 #pragma mark - ***** setupUI 界面布局 *****
@@ -65,7 +64,7 @@ UITableViewDataSource
 
 
 - (void)bindViewModel {
-    
+
 }
 
 #pragma mark - ***** Data Request 数据请求 *****
@@ -84,78 +83,63 @@ UITableViewDataSource
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     switch (indexPath.row) {
-        case 0:
-        {
+        case 0: {
             cell.textLabel.text = @"QQ音乐顶部提示栏";
         }
             break;
-        case 1:
-        {
+        case 1: {
             cell.textLabel.text = @"QQ顶部提示栏";
         }
             break;
-        case 2:
-        {
-             cell.textLabel.text = @"类微信/微博底部弹窗";
+        case 2: {
+            cell.textLabel.text = @"类微信/微博底部弹窗";
         }
             break;
-        case 3:
-        {
+        case 3: {
             cell.textLabel.text = @"微信消息转发弹窗";
         }
             break;
-        case 4:
-        {
+        case 4: {
             cell.textLabel.text = @"UC分享弹窗";
         }
             break;
-        case 5:
-        {
-             cell.textLabel.text = @"百度云盘分类菜单(显示在self.view上)";
+        case 5: {
+            cell.textLabel.text = @"百度云盘分类菜单(显示在self.view上)";
         }
             break;
-        case 6:
-        {
+        case 6: {
             cell.textLabel.text = @"右侧边栏";
         }
             break;
-        case 7:
-        {
+        case 7: {
             cell.textLabel.text = @"左侧边栏";
         }
             break;
-        case 8:
-        {
+        case 8: {
             cell.textLabel.text = @"中间输入框";
         }
             break;
-        case 9:
-        {
+        case 9: {
             cell.textLabel.text = @"底部输入框";
         }
             break;
-        case 10:
-        {
+        case 10: {
             cell.textLabel.text = @"加载指示器";
         }
             break;
-        case 11:
-        {
+        case 11: {
             cell.textLabel.text = @"抖音个人主页";
         }
             break;
-        case 12:
-        {
+        case 12: {
             cell.textLabel.text = @"collectionView展示";
         }
             break;
-        case 13:
-        {
+        case 13: {
             cell.textLabel.text = @"tableView展示";
         }
             break;
-        case 14:
-        {
+        case 14: {
             cell.textLabel.text = @"自定义view动态高度变化";
         }
             break;
@@ -167,82 +151,67 @@ UITableViewDataSource
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     });
     switch (indexPath.row) {
-        case 0:
-        {
+        case 0: {
             [self test0];
         }
             break;
-        case 1:
-        {
+        case 1: {
             [self test1];
         }
             break;
-        case 2:
-        {
-             [self test2];
+        case 2: {
+            [self test2];
         }
             break;
-        case 3:
-        {
+        case 3: {
             [self test3];
         }
             break;
-        case 4:
-        {
+        case 4: {
             [self test4];
         }
             break;
-        case 5:
-        {
+        case 5: {
             [self test5];
         }
             break;
-        case 6:
-        {
+        case 6: {
             [self test6];
         }
             break;
-        case 7:
-        {
+        case 7: {
             [self test7];
         }
             break;
-        case 8:
-        {
+        case 8: {
             [self test8];
         }
             break;
-        case 9:
-        {
+        case 9: {
             [self test9];
         }
             break;
-        case 10:
-        {
+        case 10: {
             [self test10];
         }
             break;
-        case 11:
-        {
+        case 11: {
             [self test11];
         }
             break;
-        case 12:
-        {
+        case 12: {
             [self test12];
         }
             break;
-        case 13:
-        {
+        case 13: {
             [self test13];
         }
             break;
-        case 14:
-        {
+        case 14: {
             [self test14];
         }
             break;
@@ -265,20 +234,21 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
     [popView pop];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [wk_popView dismiss];
     });
-    
+
 
 }
+
 - (void)test1 {
     LSTPopViewqqtopView *view = [LSTPopViewqqtopView getNibView:@"LSTPopViewqqtopView"];
-    view.frame = CGRectMake(0, 0, LSTScreenWidth()-40, 60);
+    view.frame = CGRectMake(0, 0, LSTScreenWidth() - 40, 60);
     view.layer.cornerRadius = 5;
     view.layer.masksToBounds = YES;
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToTop];
@@ -294,15 +264,16 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [wk_popView dismiss];
     });
-    
+
     [popView pop];
 }
+
 - (void)test2 {
     LSTPopViewWeChatView *view = [LSTPopViewWeChatView getNibView:@"LSTPopViewWeChatView"];
     view.layer.cornerRadius = 15;
@@ -317,16 +288,16 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
 }
 
 - (void)test3 {
     LSTPopViewTranspondView *view = [[LSTPopViewTranspondView alloc] init];
-    view.frame = CGRectMake(0, 0, LSTScreenWidth()-80,(LSTScreenWidth()-80)/1.23);
+    view.frame = CGRectMake(0, 0, LSTScreenWidth() - 80, (LSTScreenWidth() - 80) / 1.23);
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleFade dismissStyle:LSTDismissStyleNO];
@@ -338,16 +309,16 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
 }
 
 - (void)test4 {
     LSTPopViewUCView *view = [[LSTPopViewUCView alloc] init];
-    view.frame = CGRectMake(0, 0, LSTScreenWidth()-20,(LSTScreenWidth()-20)/1.30);
+    view.frame = CGRectMake(0, 0, LSTScreenWidth() - 20, (LSTScreenWidth() - 20) / 1.30);
     view.layer.cornerRadius = 20;
     view.layer.masksToBounds = YES;
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSpringFromBottom dismissStyle:LSTDismissStyleSmoothToBottom];
@@ -361,22 +332,22 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
 }
 
 - (void)test5 {
     LSTPopViewBaiDuView *view = [[LSTPopViewBaiDuView alloc] init];
-    view.frame = CGRectMake(0, 0, LSTScreenWidth(),(LSTScreenWidth())/1.95);
+    view.frame = CGRectMake(0, 0, LSTScreenWidth(), (LSTScreenWidth()) / 1.95);
     LSTPopView *popView = [LSTPopView initWithCustomView:view
                                               parentView:self.view
                                                 popStyle:LSTPopStyleSpringFromTop
                                             dismissStyle:LSTDismissStyleSmoothToTop];
     popView.hemStyle = LSTHemStyleTop;
-    popView.adjustY = LSTNavBarHeight()-20;
+    popView.adjustY = LSTNavBarHeight() - 20;
     LSTPopViewWK(popView)
     popView.popDuration = 0.5;
     popView.dismissDuration = 0.5;
@@ -385,16 +356,16 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
 }
-             
+
 - (void)test6 {
     LSTPopViewrRSidebarView *view = [[LSTPopViewrRSidebarView alloc] init];
-    view.frame = CGRectMake(0, 0, 280,LSTScreenHeight()-LSTNavBarHeight());
+    view.frame = CGRectMake(0, 0, 280, LSTScreenHeight() - LSTNavBarHeight());
     LSTPopView *popView = [LSTPopView initWithCustomView:view
                                               parentView:self.view
                                                 popStyle:LSTPopStyleSpringFromRight
@@ -408,16 +379,16 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
 }
 
 - (void)test7 {
     LSTPopViewrLSidebarView *view = [LSTPopViewrLSidebarView getNibView:@"LSTPopViewrLSidebarView"];
-    view.frame = CGRectMake(0, 0, LSTScreenWidth()-40 ,LSTScreenHeight());
+    view.frame = CGRectMake(0, 0, LSTScreenWidth() - 40, LSTScreenHeight());
     LSTPopView *popView = [LSTPopView initWithCustomView:view
                                                 popStyle:LSTPopStyleSmoothFromLeft
                                             dismissStyle:LSTDismissStyleSmoothToLeft];
@@ -429,21 +400,21 @@ UITableViewDataSource
     popView.isClickFeedback = YES;
     popView.dragStyle = LSTDragStyleX_Negative;
     popView.sweepStyle = LSTSweepStyleX_Negative;
-    popView.dragDistance = (LSTScreenWidth()-40)*0.5;
+    popView.dragDistance = (LSTScreenWidth() - 40) * 0.5;
     popView.bgClickBlock = ^{
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
 }
 
 - (void)test8 {
     LSTPopViewCenterInputView *view = [LSTPopViewCenterInputView getNibView:@"LSTPopViewCenterInputView"];
-    view.frame = CGRectMake(0, 0, 300,254);
+    view.frame = CGRectMake(0, 0, 300, 254);
     LSTPopView *popView = [LSTPopView initWithCustomView:view
                                                 popStyle:LSTPopStyleFade
                                             dismissStyle:LSTDismissStyleFade];
@@ -459,19 +430,19 @@ UITableViewDataSource
         [wk_view.textTF resignFirstResponder];
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_view.textTF resignFirstResponder];
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
-    
+
     [view.textTF becomeFirstResponder];
 }
 
 - (void)test9 {
     LSTPopViewBottomInputView *view = [LSTPopViewBottomInputView getNibView:@"LSTPopViewBottomInputView"];
-    view.frame = CGRectMake(0, 0, LSTScreenWidth(),150);
+    view.frame = CGRectMake(0, 0, LSTScreenWidth(), 150);
     LSTPopView *popView = [LSTPopView initWithCustomView:view
                                               parentView:self.view
                                                 popStyle:LSTPopStyleSmoothFromBottom
@@ -488,25 +459,25 @@ UITableViewDataSource
         [wk_popView dismiss];
 //        [view endEditing:YES];
     };
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [view.textTF becomeFirstResponder];
     });
-    
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
-        wk_view.height = wk_view.height-10;
+
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
+        wk_view.height = wk_view.height - 10;
     }];
-    
+
     [popView pop];
-  
+
 }
 
 - (void)test10 {
     LSTPopViewloadingView *view = [LSTPopViewloadingView getNibView:@"LSTPopViewloadingView"];
-    view.frame = CGRectMake(0, 0, 180,40);
+    view.frame = CGRectMake(0, 0, 180, 40);
     view.layer.cornerRadius = 5;
     view.layer.masksToBounds = YES;
-    view.backgroundColor =  LSTRGBColorWithAlpha(0, 0, 0, 0.5);
+    view.backgroundColor = LSTRGBColorWithAlpha(0, 0, 0, 0.5);
     LSTPopView *popView = [LSTPopView initWithCustomView:view
                                                 popStyle:LSTPopStyleScale
                                             dismissStyle:LSTDismissStyleNO];
@@ -520,23 +491,23 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         view.titleLab.text = @"😘数据加载完成~";
-        
+
     });
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [wk_popView dismiss];
     });
-    
+
     [popView pop];
 }
 
 - (void)test11 {
     LSTPopViewdoyinView *view = [LSTPopViewdoyinView getNibView:@"LSTPopViewdoyinView"];
-    view.frame = CGRectMake(0, 0, LSTScreenWidth(),LSTScreenWidth()/1.31);
+    view.frame = CGRectMake(0, 0, LSTScreenWidth(), LSTScreenWidth() / 1.31);
     LSTPopView *popView = [LSTPopView initWithCustomView:view
                                                 popStyle:LSTPopStyleSmoothFromBottom
                                             dismissStyle:LSTDismissStyleSmoothToBottom];
@@ -545,7 +516,7 @@ UITableViewDataSource
     popView.popDuration = 0.5;
     popView.dismissDuration = 0.5;
     popView.isClickFeedback = YES;
-    
+
     popView.sweepStyle = LSTSweepStyleY_Positive;
     popView.dragStyle = LSTDragStyleY_Positive;
     popView.sweepDismissStyle = LSTSweepDismissStyleSmooth;
@@ -553,10 +524,10 @@ UITableViewDataSource
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    [view addTapGestureEventHandle:^(id _Nonnull sender, UITapGestureRecognizer *_Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
-    
+
     [popView pop];
 }
 
@@ -564,8 +535,8 @@ UITableViewDataSource
     LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
-    
-    view.frame = CGRectMake(0, 0, LSTScreenWidth()-40, LSTScreenHeight()-LSTNavBarHeight()*2);
+
+    view.frame = CGRectMake(0, 0, LSTScreenWidth() - 40, LSTScreenHeight() - LSTNavBarHeight() * 2);
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
     LSTPopViewWK(popView)
     popView.hemStyle = LSTHemStyleCenter;
@@ -599,7 +570,7 @@ UITableViewDataSource
 //        [wk_popView dismiss];
 //    };
 //    [popView pop];
-    LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, LSTScreenWidth(), LSTScreenHeight()*(0.8))];
+    LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, LSTScreenWidth(), LSTScreenHeight() * (0.8))];
     LSTPopView *popView = [LSTPopView initWithCustomView:customView
                                               parentView:self.view
                                                 popStyle:LSTPopStyleSmoothFromBottom
@@ -608,12 +579,12 @@ UITableViewDataSource
     popView.priority = 1000;
     popView.hemStyle = LSTHemStyleBottom;
     popView.dragStyle = LSTDragStyleY_Positive;
-    popView.dragDistance =  customView.height*0.5;
+    popView.dragDistance = customView.height * 0.5;
     popView.sweepStyle = LSTSweepStyleY_Positive;
     popView.swipeVelocity = 1600;
     popView.sweepDismissStyle = LSTSweepDismissStyleSmooth;
 
-    
+
     [popView pop];
 }
 
@@ -665,7 +636,7 @@ UITableViewDataSource
 #pragma mark - ***** Lazy Loading 懒加载 *****
 
 - (UITableView *)tableView {
-    if(_tableView) return _tableView;
+    if (_tableView) return _tableView;
     _tableView = [[UITableView alloc] init];
     _tableView.delegate = self;
     _tableView.dataSource = self;

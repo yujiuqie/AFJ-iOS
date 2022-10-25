@@ -10,10 +10,10 @@
 
 @interface NSData (JKHash)
 
-@property (readonly) NSData *jk_md5Data;
-@property (readonly) NSData *jk_sha1Data;
-@property (readonly) NSData *jk_sha256Data;
-@property (readonly) NSData *jk_sha512Data;
+@property(readonly) NSData *jk_md5Data;
+@property(readonly) NSData *jk_sha1Data;
+@property(readonly) NSData *jk_sha256Data;
+@property(readonly) NSData *jk_sha512Data;
 
 /**
  *  @brief  md5 NSData

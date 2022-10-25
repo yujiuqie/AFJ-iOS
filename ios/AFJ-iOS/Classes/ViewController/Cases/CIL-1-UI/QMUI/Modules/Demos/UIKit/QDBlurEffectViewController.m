@@ -29,15 +29,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.contentImageView = [[UIImageView alloc] initWithImage:UIImageMake(@"image4")];
     self.contentImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.contentImageView.clipsToBounds = YES;
     [self.view addSubview:self.contentImageView];
-    
+
     self.effectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect qmui_effectWithBlurRadius:2]];
     [self.view addSubview:self.effectView];
-    
+
     self.contentLabel = [[UILabel alloc] qmui_initWithFont:UIFontBoldMake(32) textColor:UIColorWhite];
     self.contentLabel.textAlignment = NSTextAlignmentCenter;
     self.contentLabel.text = @"UIBlurEffect+QMUI";
@@ -47,10 +47,10 @@
     self.contentLabel.layer.shadowOffset = CGSizeMake(1, 1);
     [self.contentLabel sizeToFit];
     [self.effectView.contentView addSubview:self.contentLabel];
-    
+
     self.label1 = [self generateLabel];
     [self.view addSubview:self.label1];
-    
+
     self.slider1 = [self generateSlider];
     self.slider1.minimumValue = 0;
     self.slider1.maximumValue = 40;
@@ -58,21 +58,21 @@
     [self.view addSubview:self.slider1];
     self.slider1.value = 5;
     [self.slider1 sendActionsForControlEvents:UIControlEventValueChanged];
-    
+
     self.label2 = [self generateLabel];
     self.label2.text = @"2. 支持精确指定磨砂颜色(系统每一种 UIBlurEffectStyle 都会带有默认的前景色，并且无法修改，这会导致我们无法精准设置自己的前景色)";
     [self.view addSubview:self.label2];
-    
+
     self.button2 = [QDUIHelper generateLightBorderedButton];
     [self.button2 setTitle:@"点击更换前景色" forState:UIControlStateNormal];
     [self.button2 addTarget:self action:@selector(handleForegroundColorEvent:) forControlEvents:UIControlEventTouchUpInside];
     self.button2.qmui_preventsRepeatedTouchUpInsideEvent = NO;// 为了方便展示效果
     [self.view addSubview:self.button2];
-    
+
     self.label3 = [self generateLabel];
     self.label3.text = @"3. 磨砂支持动画（系统能力，这里仅作展示用），也支持配合 UIGestureRecognizer 控制动画进度。";
     [self.view addSubview:self.label3];
-    
+
     self.button3 = [QDUIHelper generateLightBorderedButton];
     [self.button3 setTitle:@"开始动画" forState:UIControlStateNormal];
     [self.button3 setTitle:@"动画中..." forState:UIControlStateDisabled];
@@ -102,7 +102,7 @@
     self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:3 curve:UIViewAnimationCurveEaseInOut animations:^{
         self.effectView.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     }];
-    __weak __typeof(self)weakSelf = self;
+    __weak __typeof(self) weakSelf = self;
     [self.animator addCompletion:^(UIViewAnimatingPosition finalPosition) {
         weakSelf.button3.enabled = YES;
     }];
@@ -132,20 +132,20 @@
     UIEdgeInsets padding = UIEdgeInsetsMake(self.qmui_navigationBarMaxYInViewCoordinator + 24, 24, 24, 24);
     CGFloat minY = padding.top;
     CGFloat contentWidth = CGRectGetWidth(self.view.bounds) - UIEdgeInsetsGetHorizontalValue(padding);
-    
+
     self.contentImageView.frame = CGRectMake(padding.left, minY, contentWidth, 120);
     self.effectView.frame = self.contentImageView.frame;
     self.contentLabel.center = CGPointMake(CGRectGetWidth(self.effectView.bounds) / 2, CGRectGetHeight(self.effectView.bounds) / 2);
     minY = CGRectGetMaxY(self.effectView.frame) + 38;
-    
+
     self.label1.frame = CGRectMake(padding.left, minY, contentWidth, QMUIViewSelfSizingHeight);
     self.slider1.frame = CGRectMake(padding.left, CGRectGetMaxY(self.label1.frame) + 16, contentWidth, QMUIViewSelfSizingHeight);
     minY = CGRectGetMaxY(self.slider1.frame) + 38;
-    
+
     self.label2.frame = CGRectMake(padding.left, minY, contentWidth, QMUIViewSelfSizingHeight);
     self.button2.frame = CGRectMake(padding.left, CGRectGetMaxY(self.label2.frame) + 16, contentWidth, CGRectGetHeight(self.button2.frame));
     minY = CGRectGetMaxY(self.button2.frame) + 38;
-    
+
     self.label3.frame = CGRectMake(padding.left, minY, contentWidth, QMUIViewSelfSizingHeight);
     self.button3.frame = CGRectMake(padding.left, CGRectGetMaxY(self.label3.frame) + 16, contentWidth, CGRectGetHeight(self.button3.frame));
     minY = CGRectGetMaxY(self.button3.frame) + 38;

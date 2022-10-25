@@ -24,7 +24,7 @@
  *
  *  @return 返回结果
  */
-- (NSDecimalNumber*)jk_roundToScale:(NSUInteger)scale;
+- (NSDecimalNumber *)jk_roundToScale:(NSUInteger)scale;
 
 /**
  *  @brief  四舍五入
@@ -34,12 +34,16 @@
  *
  *  @return 返回结果
  */
-- (NSDecimalNumber*)jk_roundToScale:(NSUInteger)scale mode:(NSRoundingMode)roundingMode;
+- (NSDecimalNumber *)jk_roundToScale:(NSUInteger)scale mode:(NSRoundingMode)roundingMode;
 
-- (NSDecimalNumber*)jk_decimalNumberWithPercentage:(float)percent;
-- (NSDecimalNumber*)jk_decimalNumberWithDiscountPercentage:(NSDecimalNumber *)discountPercentage;
-- (NSDecimalNumber*)jk_decimalNumberWithDiscountPercentage:(NSDecimalNumber *)discountPercentage roundToScale:(NSUInteger)scale;
-- (NSDecimalNumber*)jk_discountPercentageWithBaseValue:(NSDecimalNumber *)baseValue;
-- (NSDecimalNumber*)jk_discountPercentageWithBaseValue:(NSDecimalNumber *)baseValue roundToScale:(NSUInteger)scale;
+- (NSDecimalNumber *)jk_decimalNumberWithPercentage:(float)percent;
+
+- (NSDecimalNumber *)jk_decimalNumberWithDiscountPercentage:(NSDecimalNumber *)discountPercentage;
+
+- (NSDecimalNumber *)jk_decimalNumberWithDiscountPercentage:(NSDecimalNumber *)discountPercentage roundToScale:(NSUInteger)scale;
+
+- (NSDecimalNumber *)jk_discountPercentageWithBaseValue:(NSDecimalNumber *)baseValue;
+
+- (NSDecimalNumber *)jk_discountPercentageWithBaseValue:(NSDecimalNumber *)baseValue roundToScale:(NSUInteger)scale;
 
 @end

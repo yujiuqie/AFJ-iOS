@@ -16,8 +16,7 @@
 
 @implementation ActivityTypesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -25,14 +24,12 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -42,26 +39,26 @@
 #pragma mark - Private
 
 - (NSArray *)iOS6Activities {
-    
+
     NSArray *activities = @[UIActivityTypePostToFacebook,
-                            UIActivityTypePostToTwitter,
-                            UIActivityTypePostToWeibo,
-                            UIActivityTypeMail,
-                            UIActivityTypeMessage,
-                            UIActivityTypePrint,
-                            UIActivityTypeSaveToCameraRoll,
-                            UIActivityTypeCopyToPasteboard,
-                            UIActivityTypeAssignToContact];
-    
+            UIActivityTypePostToTwitter,
+            UIActivityTypePostToWeibo,
+            UIActivityTypeMail,
+            UIActivityTypeMessage,
+            UIActivityTypePrint,
+            UIActivityTypeSaveToCameraRoll,
+            UIActivityTypeCopyToPasteboard,
+            UIActivityTypeAssignToContact];
+
     return activities;
 }
 
 - (UIImage *)createRandomImage {
 
     NSUInteger num = arc4random() % 40 + 1;
-    NSString *filename = [NSString stringWithFormat:@"m%lu", (unsigned long)num];
+    NSString *filename = [NSString stringWithFormat:@"m%lu", (unsigned long) num];
     UIImage *image = [UIImage imageNamed:filename];
-    
+
     return image;
 }
 
@@ -75,7 +72,7 @@
  When using this service, you can provide NSString, NSAttributedString, UIImage, ALAsset, and NSURL objects as data for the activity items. You may also specify NSURL objects whose contents use the assets-library scheme. You may also provide NSArray or NSDictionary objects that contain the listed data types.
  */
 - (IBAction)showAirDropActivty {
-    
+
     UIImage *image = [self createRandomImage];
     UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[image]
                                                                               applicationActivities:nil];
@@ -100,11 +97,11 @@
  When using this service, you can provide UIImage, ALAsset, NSURL objects whose contents use the file scheme and point to an image, and NSData objects whose contents are image data as data for the activity items. You may also specify NSURL objects whose contents use the assets-library scheme.
  */
 - (IBAction)showFlickrActivty {
-    
+
     UIImage *image = [self createRandomImage];
     UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[image]
                                                                               applicationActivities:nil];
-    
+
     // exclude activity types which can be used after iOS6
     NSMutableArray *excludedActivities = [self iOS6Activities].mutableCopy;
     [excludedActivities addObject:UIActivityTypeAirDrop];
@@ -112,7 +109,7 @@
     [excludedActivities addObject:UIActivityTypePostToTencentWeibo];
     [excludedActivities addObject:UIActivityTypePostToVimeo];
     [activityCtr setExcludedActivityTypes:excludedActivities];
-    
+
     [self presentViewController:activityCtr
                        animated:YES
                      completion:nil];
@@ -125,7 +122,7 @@
  When using this service, you can provide ALAsset, NSURL objects whose contents use the file scheme and point to a video, and NSData objects whose contents are video data as data for the activity items. You may also specify NSURL objects whose contents use the assets-library scheme.
  */
 - (IBAction)showVimeoActivity {
-    
+
     NSLog(@"Sorry, this sample is not available yet.");
 }
 
@@ -136,11 +133,11 @@
  When using this service, you can provide an NSURL object whose contents uses the http or https scheme that points to the page to add.
  */
 - (IBAction)showReadingListActivity {
-    
+
     NSURL *url = [NSURL URLWithString:@"http://d.hatena.ne.jp/shu223/"];
     UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[url]
                                                                               applicationActivities:nil];
-    
+
     // exclude activity types which can be used after iOS6
     NSMutableArray *excludedActivities = [self iOS6Activities].mutableCopy;
     [excludedActivities addObject:UIActivityTypeAirDrop];
@@ -148,7 +145,7 @@
     [excludedActivities addObject:UIActivityTypePostToTencentWeibo];
     [excludedActivities addObject:UIActivityTypePostToVimeo];
     [activityCtr setExcludedActivityTypes:excludedActivities];
-    
+
     [self presentViewController:activityCtr
                        animated:YES
                      completion:nil];

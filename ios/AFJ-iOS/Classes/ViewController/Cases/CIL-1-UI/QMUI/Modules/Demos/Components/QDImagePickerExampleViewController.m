@@ -27,15 +27,15 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
 - (void)initDataSource {
     [super initDataSource];
     self.dataSource = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                       @"选图控件使用示例", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                     @"默认", @"选图控件包含相册列表，选图，预览大图三个界面",
-                                     @"自定义", @"修改选图界面列数，预览大图界面 TopBar 背景色",
-                                     nil],
-                       @"通过重载进行添加 subview 等较大型的改动", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                     @"选择多张图片", @"模拟聊天发图，预览大图界面增加底部工具栏",
-                                                     @"选择单张图片", @"模拟设置头像，预览大图界面右上角增加按钮",
-                                                     nil],
-                       nil];
+            @"选图控件使用示例", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+            @"默认", @"选图控件包含相册列表，选图，预览大图三个界面",
+            @"自定义", @"修改选图界面列数，预览大图界面 TopBar 背景色",
+                    nil],
+            @"通过重载进行添加 subview 等较大型的改动", [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
+                    @"选择多张图片", @"模拟聊天发图，预览大图界面增加底部工具栏",
+                    @"选择单张图片", @"模拟设置头像，预览大图界面右上角增加按钮",
+                            nil],
+                    nil];
 }
 
 - (void)didSelectCellWithTitle:(NSString *)title {
@@ -55,7 +55,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
 }
 
 - (void)presentAlbumViewControllerWithTitle:(NSString *)title {
-    
+
     // 创建一个 QMUIAlbumViewController 实例用于呈现相簿列表
     QMUIAlbumViewController *albumViewController = [[QMUIAlbumViewController alloc] init];
     albumViewController.albumViewControllerDelegate = self;
@@ -71,16 +71,16 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
     } else {
         albumViewController.view.tag = NormalImagePickingTag;
     }
-    
+
     QDNavigationController *navigationController = [[QDNavigationController alloc] initWithRootViewController:albumViewController];
-    
+
     // 获取最近发送图片时使用过的相簿，如果有则直接进入该相簿
     [albumViewController pickLastAlbumGroupDirectlyIfCan];
-    
+
     [self presentViewController:navigationController animated:YES completion:NULL];
 }
 
-#pragma mark - <QMUITableViewDataSource,QMUITableViewDelegate>
+#pragma mark - <QMUITableViewDataSource, QMUITableViewDelegate>
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -120,7 +120,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
 - (void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController didFinishPickingImageWithImagesAssetArray:(NSMutableArray<QMUIAsset *> *)imagesAssetArray {
     // 储存最近选择了图片的相册，方便下次直接进入该相册
     [QMUIImagePickerHelper updateLastestAlbumWithAssetsGroup:imagePickerViewController.assetsGroup ablumContentType:kAlbumContentType userIdentify:nil];
-    
+
     [self sendImageWithImagesAssetArray:imagesAssetArray];
 }
 
@@ -165,7 +165,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
 // 更新选中的图片数量
 - (void)updateImageCountLabelForPreviewView:(QMUIImagePickerPreviewViewController *)imagePickerPreviewViewController {
     if (imagePickerPreviewViewController.view.tag == MultipleImagePickingTag) {
-        QDMultipleImagePickerPreviewViewController *customImagePickerPreviewViewController = (QDMultipleImagePickerPreviewViewController *)imagePickerPreviewViewController;
+        QDMultipleImagePickerPreviewViewController *customImagePickerPreviewViewController = (QDMultipleImagePickerPreviewViewController *) imagePickerPreviewViewController;
         NSUInteger selectedCount = [imagePickerPreviewViewController.selectedImageAssetArray count];
         if (selectedCount > 0) {
             customImagePickerPreviewViewController.imageCountLabel.text = [[NSString alloc] initWithFormat:@"%@", @(selectedCount)];
@@ -182,7 +182,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
 - (void)imagePickerPreviewViewController:(QDMultipleImagePickerPreviewViewController *)imagePickerPreviewViewController sendImageWithImagesAssetArray:(NSMutableArray<QMUIAsset *> *)imagesAssetArray {
     // 储存最近选择了图片的相册，方便下次直接进入该相册
     [QMUIImagePickerHelper updateLastestAlbumWithAssetsGroup:imagePickerPreviewViewController.assetsGroup ablumContentType:kAlbumContentType userIdentify:nil];
-    
+
     [self sendImageWithImagesAssetArray:imagesAssetArray];
 }
 
@@ -193,7 +193,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
     [QMUIImagePickerHelper updateLastestAlbumWithAssetsGroup:imagePickerPreviewViewController.assetsGroup ablumContentType:kAlbumContentType userIdentify:nil];
     // 显示 loading
     [self startLoading];
-    [imageAsset requestImageData:^(NSData *imageData, NSDictionary<NSString *,id> *info, BOOL isGif, BOOL isHEIC) {
+    [imageAsset requestImageData:^(NSData *imageData, NSDictionary<NSString *, id> *info, BOOL isGif, BOOL isHEIC) {
         UIImage *targetImage = nil;
         if (isGif) {
             targetImage = [UIImage qmui_animatedImageWithData:imageData];
@@ -203,7 +203,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
                 // iOS 11 中新增 HEIF/HEVC 格式的资源，直接发送新格式的照片到不支持新格式的设备，照片可能会无法识别，可以先转换为通用的 JPEG 格式再进行使用。
                 // 详细请浏览：https://github.com/Tencent/QMUI_iOS/issues/224
                 targetImage = [UIImage imageWithData:UIImageJPEGRepresentation(targetImage, 1)];
-            } 
+            }
         }
         [self performSelector:@selector(setAvatarWithAvatarImage:) withObject:targetImage afterDelay:1.8];
     }];
@@ -243,8 +243,8 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
 }
 
 - (void)sendImageWithImagesAssetArray:(NSMutableArray<QMUIAsset *> *)imagesAssetArray {
-    __weak __typeof(self)weakSelf = self;
-    
+    __weak __typeof(self) weakSelf = self;
+
     for (QMUIAsset *asset in imagesAssetArray) {
         [QMUIImagePickerHelper requestImageAssetIfNeeded:asset completion:^(QMUIAssetDownloadStatus downloadStatus, NSError *error) {
             if (downloadStatus == QMUIAssetDownloadStatusDownloading) {

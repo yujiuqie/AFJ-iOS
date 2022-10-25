@@ -7,17 +7,18 @@
 
 @interface TestData : NSObject
 
-@property (nonatomic) MGSwipeTransition transition;
-@property (nonatomic) int leftButtonsCount;
-@property (nonatomic) int rightButtonsCount;
-@property (nonatomic) int leftExpandableIndex;
-@property (nonatomic) int rightExpandableIndex;
+@property(nonatomic) MGSwipeTransition transition;
+@property(nonatomic) int leftButtonsCount;
+@property(nonatomic) int rightButtonsCount;
+@property(nonatomic) int leftExpandableIndex;
+@property(nonatomic) int rightExpandableIndex;
 
 
--(NSString *) title;
--(NSString *) detailTitle;
+- (NSString *)title;
 
-+(NSMutableArray*) data;
+- (NSString *)detailTitle;
+
++ (NSMutableArray *)data;
 
 
 @end

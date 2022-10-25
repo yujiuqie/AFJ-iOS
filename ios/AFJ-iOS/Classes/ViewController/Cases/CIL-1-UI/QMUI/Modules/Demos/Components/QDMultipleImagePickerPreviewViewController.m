@@ -23,11 +23,11 @@
 
 - (void)initSubviews {
     [super initSubviews];
-    
+
     self.bottomToolBarView = [[UIView alloc] init];
     self.bottomToolBarView.backgroundColor = self.toolBarBackgroundColor;
     [self.view addSubview:self.bottomToolBarView];
-    
+
     self.sendButton = [[QMUIButton alloc] init];
     self.sendButton.adjustsTitleTintColorAutomatically = YES;
     self.sendButton.adjustsImageTintColorAutomatically = YES;
@@ -37,7 +37,7 @@
     [self.sendButton sizeToFit];
     [self.sendButton addTarget:self action:@selector(handleSendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomToolBarView addSubview:self.sendButton];
-    
+
     _imageCountLabel = [[QMUILabel alloc] init];
     _imageCountLabel.backgroundColor = self.toolBarTintColor;
     _imageCountLabel.textColor = [self.toolBarTintColor qmui_colorIsDark] ? UIColorWhite : UIColorBlack;
@@ -48,14 +48,14 @@
     _imageCountLabel.layer.cornerRadius = ImageCountLabelSize.width / 2;
     _imageCountLabel.hidden = YES;
     [self.bottomToolBarView addSubview:_imageCountLabel];
-    
+
     self.originImageCheckboxButton = [[QMUIButton alloc] init];
     self.originImageCheckboxButton.adjustsTitleTintColorAutomatically = YES;
     self.originImageCheckboxButton.adjustsImageTintColorAutomatically = YES;
     self.originImageCheckboxButton.titleLabel.font = UIFontMake(14);
     [self.originImageCheckboxButton setImage:UIImageMake(@"origin_image_checkbox") forState:UIControlStateNormal];
     [self.originImageCheckboxButton setImage:UIImageMake(@"origin_image_checkbox_checked") forState:UIControlStateSelected];
-    [self.originImageCheckboxButton setImage:UIImageMake(@"origin_image_checkbox_checked") forState:UIControlStateSelected|UIControlStateHighlighted];
+    [self.originImageCheckboxButton setImage:UIImageMake(@"origin_image_checkbox_checked") forState:UIControlStateSelected | UIControlStateHighlighted];
     [self.originImageCheckboxButton setTitle:@"原图" forState:UIControlStateNormal];
     [self.originImageCheckboxButton setImageEdgeInsets:UIEdgeInsetsMake(0, -5.0f, 0, 5.0f)];
     [self.originImageCheckboxButton setContentEdgeInsets:UIEdgeInsetsMake(0, 5.0f, 0, 0)];

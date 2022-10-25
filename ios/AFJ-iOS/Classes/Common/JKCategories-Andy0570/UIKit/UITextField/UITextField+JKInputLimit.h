@@ -11,6 +11,6 @@
 @interface UITextField (JKInputLimit)
 
 // if <=0, no limit
-@property (assign, nonatomic) NSInteger jk_maxLength;
+@property(assign, nonatomic) NSInteger jk_maxLength;
 
 @end

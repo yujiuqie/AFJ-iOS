@@ -26,11 +26,11 @@
  *  @warning If keys overlap in receiver and query dictionary,
  *  behaviour is undefined.
  */
-- (NSURL *)jk_URLByAppendingQueryDictionary:(NSDictionary*) queryDictionary
-                             withSortedKeys:(BOOL) sortedKeys;
+- (NSURL *)jk_URLByAppendingQueryDictionary:(NSDictionary *)queryDictionary
+                             withSortedKeys:(BOOL)sortedKeys;
 
 /** As above, but `sortedKeys=NO` */
-- (NSURL *)jk_URLByAppendingQueryDictionary:(NSDictionary*) queryDictionary;
+- (NSURL *)jk_URLByAppendingQueryDictionary:(NSDictionary *)queryDictionary;
 
 /**
  *  @return Copy of URL with its query component replaced with
@@ -38,11 +38,11 @@
  *  @param queryDictionary A new query dictionary
  *  @param sortedKeys      Whether or not to sort the query keys
  */
-- (NSURL *)jk_URLByReplacingQueryWithDictionary:(NSDictionary*) queryDictionary
-                                 withSortedKeys:(BOOL) sortedKeys;
+- (NSURL *)jk_URLByReplacingQueryWithDictionary:(NSDictionary *)queryDictionary
+                                 withSortedKeys:(BOOL)sortedKeys;
 
 /** As above, but `sortedKeys=NO` */
-- (NSURL *)jk_URLByReplacingQueryWithDictionary:(NSDictionary*) queryDictionary;
+- (NSURL *)jk_URLByReplacingQueryWithDictionary:(NSDictionary *)queryDictionary;
 
 /** @return Receiver with query component completely removed */
 - (NSURL *)jk_URLByRemovingQuery;
@@ -72,7 +72,7 @@
  *  @param sortedKeys Sorted the keys alphabetically?
  *  @see cavetas from the main `NSURL` category as well.
  */
-- (NSString *)jk_URLQueryStringWithSortedKeys:(BOOL) sortedKeys;
+- (NSString *)jk_URLQueryStringWithSortedKeys:(BOOL)sortedKeys;
 
 /** As above, but `sortedKeys=NO` */
 - (NSString *)jk_URLQueryString;

@@ -18,10 +18,10 @@
 - (void)didInitialize {
     [super didInitialize];
     self.dataSource = @[@"UITableViewCellAccessoryNone",
-                        @"UITableViewCellAccessoryDisclosureIndicator",
-                        @"UITableViewCellAccessoryDetailDisclosureButton",
-                        @"UITableViewCellAccessoryCheckmark",
-                        @"UITableViewCellAccessoryDetailButton"];
+            @"UITableViewCellAccessoryDisclosureIndicator",
+            @"UITableViewCellAccessoryDetailDisclosureButton",
+            @"UITableViewCellAccessoryCheckmark",
+            @"UITableViewCellAccessoryDetailButton"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -36,7 +36,7 @@
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
     cell.textLabel.text = self.dataSource[indexPath.row];
-    cell.accessoryType = (UITableViewCellAccessoryType)indexPath.row;
+    cell.accessoryType = (UITableViewCellAccessoryType) indexPath.row;
     [cell updateCellAppearanceWithIndexPath:indexPath];
     return cell;
 }

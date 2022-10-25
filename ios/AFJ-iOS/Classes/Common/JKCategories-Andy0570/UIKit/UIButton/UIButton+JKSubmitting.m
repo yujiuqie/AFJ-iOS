@@ -18,26 +18,26 @@
 
 - (void)jk_beginSubmitting:(NSString *)title {
     [self jk_endSubmitting];
-    
+
     self.jk_submitting = @YES;
     self.hidden = YES;
-    
+
     self.jk_modalView = [[UIView alloc] initWithFrame:self.frame];
     self.jk_modalView.backgroundColor =
-    [self.backgroundColor colorWithAlphaComponent:0.6];
+            [self.backgroundColor colorWithAlphaComponent:0.6];
     self.jk_modalView.layer.cornerRadius = self.layer.cornerRadius;
     self.jk_modalView.layer.borderWidth = self.layer.borderWidth;
     self.jk_modalView.layer.borderColor = self.layer.borderColor;
-    
+
     CGRect viewBounds = self.jk_modalView.bounds;
     self.jk_spinnerView = [[UIActivityIndicatorView alloc]
-                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     self.jk_spinnerView.tintColor = self.titleLabel.textColor;
-    
+
     CGRect spinnerViewBounds = self.jk_spinnerView.bounds;
     self.jk_spinnerView.frame = CGRectMake(
-                                        15, viewBounds.size.height / 2 - spinnerViewBounds.size.height / 2,
-                                        spinnerViewBounds.size.width, spinnerViewBounds.size.height);
+            15, viewBounds.size.height / 2 - spinnerViewBounds.size.height / 2,
+            spinnerViewBounds.size.width, spinnerViewBounds.size.height);
     self.jk_spinnerTitleLabel = [[UILabel alloc] initWithFrame:viewBounds];
     self.jk_spinnerTitleLabel.textAlignment = NSTextAlignmentCenter;
     self.jk_spinnerTitleLabel.text = title;
@@ -53,10 +53,10 @@
     if (!self.isJKSubmitting.boolValue) {
         return;
     }
-    
+
     self.jk_submitting = @NO;
     self.hidden = NO;
-    
+
     [self.jk_modalView removeFromSuperview];
     self.jk_modalView = nil;
     self.jk_spinnerView = nil;
@@ -69,7 +69,7 @@
 
 - (void)setJk_submitting:(NSNumber *)submitting {
     objc_setAssociatedObject(self, @selector(setJk_submitting:), submitting, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
+
 }
 
 - (UIActivityIndicatorView *)jk_spinnerView {

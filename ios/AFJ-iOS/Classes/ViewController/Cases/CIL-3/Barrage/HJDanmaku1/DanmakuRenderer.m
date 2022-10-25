@@ -17,10 +17,10 @@
     NSMutableArray *_cacheLabels;
 }
 
-@property (nonatomic, weak) UIView *canvas;
-@property (nonatomic, strong) DanmakuRetainer *danmakuLRRetainer;
-@property (nonatomic, strong) DanmakuRetainer *danmakuFTRetainer;
-@property (nonatomic, strong) DanmakuRetainer *danmakuFBRetainer;
+@property(nonatomic, weak) UIView *canvas;
+@property(nonatomic, strong) DanmakuRetainer *danmakuLRRetainer;
+@property(nonatomic, strong) DanmakuRetainer *danmakuFTRetainer;
+@property(nonatomic, strong) DanmakuRetainer *danmakuFBRetainer;
 
 @end
 
@@ -58,7 +58,7 @@
 
 - (void)updateCanvasFrame {
     [self setCanvasFrameSize];
-    
+
     [self.danmakuFTRetainer clear];
     [self.danmakuFBRetainer clear];
     for (NSInteger index = 0; index < _drawArray.count; index++) {
@@ -67,7 +67,7 @@
             danmaku.isShowing = NO;
             [self rendererDanmaku:danmaku];
         }
-        
+
         if (CGRectGetMaxY(danmaku.label.frame) > CGRectGetHeight(self.canvas.frame)) {
             [self removeDanmaku:danmaku];
             [_drawArray removeObjectAtIndex:index];
@@ -148,7 +148,7 @@
         danmaku.retainer = [self getHitDicForType:danmaku.danmakuType];
         [self rendererDanmaku:danmaku];
         if (danmaku.py >= 0) {
-            NSInteger zIndex = danmaku.danmakuType == DanmakuTypeLR ? 0: 10;
+            NSInteger zIndex = danmaku.danmakuType == DanmakuTypeLR ? 0 : 10;
             [self.canvas insertSubview:danmaku.label atIndex:zIndex];
             danmaku.isShowing = YES;
         }
@@ -165,9 +165,12 @@
 
 - (DanmakuRetainer *)getHitDicForType:(DanmakuType)type {
     switch (type) {
-        case DanmakuTypeLR:return _danmakuLRRetainer;
-        case DanmakuTypeFT:return _danmakuFTRetainer;
-        case DanmakuTypeFB:return _danmakuFBRetainer;
+        case DanmakuTypeLR:
+            return _danmakuLRRetainer;
+        case DanmakuTypeFT:
+            return _danmakuFTRetainer;
+        case DanmakuTypeFB:
+            return _danmakuFBRetainer;
     }
 }
 
@@ -188,7 +191,7 @@
         float py = [danmaku.retainer layoutPyForDanmaku:danmaku];
         if (py < 0) {
             if (danmaku.isSelfID) {
-                py = danmaku.danmakuType != DanmakuTypeFB ? 0: (CGRectGetHeight(self.canvas.frame) - self.configuration.paintHeight);
+                py = danmaku.danmakuType != DanmakuTypeFB ? 0 : (CGRectGetHeight(self.canvas.frame) - self.configuration.paintHeight);
             } else {
                 danmaku.remainTime = -1;
             }
@@ -200,7 +203,7 @@
     if (danmaku.isShowing) {
         [UIView animateWithDuration:danmaku.remainTime delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             danmaku.label.frame = CGRectMake(-danmaku.size.width, danmaku.py, danmaku.size.width, danmaku.size.height);
-        } completion:nil];
+        }                completion:nil];
     } else {
         danmaku.label.frame = CGRectMake(danmaku.px, danmaku.py, danmaku.size.width, danmaku.size.height);
     }
@@ -216,7 +219,7 @@
         CALayer *layer = danmaku.label.layer;
         CGRect rect = danmaku.label.frame;
         if (layer.presentationLayer) {
-            rect = ((CALayer *)layer.presentationLayer).frame;
+            rect = ((CALayer *) layer.presentationLayer).frame;
             rect.origin.x -= 1;
         }
         danmaku.label.frame = rect;

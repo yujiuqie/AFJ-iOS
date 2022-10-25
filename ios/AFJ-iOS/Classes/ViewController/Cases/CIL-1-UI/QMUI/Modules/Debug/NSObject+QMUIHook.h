@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSUInteger, QMUIHookOption) {
-    QMUIHookOptionBefore  = 0,
-    QMUIHookOptionAfter   = 1,
+    QMUIHookOptionBefore = 0,
+    QMUIHookOptionAfter = 1,
     QMUIHookOptionInstead = 2,
 };
 
@@ -21,9 +21,11 @@ typedef NS_OPTIONS(NSUInteger, QMUIHookOption) {
 @property(nonatomic, weak) NSObject *instance;
 
 - (void)getReturnValue:(void *)retLoc;
+
 - (void)setReturnValue:(void *)retLoc;
 
 - (void)getArgument:(void *)argumentLocation atIndex:(NSInteger)idx;
+
 - (void)setArgument:(void *)argumentLocation atIndex:(NSInteger)idx;
 
 - (void)invoke;
@@ -32,11 +34,11 @@ typedef NS_OPTIONS(NSUInteger, QMUIHookOption) {
 
 @interface QMUIHookToken : NSObject
 
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) id block;
+@property(nonatomic, assign) SEL selector;
+@property(nonatomic, strong) id block;
 //@property (nonatomic, strong) NSMethodSignature *blockSignature;
-@property (nonatomic, weak) id object;
-@property (nonatomic, assign) QMUIHookOption  options;
+@property(nonatomic, weak) id object;
+@property(nonatomic, assign) QMUIHookOption options;
 
 @end
 
@@ -45,7 +47,9 @@ typedef NS_OPTIONS(NSUInteger, QMUIHookOption) {
 typedef void (^QMUIHookContextBlock)(QMUIHookContext *context);
 
 - (QMUIHookToken *)qmui_hookSelector:(SEL)selector beforeBlock:(QMUIHookContextBlock)block;
+
 - (QMUIHookToken *)qmui_hookSelector:(SEL)selector afterBlock:(QMUIHookContextBlock)block;
+
 - (QMUIHookToken *)qmui_hookSelector:(SEL)selector insteadBlock:(QMUIHookContextBlock)block;
 
 @end
