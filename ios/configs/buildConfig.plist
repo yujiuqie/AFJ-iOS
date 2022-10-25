@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>BUILD_TIME</key>
-	<string>2022-10-24T18:09:56+0800</string>
+	<string>2022-10-25T09:59:35+0800</string>
 	<key>GIT_SHA</key>
-	<string>30cd1dd</string>
+	<string>c94e69d</string>
 	<key>TOTAL_CODE_NUM</key>
-	<string>1147748</string>
+	<string>1135415</string>
 	<key>TOTAL_FILE_NUM</key>
-	<string>13499</string>
+	<string>13401</string>
 	<key>TOTAL_IMAGE_NUM</key>
-	<string>1680</string>
+	<string>1679</string>
 	<key>TOTAL_IMAGE_SIZE</key>
-	<string>82371.3</string>
+	<string>82350</string>
 	<key>{cpp}_CODE_NUM</key>
 	<string>3931</string>
 	<key>{cpp}_FILE_NUM</key>
@@ -23,25 +23,25 @@
 	<key>{c}_FILE_NUM</key>
 	<string>53</string>
 	<key>{h}_CODE_NUM</key>
-	<string>305133</string>
+	<string>303703</string>
 	<key>{h}_FILE_NUM</key>
-	<string>5041</string>
+	<string>5003</string>
 	<key>{java}_CODE_NUM</key>
 	<string>0</string>
 	<key>{java}_FILE_NUM</key>
 	<string>0</string>
 	<key>{js}_CODE_NUM</key>
-	<string>7387</string>
+	<string>1570</string>
 	<key>{js}_FILE_NUM</key>
-	<string>15</string>
+	<string>5</string>
 	<key>{mm}_CODE_NUM</key>
 	<string>14848</string>
 	<key>{mm}_FILE_NUM</key>
 	<string>64</string>
 	<key>{m}_CODE_NUM</key>
-	<string>747483</string>
+	<string>742397</string>
 	<key>{m}_FILE_NUM</key>
-	<string>4177</string>
+	<string>4148</string>
 	<key>{py}_CODE_NUM</key>
 	<string>0</string>
 	<key>{py}_FILE_NUM</key>

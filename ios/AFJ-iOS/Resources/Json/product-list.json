@@ -1737,14 +1737,14 @@
 			{
 				"entrance": "MainH5WidgetViewController",
 				"title": "内嵌 Cordova 页面",
-				"des": "基于 Cordova 的混合开发示例",
+				"des": "基于 Cordova 的混合开发示例(Demo 参考 dev-with-cordova 分支代码)",
 				"topic": [
 					"混合开发"
 				],
 				"technology": {},
 				"date": "2022-10-2 11:42:00",
 				"link": "https://github.com/apache/cordova",
-				"hasDemo": "1"
+				"hasDemo": "0"
 			},
 			{
 				"entrance": "AFJFlutterViewController",

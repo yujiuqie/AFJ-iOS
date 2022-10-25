@@ -23,9 +23,6 @@ target 'AFJ-iOS' do
   
   hawkeye
   
-  pod 'Cordova', '5.1.1'
-  pod 'cordova-plugin-wkwebview-engine'
-  
   pod 'CRToast'
   
   pod 'AlicloudTLog', '1.0.1.1'

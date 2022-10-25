@@ -149,9 +149,6 @@ PODS:
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
-  - Cordova (5.1.1)
-  - cordova-plugin-wkwebview-engine (1.1.0):
-    - Cordova (>= 4.3.0)
   - CrashReporter (10.0.3)
   - CRToast (0.0.9)
   - CYLTabBarController/Core (1.29.2)
@@ -964,8 +961,6 @@ DEPENDENCIES:
   - Charts (~> 4.1.0)
   - CLImageEditor/AllTools
   - CocoaLumberjack (= 3.6.0)
-  - Cordova (= 5.1.1)
-  - cordova-plugin-wkwebview-engine
   - CRToast
   - CYLTabBarController/Lottie (~> 1.29.0)
   - DateTools
@@ -1129,8 +1124,6 @@ SPEC REPOS:
     - Charts
     - CLImageEditor
     - CocoaLumberjack
-    - Cordova
-    - cordova-plugin-wkwebview-engine
     - CRToast
     - CYLTabBarController
     - DateTools
@@ -1297,8 +1290,6 @@ SPEC CHECKSUMS:
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   CLImageEditor: dc3e5358f641368da3a76fc1c744a4c2ceb270ad
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
-  Cordova: 5490a208d8396a5cdbbba24732cb2f8779123f8e
-  cordova-plugin-wkwebview-engine: 38ccefc374b68251e8a0675fec57477dfd18da15
   CrashReporter: f8374b53ef73d1ae23e76331fd648bfc1cd7ff78
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
   CYLTabBarController: db44b5901a28693a8a4279e4721b3aafdd36c178
@@ -1417,6 +1408,6 @@ SPEC CHECKSUMS:
   ZLCollectionViewFlowLayout: fdc09b2b57b510bf285b5c327375d82366927e27
   ZSSRichTextEditor: f58c612e4e981bf10d3cf64980ac5c4b1f5138f4
 
-PODFILE CHECKSUM: 9fa3936f94cfbb29a426d209e87f5dad32222566
+PODFILE CHECKSUM: 66196f6b22078429771356d4b59004c1b44385d5
 
 COCOAPODS: 1.11.3

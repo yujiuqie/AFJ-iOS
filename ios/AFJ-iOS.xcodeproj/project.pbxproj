@@ -759,9 +759,6 @@
 		0996D5B928C6F6AC00680425 /* dog.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0996D5B828C6F6AC00680425 /* dog.gif */; };
 		0996D5BD28C6FAD600680425 /* AFJTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0996D5BC28C6FAD600680425 /* AFJTimerViewController.m */; };
 		09B5760228C0814300F979FA /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09B5760128C0814300F979FA /* AliyunEmasServices-Info.plist */; };
-		09E3326B28C0BFFD00CD1343 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 09E3317D28C0BFFC00CD1343 /* config.xml */; };
-		09E3334E28C0BFFE00CD1343 /* MainH5WidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E3326A28C0BFFD00CD1343 /* MainH5WidgetViewController.m */; };
-		09E3335028C0C00F00CD1343 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 09E3334F28C0C00F00CD1343 /* www */; };
 		09F62ADB28B9C9720093BC6F /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F62AD228B9C9720093BC6F /* red@2x.png */; };
 		09F62ADC28B9C9720093BC6F /* qzone_mark_img_myvoice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F62AD328B9C9720093BC6F /* qzone_mark_img_myvoice@2x.png */; };
 		09F62ADD28B9C9720093BC6F /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F62AD428B9C9720093BC6F /* info@2x.png */; };
@@ -3876,10 +3873,6 @@
 		0996D5BB28C6FAD600680425 /* AFJTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJTimerViewController.h; sourceTree = "<group>"; };
 		0996D5BC28C6FAD600680425 /* AFJTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFJTimerViewController.m; sourceTree = "<group>"; };
 		09B5760128C0814300F979FA /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
-		09E3317D28C0BFFC00CD1343 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
-		09E3326928C0BFFD00CD1343 /* MainH5WidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainH5WidgetViewController.h; sourceTree = "<group>"; };
-		09E3326A28C0BFFD00CD1343 /* MainH5WidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainH5WidgetViewController.m; sourceTree = "<group>"; };
-		09E3334F28C0C00F00CD1343 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		09F62AD228B9C9720093BC6F /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
 		09F62AD328B9C9720093BC6F /* qzone_mark_img_myvoice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qzone_mark_img_myvoice@2x.png"; sourceTree = "<group>"; };
 		09F62AD428B9C9720093BC6F /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
@@ -10678,33 +10671,6 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
-		09E3317A28C0BFD700CD1343 /* Cordova */ = {
-			isa = PBXGroup;
-			children = (
-				09E3317B28C0BFFC00CD1343 /* Cordova */,
-			);
-			path = Cordova;
-			sourceTree = "<group>";
-		};
-		09E3317B28C0BFFC00CD1343 /* Cordova */ = {
-			isa = PBXGroup;
-			children = (
-				09E3317C28C0BFFC00CD1343 /* res */,
-				09E3326928C0BFFD00CD1343 /* MainH5WidgetViewController.h */,
-				09E3326A28C0BFFD00CD1343 /* MainH5WidgetViewController.m */,
-			);
-			name = Cordova;
-			sourceTree = "<group>";
-		};
-		09E3317C28C0BFFC00CD1343 /* res */ = {
-			isa = PBXGroup;
-			children = (
-				09E3334F28C0C00F00CD1343 /* www */,
-				09E3317D28C0BFFC00CD1343 /* config.xml */,
-			);
-			path = res;
-			sourceTree = "<group>";
-		};
 		09F62AD128B9C9720093BC6F /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -11103,7 +11069,6 @@
 		09FB77B428ACD91A00B31F8F /* CIL-4 */ = {
 			isa = PBXGroup;
 			children = (
-				09E3317A28C0BFD700CD1343 /* Cordova */,
 				091A927628B4A94D00B854CC /* Web */,
 			);
 			path = "CIL-4";
@@ -17805,7 +17770,6 @@
 				30806C5E28CDFCB9006C0D30 /* tab_search_animate.json in Resources */,
 				094D8DFC28B8C72E00B15609 /* Sample3.jpg in Resources */,
 				307FF85428DC0A5D00D6C951 /* Single_Alt@2x.png in Resources */,
-				09E3326B28C0BFFD00CD1343 /* config.xml in Resources */,
 				300C809828DEFA550046CE53 /* LSTIndexAdView.xib in Resources */,
 				300C7F9E28DEF1870046CE53 /* CabinCondensed-Bold.ttf in Resources */,
 				06040EDD28DE12F500863329 /* m26@2x.png in Resources */,
@@ -17905,7 +17869,6 @@
 				305C5F0D28E1854500BA908A /* xl_clock_mid.png in Resources */,
 				308E9E8128D17E2E00A423A6 /* FMDBUsageViewController.xib in Resources */,
 				094D8E2228B8CC8C00B15609 /* 4.jpg in Resources */,
-				09E3335028C0C00F00CD1343 /* www in Resources */,
 				094D8F8228B9BE8700B15609 /* ChatInfoTableViewCell.xib in Resources */,
 				09FB77D828ACE4F900B31F8F /* music_library_schema.jpg in Resources */,
 				094D8DB428B8C52800B15609 /* CustomSources13.gif in Resources */,
@@ -19465,7 +19428,6 @@
 				093B0D9628C22C31005634FD /* BMKGlobalLocTabView.m in Sources */,
 				30623BA528D320BD006300DE /* UIImageView+JKLetters.m in Sources */,
 				30092E6328F26BA90058DFDD /* MASExampleAspectFitView.m in Sources */,
-				09E3334E28C0BFFE00CD1343 /* MainH5WidgetViewController.m in Sources */,
 				06CB116128AA0904009BD8D9 /* NSData+Base64.m in Sources */,
 				0941AD4228AE0F2000382C70 /* AFJHTTPStubsViewController.m in Sources */,
 				30C90BC928D9C7680086BBFE /* JFOutlineCell.m in Sources */,
