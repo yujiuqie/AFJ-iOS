@@ -8,12 +8,9 @@
 
 #import "ZFNormalViewController.h"
 #import <ZFPlayer/ZFAVPlayerManager.h>
-#import <ZFPlayer/ZFIJKPlayerManager.h>
 #import <ZFPlayer/ZFPlayerControlView.h>
 #import "ZFNotAutoPlayViewController.h"
-#import <ZFPlayer/UIView+ZFFrame.h>
 #import <ZFPlayer/UIImageView+ZFCache.h>
-#import <ZFPlayer/ZFPlayerConst.h>
 #import "ZFUtilities.h"
 @import AVKit;
 

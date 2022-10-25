@@ -6,8 +6,6 @@
 //
 
 #import "AFJImageEditorViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 #import "AFJImageSampleViewController.h"
 #import "AFJPasterImageViewController.h"
 

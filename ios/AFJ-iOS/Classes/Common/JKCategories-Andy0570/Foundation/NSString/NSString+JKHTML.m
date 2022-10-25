@@ -5,8 +5,6 @@
 //  Copyright 2006-2008 Google Inc.
 //
 
-#import "NSString+JKHTML.h"
-
 typedef struct {
 	__unsafe_unretained NSString *escapeSequence;
 	unichar uchar;

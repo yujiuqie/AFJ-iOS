@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIColor+JKWeb.h"
-
 @implementation UIColor (JKWeb)
 /**
  *  @brief  获取canvas用的颜色字符串

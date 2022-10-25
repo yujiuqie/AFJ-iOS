@@ -6,9 +6,6 @@
 //  Copyright © 2020 Qilin Hu. All rights reserved.
 //
 
-#import <objc/runtime.h>
-#import "UIButton+JKTouchAreaInsets.h"
-
 @implementation UIButton (JKTouchAreaInsets)
 
 - (UIEdgeInsets)jk_touchAreaInsets

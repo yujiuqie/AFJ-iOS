@@ -5,8 +5,6 @@
 //  Copyright (c) 2011 Involved Pty Ltd. All rights reserved.
 //
 
-#import "NSString+JKScore.h"
-
 @implementation NSString (JKScore)
 
 - (CGFloat)jk_scoreAgainst:(NSString *)otherString{

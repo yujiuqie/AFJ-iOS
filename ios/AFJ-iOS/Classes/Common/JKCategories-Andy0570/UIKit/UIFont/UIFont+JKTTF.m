@@ -17,9 +17,6 @@
  *
  */
 
-#import "UIFont+JKTTF.h"
-#import <CoreText/CoreText.h>
-
 @implementation UIFont (JKTTF)
 
 + (UIFont *)jk_fontWithTTFAtURL:(NSURL *)URL size:(CGFloat)size{

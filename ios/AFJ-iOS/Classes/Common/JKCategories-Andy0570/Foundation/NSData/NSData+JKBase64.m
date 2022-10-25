@@ -6,9 +6,7 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSData+JKBase64.h"
 #pragma GCC diagnostic ignored "-Wselector"
-#import <Availability.h>
 
 @implementation NSData (JKBase64)
 /**

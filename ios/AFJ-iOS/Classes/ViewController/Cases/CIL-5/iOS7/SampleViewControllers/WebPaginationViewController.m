@@ -7,7 +7,6 @@
 //
 
 #import "WebPaginationViewController.h"
-#import "SVProgressHUD.h"
 
 
 #define kURL @"http://d.hatena.ne.jp/shu223/touch?smartphone_view=0"

@@ -6,10 +6,6 @@
 //  Copyright (c) 2013 Jonas Budelmann. All rights reserved.
 //
 
-#import "NSLayoutConstraint+MASDebugAdditions.h"
-#import "MASConstraint.h"
-#import "MASLayoutConstraint.h"
-
 @implementation NSLayoutConstraint (MASDebugAdditions)
 
 #pragma mark - description maps

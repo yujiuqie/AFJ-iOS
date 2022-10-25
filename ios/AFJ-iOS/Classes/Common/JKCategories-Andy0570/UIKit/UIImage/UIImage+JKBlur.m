@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIImage+JKBlur.h"
 #import <Accelerate/Accelerate.h>
 @implementation UIImage (JKBlur)
 #pragma mark -

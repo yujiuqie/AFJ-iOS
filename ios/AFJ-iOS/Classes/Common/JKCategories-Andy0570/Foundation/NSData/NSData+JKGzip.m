@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSData+JKGzip.h"
 #import <zlib.h>
 #import <dlfcn.h>
 

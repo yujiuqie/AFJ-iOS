@@ -6,8 +6,6 @@
 //  Copyright © 2015 BarryLee. All rights reserved.
 //
 
-#import "UIButton+JKMiddleAligning.h"
-
 @interface UIImage (MiddleAligning)
 
 @end

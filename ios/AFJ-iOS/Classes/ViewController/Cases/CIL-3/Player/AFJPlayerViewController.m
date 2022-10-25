@@ -6,8 +6,6 @@
 //
 
 #import "AFJPlayerViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 #import "ZFViewController.h"
 #import "ZFNotAutoPlayViewController.h"
 

@@ -6,8 +6,6 @@
 //  Copyright 2010 Michael Waterfall. All rights reserved.
 //
 
-#import "NSDate+JKInternetDateTime.h"
-
 // Always keep the formatter around as they're expensive to instantiate
 static NSDateFormatter *_internetDateTimeFormatter = nil;
 

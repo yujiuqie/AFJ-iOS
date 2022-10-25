@@ -6,8 +6,6 @@
 //
 
 #import "AFJiOS7SamplerViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 #import "BrowseCodeViewController.h"
 
 

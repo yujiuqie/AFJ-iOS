@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleConstantsView.h"
-#import "View+MASShorthandAdditions.h"
 
 @implementation MASExampleConstantsView
 

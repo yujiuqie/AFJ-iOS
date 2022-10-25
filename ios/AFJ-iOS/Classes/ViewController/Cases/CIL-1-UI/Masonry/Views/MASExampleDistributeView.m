@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleDistributeView.h"
-#import "View+MASShorthandAdditions.h"
 
 @implementation MASExampleDistributeView
 

@@ -6,8 +6,6 @@
 //
 //
 
-#import "UIViewController+JKRecursiveDescription.h"
-
 @implementation UIViewController (JKRecursiveDescription)
 
 /**

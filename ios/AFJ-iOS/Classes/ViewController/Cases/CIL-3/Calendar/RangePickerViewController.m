@@ -9,7 +9,6 @@
 #import "RangePickerViewController.h"
 #import "FSCalendar.h"
 #import "RangePickerCell.h"
-#import "FSCalendarExtensions.h"
 
 @interface RangePickerViewController () <FSCalendarDataSource,FSCalendarDelegate,FSCalendarDelegateAppearance>
 

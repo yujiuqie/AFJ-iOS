@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSException+JKTrace.h"
 #include <execinfo.h>
 
 @implementation NSException (JKTrace)

@@ -7,7 +7,6 @@
 //
 
 #import "UIViewController+Example.h"
-#import <objc/runtime.h>
 
 @implementation UIViewController (Example)
 

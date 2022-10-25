@@ -7,9 +7,6 @@
 // Copyright (c) 2011 Charcoal Design
 //
 
-#import "NSObject+JKAutoCoding.h"
-#import <objc/runtime.h>
-
 #pragma GCC diagnostic ignored "-Wgnu"
 
 static NSString *const JKAutocodingException = @"JKAutocodingException";

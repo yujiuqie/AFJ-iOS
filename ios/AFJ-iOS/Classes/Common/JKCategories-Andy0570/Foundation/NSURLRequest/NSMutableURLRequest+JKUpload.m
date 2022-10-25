@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 joyios. All rights reserved.
 //
 
-#import "NSMutableURLRequest+JKUpload.h"
-
 @implementation NSMutableURLRequest (JKUpload)
 
 + (instancetype)jk_requestWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL name:(NSString *)name {

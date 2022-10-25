@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 QMUI Team. All rights reserved.
 //
 
-#import "QDNavigationController.h"
-
 @interface QDNavigationController ()
 
 @end

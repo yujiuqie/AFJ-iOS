@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIResponder+JKChain.h"
-
 @implementation UIResponder (JKChain)
 
 - (NSString *)jk_responderChainDescription

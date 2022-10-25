@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleAspectFitView.h"
-#import "View+MASShorthandAdditions.h"
 
 @interface MASExampleAspectFitView ()
 @property UIView *topView;

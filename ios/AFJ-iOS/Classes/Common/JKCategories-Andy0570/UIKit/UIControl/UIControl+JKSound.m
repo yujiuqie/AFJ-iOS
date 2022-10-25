@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Fred Showell. All rights reserved.
 //
 
-#import "UIControl+JKSound.h"
-#import <objc/runtime.h>
-
 // Key for the dictionary of sounds for control events.
 static char const * const jk_kSoundsKey = "jk_kSoundsKey";
 

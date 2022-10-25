@@ -7,9 +7,7 @@
 //
 
 #import "QRCodeReaderViewController.h"
-#import "SVProgressHUD.h"
 #import "TTMQRCodeReader.h"
-#import <AVFoundation/AVMetadataObject.h>
 
 
 @interface QRCodeReaderViewController ()

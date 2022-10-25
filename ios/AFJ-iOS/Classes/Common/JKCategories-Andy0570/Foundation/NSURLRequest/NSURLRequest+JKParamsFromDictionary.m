@@ -4,8 +4,6 @@
 //
 //  Created by mgibbs on 4/30/12.
 
-#import "NSURLRequest+JKParamsFromDictionary.h"
-
 @implementation NSURLRequest (JKParamsFromDictionary)
 
 +(NSURLRequest *)jk_requestGETWithURL:(NSURL *)url parameters:(NSDictionary *)params {

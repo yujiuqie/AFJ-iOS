@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIControl+JKActionBlocks.h"
-#import <objc/runtime.h>
-
 static const void *UIControlJKActionBlockArray = &UIControlJKActionBlockArray;
 
 @implementation UIControlJKActionBlockWrapper

@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleAnimatedView.h"
-#import "View+MASShorthandAdditions.h"
 
 @interface MASExampleAnimatedView ()
 

@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleScrollView.h"
-#import "View+MASShorthandAdditions.h"
 
 /**
  *  UIScrollView and Auto Layout don't play very nicely together see

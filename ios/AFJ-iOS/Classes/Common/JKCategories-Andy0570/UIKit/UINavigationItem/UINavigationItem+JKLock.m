@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UINavigationItem+JKLock.h"
-
 @implementation UINavigationItem (JKLock)
 - (void)jk_lockRightItem:(BOOL)lock
 {

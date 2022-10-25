@@ -9,7 +9,6 @@
 #import "ZFWeChatControlView.h"
 #import <ZFPlayer/UIView+ZFFrame.h>
 #import <ZFPlayer/UIImageView+ZFCache.h>
-#import <ZFPlayer/ZFUtilities.h>
 #import "ZFLoadingView.h"
 
 @interface ZFWeChatControlView ()

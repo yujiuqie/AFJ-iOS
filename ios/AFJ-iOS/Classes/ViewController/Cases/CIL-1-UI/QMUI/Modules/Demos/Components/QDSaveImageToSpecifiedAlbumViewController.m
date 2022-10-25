@@ -7,7 +7,6 @@
 //
 
 #import "QDSaveImageToSpecifiedAlbumViewController.h"
-#import "QDUIHelper.h"
 
 #define TestImageSize CGSizeMake(160, 160)
 

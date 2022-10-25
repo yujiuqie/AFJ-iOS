@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "MKMapView+JKZoomLevel.h"
-
 #define JK_MERCATOR_OFFSET 268435456
 #define JK_MERCATOR_RADIUS 85445659.44705395
 

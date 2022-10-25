@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIViewController+JKVisible.h"
-
 @implementation UIViewController (JKVisible)
 
 - (BOOL)jk_isVisible {

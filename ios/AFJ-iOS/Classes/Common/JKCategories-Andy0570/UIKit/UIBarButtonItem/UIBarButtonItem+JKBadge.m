@@ -5,8 +5,6 @@
 //  Created by Mike on 2014-05-05.
 //  Copyright (c) 2014 Valnet Inc. All rights reserved.
 //
-#import <objc/runtime.h>
-#import "UIBarButtonItem+JKBadge.h"
 
 NSString const *jk_UIBarButtonItem_badgeKey = @"jk_UIBarButtonItem_badgeKey";
 

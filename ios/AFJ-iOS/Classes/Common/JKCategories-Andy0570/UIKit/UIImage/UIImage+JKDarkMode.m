@@ -6,9 +6,6 @@
 //  Copyright © 2020 Qilin Hu. All rights reserved.
 //
 
-#import "UIImage+JKDarkMode.h"
-#import <objc/message.h>
-
 @implementation UIImage (JKDarkMode)
 
 + (void)d_fixResizableImage {

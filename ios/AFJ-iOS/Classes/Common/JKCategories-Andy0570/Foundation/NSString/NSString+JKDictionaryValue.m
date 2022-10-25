@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 jakey. All rights reserved.
 //
 
-#import "NSString+JKDictionaryValue.h"
-
 @implementation NSString (JKDictionaryValue)
 
 // 原理：NSString -> NSData -> NSDictionary

@@ -7,7 +7,6 @@
 //
 
 #import "BrowseCodeViewController.h"
-#import "SVProgressHUD.h"
 
 
 @interface BrowseCodeViewController ()

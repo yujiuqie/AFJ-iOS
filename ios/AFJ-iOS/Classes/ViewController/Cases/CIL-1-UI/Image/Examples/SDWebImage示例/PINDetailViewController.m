@@ -9,7 +9,6 @@
 #import "PINDetailViewController.h"
 
 #import <PINRemoteImage/PINImageView+PINRemoteImage.h>
-#import <PINRemoteImage/PINRemoteImageCaching.h>
 
 @interface PINDetailViewController ()
 @property(nonatomic, strong) UIImageView *imageView;

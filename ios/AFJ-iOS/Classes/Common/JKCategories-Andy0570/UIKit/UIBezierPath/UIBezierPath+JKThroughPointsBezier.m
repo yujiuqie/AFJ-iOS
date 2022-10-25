@@ -3,9 +3,6 @@
 //  LxThroughPointsBezierDemo
 //
 
-#import "UIBezierPath+JKThroughPointsBezier.h"
-#import <objc/runtime.h>
-
 @implementation UIBezierPath (JKThroughPointsBezier)
 
 - (void)setJk_contractionFactor:(CGFloat)contractionFactor

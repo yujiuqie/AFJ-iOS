@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UILabel+JKAutoSize.h"
-
 @implementation UILabel (JKAutoSize)
 -(UILabel *)jk_resizeLabelHorizontal{
     return [self jk_resizeLabelHorizontal:0];

@@ -10,7 +10,6 @@
 #import "DanmakuBaseModel.h"
 #import "DanmakuRetainer.h"
 #import "DanmakuTime.h"
-#import "DanmakuView.h"
 
 @interface DanmakuRenderer () {
     float _canvasWidth;

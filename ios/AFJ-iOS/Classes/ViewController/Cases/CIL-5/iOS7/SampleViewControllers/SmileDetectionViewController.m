@@ -7,7 +7,6 @@
 //
 
 #import "SmileDetectionViewController.h"
-#import  "SVProgressHUD.h"
 
 
 @interface SmileDetectionViewController ()

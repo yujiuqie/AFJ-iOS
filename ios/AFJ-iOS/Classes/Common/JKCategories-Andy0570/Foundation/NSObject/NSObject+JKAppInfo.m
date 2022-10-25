@@ -6,9 +6,6 @@
 //  Copyright © 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSObject+JKAppInfo.h"
-#import <sys/utsname.h>
-
 @implementation NSObject (JKAppInfo)
 
 -(NSString *)jk_version{

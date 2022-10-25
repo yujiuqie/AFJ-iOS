@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSData+JKEncrypt.h"
-
 
 @implementation NSData (JKEncrypt)
 static void jk_FixKeyLengths(CCAlgorithm algorithm, NSMutableData * keyData, NSMutableData * ivData)

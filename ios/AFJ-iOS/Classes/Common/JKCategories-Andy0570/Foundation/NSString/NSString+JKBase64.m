@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSString+JKBase64.h"
-#import "NSData+JKBase64.h"
-
 @implementation NSString (Base64)
 
 + (NSString *)jk_stringWithBase64EncodedString:(NSString *)string

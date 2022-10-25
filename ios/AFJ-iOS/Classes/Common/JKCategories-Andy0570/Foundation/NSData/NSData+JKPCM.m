@@ -6,8 +6,6 @@
 //  Copyright © 2016年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSData+JKPCM.h"
-
 @implementation NSData (JKPCM)
 
 /**

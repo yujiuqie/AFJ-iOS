@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIWindow+JKHierarchy.h"
-
 @implementation UIWindow (JKHierarchy)
 
 - (UIViewController*)jk_topMostController {

@@ -6,8 +6,6 @@
 //
 
 #import "AFJCalendarViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 
 @interface AFJCalendarViewController()
 

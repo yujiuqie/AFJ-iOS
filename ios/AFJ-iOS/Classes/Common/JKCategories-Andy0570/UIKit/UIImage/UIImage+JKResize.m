@@ -2,10 +2,6 @@
 // Created by Trevor Harmon on 8/5/09.
 //
 
-#import "UIImage+JKResize.h"
-#import "UIImage+JKRoundedCorner.h"
-#import "UIImage+JKAlpha.h"
-
 // Private helper methods
 @interface UIImage (ResizePrivateMethods)
 - (UIImage *)jk_resizedImage:(CGSize)newSize

@@ -8,7 +8,6 @@
 
 #import "QDHookViewController.h"
 #import "Aspects.h"
-#import "Aspects.h"
 #import "NSObject+QMUIHook.h"
 
 @interface QDObjectA : NSObject

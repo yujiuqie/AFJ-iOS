@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIImage+JKColor.h"
-
 @implementation UIImage (JKColor)
 
 + (UIImage *)jk_imageWithColor:(UIColor *)color {

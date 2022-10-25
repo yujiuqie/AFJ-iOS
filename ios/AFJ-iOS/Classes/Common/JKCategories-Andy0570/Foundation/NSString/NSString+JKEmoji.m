@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Valerio Mazzeo. All rights reserved.
 //
 
-#import "NSString+JKEmoji.h"
-
 @implementation NSString (JKEmoji)
 
 static NSDictionary * jk_s_unicodeToCheatCodes = nil;

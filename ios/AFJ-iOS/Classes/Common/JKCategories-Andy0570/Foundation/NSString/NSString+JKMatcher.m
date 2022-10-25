@@ -5,8 +5,6 @@
 //  Copyright (c) 2015 Damien Romito. All rights reserved.
 //
 
-#import "NSString+JKMatcher.h"
-
 @implementation NSString(JKMatcher)
 
 - (NSArray *)jk_matchWithRegex:(NSString *)regex

@@ -5,8 +5,6 @@
 //  Copyright (c) 2012 Ethan Horger. All rights reserved.
 //
 
-#import "NSFileHandle+JKReadLine.h"
-
 @implementation NSFileHandle (JKReadLine)
 
 - (NSData *)jk_readLineWithDelimiter:(NSString *)theDelimiter

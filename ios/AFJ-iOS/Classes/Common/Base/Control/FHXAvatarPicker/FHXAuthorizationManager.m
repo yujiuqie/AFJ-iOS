@@ -7,7 +7,6 @@
 //
 
 #import "FHXAuthorizationManager.h"
-#import <Photos/Photos.h>
 
 @implementation FHXAuthorizationManager
 

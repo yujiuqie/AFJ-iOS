@@ -6,9 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSObject+JKAssociatedObject.h"
-#import  <objc/runtime.h>
-
 @implementation NSObject (JKAssociatedObject)
 
 - (void)jk_associateValue:(id)value withKey:(void *)key {

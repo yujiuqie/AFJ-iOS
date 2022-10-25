@@ -9,7 +9,6 @@
 #import "DIYExampleViewController.h"
 #import "FSCalendar.h"
 #import "DIYCalendarCell.h"
-#import "FSCalendarExtensions.h"
 
 @interface DIYExampleViewController () <FSCalendarDataSource,FSCalendarDelegate,FSCalendarDelegateAppearance>
 

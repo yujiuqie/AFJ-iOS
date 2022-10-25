@@ -8,9 +8,6 @@
 
 #import "ZFCollectionViewListController.h"
 #import "ZFCollectionViewCell.h"
-#import "ZFTableData.h"
-#import <ZFPlayer/ZFAVPlayerManager.h>
-#import <ZFPlayer/ZFPlayerControlView.h>
 #import "ZFDouYinViewController.h"
 
 static NSString *const reuseIdentifier = @"collectionViewCell";

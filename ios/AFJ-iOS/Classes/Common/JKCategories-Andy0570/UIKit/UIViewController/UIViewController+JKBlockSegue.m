@@ -25,9 +25,6 @@
  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "UIViewController+JKBlockSegue.h"
-#import <objc/runtime.h>
-
 static const void *UIViewControllerDictionaryBlockKey = &UIViewControllerDictionaryBlockKey;
 
 @implementation UIViewController (JKBlockSegue)

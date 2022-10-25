@@ -5,7 +5,6 @@
 //  Created by Nick Tymchenko on 1/20/14.
 //
 
-#import "MASConstraint.h"
 #import "MASConstraint+Private.h"
 
 #define MASMethodNotImplemented() \

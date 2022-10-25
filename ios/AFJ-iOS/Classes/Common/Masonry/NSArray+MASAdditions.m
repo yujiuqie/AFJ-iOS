@@ -6,9 +6,6 @@
 //
 //
 
-#import "NSArray+MASAdditions.h"
-#import "View+MASAdditions.h"
-
 @implementation NSArray (MASAdditions)
 
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {

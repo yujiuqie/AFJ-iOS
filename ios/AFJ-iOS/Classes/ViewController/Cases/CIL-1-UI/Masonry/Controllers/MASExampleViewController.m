@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleViewController.h"
-#import "MASExampleBasicView.h"
 
 @interface MASExampleViewController ()
 

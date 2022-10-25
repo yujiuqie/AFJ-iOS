@@ -6,9 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIViewController+JKBackButtonTouched.h"
-#import <objc/runtime.h>
-
 static const void *JKBackButtonHandlerKey = &JKBackButtonHandlerKey;
 
 @implementation UIViewController (JKBackButtonTouched)

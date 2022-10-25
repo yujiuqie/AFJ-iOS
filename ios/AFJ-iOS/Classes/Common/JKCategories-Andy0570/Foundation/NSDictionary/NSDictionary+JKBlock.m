@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSDictionary+JKBlock.h"
-
 @implementation NSDictionary (JKBlock)
 
 - (void)jk_each:(void (^)(id k, id v))block {

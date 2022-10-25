@@ -8,7 +8,6 @@
 
 #import "ActivityTrackingViewController.h"
 #import <CoreMotion/CoreMotion.h>
-#import "SVProgressHUD.h"
 
 
 @interface ActivityTrackingViewController ()

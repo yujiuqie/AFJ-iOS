@@ -2,9 +2,6 @@
 // Created by Trevor Harmon on 9/20/09.
 //
 
-#import "UIImage+JKRoundedCorner.h"
-#import "UIImage+JKAlpha.h"
-
 // Private helper methods
 @interface UIImage (RoundedCornerPrivateMethods)
 - (void)jk_addRoundedRectToPath:(CGRect)rect context:(CGContextRef)context ovalWidth:(CGFloat)ovalWidth ovalHeight:(CGFloat)ovalHeight;

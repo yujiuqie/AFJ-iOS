@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Milot Shala. All rights reserved.
 //
 
-#import "NSNotificationCenter+JKMainThread.h"
-
 @implementation NSNotificationCenter (JKMainThread)
 
 - (void)jk_postNotificationOnMainThread:(NSNotification *)notification

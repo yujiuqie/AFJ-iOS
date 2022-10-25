@@ -5,8 +5,6 @@
 // Copyright (c) 2012 Mel Sampat.
 //
 
-#import "NSDate+JKReporting.h"
-
 // Private Helper functions
 @interface NSDate (Private)
 + (void)jk_zeroOutTimeComponents:(NSDateComponents **)components;

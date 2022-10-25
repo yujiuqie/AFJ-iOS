@@ -7,7 +7,6 @@
 //
 
 #import "QDImagePickerExampleViewController.h"
-#import "QDNavigationController.h"
 
 #define MaxSelectedImageCount 9
 #define NormalImagePickingTag 1045

@@ -6,8 +6,6 @@
 //
 
 #import "AFJARViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 #import "ARViewController.h"
 
 @interface AFJARViewController()

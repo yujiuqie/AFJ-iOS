@@ -7,7 +7,6 @@
 //
 
 #import "SpeechSynthesisViewController.h"
-#import <AVFoundation/AVFoundation.h>
 
 
 @interface SpeechSynthesisViewController ()

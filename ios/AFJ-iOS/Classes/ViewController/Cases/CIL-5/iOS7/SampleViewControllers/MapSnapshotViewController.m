@@ -7,8 +7,6 @@
 //
 
 #import "MapSnapshotViewController.h"
-#import <MapKit/MapKit.h>
-#import "SVProgressHUD.h"
 
 
 @interface MapSnapshotViewController ()

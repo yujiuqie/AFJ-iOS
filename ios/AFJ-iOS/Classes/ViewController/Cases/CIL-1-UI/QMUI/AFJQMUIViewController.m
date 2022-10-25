@@ -6,12 +6,9 @@
 //
 
 #import "AFJQMUIViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 #import "QDUIKitViewController.h"
 #import "QDComponentsViewController.h"
 #import "QDLabViewController.h"
-#import "QDAboutViewController.h"
 
 @interface AFJQMUIViewController()
 

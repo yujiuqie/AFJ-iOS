@@ -7,7 +7,6 @@
 //
 
 #import "RangePickerCell.h"
-#import "FSCalendarExtensions.h"
 
 @implementation RangePickerCell
 

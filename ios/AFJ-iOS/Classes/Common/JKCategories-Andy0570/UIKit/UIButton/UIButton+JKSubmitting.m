@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 foxsofter. All rights reserved.
 //
 
-#import "UIButton+JKSubmitting.h"
-#import  <objc/runtime.h>
-
 @interface UIButton ()
 
 @property(nonatomic, strong) UIView *jk_modalView;

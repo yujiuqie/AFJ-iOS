@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleSidesView.h"
-#import "View+MASShorthandAdditions.h"
 
 @implementation MASExampleSidesView
 

@@ -7,7 +7,6 @@
 //
 
 #import "QRCodeViewController.h"
-#import <CoreImage/CoreImage.h>
 
 
 #define kText @"http://d.hatena.ne.jp/shu223/"

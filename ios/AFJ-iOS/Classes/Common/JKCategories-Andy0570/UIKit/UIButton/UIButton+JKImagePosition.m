@@ -6,8 +6,6 @@
 //  Copyright © 2016年 luxiaoming. All rights reserved.
 //
 
-#import "UIButton+JKImagePosition.h"
-
 @implementation UIButton (JKImagePosition)
 
 - (void)jk_setImagePosition:(JKImagePosition)postion spacing:(CGFloat)spacing {

@@ -22,7 +22,6 @@
 // SOFTWARE.
 
 #import "UICollectionView+ARDynamicCacheHeightLayoutCell.h"
-#import <objc/runtime.h>
 
 typedef NS_ENUM(NSUInteger, ARDynamicSizeCaculateType) {
   ARDynamicSizeCaculateTypeSize = 0,

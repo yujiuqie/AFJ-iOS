@@ -6,9 +6,6 @@
 //  Copyright 2010 Peter Steinberger. All rights reserved.
 //
 
-#import "NSObject+JKBlocks.h"
-#import <dispatch/dispatch.h>
-
 static inline dispatch_time_t jk_dTimeDelay(NSTimeInterval time) {
     int64_t delta = (int64_t)(NSEC_PER_SEC * time);
     return dispatch_time(DISPATCH_TIME_NOW, delta);

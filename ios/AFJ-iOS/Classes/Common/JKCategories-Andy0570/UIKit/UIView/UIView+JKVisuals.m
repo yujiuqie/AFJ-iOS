@@ -5,8 +5,6 @@
 //  Copyright 2011 boxedfolder.com. All rights reserved.
 //
 
-#import "UIView+JKVisuals.h"
-
 // Degree -> Rad
 #define jk_degToRad(x) (M_PI * (x) / 180.0)
 

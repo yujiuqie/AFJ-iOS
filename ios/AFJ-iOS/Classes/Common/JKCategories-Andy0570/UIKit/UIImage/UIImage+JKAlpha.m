@@ -3,8 +3,6 @@
 // Free for personal or commercial use, with or without modification.
 // No warranty is expressed or implied.
 
-#import "UIImage+JKAlpha.h"
-
 // Private helper methods
 @interface UIImage (JKAlphaPrivateMethods)
 - (CGImageRef)jk_newBorderMask:(NSUInteger)borderSize size:(CGSize)size;

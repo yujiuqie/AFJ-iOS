@@ -6,8 +6,6 @@
 //
 
 #import "AFJClockViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 #import "AFJClockSampleViewController.h"
 
 @interface AFJClockViewController()

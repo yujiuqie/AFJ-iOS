@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UINavigationController+JKStackManager.h"
-
 @implementation UINavigationController (JKStackManager)
 /**
  *  @brief  寻找Navigation中的某个viewcontroler对象

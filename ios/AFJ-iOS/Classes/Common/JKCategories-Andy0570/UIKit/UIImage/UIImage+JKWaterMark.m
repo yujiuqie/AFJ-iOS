@@ -6,8 +6,6 @@
 //  Copyright © 2021 www.skyfox.org. All rights reserved.
 //
 
-#import "UIImage+JKWaterMark.h"
-
 @implementation UIImage (JKWaterMark)
 
 // 图片添加水印、文字

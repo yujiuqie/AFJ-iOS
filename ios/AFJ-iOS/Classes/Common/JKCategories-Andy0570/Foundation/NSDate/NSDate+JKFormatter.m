@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSDate+JKFormatter.h"
-
 @implementation NSDate (JKFormatter)
 +(NSDateFormatter *)jk_formatter {
     

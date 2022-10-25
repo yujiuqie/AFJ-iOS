@@ -2,9 +2,6 @@
 // UINavigationItem+Loading.m
 //
 
-#import "UINavigationItem+JKLoading.h"
-#import <objc/runtime.h>
-
 static void *JKLoaderPositionAssociationKey = &JKLoaderPositionAssociationKey;
 static void *JKSubstitutedViewAssociationKey = &JKSubstitutedViewAssociationKey;
 

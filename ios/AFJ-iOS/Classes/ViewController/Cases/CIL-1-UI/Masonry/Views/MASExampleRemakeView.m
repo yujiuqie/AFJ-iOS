@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleRemakeView.h"
-#import "View+MASShorthandAdditions.h"
 
 @interface MASExampleRemakeView ()
 

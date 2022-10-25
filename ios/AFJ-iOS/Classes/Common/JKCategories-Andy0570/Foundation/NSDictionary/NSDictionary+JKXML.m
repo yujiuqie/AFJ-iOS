@@ -6,8 +6,6 @@
 //  Copyright © 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSDictionary+JKXML.h"
-
 @implementation NSDictionary (JKXML)
 
 - (NSString *)jk_XMLString {

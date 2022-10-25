@@ -6,8 +6,6 @@
 //  Copyright (C) 2011-2020 by Steinlogic Consulting And Training Pte Ltd.
 //
 
-#import "NSObject+JKBlockTimer.h"
-
 
 @implementation NSObject (JKBlockTimer)
 

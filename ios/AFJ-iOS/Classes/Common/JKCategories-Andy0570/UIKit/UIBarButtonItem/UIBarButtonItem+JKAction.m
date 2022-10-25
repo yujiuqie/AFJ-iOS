@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIBarButtonItem+JKAction.h"
-#import <objc/runtime.h>
-
 char * const UIBarButtonItemJKActionBlock = "UIBarButtonItemJKActionBlock";
 
 @implementation UIBarButtonItem (JKAction)

@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 曾宪华 开发团队(http://iyilunba.com ) 本人QQ:543413507. All rights reserved.
 //
 
-#import "NSString+JKStringPages.h"
-
 @implementation NSString (JKStringPages)
 
 - (NSArray *)jk_getPagesOfString:(NSString *)cache

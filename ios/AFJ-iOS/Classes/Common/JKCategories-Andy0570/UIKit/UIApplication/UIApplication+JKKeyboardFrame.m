@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIApplication+JKKeyboardFrame.h"
-
 @implementation UIApplication (KeyboardFrame)
 static CGRect _jk_keyboardFrame = (CGRect){ (CGPoint){ 0.0f, 0.0f }, (CGSize){ 0.0f, 0.0f } };
 

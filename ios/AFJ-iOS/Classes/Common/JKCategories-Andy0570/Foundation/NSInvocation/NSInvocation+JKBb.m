@@ -6,12 +6,6 @@
 //  Copyright (c) 2015 birdSound. All rights reserved.
 //
 
-#import "NSInvocation+JKBb.h"
-#import <objc/runtime.h>
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import <QuartzCore/QuartzCore.h>
-
 @implementation NSInvocation (Bb)
 
 + (NSString*)encodeType:(char *)encodedType

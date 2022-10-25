@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 jakey. All rights reserved.
 //
 
-#import "UITableViewCell+JKNIB.h"
-
 @implementation UITableViewCell (JKNIB)
 
 + (UINib *)jk_nib{

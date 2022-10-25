@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSDateFormatter+JKMake.h"
-
 @implementation NSDateFormatter (JKMake)
 
 +(NSDateFormatter *)jk_dateFormatterWithFormat:(NSString *)format {

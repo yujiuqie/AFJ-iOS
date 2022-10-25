@@ -6,8 +6,6 @@
 //  Copyright (c) 2011 PT Software Solutions. All rights reserved.
 //
 
-#import "UIView+JKAnimation.h"
-
 
 // Very helpful function
 

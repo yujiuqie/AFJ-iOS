@@ -6,9 +6,6 @@
 //  Copyright © 2015年 Jakey. All rights reserved.
 //
 
-#import "NSObject+JKReflection.h"
-#import <objc/runtime.h>
-
 @implementation NSObject (JKReflection)
 
 - (NSString *)jk_className

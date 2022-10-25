@@ -5,8 +5,6 @@
 //  Copyright (c) 2014 Alexey Aleshkov. All rights reserved.
 //
 
-#import "NSNumber+JKCGFloat.h"
-
 @implementation NSNumber (JKCGFloat)
 
 - (CGFloat)jk_CGFloatValue

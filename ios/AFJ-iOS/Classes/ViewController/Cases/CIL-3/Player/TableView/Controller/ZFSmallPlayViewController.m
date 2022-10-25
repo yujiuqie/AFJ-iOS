@@ -9,13 +9,9 @@
 #import "ZFSmallPlayViewController.h"
 #import <ZFPlayer/ZFAVPlayerManager.h>
 #import <ZFPlayer/ZFPlayerControlView.h>
-#import <ZFPlayer/ZFIJKPlayerManager.h>
-#import <ZFPlayer/UIView+ZFFrame.h>
-#import <ZFPlayer/ZFPlayerConst.h>
 #import "ZFPlayerDetailViewController.h"
 #import "ZFUtilities.h"
 #import "ZFTableViewCell.h"
-#import "ZFTableData.h"
 #import "ZFAutoPlayerViewController.h"
 
 static NSString *kIdentifier = @"kIdentifier";

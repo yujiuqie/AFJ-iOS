@@ -6,10 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSString+JKEncrypt.h"
-#import "NSData+JKEncrypt.h"
-#import "NSData+JKBase64.h"
-
 @implementation NSString (JKEncrypt)
 
 -(NSString*)jk_encryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv {

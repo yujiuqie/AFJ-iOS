@@ -5,9 +5,6 @@
 //  Copyright (c) 2013 Walter Da Col (walter.dacol<at>gmail.com)
 //
 
-#import "UIFont+JKCustomLoader.h"
-#import <CoreText/CoreText.h>
-
 // Feature and deployment target check
 #if  ! __has_feature(objc_arc)
 #error This file must be compiled with ARC.

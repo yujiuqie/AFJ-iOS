@@ -10,7 +10,6 @@
 #import "ZLCollectionViewHorzontalLayout.h"
 #import "ZLMultilineTextCell.h"
 #import "VerticalHeaderView.h"
-#import "UICollectionView+ARDynamicCacheHeightLayoutCell.h"
 
 @interface ZLHorzontalViewController ()
 <UICollectionViewDelegate,UICollectionViewDataSource,ZLCollectionViewBaseFlowLayoutDelegate>

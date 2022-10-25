@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Snarkbots. All rights reserved.
 //
 
-#import "UIViewController+JKStoreKit.h"
-#import <objc/runtime.h>
 #import <StoreKit/StoreKit.h>
 
 static NSString * const kAffiliateTokenKey = @"at";

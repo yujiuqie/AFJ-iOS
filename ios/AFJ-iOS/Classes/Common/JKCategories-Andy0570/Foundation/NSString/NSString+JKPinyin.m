@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Snowball. All rights reserved.
 //
 
-#import "NSString+JKPinyin.h"
-
 @implementation NSString (JKPinyin)
 
 - (NSString *)jk_pinyinWithPhoneticSymbol{

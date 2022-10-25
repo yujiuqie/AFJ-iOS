@@ -7,7 +7,6 @@
 //
 
 #import "MyTestReusableView2.h"
-#import "UIImageView+WebCache.h"
 
 @interface MyTestReusableView2()
 

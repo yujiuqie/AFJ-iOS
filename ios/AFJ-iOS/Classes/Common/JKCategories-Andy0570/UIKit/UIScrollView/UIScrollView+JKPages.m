@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIScrollView+JKPages.h"
-
 @implementation UIScrollView (JKPages)
 - (NSInteger)jk_pages{
     NSInteger pages = self.contentSize.width/self.frame.size.width;

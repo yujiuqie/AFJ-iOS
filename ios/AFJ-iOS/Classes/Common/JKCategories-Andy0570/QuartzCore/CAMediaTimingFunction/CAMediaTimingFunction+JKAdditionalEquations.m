@@ -5,8 +5,6 @@
 //  Copyright (c) 2012 boxedfolder.com. All rights reserved.
 //
 
-#import "CAMediaTimingFunction+JKAdditionalEquations.h"
-
 @implementation CAMediaTimingFunction (JKAdditionalEquations)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

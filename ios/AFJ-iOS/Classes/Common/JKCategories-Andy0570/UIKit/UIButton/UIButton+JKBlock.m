@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIButton+JKBlock.h"
-#import <objc/runtime.h>
 static const void *jk_UIButtonBlockKey = &jk_UIButtonBlockKey;
 
 @implementation UIButton (jk_Block)

@@ -6,9 +6,6 @@
 //  Copyright © 2015 deput. All rights reserved.
 //
 
-#import "NSInvocation+JKBlock.h"
-#import <objc/runtime.h>
-
 struct Block_literal_1 {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
     int flags;

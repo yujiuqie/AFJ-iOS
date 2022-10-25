@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 Croath. All rights reserved.
 //
 
-#import "UIImage+JKBetterFace.h"
-
 #define GOLDEN_RATIO (0.618)
 
 #ifdef BF_DEBUG

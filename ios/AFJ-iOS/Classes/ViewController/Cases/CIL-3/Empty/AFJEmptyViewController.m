@@ -7,9 +7,6 @@
 
 #import "AFJEmptyViewController.h"
 #import "AFJEmptyDetailTableViewController.h"
-#import "Application.h"
-#import "UIColor+Hexadecimal.h"
-#import "UIScrollView+EmptyDataSet.h"
 
 @interface AFJEmptyViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 

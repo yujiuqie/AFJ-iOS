@@ -5,9 +5,6 @@
 //  Copyright (c) 2015 Jeremiah Poisson
 //
 
-#import "UIButton+JKIndicator.h"
-#import <objc/runtime.h>
-
 // Associative reference keys.
 static NSString *const jk_IndicatorViewKey = @"indicatorView";
 static NSString *const jk_ButtonTextObjectKey = @"buttonTextObject";

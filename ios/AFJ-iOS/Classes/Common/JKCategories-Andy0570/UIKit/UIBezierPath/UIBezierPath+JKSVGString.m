@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIBezierPath+JKSVGString.h"
-
 static void JKSVGApplier(void* info, const CGPathElement* element);
 
 @implementation UIBezierPath (ZTKit)

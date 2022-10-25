@@ -7,9 +7,6 @@
 
 #import "AFJBlurViewController.h"
 #import "FXBlurView.h"
-#import <QuartzCore/QuartzCore.h>
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 
 @interface AFJBlurViewController()
 

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
-#import "UIApplication+JKNetworkActivityIndicator.h"
 #import <libkern/OSAtomic.h>
 
 @implementation UIApplication (JKNetworkActivityIndicator)

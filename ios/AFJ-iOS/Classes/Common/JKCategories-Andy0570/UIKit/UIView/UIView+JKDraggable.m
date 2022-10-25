@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Fancy Pixel. All rights reserved.
 //
 
-#import "UIView+JKDraggable.h"
-#import <objc/runtime.h>
-
 @implementation UIView (JKDraggable)
 
 - (void)setJk_panGesture:(UIPanGestureRecognizer*)panGesture

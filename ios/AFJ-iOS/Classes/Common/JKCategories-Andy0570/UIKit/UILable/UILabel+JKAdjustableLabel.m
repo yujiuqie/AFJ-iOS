@@ -17,8 +17,6 @@
 //  Hack around and enjoy ;)
 //
 
-#import "UILabel+JKAdjustableLabel.h"
-
 @implementation UILabel (JKAdjustableLabel)
 
 /// 本扩展的核心方法，如果 minSize 被设置为 CGSizeZero，那么它将被忽略

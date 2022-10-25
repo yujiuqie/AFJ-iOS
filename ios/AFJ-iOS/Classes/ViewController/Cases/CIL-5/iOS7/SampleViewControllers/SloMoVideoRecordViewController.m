@@ -7,7 +7,6 @@
 //
 
 #import "SloMoVideoRecordViewController.h"
-#import "SVProgressHUD.h"
 #import "TTMCaptureManager.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 

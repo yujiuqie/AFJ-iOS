@@ -6,9 +6,6 @@
 //  Copyright © 2016年 www.skyfox.org. All rights reserved.
 //
 
-#import "UITextView+JKInputLimit.h"
-#import <objc/runtime.h>
-
 static const void *JKTextViewInputLimitMaxLength = &JKTextViewInputLimitMaxLength;
 
 @implementation UITextView (JKInputLimit)

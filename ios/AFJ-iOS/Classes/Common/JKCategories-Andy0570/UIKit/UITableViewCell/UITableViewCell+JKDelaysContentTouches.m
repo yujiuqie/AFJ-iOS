@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Nicholas Hodapp. All rights reserved.
 //
 
-#import "UITableViewCell+JKDelaysContentTouches.h"
-
 @implementation UITableViewCell (JKDelaysContentTouches)
 
 - (UIScrollView*) jk_scrollView

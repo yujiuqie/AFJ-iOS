@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSArray+JKSafeAccess.h"
-
 @implementation NSArray (JKSafeAccess)
 
 - (id)jk_objectAtIndex:(NSUInteger)index {

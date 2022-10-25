@@ -6,8 +6,6 @@
 //
 
 #import "AFJBarrageViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 #import "VideoDemoViewController.h"
 #import "LiveDemoViewController.h"
 

@@ -7,8 +7,6 @@
 //  Copyright (c) 2011 Charcoal Design
 //
 
-#import "UIImage+JKFXImage.h"
-
 @implementation UIImage (JKFXImage)
 
 - (UIImage *)jk_imageCroppedToRect:(CGRect)rect

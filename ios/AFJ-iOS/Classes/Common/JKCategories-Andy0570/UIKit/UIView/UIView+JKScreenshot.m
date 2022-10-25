@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIView+JKScreenshot.h"
-#import <QuartzCore/QuartzCore.h>
-
 @implementation UIView (JKScreenshot)
 
 - (UIImage *)jk_screenshot {

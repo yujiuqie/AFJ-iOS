@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Adi Li. All rights reserved.
 //
 
-#import "NSDecimalNumber+JKCalculatingByString.h"
-
 typedef enum {
     tokenTypeFirstLoop = -1,
     tokenTypeEndOfEquation,

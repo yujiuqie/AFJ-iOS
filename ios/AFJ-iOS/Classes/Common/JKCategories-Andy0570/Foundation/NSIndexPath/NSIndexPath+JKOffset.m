@@ -5,8 +5,6 @@
 //  Copyright 2015 Nicolas Goutaland. All rights reserved.
 //
 
-#import "NSIndexPath+JKOffset.h"
-
 @implementation NSIndexPath (JKOffset)
 
 - (NSIndexPath *)jk_previousRow {

@@ -7,7 +7,6 @@
 
 #import "AFJAdvertiseViewController.h"
 #import "OnboardingViewController.h"
-#import "OnboardingContentViewController.h"
 
 @interface AFJAdvertiseViewController ()
 

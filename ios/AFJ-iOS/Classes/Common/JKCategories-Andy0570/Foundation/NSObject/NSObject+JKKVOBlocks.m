@@ -5,9 +5,6 @@
 //  http://schwiiz.org/
 //
 
-#import "NSObject+JKKVOBlocks.h"
-#import <objc/runtime.h>
-
 @implementation NSObject (JKKVOBlocks)
 
 -(void)jk_addObserver:(NSObject *)observer

@@ -7,7 +7,6 @@
 
 #import "AFJPasterImageViewController.h"
 #import "YBPasterImageVC.h"
-#import "UIViewController+Swizzling.h"
 
 @interface AFJPasterImageViewController ()
 

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
 
-#import "MASCompositeConstraint.h"
 #import "MASConstraint+Private.h"
 
 @interface MASCompositeConstraint () <MASConstraintDelegate>

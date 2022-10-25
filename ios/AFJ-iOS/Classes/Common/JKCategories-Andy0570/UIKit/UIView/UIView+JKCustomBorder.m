@@ -6,8 +6,6 @@
 //  Copyright © 2015年 luomeng. All rights reserved.
 //
 
-#import "UIView+JKCustomBorder.h"
-
 typedef NS_ENUM(NSInteger, EdgeType) {
     TopBorder = 10000,
     LeftBorder = 20000,

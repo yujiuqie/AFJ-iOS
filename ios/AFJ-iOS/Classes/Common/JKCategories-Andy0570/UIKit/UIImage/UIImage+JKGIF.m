@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "UIImage+JKGIF.h"
-#import <ImageIO/ImageIO.h>
-
 @implementation UIImage (JKGIF)
 
 + (UIImage *)jk_animatedGIFWithData:(NSData *)data {

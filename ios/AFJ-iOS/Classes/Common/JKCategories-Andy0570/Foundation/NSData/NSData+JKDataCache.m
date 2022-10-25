@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 GSD. All rights reserved.
 //
 
-#import "NSData+JKDataCache.h"
 #import <CommonCrypto/CommonDigest.h>
 
 #define kSDMaxCacheFileAmount 100

@@ -26,8 +26,6 @@
  or implied, of Dmitry Stadnik.
 */
 
-#import "UINavigationController+JKTransitions.h"
-
 @implementation UINavigationController (JKTransitions)
 
 - (void)jk_pushViewController:(UIViewController *)controller withTransition:(UIViewAnimationTransition)transition {

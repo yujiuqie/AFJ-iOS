@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "MKMapView+JKBetterMaps.h"
-
 @implementation MKMapView (JKBetterMaps)
 
 - (void)jk_zoomToFitAnnotationsAnimated:(BOOL)animated {

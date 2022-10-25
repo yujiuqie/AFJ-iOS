@@ -8,7 +8,6 @@
 
 #import "DynamicTweenVC.h"
 #import "PMTweenUnit.h"
-#import "PMTweenGroup.h"
 #import "PMTweenEasingQuadratic.h"
 
 @interface DynamicTweenVC ()

@@ -6,8 +6,6 @@
 //  Released under the MIT license.
 //
 
-#import "MKMapView+JKMoveLogo.h"
-
 @implementation MKMapView (JKMoveLogo)
 
 - (void)jk_moveLogoByOffset:(CGPoint)offset {

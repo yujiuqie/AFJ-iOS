@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIScreen+JKFrame.h"
-
 @implementation UIScreen (JKFrame)
 
 + (CGSize)jk_size {

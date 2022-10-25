@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleArrayView.h"
-#import "View+MASShorthandAdditions.h"
 
 static CGFloat const kArrayExampleIncrement = 10.0;
 

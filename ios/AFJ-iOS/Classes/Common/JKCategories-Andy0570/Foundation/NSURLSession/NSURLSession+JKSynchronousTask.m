@@ -4,8 +4,6 @@
 //  Copyright (c) 2015 Florian Schliep (http://floschliep.com/)
 //
 
-#import "NSURLSession+JKSynchronousTask.h"
-
 @implementation NSURLSession (JKSynchronousTask)
 
 #pragma mark - NSURLSessionDataTask

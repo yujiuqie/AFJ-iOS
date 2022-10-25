@@ -6,8 +6,6 @@
 //
 //
 
-#import "ViewController+MASAdditions.h"
-
 #ifdef MAS_VIEW_CONTROLLER
 
 @implementation MAS_VIEW_CONTROLLER (MASAdditions)

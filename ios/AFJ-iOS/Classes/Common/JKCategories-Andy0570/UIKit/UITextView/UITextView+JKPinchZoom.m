@@ -4,9 +4,6 @@
 //  Created by Stan Serebryakov <cfr@gmx.us> on 04.12.12.
 //
 
-#import "UITextView+JKPinchZoom.h"
-#import "objc/runtime.h"
-
 static int jk_minFontSizeKey;
 static int jk_maxFontSizeKey;
 static int jk_zoomEnabledKey;

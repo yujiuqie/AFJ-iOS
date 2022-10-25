@@ -7,7 +7,6 @@
 //
 
 #import "NSObject+QMUIHook.h"
-#import <objc/message.h>
 
 @interface QMUIHookContext()
 @property(nonatomic, strong) NSInvocation *originalInvocation;

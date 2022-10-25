@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIColor+JKGradient.h"
-
 @implementation UIColor (JKGradient)
 
 + (UIColor *)jk_colorWithGradientStyle:(UIGradientColorStyle)gradientStyle

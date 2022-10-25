@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSDictionary+JKJSONString.h"
-
 @implementation NSDictionary (JKJSONString)
 
 // 原理：NSDictionary -> NSData -> NSString

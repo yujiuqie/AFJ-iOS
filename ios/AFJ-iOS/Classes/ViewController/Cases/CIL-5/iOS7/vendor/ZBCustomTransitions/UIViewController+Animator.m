@@ -1,5 +1,4 @@
 #import "UIViewController+Animator.h"
-#import <objc/runtime.h>
 
 @implementation UIViewController (Animator)
 

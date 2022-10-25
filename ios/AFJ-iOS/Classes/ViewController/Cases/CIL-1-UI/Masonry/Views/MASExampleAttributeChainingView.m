@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleAttributeChainingView.h"
-#import "View+MASShorthandAdditions.h"
 
 @implementation MASExampleAttributeChainingView
 

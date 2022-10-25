@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSDictionary+JKSafeAccess.h"
-
 @implementation NSDictionary (JKSafeAccess)
 
 - (id)jk_objectForKey:(id)key {

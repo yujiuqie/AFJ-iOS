@@ -8,7 +8,6 @@
 #import "AFJShareViewController.h"
 #import "HQLSharePannelController.h"
 #import "HQLVerticalPresentationController.h"
-#import "HXShareScrollView.h"
 #import "HXEasyCustomShareView.h"
 
 @interface AFJShareViewController ()

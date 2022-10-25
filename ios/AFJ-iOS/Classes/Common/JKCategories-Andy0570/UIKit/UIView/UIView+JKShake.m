@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Fancy Pixel. All rights reserved.
 //
 
-#import "UIView+JKShake.h"
-
 @implementation UIView (JKShake)
 
 - (void)jk_shake {

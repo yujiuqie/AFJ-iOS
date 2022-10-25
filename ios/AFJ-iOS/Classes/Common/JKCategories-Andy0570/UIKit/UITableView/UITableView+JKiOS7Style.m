@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UITableView+JKiOS7Style.h"
-
 @implementation UITableView (JKiOS7Style)
 // http://stackoverflow.com/questions/18822619/ios-7-tableview-like-in-settings-app-on-ipad
 // https://github.com/TimOliver/TORoundedTableView

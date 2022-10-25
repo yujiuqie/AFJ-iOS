@@ -8,7 +8,6 @@
 //
 
 #import "TTMCaptureManager.h"
-#import <AVFoundation/AVFoundation.h>
 
 
 @interface TTMCaptureManager ()

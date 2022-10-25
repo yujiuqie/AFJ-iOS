@@ -5,8 +5,6 @@
 //  Copyright (c) 2015 Roaming Logic LLC
 //
 
-#import "UIResponder+JKFirstResponder.h"
-
 static __weak id jk_currentFirstResponder;
 
 @implementation UIResponder (JKFirstResponder)

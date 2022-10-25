@@ -8,15 +8,10 @@
 
 #import "ZFDouYinViewController.h"
 #import <ZFPlayer/ZFAVPlayerManager.h>
-#import <ZFPlayer/ZFIJKPlayerManager.h>
 #import <ZFPlayer/ZFPlayerControlView.h>
-#import <ZFPlayer/ZFPlayerConst.h>
 #import "ZFTableViewCellLayout.h"
-#import "ZFTableData.h"
 #import "ZFDouYinCell.h"
 #import "ZFDouYinControlView.h"
-#import "UINavigationController+FDFullscreenPopGesture.h"
-#import <MJRefresh/MJRefresh.h>
 #import "ZFCustomControlView.h"
 
 static NSString *kIdentifier = @"kIdentifier";

@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 Xidibuy. All rights reserved.
 //
 
-#import "CALayer+JKBorderColor.h"
-
 @implementation CALayer (JKBorderColor)
 
 -(void)setJk_borderColor:(UIColor *)jk_borderColor{

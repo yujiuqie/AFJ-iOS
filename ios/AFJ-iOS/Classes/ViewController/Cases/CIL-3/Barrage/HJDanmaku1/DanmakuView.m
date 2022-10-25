@@ -10,7 +10,6 @@
 #import "DanmakuFactory.h"
 #import "DanmakuFilter.h"
 #import "DanmakuRenderer.h"
-#import "DanmakuTime.h"
 
 #define DanmakuFilterInterval     5
 

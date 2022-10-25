@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSArray+JKBlock.h"
-
 @implementation NSArray (JKBlock)
 
 - (void)jk_each:(void (^)(id object))block {

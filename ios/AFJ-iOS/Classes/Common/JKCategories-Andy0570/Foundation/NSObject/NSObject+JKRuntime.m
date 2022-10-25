@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSObject+JKRuntime.h"
-#import <objc/runtime.h>
 BOOL jk_method_swizzle(Class klass, SEL origSel, SEL altSel)
 {
     if (!klass)

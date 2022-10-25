@@ -7,7 +7,6 @@
 //
 
 #import "DanmakuBaseModel.h"
-#import "DanmakuView.h"
 
 @implementation DanmakuBaseModel
 

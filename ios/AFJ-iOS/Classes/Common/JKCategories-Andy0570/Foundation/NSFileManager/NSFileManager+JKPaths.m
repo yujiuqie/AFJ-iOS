@@ -6,9 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSFileManager+JKPaths.h"
-#include <sys/xattr.h>
-
 @implementation NSFileManager (JKPaths)
 
 + (NSURL *)jk_URLForDirectory:(NSSearchPathDirectory)directory

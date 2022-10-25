@@ -6,8 +6,6 @@
 //  Copyright © 2017年 QMUI Team. All rights reserved.
 //
 
-#import "QDThemeManager.h"
-
 @interface QDThemeManager ()
 
 @property(nonatomic, strong) UIColor *qd_backgroundColor;

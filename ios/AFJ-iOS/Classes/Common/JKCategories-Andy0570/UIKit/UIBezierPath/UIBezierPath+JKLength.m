@@ -6,8 +6,6 @@
 //  Copyright © 2020 Qilin Hu. All rights reserved.
 //
 
-#import "UIBezierPath+JKLength.h"
-
 typedef struct JKBezierSubpath {
     CGPoint startPoint;
     CGPoint controlPoint1;

@@ -6,9 +6,6 @@
 //  Copyright © 2016年 QMUI Team. All rights reserved.
 //
 
-#import "QDCommonUI.h"
-#import "QDUIHelper.h"
-
 NSString *const QDSelectedThemeIdentifier = @"selectedThemeIdentifier";
 NSString *const QDThemeIdentifierDefault = @"Default";
 NSString *const QDThemeIdentifierGrapefruit = @"Grapefruit";

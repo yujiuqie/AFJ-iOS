@@ -6,8 +6,6 @@
 //  Copyright 2010 include7 AG. All rights reserved.
 //
 
-#import "CLLocation+JKCH1903.h"
-
 @implementation CLLocation (JKCH1903)
 
 - (id) initWithCH1903x:(double)x y:(double)y

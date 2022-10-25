@@ -7,8 +7,6 @@
 //  https://github.com/KevinHM
 //
 
-#import "NSString+JKNormalRegex.h"
-
 @implementation NSString (JKNormalRegex)
 #pragma mark - 正则相关
 - (BOOL)jk_isValidateByRegex:(NSString *)regex{

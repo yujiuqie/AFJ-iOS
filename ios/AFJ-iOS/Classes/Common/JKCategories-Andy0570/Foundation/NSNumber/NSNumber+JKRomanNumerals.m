@@ -5,8 +5,6 @@
 //  Created by Patrick Zearfoss on 10/19/11.
 //
 
-#import "NSNumber+JKRomanNumerals.h"
-
 @implementation NSNumber (JKRomanNumerals)
 
 - (NSString *)jk_romanNumeral

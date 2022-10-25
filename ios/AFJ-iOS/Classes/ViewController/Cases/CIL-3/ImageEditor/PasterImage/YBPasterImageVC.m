@@ -13,10 +13,7 @@
 #import "UIImage+AddFunction.h"
 #import "YBCustomButton.h"
 #import "BlocksKit.h"
-#import "BlocksKit+UIKit.h"
 #import "YBFilterScrollView.h"
-#import "UIViewController+Example.h"
-#import "UIViewController+Swizzling.h"
 #import "YBTagHeader.h"
 
 /**

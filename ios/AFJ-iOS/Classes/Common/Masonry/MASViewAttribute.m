@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
 
-#import "MASViewAttribute.h"
-
 @implementation MASViewAttribute
 
 - (id)initWithView:(MAS_VIEW *)view layoutAttribute:(NSLayoutAttribute)layoutAttribute {

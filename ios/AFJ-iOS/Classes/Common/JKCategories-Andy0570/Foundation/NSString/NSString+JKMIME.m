@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSString+JKMIME.h"
-
 @implementation NSString (JKMIME)
 /**
  *  @brief  根据文件url后缀 返回对应的MIMEType

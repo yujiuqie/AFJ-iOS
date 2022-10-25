@@ -6,10 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-#import "UISplitViewController+JKQuickAccess.h"
-
 @implementation UISplitViewController (JKQuickAccess)
 
 - (UIViewController *)jk_leftController {

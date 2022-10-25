@@ -6,12 +6,7 @@
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
 
-#import "MASViewConstraint.h"
 #import "MASConstraint+Private.h"
-#import "MASCompositeConstraint.h"
-#import "MASLayoutConstraint.h"
-#import "View+MASAdditions.h"
-#import <objc/runtime.h>
 
 @interface MAS_VIEW (MASConstraints)
 

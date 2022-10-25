@@ -6,20 +6,12 @@
 //  Copyright (c) 2013 Rathore. All rights reserved.
 //
 
-#import "UIDevice+JKHardware.h"
-#include <sys/types.h>
 #include <sys/sysctl.h>
 
-#import <sys/socket.h>
-#import <sys/param.h>
 #import <sys/mount.h>
-#import <sys/stat.h>
-#import <sys/utsname.h>
 #import <net/if.h>
 #import <net/if_dl.h>
 #import <mach/mach.h>
-#import <mach/mach_host.h>
-#import <mach/processor_info.h>
 
 @implementation UIDevice (JKHardware)
 

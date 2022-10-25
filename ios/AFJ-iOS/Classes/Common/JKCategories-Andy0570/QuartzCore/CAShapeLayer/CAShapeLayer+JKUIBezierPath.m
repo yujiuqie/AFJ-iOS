@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Denys Telezhkin. All rights reserved.
 //
 
-#import "CAShapeLayer+JKUIBezierPath.h"
-
 @implementation CAShapeLayer (JKUIBezierPath)
 
 -(void)jk_updateWithBezierPath:(UIBezierPath *)path

@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 Croath. All rights reserved.
 //
 
-#import "UIImageView+JKBetterFace.h"
-#import <objc/runtime.h>
 #define BETTER_LAYER_NAME @"BETTER_LAYER_NAME"
 #define GOLDEN_RATIO (0.618)
 

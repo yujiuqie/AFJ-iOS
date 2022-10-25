@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIColor+JKModify.h"
-
 @implementation UIColor (JKModify)
 
 - (UIColor *)jk_invertedColor{

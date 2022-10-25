@@ -6,9 +6,6 @@
 //
 
 #import "AFJEmptyDetailTableViewController.h"
-#import "UIColor+Hexadecimal.h"
-
-#import "UIScrollView+EmptyDataSet.h"
 
 @interface AFJEmptyDetailTableViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic, strong) Application *application;

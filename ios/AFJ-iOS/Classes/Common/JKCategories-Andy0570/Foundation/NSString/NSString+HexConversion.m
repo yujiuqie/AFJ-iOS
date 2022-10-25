@@ -6,10 +6,6 @@
 //  Copyright © 2020 Qilin Hu. All rights reserved.
 //
 
-#import "NSString+HexConversion.h"
-#import <CoreFoundation/CFString.h>
-#include <stdlib.h>
-
 @implementation NSString (HexConversion)
 
 - (NSInteger)hexValue {

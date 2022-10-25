@@ -6,8 +6,6 @@
 //
 
 #import "AFJSSFeedbackViewController.h"
-#import <GPJDataDrivenTableView/GPJDataDrivenTableView.h>
-#import "AFJCaseItemData.h"
 
 @interface AFJSSFeedbackViewController()
 

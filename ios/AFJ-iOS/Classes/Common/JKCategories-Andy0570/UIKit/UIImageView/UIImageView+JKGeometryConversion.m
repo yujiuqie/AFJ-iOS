@@ -5,8 +5,6 @@
 //  Copyright (c) 2012. All rights reserved.
 //
 
-#import "UIImageView+JKGeometryConversion.h"
-
 @implementation UIImageView (JKGeometryConversion)
 
 - (CGPoint)jk_convertPointFromImage:(CGPoint)imagePoint {

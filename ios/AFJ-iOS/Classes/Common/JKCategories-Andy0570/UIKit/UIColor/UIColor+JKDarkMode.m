@@ -6,8 +6,6 @@
 //  Copyright © 2021 www.skyfox.org. All rights reserved.
 //
 
-#import "UIColor+JKDarkMode.h"
-
 @implementation UIColor (JKDarkMode)
 
 + (UIColor *)jk_colorWithLightColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor {

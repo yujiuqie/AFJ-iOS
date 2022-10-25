@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 WordPress. All rights reserved.
 //
 
-#import "UINavigationController+JKKeyboardFix.h"
-
 @implementation UINavigationController (JKKeyboardFix)
 
 // This fixes an issue with the keyboard not dismissing on the iPad's login screen.

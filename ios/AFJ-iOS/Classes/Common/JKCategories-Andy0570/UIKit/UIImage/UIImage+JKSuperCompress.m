@@ -6,8 +6,6 @@
 //  Copyright © 2016年 Jakey. All rights reserved.
 //
 
-#import "UIImage+JKSuperCompress.h"
-
 @implementation UIImage (JKSuperCompress)
 
 + (NSData *)jk_resizeImage:(UIImage *)image withMaxLength:(NSInteger)maxLength withMaxWidth:(NSInteger)maxWidth {

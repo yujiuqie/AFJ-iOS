@@ -7,8 +7,6 @@
 //
 
 #import "ZFTableHeaderView.h"
-#import <ZFPlayer/UIView+ZFFrame.h>
-#import "NSString+Size.h"
 
 @interface ZFTableHeaderView ()
 @property(nonatomic, strong) UIImageView *coverImageView;

@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 zzz. All rights reserved.
 //
 
-#import "UIImageView+JKReflect.h"
-
 @implementation UIImageView (JKReflect)
 
 - (void)jk_reflect {

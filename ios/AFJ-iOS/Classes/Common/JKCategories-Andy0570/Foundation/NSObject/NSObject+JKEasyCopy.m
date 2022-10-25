@@ -6,9 +6,6 @@
 //  Copyright © 2015年 YK-Unit. All rights reserved.
 //
 
-#import "NSObject+JKEasyCopy.h"
-#import <objc/runtime.h>
-
 @implementation NSObject (JKEasyCopy)
 
 - (BOOL)jk_easyShallowCopy:(NSObject *)instance

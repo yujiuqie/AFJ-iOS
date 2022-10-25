@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Fancy Pixel. All rights reserved.
 //
 
-#import "UITextField+JKShake.h"
-
 @implementation UITextField (JKShake)
 
 - (void)jk_shake {

@@ -5,8 +5,6 @@
 //  Copyright 2011 Random Ideas, LLC. All rights reserved.
 //
 
-#import "NSTimer+JKBlocks.h"
-
 @implementation NSTimer (JKBlocks)
 
 +(id)jk_scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats

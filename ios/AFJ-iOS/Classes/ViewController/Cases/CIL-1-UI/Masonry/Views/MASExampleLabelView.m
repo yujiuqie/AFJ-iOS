@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleLabelView.h"
-#import "View+MASShorthandAdditions.h"
 
 static UIEdgeInsets const kPadding = {10, 10, 10, 10};
 

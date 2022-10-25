@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Jonas Budelmann. All rights reserved.
 //
 
-#import "MASLayoutConstraint.h"
-
 @implementation MASLayoutConstraint
 
 @end

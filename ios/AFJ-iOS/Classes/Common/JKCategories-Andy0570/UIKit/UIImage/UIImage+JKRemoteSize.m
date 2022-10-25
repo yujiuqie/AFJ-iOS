@@ -6,10 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIImage+JKRemoteSize.h"
-
-#import <objc/runtime.h>
-
 static char *kSizeRequestDataKey = "NSURL.sizeRequestData";
 static char *kSizeRequestTypeKey = "NSURL.sizeRequestType";
 static char *kSizeRequestCompletionKey = "NSURL.sizeRequestCompletion";

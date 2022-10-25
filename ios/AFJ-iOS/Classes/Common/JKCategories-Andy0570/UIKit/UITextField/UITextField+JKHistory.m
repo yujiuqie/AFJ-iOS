@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 morenotepad. All rights reserved.
 //
 
-#import "UITextField+JKHistory.h"
-#import <objc/runtime.h>
-
 #define jk_history_X(view) (view.frame.origin.x)
 #define jk_history_Y(view) (view.frame.origin.y)
 #define jk_history_W(view) (view.frame.size.width)

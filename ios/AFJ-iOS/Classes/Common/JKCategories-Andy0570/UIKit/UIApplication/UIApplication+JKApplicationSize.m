@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 IgnazioC. All rights reserved.
 //
 
-#import "UIApplication+JKApplicationSize.h"
-
 @implementation UIApplication (JKApplicationSize)
 
 - (NSString *)jk_applicationSize {

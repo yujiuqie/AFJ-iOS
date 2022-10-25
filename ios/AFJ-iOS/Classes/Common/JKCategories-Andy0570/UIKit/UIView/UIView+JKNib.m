@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIView+JKNib.h"
-
 @implementation UIView (JKNib)
 
 #pragma mark - Nibs

@@ -11,7 +11,6 @@
 #import "QDNavigationButtonViewController.h"
 #import "QDToolBarButtonViewController.h"
 #import "QDButtonEdgeInsetsViewController.h"
-#import "QDNavigationController.h"
 
 @implementation QDButtonViewController
 

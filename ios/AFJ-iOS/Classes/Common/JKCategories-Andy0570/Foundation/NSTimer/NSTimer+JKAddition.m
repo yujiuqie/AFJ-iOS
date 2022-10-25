@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSTimer+JKAddition.h"
-
 @implementation NSTimer (JKAddition)
 
 - (void)jk_resumeTimer {

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSObject+JKGCD.h"
 @implementation NSObject (JKGCD)
 
 /**

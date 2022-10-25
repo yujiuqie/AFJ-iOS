@@ -7,7 +7,6 @@
 //
 
 #import "BeaconViewController.h"
-#import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "PulsingHaloLayer.h"
 

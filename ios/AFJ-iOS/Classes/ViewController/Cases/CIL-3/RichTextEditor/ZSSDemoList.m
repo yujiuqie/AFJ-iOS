@@ -10,7 +10,6 @@
 #import "ZSSDemoViewController.h"
 #import "ZSSColorViewController.h"
 #import "ZSSLargeViewController.h"
-#import "ZSSPlaceholderViewController.h"
 #import "ZSSSelectiveViewController.h"
 #import "ZSSCustomButtonsViewController.h"
 

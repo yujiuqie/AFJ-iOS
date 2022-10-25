@@ -7,8 +7,6 @@
 
 #import "Aspects.h"
 #import <libkern/OSAtomic.h>
-#import <objc/runtime.h>
-#import <objc/message.h>
 
 #define AspectLog(...)
 //#define AspectLog(...) do { NSLog(__VA_ARGS__); }while(0)

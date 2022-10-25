@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSUserDefaults+JKSafeAccess.h"
-
 @implementation NSUserDefaults (JKSafeAccess)
 + (NSString *)jk_stringForKey:(NSString *)defaultName {
     return [[NSUserDefaults standardUserDefaults] stringForKey:defaultName];

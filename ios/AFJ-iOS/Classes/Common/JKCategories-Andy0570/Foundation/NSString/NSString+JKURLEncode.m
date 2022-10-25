@@ -7,8 +7,6 @@
 //
 
 
-#import "NSString+JKURLEncode.h"
-
 @implementation NSString (JKURLEncode)
 /**
  *  @brief  urlEncode

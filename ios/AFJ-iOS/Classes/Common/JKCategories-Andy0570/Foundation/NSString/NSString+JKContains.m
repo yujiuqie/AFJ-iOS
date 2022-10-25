@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 http://weibo.com/u/1655766025 All rights reserved.
 //
 
-#import "NSString+JKContains.h"
-
 @implementation NSString (JKContains)
 
 /**

@@ -5,8 +5,6 @@
 //  Copyright (c) 2014 Tom Bachant. All rights reserved.
 //
 
-#import "UIImageView+JKLetters.h"
-
 // This multiplier sets the font size based on the view bounds
 static const CGFloat jk_FontResizingProportion = 0.42f;
 

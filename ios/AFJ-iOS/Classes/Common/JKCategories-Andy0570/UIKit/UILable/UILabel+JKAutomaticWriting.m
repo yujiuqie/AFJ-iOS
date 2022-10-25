@@ -6,9 +6,6 @@
 //  Copyright (c) 2015 alexruperez. All rights reserved.
 //
 
-#import "UILabel+JKAutomaticWriting.h"
-#import <objc/runtime.h>
-
 
 NSTimeInterval const UILabelAWDefaultDuration = 0.4f;
 

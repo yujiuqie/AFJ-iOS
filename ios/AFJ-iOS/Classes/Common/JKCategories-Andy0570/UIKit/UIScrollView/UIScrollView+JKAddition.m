@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIScrollView+JKAddition.h"
-
 @implementation UIScrollView (JKAddition)
 //frame
 - (CGFloat)jk_contentWidth {

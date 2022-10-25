@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Valnet Inc. All rights reserved.
 //
 
-#import <objc/runtime.h>
-#import "UIButton+JKBadge.h"
-
 NSString const *jk_UIButton_badgeKey = @"jk_UIButton_badgeKey";
 
 NSString const *jk_UIButton_badgeBGColorKey = @"jk_UIButton_badgeBGColorKey";

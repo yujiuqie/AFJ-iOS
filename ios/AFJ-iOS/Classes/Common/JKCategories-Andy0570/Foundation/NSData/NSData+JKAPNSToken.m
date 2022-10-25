@@ -6,8 +6,6 @@
 //  Copyright © 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSData+JKAPNSToken.h"
-
 @implementation NSData (JKAPNSToken)
 
 - (NSString *)jk_APNSToken {

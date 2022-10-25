@@ -6,11 +6,8 @@
 //  Copyright © 2020 Qilin Hu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import <zlib.h>
 #import <dlfcn.h>
-#import "NSData+JKzlib.h"
 
 static const uInt CHUNK_SIZE = 65536;
 

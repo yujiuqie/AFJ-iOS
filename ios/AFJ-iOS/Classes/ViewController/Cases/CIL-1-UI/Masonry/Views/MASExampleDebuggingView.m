@@ -7,7 +7,6 @@
 //
 
 #import "MASExampleDebuggingView.h"
-#import "View+MASShorthandAdditions.h"
 
 @implementation MASExampleDebuggingView
 

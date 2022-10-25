@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
 //
 
-#import "UIBezierPath+JKBasicShapes.h"
-
 @implementation UIBezierPath (JKBasicShapes)
 
 + (CGRect)jk_maximumSquareFrameThatFits:(CGRect)frame;

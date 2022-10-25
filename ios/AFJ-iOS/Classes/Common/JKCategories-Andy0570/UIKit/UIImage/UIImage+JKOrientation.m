@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIImage+JKOrientation.h"
-
 @implementation UIImage (JKOrientation)
 /**
  *  @brief  修正图片的方向

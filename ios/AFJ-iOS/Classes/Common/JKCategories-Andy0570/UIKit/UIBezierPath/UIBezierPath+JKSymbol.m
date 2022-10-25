@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Kjuly. All rights reserved.
 //
 
-#import "UIBezierPath+JKSymbol.h"
-
 #define JKCGPointWithOffset(originPoint, offsetPoint) \
   CGPointMake(originPoint.x + offsetPoint.x, originPoint.y + offsetPoint.y)
 

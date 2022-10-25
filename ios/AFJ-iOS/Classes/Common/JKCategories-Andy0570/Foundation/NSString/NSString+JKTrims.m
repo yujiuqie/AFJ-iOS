@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSString+JKTrims.h"
-
 @implementation NSString (JKTrims)
 
 - (NSString *)jk_stringByStrippingHTML {

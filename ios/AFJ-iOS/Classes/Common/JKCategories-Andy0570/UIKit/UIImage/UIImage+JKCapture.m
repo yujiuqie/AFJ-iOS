@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIImage+JKCapture.h"
-#import <QuartzCore/QuartzCore.h>
 @implementation UIImage (JKCapture)
 
 /**

@@ -6,10 +6,6 @@
 //  Copyright (c) 2013 Julio Andrés Carrettoni. All rights reserved.
 //
 
-#import "UIImageView+JKFaceAwareFill.h"
-#import <CoreImage/CoreImage.h>
-#import <QuartzCore/QuartzCore.h>
-
 static CIDetector * _jk_faceDetector;
 
 @implementation UIImageView (JKFaceAwareFill)

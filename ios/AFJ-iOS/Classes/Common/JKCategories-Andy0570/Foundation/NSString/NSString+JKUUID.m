@@ -6,9 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSString+JKUUID.h"
-#import <UIKit/UIKit.h>
-
 @implementation NSString (JKUUID)
 
 + (NSString *)jk_UUID {

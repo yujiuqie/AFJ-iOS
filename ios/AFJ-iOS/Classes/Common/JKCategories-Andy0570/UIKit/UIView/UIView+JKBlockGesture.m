@@ -6,9 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UIView+JKBlockGesture.h"
-#import <objc/runtime.h>
-
 static char jk_kActionHandlerTapBlockKey;
 static char jk_kActionHandlerTapGestureKey;
 static char jk_kActionHandlerLongPressBlockKey;

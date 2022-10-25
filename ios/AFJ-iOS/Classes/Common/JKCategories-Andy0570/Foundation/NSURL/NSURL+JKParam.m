@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSURL+JKParam.h"
-
 @implementation NSURL (JKParam)
 
 - (NSDictionary *)jk_parameters

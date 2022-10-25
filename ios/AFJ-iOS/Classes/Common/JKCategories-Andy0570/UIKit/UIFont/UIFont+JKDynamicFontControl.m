@@ -5,8 +5,6 @@
 //  Copyright (c) 2013 Michael Kral. All rights reserved.
 //
 
-#import "UIFont+JKDynamicFontControl.h"
-
 @implementation UIFont (JKDynamicFontControl)
 
 +(UIFont *)jk_preferredFontForTextStyle:(NSString *)style withFontName:(NSString *)fontName{

@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Promptus. All rights reserved.
 //
 
-#import "NSDecimalNumber+JKExtensions.h"
-
 @implementation NSDecimalNumber (JKExtensions)
 /**
  *  @brief  四舍五入 NSRoundPlain

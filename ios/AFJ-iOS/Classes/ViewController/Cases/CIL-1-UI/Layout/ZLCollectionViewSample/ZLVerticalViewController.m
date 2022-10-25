@@ -12,10 +12,7 @@
 #import "HorzontalHeaderView.h"
 #import "ZLMultilineTextCell.h"
 #import "UICollectionView+ARDynamicCacheHeightLayoutCell.h"
-#import "MyTestReusableView.h"
-#import "MyTestReusableView2.h"
 #import "VerticalFooterView.h"
-#import "MJRefresh.h"
 
 @interface ZLVerticalViewController ()
 <UICollectionViewDelegate,UICollectionViewDataSource,ZLCollectionViewBaseFlowLayoutDelegate,UIScrollViewDelegate>

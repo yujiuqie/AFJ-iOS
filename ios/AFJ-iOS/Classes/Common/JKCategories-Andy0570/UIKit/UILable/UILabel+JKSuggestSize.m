@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 WordPress. All rights reserved.
 //
 
-#import "UILabel+JKSuggestSize.h"
-
 @implementation UILabel (JKSuggestSize)
 
 - (CGSize)jk_suggestedSizeForWidth:(CGFloat)width {

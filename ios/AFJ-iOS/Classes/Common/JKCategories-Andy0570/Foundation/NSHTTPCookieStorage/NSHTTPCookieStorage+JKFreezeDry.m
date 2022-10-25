@@ -4,8 +4,6 @@
 //  Created by Maciej Swic on 19/08/13.
 //
 
-#import "NSHTTPCookieStorage+JKFreezeDry.h"
-
 @implementation NSHTTPCookieStorage (JKFreezeDry)
 
 /// 存储 Web cookies 到磁盘目录

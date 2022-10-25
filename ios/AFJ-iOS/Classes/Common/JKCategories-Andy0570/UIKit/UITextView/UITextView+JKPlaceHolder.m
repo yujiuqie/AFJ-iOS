@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
-#import "UITextView+JKPlaceHolder.h"
 static const char *jk_placeHolderTextView = "jk_placeHolderTextView";
 
 @implementation UITextView (JKPlaceHolder)

@@ -6,9 +6,6 @@
 //  Copyright (c) 2015 ltebean. All rights reserved.
 //
 
-#import "UINavigationBar+JKAwesome.h"
-#import <objc/runtime.h>
-
 @implementation UINavigationBar (JKAwesome)
 static char jk_overlayKey;
 

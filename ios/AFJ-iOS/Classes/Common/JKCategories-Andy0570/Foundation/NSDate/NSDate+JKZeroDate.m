@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 Jakey. All rights reserved.
 //
 
-#import "NSDate+JKZeroDate.h"
-
 @implementation NSDate (JKZeroDate)
 + (NSDate *)jk_zeroTodayDate
 {

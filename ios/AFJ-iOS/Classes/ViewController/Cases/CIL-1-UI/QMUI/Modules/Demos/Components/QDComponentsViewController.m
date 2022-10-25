@@ -37,7 +37,6 @@
 #import "QDNavigationBarScrollingAnimatorViewController.h"
 #import "QDNavigationBarScrollingSnapAnimatorViewController.h"
 #import "QDCollectionDemoViewController.h"
-#import "QDCollectionStackDemoViewController.h"
 
 @implementation QDComponentsViewController
 

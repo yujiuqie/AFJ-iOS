@@ -6,8 +6,6 @@
 //  Copyright © 2017年 www.skyfox.org. All rights reserved.
 //
 
-#import "NSDate+JKLunarCalendar.h"
-
 #define jk_ChineseMonths @[@"正月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月",@"九月", @"十月", @"冬月", @"腊月"]
 
 //#define ChineseFestival @[@"除夕",@"春节",@"中秋",@"五一",@"国庆",@"儿童",@"圣诞",@"七夕",@"端午"]

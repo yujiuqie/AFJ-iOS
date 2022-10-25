@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 David Keegan All rights reserved.
 //
 
-#import "UIImage+JKVector.h"
-#import <CoreText/CoreText.h>
-
 @implementation UIImage(JKVector)
 
 + (NSCache *)jk_cache{

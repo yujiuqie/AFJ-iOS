@@ -6,9 +6,6 @@
 //  Copyright © 2016年 www.skyfox.org. All rights reserved.
 //
 
-#import "UITextField+JKInputLimit.h"
-#import <objc/runtime.h>
-
 static const void *JKTextFieldInputLimitMaxLength = &JKTextFieldInputLimitMaxLength;
 
 @implementation UITextField (JKInputLimit)

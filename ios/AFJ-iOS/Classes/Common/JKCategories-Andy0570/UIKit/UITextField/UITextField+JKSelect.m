@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
 //
 
-#import "UITextField+JKSelect.h"
-
 @implementation UITextField (JKSelect)
 /**
  *  @brief  当前选中的字符串范围

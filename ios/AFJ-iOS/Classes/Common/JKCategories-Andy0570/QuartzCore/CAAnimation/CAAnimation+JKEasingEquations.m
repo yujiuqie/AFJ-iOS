@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Bryan Oltman. All rights reserved.
 //
 
-#import "CAAnimation+JKEasingEquations.h"
-
 #define kAnimationStops 250
 
 // Thanks to http://www.dzone.com/snippets/robert-penner-easing-equations for the easing

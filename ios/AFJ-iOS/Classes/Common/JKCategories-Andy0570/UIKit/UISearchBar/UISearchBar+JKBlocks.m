@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Håkon Bogen. All rights reserved.
 //
 
-#import "UISearchBar+JKBlocks.h"
-#import <objc/runtime.h>
-
 /* Only for convenience and readabilty in delegate methods */
 typedef BOOL (^JK_UISearchBarReturnBlock) (UISearchBar *searchBar);
 typedef void (^JK_UISearchBarVoidBlock) (UISearchBar *searchBar);

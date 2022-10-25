@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 QMUI Team. All rights reserved.
 //
 
-#import "QDUIHelper.h"
 #import "QMUIInteractiveDebugger.h"
 
 @implementation QDUIHelper
